@@ -1,29 +1,76 @@
 import js from "@eslint/js";
-import globals from "globals";
-import reactHooks from "eslint-plugin-react-hooks";
-import reactRefresh from "eslint-plugin-react-refresh";
-import tseslint from "typescript-eslint";
+import eslintReact from "@eslint-react/eslint-plugin";
+import eslintConfigPrettier from "eslint-config-prettier/flat";
+import jsxA11y from "eslint-plugin-jsx-a11y";
 import prettier from "eslint-plugin-prettier";
-import { defineConfig, globalIgnores } from "eslint/config";
+import tseslint from "typescript-eslint";
+import { fixupConfigRules } from "@eslint/compat";
+import { defineConfig } from "eslint/config";
 
-export default defineConfig([
-  globalIgnores(["dist"]),
+const configFiles = [
+  "eslint.config.ts",
+  "commitlint.config.ts",
+  "release.config.ts",
+  "lint-staged.config.ts",
+];
+
+export default defineConfig(
+  { ignores: ["dist/", "node_modules/"] },
+
+  // Source files
   {
-    files: ["**/*.{ts,tsx}"],
+    files: ["src/**/*.{ts,tsx}"],
     extends: [
       js.configs.recommended,
-      tseslint.configs.recommended,
-      reactHooks.configs.flat.recommended,
-      reactRefresh.configs.vite,
+      ...tseslint.configs.strictTypeChecked,
+      ...tseslint.configs.stylisticTypeChecked,
+      eslintReact.configs["recommended-typescript"],
+      ...fixupConfigRules(jsxA11y.flatConfigs.recommended),
     ],
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
+      globals: {
+        document: true,
+        window: true,
+      },
+    },
+    plugins: {
+      prettier,
+    },
+    rules: {
+      "@typescript-eslint/consistent-type-assertions": [
+        "error",
+        { assertionStyle: "never" },
+      ],
+      "prettier/prettier": "error",
+    },
+  },
+
+  // Config files — no tsconfig, use allowDefaultProject
+  {
+    files: configFiles,
+    extends: [
+      js.configs.recommended,
+      ...tseslint.configs.strictTypeChecked,
+      eslintReact.configs["recommended-typescript"],
+    ],
+    languageOptions: {
+      parserOptions: {
+        projectService: { allowDefaultProject: configFiles },
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
     plugins: {
       prettier,
     },
     rules: {
       "prettier/prettier": "error",
     },
-    languageOptions: {
-      globals: globals.browser,
-    },
   },
-]);
+
+  // Disable formatting rules that Prettier handles
+  eslintConfigPrettier,
+);
