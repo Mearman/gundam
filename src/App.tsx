@@ -1,120 +1,97 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "./assets/vite.svg";
-import heroImg from "./assets/hero.png";
-import "./App.css";
+import { useState, useCallback } from "react";
+import { UNIVERSES, ENTRIES } from "./data/timeline";
+import { matchesMediaFilter } from "./data/helpers";
+import { FilterBar } from "./components/FilterBar";
+import { Legend } from "./components/Legend";
+import { TimelineLanes } from "./components/TimelineLanes";
+import * as s from "./styles/timeline.css";
+import type { Filters } from "./data/types";
+
+const DEFAULT_FILTERS: Filters = {
+  media: "all",
+  audio: "all",
+  text: "all",
+  density: "comfort",
+};
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [filters, setFilters] = useState<Filters>(DEFAULT_FILTERS);
+
+  const handleFilterChange = useCallback(
+    (key: keyof Filters, value: string) => {
+      setFilters((prev) => ({ ...prev, [key]: value }));
+    },
+    [],
+  );
+
+  const visibleCount = ENTRIES.filter((e) => {
+    const okMedia = matchesMediaFilter(filters.media, e.m);
+    const okAudio = filters.audio === "all" || filters.audio === e.a;
+    const okText = filters.text === "all" || filters.text === e.s;
+    return okMedia && okAudio && okText;
+  }).length;
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+      <header className={s.header}>
+        <div className={s.headerGrid}>
+          <div>
+            <h1 className={s.title}>
+              GUNDAM
+              <br />
+              TIMELINE
+              <span className={s.titleAccent}>.</span>
+            </h1>
+            <div className={s.subtitle}>
+              Release dates · 1979 – 2026 · all media · audio + text language
+            </div>
+          </div>
+          <div className={s.headerMeta}>
+            <div>
+              <span className={s.metaNum}>{visibleCount}</span>
+              <br />
+              entries plotted
+            </div>
+            <div>
+              <span className={s.metaNum}>14</span>
+              <br />
+              universes
+            </div>
+            <div>
+              <span className={s.metaNum}>48</span>
+              <br />
+              years tracked
+            </div>
+          </div>
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+      </header>
 
-      <div className="ticks"></div>
+      <FilterBar filters={filters} onFilterChange={handleFilterChange} />
+      <Legend />
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+      <div className={s.timelineWrap}>
+        <div className={s.timelineGrid}>
+          <TimelineLanes
+            universes={UNIVERSES}
+            entries={ENTRIES}
+            filters={filters}
+          />
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      </div>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+      <footer className={s.footer}>
+        <div className={s.footerTitle}>Notes</div>
+        Multi-year entries (OVAs, compilation series) span the full release
+        window of their original run; recuts, remasters, and 4K re-releases are
+        listed in the tooltip note rather than plotted separately. Audio mark =
+        officially produced English dub. Text mark = officially produced English
+        subs or translation. <em>Memory of Eden</em>, the Turn A compilation
+        films, <em>Twilight AXIS</em>, <em>Build Real</em>, and a few SD shorts
+        have subs but no dub. Two notable UC novels (
+        <em>Beltorchika&apos;s Children</em>, <em>Frozen Teardrop</em>) and G
+        Gundam&apos;s <em>7th &amp; 8th MS Stage</em> OVA have no official
+        English release at all.
+      </footer>
     </>
   );
 }
