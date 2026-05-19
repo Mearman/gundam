@@ -1,0 +1,51 @@
+## 1.0.0 (2026-05-19)
+
+### Features
+
+* add app entry point and shell ([f9d5a2b](https://github.com/Mearman/gundam/commit/f9d5a2b2dfe3862238751f8c06169bf23b237284))
+* add FilterBar, Legend, and YearAxis components ([b1911f0](https://github.com/Mearman/gundam/commit/b1911f0e52c58ec42e02155ef0fbf4fd169719ed))
+* add initial app component and styles ([96e8db2](https://github.com/Mearman/gundam/commit/96e8db2aed292747fa2d9254fd42ff8c8780a90d))
+* add SSR prerender pipeline for static HTML output ([6b5347c](https://github.com/Mearman/gundam/commit/6b5347c97a7f4eedafcf95bb538b0ade20e31843))
+* add timeline data layer with types, stacking, and helpers ([0a9dd73](https://github.com/Mearman/gundam/commit/0a9dd737b690c0766bf43b7ef26e037450cafa88))
+* add vanilla-extract global and timeline styles ([f6cb4a9](https://github.com/Mearman/gundam/commit/f6cb4a9720dcedf3df981b18090902070df5941b))
+* add vanilla-extract vite plugin ([8306b22](https://github.com/Mearman/gundam/commit/8306b225e04cad7fffbb765bb555e5da377fe3fc))
+* rewrite App as gundam timeline viewer ([886362f](https://github.com/Mearman/gundam/commit/886362f1141eccedb9c7c23a25579a1b68173c63))
+
+### Bug Fixes
+
+* resolve lint errors in timeline and entry-client ([cbe7ab4](https://github.com/Mearman/gundam/commit/cbe7ab4c892c5dabaf8a35c6f9e71e5213490ccc))
+* use customStyle helper for CSS custom properties ([cfe357d](https://github.com/Mearman/gundam/commit/cfe357d93ffdb33aefb0bec32da096467f03f535))
+
+### Documentation
+
+* add readme ([4a08c7d](https://github.com/Mearman/gundam/commit/4a08c7d365edce9af1ae0e49f83bbdf1c352c46d))
+
+### CI
+
+* add commit lint job and release job to ci workflow ([8bb4d40](https://github.com/Mearman/gundam/commit/8bb4d40959db56267a96b7577bea9931595ded7e))
+* add dependabot auto-merge workflow ([e7584bf](https://github.com/Mearman/gundam/commit/e7584bfe785af4ed4618b2501e375a128431d446))
+* add dependabot config ([cc002ee](https://github.com/Mearman/gundam/commit/cc002ee44f7734d763f4da64446fd590549fc994))
+* add github pages deploy workflow ([f7082fd](https://github.com/Mearman/gundam/commit/f7082fd69463d60c9885894f312eb5261c0b7ab0))
+* pin github actions to exact versions ([0b69597](https://github.com/Mearman/gundam/commit/0b69597198d023f61d82ce5dbcb7d8762016319d))
+
+### Chores
+
+* add commitlint config ([c61ad7f](https://github.com/Mearman/gundam/commit/c61ad7f0e37e267670fd286ec9c51931231270e0))
+* add husky, lint-staged, and commitlint ([1c1ec1d](https://github.com/Mearman/gundam/commit/1c1ec1d4caf5b054165c5cc0f7102bf81d6cf6f8))
+* add lint-staged config ([d39a8c3](https://github.com/Mearman/gundam/commit/d39a8c3d3a7a3d79b7484fbab6a6681b6f6ed4fb))
+* add pnpm workspace build allowlist ([1ef48a9](https://github.com/Mearman/gundam/commit/1ef48a944db3c4b0e83350734540cd2db69a2e24))
+* add prettier and integrate with eslint ([c564e46](https://github.com/Mearman/gundam/commit/c564e46f821c40adcb43ec3d8aa161d89e3f6b4c))
+* add semantic-release config ([6e056d2](https://github.com/Mearman/gundam/commit/6e056d2223e43b3654a6075794c317f0b02b5ef7))
+* add static assets ([9badff6](https://github.com/Mearman/gundam/commit/9badff653e458e749e3071da037358bf296c7a73))
+* configure eslint ([0138709](https://github.com/Mearman/gundam/commit/0138709b36155301406c70b4db9ade0f1d9b009e))
+* configure typescript ([0627898](https://github.com/Mearman/gundam/commit/062789893862d676edf776b0ec05e6e20f920112))
+* configure vite with github pages base path ([4adf18a](https://github.com/Mearman/gundam/commit/4adf18adce596ce0ac0d92124b177597028043b7))
+* convert eslint config to typescript ([105b90b](https://github.com/Mearman/gundam/commit/105b90b352100bcd4019e73bb5f6eb9dfad812c3))
+* ignore .eslintcache ([4c0d23f](https://github.com/Mearman/gundam/commit/4c0d23f9f3e4f46ceffa9d7d1f72d20b775d7103))
+* move config files into tsconfig.node for type-checking ([0d1db9f](https://github.com/Mearman/gundam/commit/0d1db9f652abccbacc8f0e74c493ed7ed8bbff0e))
+* pin node 26 ([b6cfbe7](https://github.com/Mearman/gundam/commit/b6cfbe72be494e7e57de38184fedc62768512c67))
+* pin node version via .tool-versions ([7eb12e8](https://github.com/Mearman/gundam/commit/7eb12e8ec1411985fa2ecdf013726f92724bbbad))
+* remove vite scaffold files ([2563ff7](https://github.com/Mearman/gundam/commit/2563ff7711963f4380b0c0da4e21b364a559348f))
+* scaffold vite react-typescript project ([7b91292](https://github.com/Mearman/gundam/commit/7b91292738477248426dd6279f8d6e85955373ec))
+* upgrade eslint with [@eslint-react](https://github.com/eslint-react), jsx-a11y, strict rules ([d33e7c5](https://github.com/Mearman/gundam/commit/d33e7c54a65ab69bfc90b001e296ff43d2214828))
+* use projectService for config files, drop allowDefaultProject ([8f981f2](https://github.com/Mearman/gundam/commit/8f981f2a4402202b615cd14ef11cdf1b2d0274aa))
