@@ -8,6 +8,10 @@ import * as s from "../styles/timeline.css";
 
 type CustomStyle = CSSProperties & Record<`--${string}`, string>;
 
+function customStyle(style: CustomStyle): CustomStyle {
+  return style;
+}
+
 const START_YEAR = 1979;
 const YEAR_WIDTH = 28;
 const ROW_H = 30;
@@ -72,16 +76,14 @@ function TimelineEntry({ entry: e, universe: u, filters }: TimelineEntryProps) {
         ]
           .filter(Boolean)
           .join(" ")}
-        style={
-          {
-            left,
-            width,
-            top,
-            border: `1px solid ${u.color}`,
-            background: "rgba(0,0,0,0.4)",
-            "--entry-tint": `rgba(${String(parseInt(u.color.slice(1, 3), 16))},${String(parseInt(u.color.slice(3, 5), 16))},${String(parseInt(u.color.slice(5, 7), 16))},0.16)`,
-          } satisfies CustomStyle
-        }
+        style={customStyle({
+          left,
+          width,
+          top,
+          border: `1px solid ${u.color}`,
+          background: "rgba(0,0,0,0.4)",
+          "--entry-tint": `rgba(${String(parseInt(u.color.slice(1, 3), 16))},${String(parseInt(u.color.slice(3, 5), 16))},${String(parseInt(u.color.slice(5, 7), 16))},0.16)`,
+        })}
         onMouseEnter={handleMouseEnter}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
@@ -181,7 +183,7 @@ function Tooltip({ entry: e, universe: u, x, y }: TooltipProps) {
   return (
     <div
       className={`${s.tooltip} ${s.tooltipVisible}`}
-      style={{ left, top, "--tooltip-accent": u.color } satisfies CustomStyle}
+      style={customStyle({ left, top, "--tooltip-accent": u.color })}
     >
       <span
         style={{
@@ -295,12 +297,10 @@ export function TimelineLanes({
                   ]
                     .filter(Boolean)
                     .join(" ")}
-                  style={
-                    {
-                      height: laneHeight,
-                      "--lane-color": u.color,
-                    } satisfies CustomStyle
-                  }
+                  style={customStyle({
+                    height: laneHeight,
+                    "--lane-color": u.color,
+                  })}
                 >
                   {stacked.map((e) => (
                     <TimelineEntry
