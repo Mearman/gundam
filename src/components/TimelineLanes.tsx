@@ -16,7 +16,7 @@ import type {
   AxisMode,
 } from "../data/types";
 import { getEntryDetail } from "../data/details";
-import type { DetailRelease, EntryDetail } from "../data/details";
+import type { DetailRelease } from "../data/details";
 import {
   matchesMediaFilter,
   MEDIA_ICONS,
@@ -53,7 +53,6 @@ import {
 
 type CustomStyle = CSSProperties & Record<`--${string}`, string>;
 
-const MAX_TOOLTIP_RELEASES = 3;
 const MIN_ZOOM = 0.25;
 const MAX_ZOOM = 8;
 const ZOOM_WHEEL_FACTOR = 1.1;
@@ -228,14 +227,6 @@ function formatRelease(release: DetailRelease): string {
   )} · ${schedule}`;
 }
 
-function formatDetailSummary(detail: EntryDetail): string {
-  const itemLabel = detail.episodes.length === 1 ? "item" : "items";
-  const releaseLabel = detail.releases.length === 1 ? "context" : "contexts";
-  return `${String(detail.episodes.length)} ${itemLabel} · ${String(
-    detail.releases.length,
-  )} release ${releaseLabel}`;
-}
-
 interface TooltipProps {
   entry: StackedEntry | StoryStackedEntry;
   universe: Universe;
@@ -244,8 +235,8 @@ interface TooltipProps {
 }
 
 function Tooltip({ entry: e, universe: u, x, y }: TooltipProps) {
-  const ttW = 460;
-  const ttH = 360;
+  const ttW = 540;
+  const ttH = 480;
   let left = x + 16;
   let top = y + 12;
   if (left + ttW > (typeof window !== "undefined" ? window.innerWidth : 1200))
@@ -270,14 +261,6 @@ function Tooltip({ entry: e, universe: u, x, y }: TooltipProps) {
   };
   const detail =
     e.detailId === undefined ? undefined : getEntryDetail(e.detailId);
-  const releasePreview =
-    detail === undefined
-      ? undefined
-      : detail.releases.slice(0, MAX_TOOLTIP_RELEASES);
-  const hiddenReleaseCount =
-    detail === undefined || releasePreview === undefined
-      ? undefined
-      : detail.releases.length - releasePreview.length;
 
   const mediaNames: Record<string, string> = {
     tv: "TV series",
@@ -290,6 +273,15 @@ function Tooltip({ entry: e, universe: u, x, y }: TooltipProps) {
     live: "Live action",
     tba: "Format TBA",
   };
+
+  const isPrintMedia = e.m === "manga" || e.m === "novel";
+  const hasDetailMeta =
+    detail !== undefined &&
+    (detail.author !== undefined ||
+      detail.publisher !== undefined ||
+      detail.magazine !== undefined);
+  const hasDetailNote = detail?.note !== undefined;
+  const hasEpisodes = detail !== undefined && detail.episodes.length > 0;
 
   return (
     <div
@@ -306,8 +298,9 @@ function Tooltip({ entry: e, universe: u, x, y }: TooltipProps) {
           background: u.color,
         }}
       />
-      <div className={s.ttTitle}>{e.t}</div>
+      <div className={s.ttTitle}>{detail?.title ?? e.t}</div>
       <div className={s.ttNote}>{e.n}</div>
+      {hasDetailNote && <div className={s.ttNote}>{detail.note}</div>}
       <div className={s.ttGrid}>
         <span className={s.ttKey}>Universe</span>
         <span className={s.ttVal}>
@@ -323,26 +316,57 @@ function Tooltip({ entry: e, universe: u, x, y }: TooltipProps) {
         <span className={s.ttVal}>{audioLabel[e.a]}</span>
         <span className={s.ttKey}>Text</span>
         <span className={s.ttVal}>{textLabel[e.s]}</span>
-        {detail !== undefined && releasePreview !== undefined && (
+
+        {hasDetailMeta && (
           <>
-            <span className={s.ttKey}>Details</span>
-            <span className={s.ttVal}>{formatDetailSummary(detail)}</span>
-            <span className={s.ttKey}>Releases</span>
-            <span className={`${s.ttVal} ${s.ttReleaseList}`}>
-              {releasePreview.map((release) => (
-                <span
-                  key={`${release.region}-${release.channel}-${release.start}-${release.label}`}
-                  className={s.ttReleaseItem}
-                >
-                  {formatRelease(release)}
+            {detail.author !== undefined && (
+              <>
+                <span className={s.ttKey}>Author</span>
+                <span className={s.ttVal}>{detail.author}</span>
+              </>
+            )}
+            {detail.magazine !== undefined && (
+              <>
+                <span className={s.ttKey}>Magazine</span>
+                <span className={s.ttVal}>{detail.magazine}</span>
+              </>
+            )}
+            {detail.publisher !== undefined && (
+              <>
+                <span className={s.ttKey}>Publisher</span>
+                <span className={s.ttVal}>{detail.publisher}</span>
+              </>
+            )}
+          </>
+        )}
+
+        {detail !== undefined && (
+          <>
+            {hasEpisodes && (
+              <>
+                <span className={s.ttKey}>Episodes</span>
+                <span className={s.ttVal}>
+                  {isPrintMedia
+                    ? `${String(detail.episodes.length)} volumes`
+                    : `${String(detail.episodes.length)} episodes`}
                 </span>
-              ))}
-              {hiddenReleaseCount !== undefined && hiddenReleaseCount > 0 && (
-                <span className={s.ttReleaseItem}>
-                  +{String(hiddenReleaseCount)} more release contexts
+              </>
+            )}
+            {detail.releases.length > 0 && (
+              <>
+                <span className={s.ttKey}>Releases</span>
+                <span className={`${s.ttVal} ${s.ttReleaseList}`}>
+                  {detail.releases.map((release) => (
+                    <span
+                      key={`${release.region}-${release.channel}-${release.start}-${release.label}`}
+                      className={s.ttReleaseItem}
+                    >
+                      {formatRelease(release)}
+                    </span>
+                  ))}
                 </span>
-              )}
-            </span>
+              </>
+            )}
             <span className={s.ttKey}>Source</span>
             <span className={`${s.ttVal} ${s.ttSource}`}>{detail.source}</span>
           </>
