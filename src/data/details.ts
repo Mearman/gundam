@@ -3092,17 +3092,17 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "1994-10-06",
+        ja: "1994-12-01",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "1995",
+        ja: "1995-06-01",
       },
       {
         n: 3,
         title: "Volume 3",
-        ja: "1995-05-06",
+        ja: "1995-12-01",
       },
     ],
     releases: [
@@ -3134,17 +3134,17 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "1995-08-29",
+        ja: "1995-03-01",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "1996",
+        ja: "1995-09-01",
       },
       {
         n: 3,
         title: "Volume 3",
-        ja: "1997-03-01",
+        ja: "1996-03-01",
       },
     ],
     releases: [
@@ -3625,39 +3625,34 @@ export const ENTRY_DETAILS = {
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED",
     episodes: [
       {
-        n: "serial-start",
-        title: "Serialisation begins",
-        ja: "2003-03-20",
-      },
-      {
-        n: "serial-end",
-        title: "Serialisation ends",
-        ja: "2005-01-21",
-      },
-      {
         n: 1,
         title: "Volume 1",
-        ja: "2003",
+        ja: "2003-09-25",
+        en: "2004-06-01",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "2003",
+        ja: "2003-12-25",
+        en: "2004-09-01",
       },
       {
         n: 3,
         title: "Volume 3",
-        ja: "2004",
+        ja: "2004-06-25",
+        en: "2005-01-01",
       },
       {
         n: 4,
         title: "Volume 4",
-        ja: "2004",
+        ja: "2004-12-25",
+        en: "2005-06-01",
       },
       {
         n: 5,
         title: "Volume 5",
-        ja: "2005",
+        ja: "2005-06-25",
+        en: "2006-01-01",
       },
     ],
     releases: [
@@ -4063,6 +4058,13 @@ export const ENTRY_DETAILS = {
         start: "2006-05-26",
         end: "2007-02-23",
         schedule: "theatrical",
+      },
+      {
+        region: "en",
+        channel: "home_video",
+        label: "Bandai Entertainment DVD",
+        start: "2008",
+        schedule: "box-set",
       },
     ],
   },
@@ -4967,63 +4969,63 @@ export const ENTRY_DETAILS = {
     episodes: [
       {
         n: 1,
-        ja: "2022-2024 (approx)",
-        title: "Episode 1",
+        title: "Radonitsa",
+        ja: "2022-11-15",
       },
       {
         n: 2,
-        ja: "2022-2024 (approx)",
-        title: "Episode 2",
+        title: "The Girl Who Dances with the Sea",
+        ja: "2022-11-15",
       },
       {
         n: 3,
-        ja: "2022-2024 (approx)",
-        title: "Episode 3",
+        title: "The Urdr-Hunt",
+        ja: "2022-11-15",
       },
       {
         n: 4,
-        ja: "2022-2024 (approx)",
-        title: "Episode 4",
+        title: "Blue Rose",
+        ja: "2022-11-15",
       },
       {
         n: 5,
-        ja: "2022-2024 (approx)",
-        title: "Episode 5",
+        title: "The Wings of Afam",
+        ja: "2022-11-15",
       },
       {
         n: 6,
-        ja: "2022-2024 (approx)",
-        title: "Episode 6",
+        title: "Wild Horse",
+        ja: "2022-11-15",
       },
       {
         n: 7,
-        ja: "2022-2024 (approx)",
-        title: "Episode 7",
+        title: "Reaper of the Battlefield",
+        ja: "2022-11-15",
       },
       {
         n: 8,
-        ja: "2022-2024 (approx)",
-        title: "Episode 8",
+        title: "Day of the Little Challenger",
+        ja: "2022-11-15",
       },
       {
         n: 9,
-        ja: "2022-2024 (approx)",
-        title: "Episode 9",
+        title: "Venus's Ghost",
+        ja: "2022-11-15",
       },
       {
         n: 10,
-        ja: "2022-2024 (approx)",
-        title: "Episode 10",
+        title: "Iron Flower",
+        ja: "2022-11-15",
       },
       {
         n: 11,
-        ja: "2022-2024 (approx)",
-        title: "Episode 11",
+        title: "The Last Hunt",
+        ja: "2022-11-15",
       },
       {
         n: 12,
-        ja: "2022-2024 (approx)",
-        title: "Episode 12",
+        title: "To the Place We Call Home",
+        ja: "2022-11-15",
       },
     ],
     releases: [
@@ -6293,52 +6295,52 @@ export const ENTRY_DETAILS = {
       {
         n: 2,
         title: "Volume 2: Cosmic Babel",
-        ja: "2007-11-26",
+        ja: "2007-12-26",
       },
       {
         n: 3,
         title: "Volume 3: The Red Comet",
-        ja: "2008-02-26",
+        ja: "2008-03-26",
       },
       {
         n: 4,
         title: "Volume 4: The Possibility of the Beast",
-        ja: "2008-05-26",
+        ja: "2008-06-26",
       },
       {
         n: 5,
         title: "Volume 5: Black Unicorn",
-        ja: "2008-08-26",
+        ja: "2008-09-26",
       },
       {
         n: 6,
         title: "Volume 6: A Domain of Reason",
-        ja: "2008-12-26",
+        ja: "2009-03-26",
       },
       {
         n: 7,
         title: "Volume 7: Republic of Coronation",
-        ja: "2009-04-25",
+        ja: "2009-06-26",
       },
       {
         n: 8,
         title: "Volume 8: Beyond the Rainbow",
-        ja: "2009-08-26",
+        ja: "2009-09-26",
       },
       {
         n: 9,
         title: "Volume 9: The Cage of Phoenix",
-        ja: "2009-10-26",
+        ja: "2009-12-26",
       },
       {
         n: 10,
         title: "Volume 10: Over the Rainbow",
-        ja: "2009-12-26",
+        ja: "2010-03-26",
       },
       {
         n: 11,
         title: "Volume 11: Phoenix Hunting (epilogue collection)",
-        ja: "2016-03-26",
+        ja: "2014-05-26",
       },
     ],
     releases: [
@@ -6356,56 +6358,46 @@ export const ENTRY_DETAILS = {
     title: "Mobile Suit Gundam Thunderbolt",
     u: "uc",
     type: "ona",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Thunderbolt",
+    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Thunderbolt",
     episodes: [
       {
         n: 1,
-        title: "Episode 1 (December Sky arc)",
+        title: "Episode 1",
         ja: "2015-12-25",
       },
       {
         n: 2,
         title: "Episode 2",
-        ja: "2016-01-08",
+        ja: "2016-02-12",
       },
       {
         n: 3,
         title: "Episode 3",
-        ja: "2016-01-22",
+        ja: "2016-03-18",
       },
       {
         n: 4,
         title: "Episode 4",
-        ja: "2016-02-05",
-      },
-      {
-        n: "Film1",
-        title: "December Sky (compilation film)",
-        ja: "2016-07-09",
+        ja: "2016-04-22",
       },
       {
         n: 5,
-        title: "Bandit Flower 1 (S2 ep1)",
+        title: "Episode 5",
         ja: "2017-03-24",
       },
       {
         n: 6,
-        title: "Bandit Flower 2",
-        ja: "2017-03-31",
+        title: "Episode 6",
+        ja: "2017-04-28",
       },
       {
         n: 7,
-        title: "Bandit Flower 3",
-        ja: "2017-04-07",
+        title: "Episode 7",
+        ja: "2017-05-31",
       },
       {
         n: 8,
-        title: "Bandit Flower 4",
-        ja: "2017-04-14",
-      },
-      {
-        n: "Film2",
-        title: "Bandit Flower (compilation film)",
+        title: "Episode 8",
         ja: "2017-07-14",
       },
     ],
@@ -6435,8 +6427,8 @@ export const ENTRY_DETAILS = {
       {
         region: "en",
         channel: "streaming",
-        label: "Gundam.info YouTube",
-        start: "2016",
+        label: "Gundam.info YouTube (subtitled)",
+        start: "2016-06-04",
         schedule: "simulcast",
       },
       {
@@ -6459,114 +6451,163 @@ export const ENTRY_DETAILS = {
     note: "Began serialisation March 2012; ongoing. Collected in 20+ tankōbon volumes.",
     episodes: [
       {
-        n: "serial-start",
-        title: "Serialisation begins",
-        ja: "2012-03-30",
-      },
-      {
         n: 1,
         title: "Volume 1",
-        ja: "2012-11-30",
+        ja: "2012-10-30",
+        en: "2016-11-15",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "2013-09-30",
+        ja: "2013-05-30",
+        en: "2017-02-21",
       },
       {
         n: 3,
         title: "Volume 3",
-        ja: "2014-05-30",
+        ja: "2014-02-28",
+        en: "2017-05-16",
       },
       {
         n: 4,
         title: "Volume 4",
         ja: "2014-11-28",
+        en: "2017-08-15",
       },
       {
         n: 5,
         title: "Volume 5",
-        ja: "2015-06-30",
+        ja: "2015-02-27",
+        en: "2017-11-21",
       },
       {
         n: 6,
         title: "Volume 6",
-        ja: "2015-12-25",
+        ja: "2015-10-30",
+        en: "2018-02-20",
       },
       {
         n: 7,
         title: "Volume 7",
-        ja: "2016-06-30",
+        ja: "2015-12-25",
+        en: "2018-05-15",
       },
       {
         n: 8,
         title: "Volume 8",
-        ja: "2016-12-22",
+        ja: "2016-07-24",
+        en: "2018-08-21",
       },
       {
         n: 9,
         title: "Volume 9",
-        ja: "2017-05-30",
+        ja: "2017-01-30",
+        en: "2018-11-20",
       },
       {
         n: 10,
         title: "Volume 10",
-        ja: "2017-10-30",
+        ja: "2017-08-30",
+        en: "2019-02-19",
       },
       {
         n: 11,
         title: "Volume 11",
-        ja: "2018-04-27",
+        ja: "2018-02-28",
+        en: "2019-05-21",
       },
       {
         n: 12,
         title: "Volume 12",
-        ja: "2018-09-28",
+        ja: "2018-07-30",
+        en: "2019-08-20",
       },
       {
         n: 13,
         title: "Volume 13",
-        ja: "2019-03-28",
+        ja: "2019-04-26",
+        en: "2020-02-18",
       },
       {
         n: 14,
         title: "Volume 14",
-        ja: "2019-09-30",
+        ja: "2019-08-30",
+        en: "2020-07-21",
       },
       {
         n: 15,
         title: "Volume 15",
-        ja: "2020-04-30",
+        ja: "2020-02-28",
+        en: "2021-01-19",
       },
       {
         n: 16,
         title: "Volume 16",
-        ja: "2020-11-30",
+        ja: "2020-09-30",
+        en: "2021-08-17",
       },
       {
         n: 17,
         title: "Volume 17",
-        ja: "2021-08-30",
+        ja: "2021-02-26",
+        en: "2022-02-15",
       },
       {
         n: 18,
         title: "Volume 18",
-        ja: "2022-03-30",
+        ja: "2021-09-30",
+        en: "2022-10-18",
       },
       {
         n: 19,
         title: "Volume 19",
-        ja: "2022-12-26",
+        ja: "2022-02-28",
+        en: "2023-03-21",
       },
       {
         n: 20,
         title: "Volume 20",
-        ja: "2023-09-29",
+        ja: "2022-09-30",
+        en: "2023-11-21",
       },
       {
         n: 21,
         title: "Volume 21",
+        ja: "2023-02-28",
+        en: "2024-03-19",
+      },
+      {
+        n: 22,
+        title: "Volume 22",
+        ja: "2023-08-30",
+        en: "2024-11-19",
+      },
+      {
+        n: 23,
+        title: "Volume 23",
+        ja: "2024-02-29",
+        en: "2025-05-20",
+      },
+      {
+        n: 24,
+        title: "Volume 24",
         ja: "2024-07-30",
+        en: "2025-09-16",
+      },
+      {
+        n: 25,
+        title: "Volume 25",
+        ja: "2025-02-28",
+      },
+      {
+        n: 26,
+        title: "Volume 26",
+        ja: "2025-08-29",
+      },
+      {
+        n: 27,
+        title: "Volume 27",
+        ja: "2025-12-19",
       },
     ],
     releases: [
@@ -6574,14 +6615,22 @@ export const ENTRY_DETAILS = {
         region: "ja",
         channel: "print",
         label: "Big Comic Superior / Shogakukan",
-        start: "2012-10-12",
+        start: "2012-03-23",
+        end: "2025-09-26",
         schedule: "serial",
       },
       {
         region: "en",
         channel: "print",
-        label: "Viz Media (English)",
-        start: "2016-12-20",
+        label: "Viz Media (North America)",
+        start: "2016-11-15",
+        schedule: "serial",
+      },
+      {
+        region: "en",
+        channel: "print",
+        label: "Shogakukan Asia (Southeast Asia)",
+        start: "2015-04-22",
         schedule: "serial",
       },
     ],
@@ -6590,7 +6639,7 @@ export const ENTRY_DETAILS = {
     title: "Mobile Suit Gundam: Twilight AXIS",
     u: "uc",
     type: "ona",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Twilight_Axis",
+    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Twilight_AXIS",
     episodes: [
       {
         n: 1,
@@ -6621,11 +6670,6 @@ export const ENTRY_DETAILS = {
         n: 6,
         title: "Episode 6",
         ja: "2017-09-01",
-      },
-      {
-        n: "film",
-        title: "Twilight AXIS: Red Trace (compilation film)",
-        ja: "2017-06-24",
       },
     ],
     releases: [
@@ -6767,52 +6811,58 @@ export const ENTRY_DETAILS = {
     u: "uc",
     type: "ona",
     source:
-      "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Requiem_for_Vengeance",
+      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Requiem_for_Vengeance",
     note: "All 6 episodes released simultaneously on Netflix",
     episodes: [
       {
         n: 1,
-        title: "Episode 1",
+        title: "Haunted Forest",
         ja: "2024-10-17",
+        en: "2024-10-17",
       },
       {
         n: 2,
-        title: "Episode 2",
+        title: "Broken",
         ja: "2024-10-17",
+        en: "2024-10-17",
       },
       {
         n: 3,
-        title: "Episode 3",
+        title: "Junkyard",
         ja: "2024-10-17",
+        en: "2024-10-17",
       },
       {
         n: 4,
-        title: "Episode 4",
+        title: "Night Caller",
         ja: "2024-10-17",
+        en: "2024-10-17",
       },
       {
         n: 5,
-        title: "Episode 5",
+        title: "The River",
         ja: "2024-10-17",
+        en: "2024-10-17",
       },
       {
         n: 6,
-        title: "Episode 6",
+        title: "Convoy to Oblivion",
         ja: "2024-10-17",
+        en: "2024-10-17",
       },
     ],
     releases: [
       {
         region: "ja",
         channel: "streaming",
-        label: "Netflix",
+        label: "Netflix Japan",
         start: "2024-10-17",
         schedule: "simulcast",
       },
       {
         region: "en",
         channel: "streaming",
-        label: "Netflix worldwide",
+        label: "Netflix (worldwide)",
         start: "2024-10-17",
         schedule: "simulcast",
       },
@@ -6853,39 +6903,34 @@ export const ENTRY_DETAILS = {
     note: "Original series 1994-1997; 6 volumes. Setting: UC 0133 (10 years after F91).",
     episodes: [
       {
-        n: "serial-start",
-        title: "Serialisation begins (Shōnen Ace)",
-        ja: "1994-10-26",
-      },
-      {
         n: 1,
         title: "Volume 1",
-        ja: "1995-04-26",
+        ja: "1994-12-01",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "1995-09-26",
+        ja: "1995-06-01",
       },
       {
         n: 3,
         title: "Volume 3",
-        ja: "1996-03-26",
+        ja: "1995-12-01",
       },
       {
         n: 4,
         title: "Volume 4",
-        ja: "1996-07-26",
+        ja: "1996-06-01",
       },
       {
         n: 5,
         title: "Volume 5",
-        ja: "1996-12-26",
+        ja: "1996-12-01",
       },
       {
         n: 6,
         title: "Volume 6",
-        ja: "1997-04-26",
+        ja: "1997-06-01",
       },
     ],
     releases: [
@@ -6909,19 +6954,14 @@ export const ENTRY_DETAILS = {
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Crossbone_Gundam",
     episodes: [
       {
-        n: "serial-start",
-        title: "Serialisation begins (Gundam Ace)",
-        ja: "2002-09-26",
-      },
-      {
-        n: "serial-end",
-        title: "Serialisation ends",
-        ja: "2004-08-26",
-      },
-      {
         n: 1,
         title: "Volume 1",
-        ja: "2004",
+        ja: "2003-06-25",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2004-02-25",
       },
     ],
     releases: [
@@ -6945,29 +6985,14 @@ export const ENTRY_DETAILS = {
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Crossbone_Gundam",
     episodes: [
       {
-        n: "serial-start",
-        title: "Serialisation begins",
-        ja: "2006-07-26",
-      },
-      {
-        n: "serial-end",
-        title: "Serialisation ends",
-        ja: "2007-09-26",
-      },
-      {
         n: 1,
         title: "Volume 1",
-        ja: "2006-12-26",
+        ja: "2006-09-25",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "2007-05-26",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2007-10-26",
+        ja: "2007-03-26",
       },
     ],
     releases: [
@@ -6992,74 +7017,64 @@ export const ENTRY_DETAILS = {
     note: "12 volumes; setting UC 0153 (concurrent with V Gundam). Per-volume dates approximate.",
     episodes: [
       {
-        n: "serial-start",
-        title: "Serialisation begins",
-        ja: "2011-11-26",
-      },
-      {
-        n: "serial-end",
-        title: "Serialisation ends",
-        ja: "2016-03-26",
-      },
-      {
         n: 1,
         title: "Volume 1",
-        ja: "2012-04-26",
+        ja: "2011-03-25",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "2012-09-26",
+        ja: "2011-09-25",
       },
       {
         n: 3,
         title: "Volume 3",
-        ja: "2013-02-26",
+        ja: "2012-03-25",
       },
       {
         n: 4,
         title: "Volume 4",
-        ja: "2013-07-26",
+        ja: "2012-09-25",
       },
       {
         n: 5,
         title: "Volume 5",
-        ja: "2013-12-26",
+        ja: "2013-03-25",
       },
       {
         n: 6,
         title: "Volume 6",
-        ja: "2014-04-26",
+        ja: "2013-09-25",
       },
       {
         n: 7,
         title: "Volume 7",
-        ja: "2014-09-26",
+        ja: "2014-03-25",
       },
       {
         n: 8,
         title: "Volume 8",
-        ja: "2014-12-26",
+        ja: "2014-09-25",
       },
       {
         n: 9,
         title: "Volume 9",
-        ja: "2015-04-25",
+        ja: "2015-03-25",
       },
       {
         n: 10,
         title: "Volume 10",
-        ja: "2015-08-26",
+        ja: "2015-09-25",
       },
       {
         n: 11,
         title: "Volume 11",
-        ja: "2015-12-26",
+        ja: "2016-03-25",
       },
       {
         n: 12,
         title: "Volume 12",
-        ja: "2016-04-26",
+        ja: "2016-09-25",
       },
     ],
     releases: [
@@ -7084,79 +7099,69 @@ export const ENTRY_DETAILS = {
     note: "13 volumes; setting UC 0169. Per-volume dates approximate.",
     episodes: [
       {
-        n: "serial-start",
-        title: "Serialisation begins",
-        ja: "2016-07-26",
-      },
-      {
-        n: "serial-end",
-        title: "Serialisation ends",
-        ja: "2020-12-26",
-      },
-      {
         n: 1,
         title: "Volume 1",
-        ja: "2017-02-25",
+        ja: "2016",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "2017-06-26",
+        ja: "2016",
       },
       {
         n: 3,
         title: "Volume 3",
-        ja: "2017-10-26",
+        ja: "2016",
       },
       {
         n: 4,
         title: "Volume 4",
-        ja: "2018-02-26",
+        ja: "2017",
       },
       {
         n: 5,
         title: "Volume 5",
-        ja: "2018-07-26",
+        ja: "2017",
       },
       {
         n: 6,
         title: "Volume 6",
-        ja: "2018-11-26",
+        ja: "2018",
       },
       {
         n: 7,
         title: "Volume 7",
-        ja: "2019-04-26",
+        ja: "2018",
       },
       {
         n: 8,
         title: "Volume 8",
-        ja: "2019-08-26",
+        ja: "2019",
       },
       {
         n: 9,
         title: "Volume 9",
-        ja: "2019-12-26",
+        ja: "2019",
       },
       {
         n: 10,
         title: "Volume 10",
-        ja: "2020-03-26",
+        ja: "2020",
       },
       {
         n: 11,
         title: "Volume 11",
-        ja: "2020-07-25",
+        ja: "2020",
       },
       {
         n: 12,
         title: "Volume 12",
-        ja: "2020-11-26",
+        ja: "2021",
       },
       {
         n: 13,
         title: "Volume 13",
-        ja: "2021-03-26",
+        ja: "2021",
       },
     ],
     releases: [
@@ -7180,24 +7185,14 @@ export const ENTRY_DETAILS = {
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Crossbone_Gundam",
     episodes: [
       {
-        n: "serial-start",
-        title: "Serialisation begins",
-        ja: "2021-06-26",
-      },
-      {
-        n: "serial-end",
-        title: "Serialisation ends",
-        ja: "2022-06-24",
-      },
-      {
         n: 1,
         title: "Volume 1",
-        ja: "2022-02-25",
+        ja: "2022",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "2022-09-26",
+        ja: "2023",
       },
     ],
     releases: [
@@ -7220,16 +7215,6 @@ export const ENTRY_DETAILS = {
     magazine: "Gundam Ace",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Crossbone_Gundam",
     episodes: [
-      {
-        n: "serial-start",
-        title: "Serialisation begins",
-        ja: "2022-10-26",
-      },
-      {
-        n: "serial-end",
-        title: "Serialisation ends",
-        ja: "2023-11-25",
-      },
       {
         n: 1,
         title: "Volume 1",
@@ -7262,11 +7247,6 @@ export const ENTRY_DETAILS = {
     note: "Ongoing as of 2026",
     episodes: [
       {
-        n: "serial-start",
-        title: "Serialisation begins",
-        ja: "2024-10-25",
-      },
-      {
         n: 1,
         title: "Volume 1",
         ja: "2025",
@@ -7298,74 +7278,74 @@ export const ENTRY_DETAILS = {
     note: "12 volumes 1992-2005, long-running retelling. Per-volume dates approximate.",
     episodes: [
       {
-        n: "serial-start",
-        title: "Serialisation begins",
-        ja: "1992-08-01",
-      },
-      {
-        n: "serial-end",
-        title: "Serialisation ends",
-        ja: "2005-08-26",
-      },
-      {
         n: 1,
         title: "Volume 1",
-        ja: "1993-07-01",
+        ja: "1993",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "1994-08-01",
+        ja: "1993",
       },
       {
         n: 3,
         title: "Volume 3",
-        ja: "1995-06-01",
+        ja: "1994",
       },
       {
         n: 4,
         title: "Volume 4",
-        ja: "1996-04-01",
+        ja: "1995",
       },
       {
         n: 5,
         title: "Volume 5",
-        ja: "1997-03-01",
+        ja: "1996",
       },
       {
         n: 6,
         title: "Volume 6",
-        ja: "1998-04-01",
+        ja: "1997",
       },
       {
         n: 7,
         title: "Volume 7",
-        ja: "1999-08-01",
+        ja: "1998",
       },
       {
         n: 8,
         title: "Volume 8",
-        ja: "2000-12-01",
+        ja: "1999",
       },
       {
         n: 9,
         title: "Volume 9",
-        ja: "2002-04-01",
+        ja: "1999",
       },
       {
         n: 10,
         title: "Volume 10",
-        ja: "2003-06-01",
+        ja: "2000",
       },
       {
         n: 11,
         title: "Volume 11",
-        ja: "2004-08-01",
+        ja: "2001",
       },
       {
         n: 12,
         title: "Volume 12",
-        ja: "2005-12-01",
+        ja: "2002",
+      },
+      {
+        n: 13,
+        title: "Volume 13",
+        ja: "2003",
+      },
+      {
+        n: 14,
+        title: "Volume 14",
+        ja: "2004",
       },
     ],
     releases: [
@@ -7390,24 +7370,14 @@ export const ENTRY_DETAILS = {
     note: "First MSG manga adaptation, contemporaneous with original anime broadcast",
     episodes: [
       {
-        n: "serial-start",
-        title: "Serialisation begins",
-        ja: "1979-05-01",
-      },
-      {
-        n: "serial-end",
-        title: "Serialisation ends",
-        ja: "1982-02-01",
-      },
-      {
         n: 1,
         title: "Volume 1",
-        ja: "1980",
+        ja: "2016",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "1982",
+        ja: "2019",
       },
     ],
     releases: [
@@ -7433,104 +7403,94 @@ export const ENTRY_DETAILS = {
     note: "18 volumes 2013-2023. Per-volume dates approximate.",
     episodes: [
       {
-        n: "serial-start",
-        title: "Serialisation begins",
-        ja: "2013-06-26",
-      },
-      {
-        n: "serial-end",
-        title: "Serialisation ends",
-        ja: "2023-05-26",
-      },
-      {
         n: 1,
         title: "Volume 1",
-        ja: "2013-12-26",
+        ja: "2013",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "2014-08-26",
+        ja: "2013",
       },
       {
         n: 3,
         title: "Volume 3",
-        ja: "2015-02-26",
+        ja: "2013",
       },
       {
         n: 4,
         title: "Volume 4",
-        ja: "2015-08-26",
+        ja: "2014",
       },
       {
         n: 5,
         title: "Volume 5",
-        ja: "2016-02-26",
+        ja: "2014",
       },
       {
         n: 6,
         title: "Volume 6",
-        ja: "2016-08-25",
+        ja: "2015",
       },
       {
         n: 7,
         title: "Volume 7",
-        ja: "2017-02-25",
+        ja: "2015",
       },
       {
         n: 8,
         title: "Volume 8",
-        ja: "2017-08-25",
+        ja: "2016",
       },
       {
         n: 9,
         title: "Volume 9",
-        ja: "2018-02-26",
+        ja: "2016",
       },
       {
         n: 10,
         title: "Volume 10",
-        ja: "2018-08-25",
+        ja: "2017",
       },
       {
         n: 11,
         title: "Volume 11",
-        ja: "2019-02-26",
+        ja: "2017",
       },
       {
         n: 12,
         title: "Volume 12",
-        ja: "2019-08-26",
+        ja: "2017",
       },
       {
         n: 13,
         title: "Volume 13",
-        ja: "2020-04-25",
+        ja: "2018",
       },
       {
         n: 14,
         title: "Volume 14",
-        ja: "2020-12-26",
+        ja: "2018",
       },
       {
         n: 15,
         title: "Volume 15",
-        ja: "2021-08-26",
+        ja: "2019",
       },
       {
         n: 16,
         title: "Volume 16",
-        ja: "2022-04-26",
+        ja: "2019",
       },
       {
         n: 17,
         title: "Volume 17",
-        ja: "2022-12-26",
+        ja: "2020",
       },
       {
         n: 18,
         title: "Volume 18",
-        ja: "2023-08-26",
+        ja: "2020",
       },
     ],
     releases: [
@@ -7555,39 +7515,19 @@ export const ENTRY_DETAILS = {
       "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_08th_MS_Team",
     episodes: [
       {
-        n: "serial-start",
-        title: "Serialisation begins",
-        ja: "2007-03-26",
-      },
-      {
-        n: "serial-end",
-        title: "Serialisation ends",
-        ja: "2011-06-26",
-      },
-      {
         n: 1,
         title: "Volume 1",
-        ja: "2007-10",
+        ja: "1997-06-25",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "2008-04",
+        ja: "1998-06-25",
       },
       {
         n: 3,
         title: "Volume 3",
-        ja: "2008-12",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "2009-03-26",
-      },
-      {
-        n: "tribute",
-        title: "U.C.0079+α TRIBUTE complete edition",
-        ja: "2011-06-25",
+        ja: "1999-01-25",
       },
     ],
     releases: [
@@ -7612,84 +7552,74 @@ export const ENTRY_DETAILS = {
     note: "14 volumes 2011-2019. Modern retelling of Wing TV. Per-volume dates approximate.",
     episodes: [
       {
-        n: "serial-start",
-        title: "Serialisation begins",
-        ja: "2010-10-26",
-      },
-      {
-        n: "serial-end",
-        title: "Serialisation ends",
-        ja: "2019-06-26",
-      },
-      {
         n: 1,
         title: "Volume 1",
-        ja: "2011-08-26",
+        ja: "2010",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "2012-03-26",
+        ja: "2010",
       },
       {
         n: 3,
         title: "Volume 3",
-        ja: "2012-12-26",
+        ja: "2011",
       },
       {
         n: 4,
         title: "Volume 4",
-        ja: "2013-08-26",
+        ja: "2011",
       },
       {
         n: 5,
         title: "Volume 5",
-        ja: "2014-04-25",
+        ja: "2012",
       },
       {
         n: 6,
         title: "Volume 6",
-        ja: "2014-12-26",
+        ja: "2012",
       },
       {
         n: 7,
         title: "Volume 7",
-        ja: "2015-08-26",
+        ja: "2013",
       },
       {
         n: 8,
         title: "Volume 8",
-        ja: "2016-04-26",
+        ja: "2014",
       },
       {
         n: 9,
         title: "Volume 9",
-        ja: "2016-12-26",
+        ja: "2014",
       },
       {
         n: 10,
         title: "Volume 10",
-        ja: "2017-08-26",
+        ja: "2015",
       },
       {
         n: 11,
         title: "Volume 11",
-        ja: "2018-02-26",
+        ja: "2015",
       },
       {
         n: 12,
         title: "Volume 12",
-        ja: "2018-08-25",
+        ja: "2016",
       },
       {
         n: 13,
         title: "Volume 13",
-        ja: "2019-02-26",
+        ja: "2016",
       },
       {
         n: 14,
         title: "Volume 14",
-        ja: "2019-08-26",
+        ja: "2017",
       },
     ],
     releases: [
@@ -9543,44 +9473,44 @@ export const ENTRY_DETAILS = {
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_Origin",
     episodes: [
       {
-        n: "serial-start",
-        title: "Serialisation begins",
-        ja: "2016-06-25",
-      },
-      {
-        n: "serial-end",
-        title: "Serialisation ends",
-        ja: "2019-05-25",
-      },
-      {
         n: 1,
         title: "Volume 1",
-        ja: "2017",
+        ja: "2016",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "2017",
+        ja: "2016",
       },
       {
         n: 3,
         title: "Volume 3",
-        ja: "2018",
+        ja: "2016",
       },
       {
         n: 4,
         title: "Volume 4",
-        ja: "2018",
+        ja: "2016",
       },
       {
         n: 5,
         title: "Volume 5",
-        ja: "2019",
+        ja: "2017",
       },
       {
         n: 6,
         title: "Volume 6",
-        ja: "2019",
+        ja: "2017",
+      },
+      {
+        n: 7,
+        title: "Volume 7",
+        ja: "2017",
+      },
+      {
+        n: 8,
+        title: "Volume 8",
+        ja: "2017",
       },
     ],
     releases: [
@@ -9672,6 +9602,13 @@ export const ENTRY_DETAILS = {
         channel: "home_video",
         label: "OVA Blu-ray/DVD",
         start: "2013-05-22",
+        schedule: "box-set",
+      },
+      {
+        region: "en",
+        channel: "home_video",
+        label: "Right Stuf / Sunrise",
+        start: "2019",
         schedule: "box-set",
       },
     ],
@@ -10031,22 +9968,23 @@ export const ENTRY_DETAILS = {
     title: "Model Suit Gunpla Builders Beginning G",
     u: "build",
     type: "ova",
-    source: "https://en.wikipedia.org/wiki/Gundam_Build_Fighters",
+    source:
+      "https://gundam.fandom.com/wiki/Model_Suit_Gunpla_Builders_Beginning_G",
     episodes: [
       {
         n: 1,
-        title: "Episode 1",
-        ja: "2010",
+        title: "Part A: Beginning Gundam",
+        ja: "2010-08-15",
       },
       {
         n: 2,
-        title: "Episode 2",
-        ja: "2010",
+        title: "Part B: Forever Gundam",
+        ja: "2010-10-31",
       },
       {
         n: 3,
-        title: "Episode 3",
-        ja: "2010",
+        title: "Part C: Beginning 30",
+        ja: "2010-12-19",
       },
     ],
     releases: [
@@ -10282,14 +10220,14 @@ export const ENTRY_DETAILS = {
         region: "en",
         channel: "streaming",
         label: "Gundam.info YouTube",
-        start: "2016",
+        start: "2016-06-04",
         schedule: "simulcast",
       },
       {
         region: "en",
         channel: "home_video",
         label: "Right Stuf / Sunrise Blu-ray",
-        start: "2017",
+        start: "2017-07-04",
         schedule: "box-set",
       },
     ],
@@ -10318,14 +10256,14 @@ export const ENTRY_DETAILS = {
         region: "en",
         channel: "streaming",
         label: "Gundam.info YouTube",
-        start: "2018",
+        start: "2018-03-12",
         schedule: "simulcast",
       },
       {
         region: "en",
         channel: "home_video",
         label: "Right Stuf / Sunrise Blu-ray",
-        start: "2019",
+        start: "2019-02-05",
         schedule: "box-set",
       },
     ],
@@ -10415,72 +10353,72 @@ export const ENTRY_DETAILS = {
     title: "Mobile Suit Gundam-san",
     u: "uc",
     type: "tv",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam-san",
+    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam-san",
     episodes: [
       {
         n: 1,
-        title: "Episode 1",
-        ja: "2014",
+        title: "He Likes the Red One",
+        ja: "2014-07-06",
       },
       {
         n: 2,
-        title: "Episode 2",
-        ja: "2014",
+        title: "Amuro Going Through Puberty",
+        ja: "2014-07-13",
       },
       {
         n: 3,
-        title: "Episode 3",
-        ja: "2014",
+        title: "The Melancholy of Haro-man",
+        ja: "2014-07-20",
       },
       {
         n: 4,
-        title: "Episode 4",
-        ja: "2014",
+        title: "How They Met",
+        ja: "2014-07-27",
       },
       {
         n: 5,
-        title: "Episode 5",
-        ja: "2014",
+        title: "The Red Comet Chick's Menace",
+        ja: "2014-08-03",
       },
       {
         n: 6,
-        title: "Episode 6",
-        ja: "2014",
+        title: "Dr. Sayla's Consultation Room",
+        ja: "2014-08-10",
       },
       {
         n: 7,
-        title: "Episode 7",
-        ja: "2014",
+        title: "I Like Those Who Have Fallen",
+        ja: "2014-08-17",
       },
       {
         n: 8,
-        title: "Episode 8",
-        ja: "2014",
+        title: "Daydreaming Amuro",
+        ja: "2014-08-24",
       },
       {
         n: 9,
-        title: "Episode 9",
-        ja: "2014",
+        title: "Showdown of Destiny",
+        ja: "2014-08-31",
       },
       {
         n: 10,
-        title: "Episode 10",
-        ja: "2014",
+        title: "Lalah Moving Out",
+        ja: "2014-09-07",
       },
       {
         n: 11,
-        title: "Episode 11",
-        ja: "2014",
+        title: "A Mobile Suit's Feelings",
+        ja: "2014-09-14",
       },
       {
         n: 12,
-        title: "Episode 12",
-        ja: "2014",
+        title: "Kycilia-tan, Age 14",
+        ja: "2014-09-21",
       },
       {
         n: 13,
-        title: "Episode 13",
-        ja: "2014",
+        title: "He Likes People with Moles",
+        ja: "2014-09-28",
       },
     ],
     releases: [
@@ -10491,6 +10429,13 @@ export const ENTRY_DETAILS = {
         start: "2014-07-06",
         end: "2014-09-28",
         schedule: "weekly",
+      },
+      {
+        region: "en",
+        channel: "streaming",
+        label: "Gundam.info YouTube (subtitled)",
+        start: "2014",
+        schedule: "simulcast",
       },
     ],
   },
@@ -10535,6 +10480,13 @@ export const ENTRY_DETAILS = {
         channel: "home_video",
         label: "DVD bonus",
         start: "2004-12-25",
+        schedule: "box-set",
+      },
+      {
+        region: "en",
+        channel: "home_video",
+        label: "Bandai Entertainment DVD (bonus feature)",
+        start: "2005",
         schedule: "box-set",
       },
     ],
@@ -10587,13 +10539,21 @@ export const ENTRY_DETAILS = {
         start: "2006",
         schedule: "box-set",
       },
+      {
+        region: "en",
+        channel: "home_video",
+        label: "Bandai Entertainment DVD",
+        start: "2008",
+        schedule: "box-set",
+      },
     ],
   },
   gundam_g40_2020_ona: {
     title: "Mobile Suit Gundam G40",
     u: "uc",
     type: "ona",
-    source: "https://en.wikipedia.org/wiki/Gundam",
+    source:
+      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_40th_Anniversary_Project",
     episodes: [
       {
         n: 1,
@@ -10609,13 +10569,20 @@ export const ENTRY_DETAILS = {
         start: "2020-01-21",
         schedule: "simulcast",
       },
+      {
+        region: "en",
+        channel: "streaming",
+        label: "Gundam.info YouTube",
+        start: "2020-01-21",
+        schedule: "simulcast",
+      },
     ],
   },
   silver_phantom_2024_vr: {
     title: "Mobile Suit Gundam: Silver Phantom",
     u: "uc",
     type: "film",
-    source: "https://en.wikipedia.org/wiki/Gundam",
+    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Silver_Phantom",
     episodes: [
       {
         n: 1,
@@ -10645,7 +10612,8 @@ export const ENTRY_DETAILS = {
       "Mobile Suit Gundam: Iron-Blooded Orphans Urðr-Hunt – Path of the Little Challenger",
     u: "pd",
     type: "film",
-    source: "https://en.wikipedia.org/wiki/Gundam",
+    source:
+      "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Iron-Blooded_Orphans",
     episodes: [
       {
         n: 1,
@@ -10659,6 +10627,13 @@ export const ENTRY_DETAILS = {
         channel: "theatrical",
         label: "Theatrical release",
         start: "2025-05-30",
+        schedule: "theatrical",
+      },
+      {
+        region: "en",
+        channel: "theatrical",
+        label: "Limited North American theatrical",
+        start: "2025",
         schedule: "theatrical",
       },
     ],
@@ -10696,7 +10671,8 @@ export const ENTRY_DETAILS = {
     title: "Mobile Suit Gundam: Battlefield Record Avant-Title",
     u: "uc",
     type: "ova",
-    source: "https://en.wikipedia.org/wiki/Gundam",
+    source:
+      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Battlefield_Record_U.C._0081",
     episodes: [
       {
         n: 1,
@@ -10741,7 +10717,7 @@ export const ENTRY_DETAILS = {
     title: "Mobile Suit Gundam: High Streamer",
     u: "uc",
     type: "novel",
-    source: "https://en.wikipedia.org/wiki/Gundam",
+    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_High_Streamer",
     episodes: [
       {
         n: 1,
@@ -10889,7 +10865,8 @@ export const ENTRY_DETAILS = {
     title: "Mobile Suit Gundam: Blue Destiny",
     u: "uc",
     type: "manga",
-    source: "https://en.wikipedia.org/wiki/Gundam",
+    source:
+      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_The_Blue_Destiny",
     episodes: [
       {
         n: 1,
@@ -10912,7 +10889,8 @@ export const ENTRY_DETAILS = {
     title: "Mobile Suit Gundam: Lost War Chronicles",
     u: "uc",
     type: "manga",
-    source: "https://en.wikipedia.org/wiki/Gundam",
+    source:
+      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Lost_War_Chronicles",
     episodes: [
       {
         n: 1,
