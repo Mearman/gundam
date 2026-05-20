@@ -22,6 +22,7 @@ export interface DetailEpisode {
   note?: string;
   season?: number;
   cours?: number;
+  u?: string | string[];
 }
 
 export interface DetailRelease {
@@ -32,11 +33,12 @@ export interface DetailRelease {
   end?: string;
   schedule: ReleaseSchedule;
   note?: string;
+  u?: string | string[];
 }
 
 export interface EntryDetail {
   title: string;
-  u: string;
+  u: string | string[];
   type: DetailMediaType;
   source: string;
   author?: string;
@@ -9787,7 +9789,7 @@ export const ENTRY_DETAILS = {
   },
   gundam_evolve_2001_ova: {
     title: "Gundam Evolve",
-    u: "mixed",
+    u: ["uc", "fc", "ce", "ac", "sd"],
     type: "ova",
     source: "https://en.wikipedia.org/wiki/Gundam_Evolve",
     episodes: [
@@ -9795,76 +9797,91 @@ export const ENTRY_DETAILS = {
         n: 1,
         title: "RX-78-2 Gundam",
         ja: "2001-10-26",
+        u: "uc",
       },
       {
         n: 2,
         title: "RX-178 Gundam Mk-II",
         ja: "2002-03-26",
+        u: "uc",
       },
       {
         n: 3,
         title: "GF13-017NJII God Gundam",
         ja: "2002-09-26",
+        u: "fc",
       },
       {
         n: 4,
         title: "RX-78 GP03 Dendrobium",
         ja: "2003-03-26",
+        u: "uc",
       },
       {
         n: 5,
         title: "RX-93 ν Gundam",
         ja: "2003-06-09",
+        u: "uc",
       },
       {
         n: 6,
         title: "YMF-X000A Dreadnought Gundam",
         ja: "2004-11-26",
+        u: "ce",
       },
       {
         n: 7,
         title: "XXXG-00W0 Wing Gundam Zero",
         ja: "2005-03-26",
+        u: "ac",
       },
       {
         n: 8,
         title: "GAT-X105 Strike Gundam",
         ja: "2005-09-26",
+        u: "ce",
       },
       {
         n: 9,
         title: "MSZ-006 Zeta Gundam",
         ja: "2006-03-26",
+        u: "uc",
       },
       {
         n: 10,
         title: "MSZ-010 ZZ Gundam",
         ja: "2006-10-27",
+        u: "uc",
       },
       {
         n: 11,
         title: "RB-79 Ball",
         ja: "2006-10-27",
+        u: "uc",
       },
       {
         n: 12,
         title: "RMS-099 Rick Dias",
         ja: "2006-10-27",
+        u: "uc",
       },
       {
         n: 13,
         title: "RMS-108 Marasai",
         ja: "2006-10-27",
+        u: "uc",
       },
       {
         n: 14,
         title: "Rekka Musha Gundam",
         ja: "2007-01-26",
+        u: "sd",
       },
       {
         n: 15,
         title: "The Newtype: Challia Bull",
         ja: "2007-01-26",
+        u: "uc",
       },
     ],
     releases: [

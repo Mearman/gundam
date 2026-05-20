@@ -1331,7 +1331,7 @@ export const ENTRIES: Entry[] = [
   },
   {
     detailId: "gundam_evolve_2001_ova",
-    u: ["uc", "fc", "aw"],
+    u: ["uc", "fc", "ce", "ac", "sd"],
     d: "various",
     t: "Gundam Evolve",
     n: "15 shorts spanning UC, FC, and AW",

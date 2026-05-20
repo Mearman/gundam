@@ -97,6 +97,7 @@ function markClass(lang: string): string {
 interface TimelineEntryProps {
   entry: StackedEntry | StoryStackedEntry;
   universe: Universe;
+  allUniverses: Universe[];
   filters: Filters;
   left: number;
   width: number;
@@ -107,6 +108,7 @@ interface TimelineEntryProps {
 function TimelineEntry({
   entry: e,
   universe: u,
+  allUniverses,
   filters,
   left,
   width,
@@ -205,7 +207,15 @@ function TimelineEntry({
           }}
         />
       </div>
-      {hovered && <Tooltip entry={e} universe={u} x={pos.x} y={pos.y} />}
+      {hovered && (
+        <Tooltip
+          entry={e}
+          universe={u}
+          allUniverses={allUniverses}
+          x={pos.x}
+          y={pos.y}
+        />
+      )}
     </>
   );
 }
@@ -231,11 +241,12 @@ function formatRelease(release: DetailRelease): string {
 interface TooltipProps {
   entry: StackedEntry | StoryStackedEntry;
   universe: Universe;
+  allUniverses: Universe[];
   x: number;
   y: number;
 }
 
-function Tooltip({ entry: e, universe: u, x, y }: TooltipProps) {
+function Tooltip({ entry: e, universe: u, allUniverses, x, y }: TooltipProps) {
   const ttW = 540;
   const ttH = 480;
   let left = x + 16;
@@ -305,7 +316,14 @@ function Tooltip({ entry: e, universe: u, x, y }: TooltipProps) {
       <div className={s.ttGrid}>
         <span className={s.ttKey}>Universe</span>
         <span className={s.ttVal}>
-          {u.name} · {u.abbr}
+          {Array.isArray(e.u)
+            ? e.u
+                .map((uid) => {
+                  const found = allUniverses.find((uv) => uv.id === uid);
+                  return found ? `${found.name} · ${found.abbr}` : uid;
+                })
+                .join(", ")
+            : `${u.name} · ${u.abbr}`}
         </span>
         <span className={s.ttKey}>In-univ.</span>
         <span className={s.ttVal}>{e.d}</span>
@@ -573,6 +591,7 @@ function BothConnectors({
 interface StoryEntriesProps {
   storyItems: StoryStackedEntry[];
   universe: Universe;
+  allUniverses: Universe[];
   filters: Filters;
   trackContentWidth: number;
   mode: AxisMode;
@@ -583,6 +602,7 @@ interface StoryEntriesProps {
 function StoryEntries({
   storyItems,
   universe,
+  allUniverses,
   filters,
   trackContentWidth,
   mode,
@@ -624,6 +644,7 @@ function StoryEntries({
             key={`s-${universe.id}-${String(item.storyStart)}-${item.t}`}
             entry={item}
             universe={universe}
+            allUniverses={allUniverses}
             filters={filters}
             left={xStart}
             width={width}
@@ -976,6 +997,7 @@ export function TimelineLanes({
                             key={`r-${u.id}-${String(e.y1)}-${e.t}`}
                             entry={e}
                             universe={u}
+                            allUniverses={universes}
                             filters={filters}
                             left={left}
                             width={width}
@@ -990,6 +1012,7 @@ export function TimelineLanes({
                         <StoryEntries
                           storyItems={storyItems}
                           universe={u}
+                          allUniverses={universes}
                           filters={filters}
                           trackContentWidth={geo.trackContentWidth}
                           mode={mode}
