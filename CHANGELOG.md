@@ -1,3 +1,9 @@
+## [1.14.0](https://github.com/Mearman/gundam/compare/v1.13.0...v1.14.0) (2026-05-20)
+
+### Features
+
+* update relations to 174 entries, refresh detail data ([4167904](https://github.com/Mearman/gundam/commit/416790447f8a1f6cce7a29a61582127e0305d085))
+
 ## [1.13.0](https://github.com/Mearman/gundam/compare/v1.12.0...v1.13.0) (2026-05-20)
 
 ### Features
