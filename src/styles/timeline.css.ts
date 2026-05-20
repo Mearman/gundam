@@ -206,6 +206,11 @@ export const tracksCol = style({
   minWidth: 0,
   overflowX: "auto",
   overflowY: "hidden",
+});
+
+export const tracksColWrap = style({
+  flex: 1,
+  minWidth: 0,
   position: "relative",
 });
 

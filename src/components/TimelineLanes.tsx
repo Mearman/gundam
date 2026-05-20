@@ -893,126 +893,128 @@ export function TimelineLanes({
           </div>
         ))}
       </div>
-      <div
-        ref={tracksColRef}
-        className={s.tracksCol}
-        style={{
-          cursor: dragging ? "grabbing" : "grab",
-        }}
-        onPointerDown={handlePointerDown}
-        onPointerMove={handlePointerMove}
-        onPointerUp={handlePointerUp}
-      >
-        <div className={s.tracksInner}>
-          <div style={{ display: showReleaseAxis ? undefined : "none" }}>
-            <YearAxis yearWidth={geo.yearWidth} />
-          </div>
-          <div style={{ position: "relative" }}>
-            {lanes.map(
-              ({
-                universe: u,
-                stackedRelease,
-                storyItems,
-                trackH_R,
-                laneHeight,
-                isAlt,
-                hasVisible,
-                mode,
-                isFallback,
-              }) => (
-                <div
-                  key={u.id}
-                  className={[
-                    s.laneTrackRow,
-                    isAlt ? s.laneTrackRowAlt : "",
-                    !hasVisible ? s.laneTrackRowHidden : "",
-                  ]
-                    .filter(Boolean)
-                    .join(" ")}
-                  style={customStyle({
-                    height: laneHeight,
-                    "--lane-color": u.color,
-                  })}
-                >
-                  {/* Release entries */}
-                  {(mode === "release" || mode === "both") &&
-                    stackedRelease.map((e) => {
-                      const left =
-                        TRACK_PAD_LEFT + (e.y1 - START_YEAR) * geo.yearWidth;
-                      const width = Math.max(
-                        (e.y2 - e.y1 + 1) * geo.yearWidth,
-                        geo.yearWidth,
-                      );
-                      const top = LANE_PAD + e.stack * (ROW_H + ROW_GAP);
-                      return (
-                        <TimelineEntry
-                          key={`r-${u.id}-${String(e.y1)}-${e.t}`}
-                          entry={e}
+      <div className={s.tracksColWrap}>
+        <div
+          ref={tracksColRef}
+          className={s.tracksCol}
+          style={{
+            cursor: dragging ? "grabbing" : "grab",
+          }}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+        >
+          <div className={s.tracksInner}>
+            <div style={{ display: showReleaseAxis ? undefined : "none" }}>
+              <YearAxis yearWidth={geo.yearWidth} />
+            </div>
+            <div style={{ position: "relative" }}>
+              {lanes.map(
+                ({
+                  universe: u,
+                  stackedRelease,
+                  storyItems,
+                  trackH_R,
+                  laneHeight,
+                  isAlt,
+                  hasVisible,
+                  mode,
+                  isFallback,
+                }) => (
+                  <div
+                    key={u.id}
+                    className={[
+                      s.laneTrackRow,
+                      isAlt ? s.laneTrackRowAlt : "",
+                      !hasVisible ? s.laneTrackRowHidden : "",
+                    ]
+                      .filter(Boolean)
+                      .join(" ")}
+                    style={customStyle({
+                      height: laneHeight,
+                      "--lane-color": u.color,
+                    })}
+                  >
+                    {/* Release entries */}
+                    {(mode === "release" || mode === "both") &&
+                      stackedRelease.map((e) => {
+                        const left =
+                          TRACK_PAD_LEFT + (e.y1 - START_YEAR) * geo.yearWidth;
+                        const width = Math.max(
+                          (e.y2 - e.y1 + 1) * geo.yearWidth,
+                          geo.yearWidth,
+                        );
+                        const top = LANE_PAD + e.stack * (ROW_H + ROW_GAP);
+                        return (
+                          <TimelineEntry
+                            key={`r-${u.id}-${String(e.y1)}-${e.t}`}
+                            entry={e}
+                            universe={u}
+                            filters={filters}
+                            left={left}
+                            width={width}
+                            top={top}
+                          />
+                        );
+                      })}
+
+                    {/* Story entries */}
+                    {(mode === "story" || mode === "both") &&
+                      storyItems.length > 0 && (
+                        <StoryEntries
+                          storyItems={storyItems}
                           universe={u}
                           filters={filters}
-                          left={left}
-                          width={width}
-                          top={top}
+                          trackContentWidth={geo.trackContentWidth}
+                          mode={mode}
+                          trackH_R={trackH_R}
+                          yearWidth={geo.yearWidth}
                         />
-                      );
-                    })}
+                      )}
 
-                  {/* Story entries */}
-                  {(mode === "story" || mode === "both") &&
-                    storyItems.length > 0 && (
-                      <StoryEntries
-                        storyItems={storyItems}
+                    {/* Release-mode fallback axis */}
+                    {isFallback && (
+                      <StoryAxis
+                        range={{ min: START_YEAR, max: END_YEAR }}
+                        bounds={{
+                          xStart: TRACK_PAD_LEFT,
+                          xEnd: TRACK_PAD_LEFT + geo.releaseTrackWidth,
+                        }}
                         universe={u}
-                        filters={filters}
-                        trackContentWidth={geo.trackContentWidth}
-                        mode={mode}
-                        trackH_R={trackH_R}
-                        yearWidth={geo.yearWidth}
+                        topOffset={LANE_PAD + trackH_R + 2}
                       />
                     )}
 
-                  {/* Release-mode fallback axis */}
-                  {isFallback && (
-                    <StoryAxis
-                      range={{ min: START_YEAR, max: END_YEAR }}
-                      bounds={{
-                        xStart: TRACK_PAD_LEFT,
-                        xEnd: TRACK_PAD_LEFT + geo.releaseTrackWidth,
-                      }}
-                      universe={u}
-                      topOffset={LANE_PAD + trackH_R + 2}
-                    />
-                  )}
+                    {/* Both-mode connectors */}
+                    {mode === "both" && storyItems.length > 0 && (
+                      <BothConnectors
+                        stackedRelease={stackedRelease}
+                        storyItems={storyItems}
+                        universe={u}
+                        trackH_R={trackH_R}
+                        trackContentWidth={geo.trackContentWidth}
+                        yearWidth={geo.yearWidth}
+                      />
+                    )}
+                  </div>
+                ),
+              )}
 
-                  {/* Both-mode connectors */}
-                  {mode === "both" && storyItems.length > 0 && (
-                    <BothConnectors
-                      stackedRelease={stackedRelease}
-                      storyItems={storyItems}
-                      universe={u}
-                      trackH_R={trackH_R}
-                      trackContentWidth={geo.trackContentWidth}
-                      yearWidth={geo.yearWidth}
-                    />
-                  )}
-                </div>
-              ),
-            )}
-
-            {/* Relationship overlay (story-only mode) */}
-            {globalMode === "story" && (
-              <RelationshipOverlay
-                universes={universes}
-                trackContentWidth={geo.trackContentWidth}
-                offset={TRACK_PAD_LEFT}
-                globalMode={globalMode}
-                laneLayouts={laneLayouts}
-              />
-            )}
+              {/* Relationship overlay (story-only mode) */}
+              {globalMode === "story" && (
+                <RelationshipOverlay
+                  universes={universes}
+                  trackContentWidth={geo.trackContentWidth}
+                  offset={TRACK_PAD_LEFT}
+                  globalMode={globalMode}
+                  laneLayouts={laneLayouts}
+                />
+              )}
+            </div>
           </div>
         </div>
 
-        {/* Zoom controls */}
+        {/* Zoom controls — outside scroll container */}
         <div
           className={s.zoomControls}
           onPointerDown={(e) => {
