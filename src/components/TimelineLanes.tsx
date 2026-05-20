@@ -5,6 +5,7 @@ import {
   useRef,
   useEffect,
   useLayoutEffect,
+  Fragment,
 } from "react";
 import type { CSSProperties } from "react";
 import type {
@@ -18,6 +19,11 @@ import type {
 import { entryInUniverse } from "../data/types";
 import { getEntryDetail } from "../data/details";
 import type { DetailRelease } from "../data/details";
+import {
+  getRelationsForEntry,
+  RELATION_LABELS,
+  INVERSE_RELATION_LABELS,
+} from "../data/relations";
 import {
   matchesMediaFilter,
   MEDIA_ICONS,
@@ -274,6 +280,13 @@ function Tooltip({ entry: e, universe: u, allUniverses, x, y }: TooltipProps) {
   const detail =
     e.detailId === undefined ? undefined : getEntryDetail(e.detailId);
 
+  const relations =
+    e.detailId === undefined
+      ? { outgoing: [], incoming: [] }
+      : getRelationsForEntry(e.detailId);
+  const hasRelations =
+    relations.outgoing.length > 0 || relations.incoming.length > 0;
+
   const mediaNames: Record<string, string> = {
     tv: "TV series",
     ova: "OVA",
@@ -388,6 +401,36 @@ function Tooltip({ entry: e, universe: u, allUniverses, x, y }: TooltipProps) {
             )}
             <span className={s.ttKey}>Source</span>
             <span className={`${s.ttVal} ${s.ttSource}`}>{detail.source}</span>
+
+            {/* Relations */}
+            {hasRelations && (
+              <>
+                {relations.outgoing.map((rel, i) => {
+                  const target = getEntryDetail(rel.to);
+                  return (
+                    <Fragment key={`out-${String(i)}`}>
+                      <span className={s.ttKey}>
+                        {RELATION_LABELS[rel.type]}
+                      </span>
+                      <span className={s.ttVal}>{target?.title ?? rel.to}</span>
+                    </Fragment>
+                  );
+                })}
+                {relations.incoming.map((rel, i) => {
+                  const source = getEntryDetail(rel.from);
+                  return (
+                    <Fragment key={`in-${String(i)}`}>
+                      <span className={s.ttKey}>
+                        {INVERSE_RELATION_LABELS[rel.type]}
+                      </span>
+                      <span className={s.ttVal}>
+                        {source?.title ?? rel.from}
+                      </span>
+                    </Fragment>
+                  );
+                })}
+              </>
+            )}
           </>
         )}
       </div>
