@@ -1,3 +1,9 @@
+## [1.10.0](https://github.com/Mearman/gundam/compare/v1.9.1...v1.10.0) (2026-05-20)
+
+### Features
+
+* add SEED Destiny Astray R, enrich Astray manga data ([4c62560](https://github.com/Mearman/gundam/commit/4c6256074b0844c348a0c42292c3253cc442f3a7))
+
 ## [1.9.1](https://github.com/Mearman/gundam/compare/v1.9.0...v1.9.1) (2026-05-20)
 
 ### Chores
