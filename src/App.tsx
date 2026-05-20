@@ -101,9 +101,9 @@ function App() {
         subs or translation. <em>Memory of Eden</em>, the Turn A compilation
         films, <em>Twilight AXIS</em>, <em>Build Real</em>, and a few SD shorts
         have subs but no dub. Two notable UC novels (
-        <em>Beltorchika&apos;s Children</em>, <em>Frozen Teardrop</em>) and G
-        Gundam&apos;s <em>7th &amp; 8th MS Stage</em> OVA have no official
-        English release at all.
+        <em>Beltorchika&apos;s Children</em>, <em>Frozen Teardrop</em>) and
+        <em>Kidō Butōden Gaiden Gundam Fight 7th</em> have no official English
+        release at all.
       </footer>
     </>
   );

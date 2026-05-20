@@ -499,7 +499,7 @@ export const tooltip = style({
   background: "#1a1d21",
   border: "1px solid #3a3f47",
   padding: "14px 16px",
-  maxWidth: 360,
+  maxWidth: 460,
   zIndex: 100,
   pointerEvents: "none",
   opacity: 0,
@@ -556,6 +556,20 @@ export const ttKey = style({
 
 export const ttVal = style({
   color: "#e8e9ec",
+});
+
+export const ttReleaseList = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: 3,
+});
+
+export const ttReleaseItem = style({
+  lineHeight: 1.35,
+});
+
+export const ttSource = style({
+  overflowWrap: "anywhere",
 });
 
 /* ─── Footer ──────────────────────────────────────────── */

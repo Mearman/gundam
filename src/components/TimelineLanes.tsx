@@ -8,6 +8,8 @@ import type {
   Filters,
   AxisMode,
 } from "../data/types";
+import { getEntryDetail } from "../data/details";
+import type { DetailRelease, EntryDetail } from "../data/details";
 import {
   matchesMediaFilter,
   MEDIA_ICONS,
@@ -43,6 +45,8 @@ import {
 } from "./timelineGeometry";
 
 type CustomStyle = CSSProperties & Record<`--${string}`, string>;
+
+const MAX_TOOLTIP_RELEASES = 3;
 
 function customStyle(style: CustomStyle): CustomStyle {
   return style;
@@ -187,6 +191,30 @@ function TimelineEntry({
 
 // ── Tooltip ─────────────────────────────────────────────
 
+function formatReleaseDateRange(release: DetailRelease): string {
+  if (release.end === undefined || release.end === release.start) {
+    return release.start;
+  }
+  return `${release.start} – ${release.end}`;
+}
+
+function formatRelease(release: DetailRelease): string {
+  const region = release.region.toUpperCase();
+  const channel = release.channel.replaceAll("_", " ");
+  const schedule = release.schedule.replaceAll("-", " ");
+  return `${region} · ${release.label} · ${channel} · ${formatReleaseDateRange(
+    release,
+  )} · ${schedule}`;
+}
+
+function formatDetailSummary(detail: EntryDetail): string {
+  const itemLabel = detail.episodes.length === 1 ? "item" : "items";
+  const releaseLabel = detail.releases.length === 1 ? "context" : "contexts";
+  return `${String(detail.episodes.length)} ${itemLabel} · ${String(
+    detail.releases.length,
+  )} release ${releaseLabel}`;
+}
+
 interface TooltipProps {
   entry: StackedEntry | StoryStackedEntry;
   universe: Universe;
@@ -195,8 +223,8 @@ interface TooltipProps {
 }
 
 function Tooltip({ entry: e, universe: u, x, y }: TooltipProps) {
-  const ttW = 360;
-  const ttH = 220;
+  const ttW = 460;
+  const ttH = 360;
   let left = x + 16;
   let top = y + 12;
   if (left + ttW > (typeof window !== "undefined" ? window.innerWidth : 1200))
@@ -219,6 +247,17 @@ function Tooltip({ entry: e, universe: u, x, y }: TooltipProps) {
     ja: "Japanese text only, untranslated",
     tba: "Format & language TBA",
   };
+  const detail =
+    e.detailId === undefined ? undefined : getEntryDetail(e.detailId);
+  const releasePreview =
+    detail === undefined
+      ? undefined
+      : detail.releases.slice(0, MAX_TOOLTIP_RELEASES);
+  const hiddenReleaseCount =
+    detail === undefined || releasePreview === undefined
+      ? undefined
+      : detail.releases.length - releasePreview.length;
+
   const mediaNames: Record<string, string> = {
     tv: "TV series",
     ova: "OVA",
@@ -263,6 +302,30 @@ function Tooltip({ entry: e, universe: u, x, y }: TooltipProps) {
         <span className={s.ttVal}>{audioLabel[e.a]}</span>
         <span className={s.ttKey}>Text</span>
         <span className={s.ttVal}>{textLabel[e.s]}</span>
+        {detail !== undefined && releasePreview !== undefined && (
+          <>
+            <span className={s.ttKey}>Details</span>
+            <span className={s.ttVal}>{formatDetailSummary(detail)}</span>
+            <span className={s.ttKey}>Releases</span>
+            <span className={`${s.ttVal} ${s.ttReleaseList}`}>
+              {releasePreview.map((release) => (
+                <span
+                  key={`${release.region}-${release.channel}-${release.start}-${release.label}`}
+                  className={s.ttReleaseItem}
+                >
+                  {formatRelease(release)}
+                </span>
+              ))}
+              {hiddenReleaseCount !== undefined && hiddenReleaseCount > 0 && (
+                <span className={s.ttReleaseItem}>
+                  +{String(hiddenReleaseCount)} more release contexts
+                </span>
+              )}
+            </span>
+            <span className={s.ttKey}>Source</span>
+            <span className={`${s.ttVal} ${s.ttSource}`}>{detail.source}</span>
+          </>
+        )}
       </div>
     </div>
   );
