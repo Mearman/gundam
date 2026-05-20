@@ -49,7 +49,7 @@ export interface EntryDetail {
   releases: DetailRelease[];
 }
 
-export const ENTRY_DETAILS_COMMENT = `Detailed per-episode/chapter/volume release data for Gundam entries.`;
+export const ENTRY_DETAILS_COMMENT = `Detailed per-episode/chapter/volume release data for Gundam entries. Keys are stable IDs mapping into the main ENTRIES table. Dates are ISO 8601. ja = Japanese release; en = English/international release (where different from ja). releases[] contains multi-channel release contexts with schedule field: weekly (broadcast, per-episode dates may exist), simulcast (streaming same-day as ja, en == ja so per-episode en omitted), box-set (home video, no per-episode dates), theatrical (single-date film), serial (print/ongoing publication). Episode numbering: integers (1, 2, 3...) for sequential episodes; 0 for prologues; floats like 15.5 for recap episodes; strings like SP1, SP2 for specials, G1/G2/G3 for gekijou (theatre) shorts. Per-episode u field overrides entry-level universe for multi-universe series.`;
 
 export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
   advance_of_zeta_titans_2012_manga: {
@@ -8748,21 +8748,26 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2012",
+        ja: "2013-03",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2014-05",
       },
     ],
     releases: [
       {
         region: "ja",
-        channel: "print",
-        label: "Kadokawa Gundam Ace",
-        start: "2012-03-26",
-        end: "2013",
+        channel: "serial",
+        label: "Hobby Japan",
+        start: "2013-03",
+        end: "2014-05",
         schedule: "serial",
       },
     ],
     author: "Tomohiro Chiba (story), Eiichi Shimizu (art)",
-    publisher: "ASCII Media Works",
+    publisher: "Kadokawa ASCII Media Works",
     magazine: "Hobby Japan",
   },
   seed_astray_manga: {
@@ -8858,7 +8863,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     magazine: "Shōnen Ace",
   },
   seed_delta_astray_2006_manga: {
-    title: "Mobile Suit Gundam SEED Destiny Astray R",
+    title: "Mobile Suit Gundam SEED C.E.73 Δ (Delta) Astray",
     u: "ce",
     type: "manga",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
@@ -8867,6 +8872,11 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         n: 1,
         title: "Volume 1",
         ja: "2006",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2007",
       },
     ],
     releases: [
@@ -9242,7 +9252,22 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2004",
+        ja: "2005-01",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2005-07",
+      },
+      {
+        n: 3,
+        title: "Volume 3",
+        ja: "2005-11",
+      },
+      {
+        n: 4,
+        title: "Volume 4",
+        ja: "2006-06",
       },
     ],
     releases: [
@@ -9258,6 +9283,37 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
     publisher: "Kadokawa Shoten",
     magazine: "Gundam Ace",
+  },
+  seed_destiny_astray_r_2013_manga: {
+    title: "Mobile Suit Gundam SEED Destiny Astray R",
+    u: "ce",
+    type: "manga",
+    author: "Tomohiro Chiba (story), Kunio Okawara (mechanical design)",
+    publisher: "ASCII Media Works",
+    source:
+      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Destiny_Astray_R",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2013-06",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2014-05",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "serial",
+        label: "Dengeki Hobby Magazine",
+        start: "2013-06",
+        end: "2014-05",
+        schedule: "serial",
+      },
+    ],
   },
   seed_destiny_edge_2005_manga: {
     title: "Mobile Suit Gundam SEED Destiny: The Edge",
@@ -9492,7 +9548,12 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2007",
+        ja: "2008-04",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2008-11",
       },
     ],
     releases: [
@@ -9724,7 +9785,12 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2010",
+        ja: "2010-05",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2011-01",
       },
     ],
     releases: [
