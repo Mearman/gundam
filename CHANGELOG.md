@@ -1,3 +1,9 @@
+## [1.14.1](https://github.com/Mearman/gundam/compare/v1.14.0...v1.14.1) (2026-05-20)
+
+### Chores
+
+* refresh detail data and relations from updated JSON ([ce0ab77](https://github.com/Mearman/gundam/commit/ce0ab77264e7da4ba54a98785ebff2405ec9d2c4))
+
 ## [1.14.0](https://github.com/Mearman/gundam/compare/v1.13.0...v1.14.0) (2026-05-20)
 
 ### Features
