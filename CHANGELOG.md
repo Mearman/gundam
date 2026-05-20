@@ -1,3 +1,9 @@
+## [1.5.0](https://github.com/Mearman/gundam/compare/v1.4.5...v1.5.0) (2026-05-20)
+
+### Features
+
+* show all detail data in entry tooltips ([6b9ef26](https://github.com/Mearman/gundam/commit/6b9ef26fd6d535e1b91aa87b907c15a4862781bb))
+
 ## [1.4.5](https://github.com/Mearman/gundam/compare/v1.4.4...v1.4.5) (2026-05-20)
 
 ### Chores
