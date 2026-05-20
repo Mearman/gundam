@@ -1,3 +1,9 @@
+## [1.4.3](https://github.com/Mearman/gundam/compare/v1.4.2...v1.4.3) (2026-05-20)
+
+### Bug Fixes
+
+* configure semantic-release to commit version bump to package.json ([e08302c](https://github.com/Mearman/gundam/commit/e08302cccc305321298878d8da34c69079db28c5))
+
 ## [1.4.2](https://github.com/Mearman/gundam/compare/v1.4.1...v1.4.2) (2026-05-20)
 
 ### Bug Fixes
