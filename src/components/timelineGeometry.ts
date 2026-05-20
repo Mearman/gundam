@@ -17,3 +17,17 @@ export const STORY_AXIS_H = 30;
 export const STORY_TOP_GUTTER = 24;
 export const BOTH_CONNECTOR_H = 48;
 export const STORY_AXIS_LABEL_GAP = 44;
+
+export interface ZoomGeometry {
+  readonly yearWidth: number;
+  readonly releaseTrackWidth: number;
+  readonly trackContentWidth: number;
+}
+
+export function computeZoomGeometry(zoom: number): ZoomGeometry {
+  const yearWidth = YEAR_WIDTH * zoom;
+  const releaseTrackWidth = RELEASE_YEAR_COUNT * yearWidth;
+  const trackContentWidth =
+    TRACK_PAD_LEFT + releaseTrackWidth + TRACK_PAD_RIGHT;
+  return { yearWidth, releaseTrackWidth, trackContentWidth };
+}

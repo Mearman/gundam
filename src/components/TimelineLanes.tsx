@@ -1,4 +1,11 @@
-import { useState, useCallback } from "react";
+import {
+  useState,
+  useCallback,
+  useMemo,
+  useRef,
+  useEffect,
+  useLayoutEffect,
+} from "react";
 import type { CSSProperties } from "react";
 import type {
   Entry,
@@ -26,27 +33,41 @@ import {
 import { YearAxis } from "./YearAxis";
 import { RelationshipOverlay } from "./RelationshipOverlay";
 import type { LaneLayout } from "./RelationshipOverlay";
+import { vars } from "../styles/global.css";
 import * as s from "../styles/timeline.css";
 import {
   BOTH_CONNECTOR_H,
+  computeZoomGeometry,
   END_YEAR,
   LABEL_MIN_HEIGHT,
   LANE_PAD,
-  RELEASE_TRACK_WIDTH,
   ROW_GAP,
   ROW_H,
   START_YEAR,
   STORY_AXIS_H,
   STORY_AXIS_LABEL_GAP,
   STORY_TOP_GUTTER,
-  TRACK_CONTENT_WIDTH,
   TRACK_PAD_LEFT,
-  YEAR_WIDTH,
+  type ZoomGeometry,
 } from "./timelineGeometry";
 
 type CustomStyle = CSSProperties & Record<`--${string}`, string>;
 
 const MAX_TOOLTIP_RELEASES = 3;
+const MIN_ZOOM = 0.25;
+const MAX_ZOOM = 8;
+const ZOOM_WHEEL_FACTOR = 1.1;
+const ZOOM_BTN_FACTOR = 1.3;
+
+// Extract the CSS variable name from VE's var() function value
+// so we can override it on the tracks container for grid lines / min-width
+const YEAR_WIDTH_CSS_VAR = vars.yearWidth
+  .replace(/^var\(/, "")
+  .replace(/\)$/, "");
+
+function clampZoom(z: number): number {
+  return Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, z));
+}
 
 function customStyle(style: CustomStyle): CustomStyle {
   return style;
@@ -431,6 +452,7 @@ interface BothConnectorsProps {
   universe: Universe;
   trackH_R: number;
   trackContentWidth: number;
+  yearWidth: number;
 }
 
 function BothConnectors({
@@ -439,6 +461,7 @@ function BothConnectors({
   universe,
   trackH_R,
   trackContentWidth,
+  yearWidth,
 }: BothConnectorsProps) {
   const range = getStoryRange(universe.id);
   const bounds = getStorySegmentBounds(
@@ -450,8 +473,8 @@ function BothConnectors({
 
   const releasePos = new Map<Entry, { xMid: number; yBottom: number }>();
   for (const e of stackedRelease) {
-    const left = TRACK_PAD_LEFT + (e.y1 - START_YEAR) * YEAR_WIDTH;
-    const width = Math.max((e.y2 - e.y1 + 1) * YEAR_WIDTH, YEAR_WIDTH);
+    const left = TRACK_PAD_LEFT + (e.y1 - START_YEAR) * yearWidth;
+    const width = Math.max((e.y2 - e.y1 + 1) * yearWidth, yearWidth);
     const top = LANE_PAD + e.stack * (ROW_H + ROW_GAP);
     releasePos.set(e, { xMid: left + width / 2, yBottom: top + ROW_H });
   }
@@ -466,7 +489,7 @@ function BothConnectors({
       bounds.xStart + ((item.storyStart - range.min) / span) * segWidth;
     const xEndNat =
       bounds.xStart + ((item.storyEnd - range.min) / span) * segWidth;
-    let width = Math.max(xEndNat - xStart, YEAR_WIDTH);
+    let width = Math.max(xEndNat - xStart, yearWidth);
     if (xStart + width > bounds.xEnd) {
       xStart = bounds.xEnd - width;
       if (xStart < bounds.xStart) {
@@ -529,6 +552,7 @@ interface StoryEntriesProps {
   trackContentWidth: number;
   mode: AxisMode;
   trackH_R: number;
+  yearWidth: number;
 }
 
 function StoryEntries({
@@ -538,6 +562,7 @@ function StoryEntries({
   trackContentWidth,
   mode,
   trackH_R,
+  yearWidth,
 }: StoryEntriesProps) {
   const range = getStoryRange(universe.id);
   const bounds = getStorySegmentBounds(
@@ -560,7 +585,7 @@ function StoryEntries({
           bounds.xStart + ((item.storyStart - range.min) / span) * segWidth;
         const xEndNat =
           bounds.xStart + ((item.storyEnd - range.min) / span) * segWidth;
-        let width = Math.max(xEndNat - xStart, YEAR_WIDTH);
+        let width = Math.max(xEndNat - xStart, yearWidth);
         if (xStart + width > bounds.xEnd) {
           xStart = bounds.xEnd - width;
           if (xStart < bounds.xStart) {
@@ -612,8 +637,134 @@ export function TimelineLanes({
 }: TimelineLanesProps) {
   const globalMode = filters.axis;
   const showReleaseAxis = globalMode !== "story";
-  const trackContentWidth = TRACK_CONTENT_WIDTH;
 
+  // ── Zoom state ──────────────────────────────────────────
+  const [zoom, setZoom] = useState(1);
+  const geo: ZoomGeometry = useMemo(() => computeZoomGeometry(zoom), [zoom]);
+
+  const tracksColRef = useRef<HTMLDivElement>(null);
+  const isDraggingRef = useRef(false);
+  const lastPointerXRef = useRef(0);
+  const [dragging, setDragging] = useState(false);
+
+  // Ref to carry the desired scroll position across the render boundary
+  const pendingScrollRef = useRef<number | null>(null);
+  const zoomRef = useRef(zoom);
+  zoomRef.current = zoom;
+
+  // ── Override the CSS --yearWidth variable on the tracks container ──
+  // This cascades to grid lines (laneTrackRow::before) and
+  // tracksInner min-width, both of which reference the variable.
+  useLayoutEffect(() => {
+    const el = tracksColRef.current;
+    if (!el) return;
+    el.style.setProperty(YEAR_WIDTH_CSS_VAR, `${String(geo.yearWidth)}px`);
+
+    // Apply any scroll adjustment queued by the wheel handler
+    if (pendingScrollRef.current !== null) {
+      el.scrollLeft = pendingScrollRef.current;
+      pendingScrollRef.current = null;
+    }
+
+    return () => {
+      el.style.removeProperty(YEAR_WIDTH_CSS_VAR);
+    };
+  }, [geo.yearWidth]);
+
+  // ── Non-passive wheel handler: Ctrl/Cmd+wheel = zoom, plain = pan ──
+  useEffect(() => {
+    const el = tracksColRef.current;
+    if (!el) return;
+
+    function onWheel(e: WheelEvent) {
+      if (el === null) return;
+      if (e.ctrlKey || e.metaKey) {
+        e.preventDefault();
+        const rect = el.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left;
+
+        const oldZoom = zoomRef.current;
+        const newZoom = clampZoom(
+          e.deltaY < 0
+            ? oldZoom * ZOOM_WHEEL_FACTOR
+            : oldZoom / ZOOM_WHEEL_FACTOR,
+        );
+
+        // Content pixel under cursor, in old coordinates
+        const contentX = el.scrollLeft + mouseX;
+        // After zoom, that content pixel moves to contentX * (new/old)
+        // We want it at mouseX from viewport left, so:
+        const newScrollLeft = contentX * (newZoom / oldZoom) - mouseX;
+        pendingScrollRef.current = newScrollLeft;
+
+        setZoom(newZoom);
+      } else {
+        e.preventDefault();
+        el.scrollLeft += e.deltaY;
+      }
+    }
+
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => {
+      el.removeEventListener("wheel", onWheel);
+    };
+  }, []);
+
+  // ── Drag-to-pan ─────────────────────────────────────────
+  const handlePointerDown = useCallback(
+    (e: React.PointerEvent<HTMLDivElement>) => {
+      if (e.pointerType === "touch") return;
+      if (e.button !== 0) return;
+      // Don't initiate drag from zoom controls
+      if (
+        e.target instanceof Element &&
+        e.target.closest(`.${s.zoomControls}`) !== null
+      )
+        return;
+      isDraggingRef.current = true;
+      lastPointerXRef.current = e.clientX;
+      setDragging(true);
+      e.currentTarget.setPointerCapture(e.pointerId);
+    },
+    [],
+  );
+
+  const handlePointerMove = useCallback(
+    (e: React.PointerEvent<HTMLDivElement>) => {
+      if (!isDraggingRef.current) return;
+      const dx = e.clientX - lastPointerXRef.current;
+      lastPointerXRef.current = e.clientX;
+      const el = tracksColRef.current;
+      if (el) el.scrollLeft -= dx;
+    },
+    [],
+  );
+
+  const handlePointerUp = useCallback(() => {
+    isDraggingRef.current = false;
+    setDragging(false);
+  }, []);
+
+  // ── Zoom control buttons ────────────────────────────────
+  const zoomAtCenter = useCallback((factor: number) => {
+    const el = tracksColRef.current;
+    if (!el) return;
+    const oldZoom = zoomRef.current;
+    const newZoom = clampZoom(oldZoom * factor);
+    const rect = el.getBoundingClientRect();
+    const cx = rect.width / 2;
+    const contentX = el.scrollLeft + cx;
+    pendingScrollRef.current = contentX * (newZoom / oldZoom) - cx;
+    setZoom(newZoom);
+  }, []);
+
+  const resetZoom = useCallback(() => {
+    setZoom(1);
+    const el = tracksColRef.current;
+    if (el !== null) el.scrollLeft = 0;
+  }, []);
+
+  // ── Lane layout computation ─────────────────────────────
   let laneIdx = 0;
 
   const lanes = universes
@@ -657,7 +808,6 @@ export function TimelineLanes({
         laneHeight = Math.max(LABEL_MIN_HEIGHT, trackH_R + 2 * LANE_PAD);
       }
 
-      // Check visibility under current filters
       const hasVisible = stackedRelease.some((e) => {
         const okMedia = matchesMediaFilter(filters.media, e.m);
         const okAudio = filters.audio === "all" || filters.audio === e.a;
@@ -702,6 +852,8 @@ export function TimelineLanes({
     nextLaneTop += lane.laneHeight;
   }
 
+  const pct = Math.round(zoom * 100);
+
   return (
     <>
       <div className={s.labelsCol}>
@@ -735,10 +887,19 @@ export function TimelineLanes({
           </div>
         ))}
       </div>
-      <div className={s.tracksCol}>
+      <div
+        ref={tracksColRef}
+        className={s.tracksCol}
+        style={{
+          cursor: dragging ? "grabbing" : "grab",
+        }}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+      >
         <div className={s.tracksInner}>
           <div style={{ display: showReleaseAxis ? undefined : "none" }}>
-            <YearAxis />
+            <YearAxis yearWidth={geo.yearWidth} />
           </div>
           <div style={{ position: "relative" }}>
             {lanes.map(
@@ -771,10 +932,10 @@ export function TimelineLanes({
                   {(mode === "release" || mode === "both") &&
                     stackedRelease.map((e) => {
                       const left =
-                        TRACK_PAD_LEFT + (e.y1 - START_YEAR) * YEAR_WIDTH;
+                        TRACK_PAD_LEFT + (e.y1 - START_YEAR) * geo.yearWidth;
                       const width = Math.max(
-                        (e.y2 - e.y1 + 1) * YEAR_WIDTH,
-                        YEAR_WIDTH,
+                        (e.y2 - e.y1 + 1) * geo.yearWidth,
+                        geo.yearWidth,
                       );
                       const top = LANE_PAD + e.stack * (ROW_H + ROW_GAP);
                       return (
@@ -797,9 +958,10 @@ export function TimelineLanes({
                         storyItems={storyItems}
                         universe={u}
                         filters={filters}
-                        trackContentWidth={trackContentWidth}
+                        trackContentWidth={geo.trackContentWidth}
                         mode={mode}
                         trackH_R={trackH_R}
+                        yearWidth={geo.yearWidth}
                       />
                     )}
 
@@ -809,7 +971,7 @@ export function TimelineLanes({
                       range={{ min: START_YEAR, max: END_YEAR }}
                       bounds={{
                         xStart: TRACK_PAD_LEFT,
-                        xEnd: TRACK_PAD_LEFT + RELEASE_TRACK_WIDTH,
+                        xEnd: TRACK_PAD_LEFT + geo.releaseTrackWidth,
                       }}
                       universe={u}
                       topOffset={LANE_PAD + trackH_R + 2}
@@ -823,7 +985,8 @@ export function TimelineLanes({
                       storyItems={storyItems}
                       universe={u}
                       trackH_R={trackH_R}
-                      trackContentWidth={trackContentWidth}
+                      trackContentWidth={geo.trackContentWidth}
+                      yearWidth={geo.yearWidth}
                     />
                   )}
                 </div>
@@ -834,13 +997,52 @@ export function TimelineLanes({
             {globalMode === "story" && (
               <RelationshipOverlay
                 universes={universes}
-                trackContentWidth={trackContentWidth}
+                trackContentWidth={geo.trackContentWidth}
                 offset={TRACK_PAD_LEFT}
                 globalMode={globalMode}
                 laneLayouts={laneLayouts}
               />
             )}
           </div>
+        </div>
+
+        {/* Zoom controls */}
+        <div
+          className={s.zoomControls}
+          onPointerDown={(e) => {
+            e.stopPropagation();
+          }}
+        >
+          <button
+            type="button"
+            className={s.zoomBtn}
+            onClick={() => {
+              zoomAtCenter(1 / ZOOM_BTN_FACTOR);
+            }}
+            aria-label="Zoom out"
+          >
+            −
+          </button>
+          <span className={s.zoomLabel}>{pct}%</span>
+          <button
+            type="button"
+            className={s.zoomBtn}
+            onClick={() => {
+              zoomAtCenter(ZOOM_BTN_FACTOR);
+            }}
+            aria-label="Zoom in"
+          >
+            +
+          </button>
+          {zoom !== 1 && (
+            <button
+              type="button"
+              className={s.zoomBtnReset}
+              onClick={resetZoom}
+            >
+              Reset
+            </button>
+          )}
         </div>
       </div>
     </>

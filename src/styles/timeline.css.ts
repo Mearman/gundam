@@ -206,6 +206,7 @@ export const tracksCol = style({
   minWidth: 0,
   overflowX: "auto",
   overflowY: "hidden",
+  position: "relative",
 });
 
 export const tracksInner = style({
@@ -634,4 +635,73 @@ export const laneStoryAxisYear = style({
   fontSize: 9,
   lineHeight: 1,
   letterSpacing: 0,
+});
+
+/* ─── Zoom controls ─────────────────────────────────── */
+
+export const zoomControls = style({
+  position: "absolute",
+  bottom: 12,
+  right: 12,
+  display: "flex",
+  alignItems: "center",
+  gap: 4,
+  background: "rgba(10, 11, 13, 0.88)",
+  backdropFilter: "blur(8px)",
+  WebkitBackdropFilter: "blur(8px)",
+  border: "1px solid #2a2e34",
+  padding: "4px 8px",
+  zIndex: 20,
+  userSelect: "none",
+});
+
+export const zoomBtn = style({
+  background: "transparent",
+  border: "1px solid #3a3f47",
+  color: "#9aa0a8",
+  width: 28,
+  height: 28,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  cursor: "pointer",
+  fontSize: 16,
+  fontFamily: "inherit",
+  padding: 0,
+  selectors: {
+    "&:hover": {
+      color: "#e8e9ec",
+      borderColor: "#5a6068",
+    },
+  },
+});
+
+export const zoomLabel = style({
+  color: "#9aa0a8",
+  fontSize: 11,
+  fontFamily: "'JetBrains Mono', monospace",
+  minWidth: 44,
+  textAlign: "center",
+});
+
+export const zoomBtnReset = style({
+  background: "transparent",
+  border: "1px solid #3a3f47",
+  color: "#9aa0a8",
+  height: 28,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  cursor: "pointer",
+  fontSize: 10,
+  fontFamily: "inherit",
+  padding: "0 8px",
+  letterSpacing: "0.06em",
+  textTransform: "uppercase" as const,
+  selectors: {
+    "&:hover": {
+      color: "#e8e9ec",
+      borderColor: "#5a6068",
+    },
+  },
 });
