@@ -62,14 +62,7 @@ export interface Filters {
   axis: AxisMode;
 }
 
-export type DetailMediaType =
-  | "film"
-  | "live-action"
-  | "manga"
-  | "novel"
-  | "ona"
-  | "ova"
-  | "tv";
+// DetailMediaType removed — media type is on Entry.m
 
 export type ReleaseSchedule =
   | "box-set"
@@ -102,8 +95,6 @@ export interface DetailRelease {
 
 export interface EntryDetail {
   title: { ja: string; en: string };
-  u: string | string[];
-  type: DetailMediaType;
   source: string;
   author?: string;
   publisher?: string;
@@ -114,10 +105,29 @@ export interface EntryDetail {
 }
 
 // ── Compact data factories ──────────────────────────────────
-// Used in universe module files to keep episode/release data
-// on a single line instead of 5-8 lines per object.
+// Used in universe module files to keep data on as few lines
+// as possible. Each factory produces the same runtime objects
+// as the old verbose object literals.
 
-/** Compact episode constructor. Fields after `ja` are optional keyword-style. */
+/** Compact timeline entry constructor. `n` is optional trailing string. */
+export function entry(
+  detailId: string,
+  u: string | string[],
+  d: string,
+  t: string,
+  y1: number,
+  y2: number,
+  m: MediaKind,
+  a: AudioLang,
+  s: TextLang,
+  n?: string,
+): Entry {
+  const out: Entry = { detailId, u, d, t, y1, y2, m, a, s };
+  if (n !== undefined) out.n = n;
+  return out;
+}
+
+/** Compact episode constructor. */
 export function ep(
   n: number | string,
   jaTitle: string | null,
@@ -127,7 +137,7 @@ export function ep(
     en?: string;
     season?: number;
     cours?: number;
-    u?: string;
+    u?: string | string[];
     note?: string;
   },
 ): DetailEpisode {

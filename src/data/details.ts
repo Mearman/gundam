@@ -1,6 +1,5 @@
 // Re-export detail types from types.ts
 export type {
-  DetailMediaType,
   ReleaseSchedule,
   DetailEpisode,
   DetailRelease,
