@@ -39,7 +39,7 @@ import {
 } from "../data/story";
 import { YearAxis } from "./YearAxis";
 import { RelationshipOverlay } from "./RelationshipOverlay";
-import type { LaneLayout } from "./RelationshipOverlay";
+import type { LaneLayout, LaneEntries } from "./RelationshipOverlay";
 import { vars } from "../styles/global.css";
 import * as s from "../styles/timeline.css";
 import {
@@ -935,6 +935,7 @@ export function TimelineLanes({
     .filter((lane): lane is NonNullable<typeof lane> => lane !== null);
 
   const laneLayouts = new Map<string, LaneLayout>();
+  const laneEntriesMap = new Map<string, LaneEntries>();
   let nextLaneTop = 0;
   for (const lane of lanes) {
     if (!lane.hasVisible) continue;
@@ -943,6 +944,10 @@ export function TimelineLanes({
       height: lane.laneHeight,
       trackHS: lane.trackH_S,
       storyTopOffset: lane.storyTopOffset,
+    });
+    laneEntriesMap.set(lane.universe.id, {
+      stackedRelease: lane.stackedRelease,
+      storyItems: lane.storyItems,
     });
     nextLaneTop += lane.laneHeight;
   }
@@ -1092,16 +1097,16 @@ export function TimelineLanes({
                 ),
               )}
 
-              {/* Relationship overlay (story-only mode) */}
-              {globalMode === "story" && (
-                <RelationshipOverlay
-                  universes={universes}
-                  trackContentWidth={geo.trackContentWidth}
-                  offset={TRACK_PAD_LEFT}
-                  globalMode={globalMode}
-                  laneLayouts={laneLayouts}
-                />
-              )}
+              {/* Relationship overlay */}
+              <RelationshipOverlay
+                universes={universes}
+                trackContentWidth={geo.trackContentWidth}
+                yearWidth={geo.yearWidth}
+                offset={TRACK_PAD_LEFT}
+                globalMode={globalMode}
+                laneLayouts={laneLayouts}
+                laneEntries={laneEntriesMap}
+              />
             </div>
           </div>
         </div>
