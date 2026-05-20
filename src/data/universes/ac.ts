@@ -1,4 +1,5 @@
 import type { Entry, EntryDetail } from "../types";
+import { ep, rel } from "../types";
 
 // After Colony
 
@@ -156,414 +157,268 @@ export const acDetails: Record<string, EntryDetail | undefined> = {
     source:
       "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_Wing_episodes",
     episodes: [
-      {
-        n: 1,
-        title: { ja: "少女が見た流星", en: "The Shooting Star She Saw" },
-        ja: "1995-04-07",
+      ep(1, "少女が見た流星", "The Shooting Star She Saw", "1995-04-07", {
         en: "2000-03-06",
-      },
-      {
-        n: 2,
-        title: {
-          ja: "死神と呼ばれるG（ガンダム）",
-          en: "The Gundam Deathscythe",
-        },
-        ja: "1995-04-14",
-        en: "2000-03-07",
-      },
-      {
-        n: 3,
-        title: { ja: "ガンダム5機確認", en: "Five Gundams Confirmed" },
-        ja: "1995-04-21",
+      }),
+      ep(
+        2,
+        "死神と呼ばれるG（ガンダム）",
+        "The Gundam Deathscythe",
+        "1995-04-14",
+        { en: "2000-03-07" },
+      ),
+      ep(3, "ガンダム5機確認", "Five Gundams Confirmed", "1995-04-21", {
         en: "2000-03-08",
-      },
-      {
-        n: 4,
-        title: { ja: "悪夢のビクトリア", en: "The Victoria Nightmare" },
-        ja: "1995-04-28",
+      }),
+      ep(4, "悪夢のビクトリア", "The Victoria Nightmare", "1995-04-28", {
         en: "2000-03-09",
-      },
-      {
-        n: 5,
-        title: { ja: "リリーナの秘密", en: "Relena's Secret" },
-        ja: "1995-05-05",
+      }),
+      ep(5, "リリーナの秘密", "Relena's Secret", "1995-05-05", {
         en: "2000-03-10",
-      },
-      {
-        n: 6,
-        title: { ja: "パーティー・ナイト", en: "Party Night" },
-        ja: "1995-05-12",
+      }),
+      ep(6, "パーティー・ナイト", "Party Night", "1995-05-12", {
         en: "2000-03-13",
-      },
-      {
-        n: 7,
-        title: { ja: "流血へのシナリオ", en: "Scenario for Bloodshed" },
-        ja: "1995-05-19",
+      }),
+      ep(7, "流血へのシナリオ", "Scenario for Bloodshed", "1995-05-19", {
         en: "2000-03-14",
-      },
-      {
-        n: 8,
-        title: { ja: "トレーズ暗殺", en: "The Treize Assassination" },
-        ja: "1995-05-26",
+      }),
+      ep(8, "トレーズ暗殺", "The Treize Assassination", "1995-05-26", {
         en: "2000-03-15",
-      },
-      {
-        n: 9,
-        title: { ja: "亡国の肖像", en: "Portrait of a Ruined Country" },
-        ja: "1995-06-02",
+      }),
+      ep(9, "亡国の肖像", "Portrait of a Ruined Country", "1995-06-02", {
         en: "2000-03-16",
-      },
-      {
-        n: 10,
-        title: { ja: "ヒイロ閃光に散る", en: "Heero, Distracted by Defeat" },
-        ja: "1995-06-09",
+      }),
+      ep(10, "ヒイロ閃光に散る", "Heero, Distracted by Defeat", "1995-06-09", {
         en: "2000-03-17",
-      },
-      {
-        n: 11,
-        title: { ja: "幸福の行方", en: "The Whereabouts of Happiness" },
-        ja: "1995-06-16",
+      }),
+      ep(11, "幸福の行方", "The Whereabouts of Happiness", "1995-06-16", {
         en: "2000-03-20",
-      },
-      {
-        n: 12,
-        title: { ja: "迷える戦士たち", en: "Bewildered Warriors" },
-        ja: "1995-06-23",
+      }),
+      ep(12, "迷える戦士たち", "Bewildered Warriors", "1995-06-23", {
         en: "2000-03-21",
-      },
-      {
-        n: 13,
-        title: { ja: "キャスリンの涙", en: "Catherine's Tears" },
-        ja: "1995-06-30",
+      }),
+      ep(13, "キャスリンの涙", "Catherine's Tears", "1995-06-30", {
         en: "2000-03-22",
-      },
-      {
-        n: 14,
-        title: { ja: "01爆破指令", en: "The Order to Destroy 01" },
-        ja: "1995-07-07",
+      }),
+      ep(14, "01爆破指令", "The Order to Destroy 01", "1995-07-07", {
         en: "2000-03-23",
-      },
-      {
-        n: 15,
-        title: { ja: "決戦の場所南極へ", en: "To the Battleground Antarctica" },
-        ja: "1995-07-14",
-        en: "2000-03-24",
-      },
-      {
-        n: 16,
-        title: { ja: "悲しき決戦", en: "The Sorrowful Battle" },
-        ja: "1995-07-21",
+      }),
+      ep(
+        15,
+        "決戦の場所南極へ",
+        "To the Battleground Antarctica",
+        "1995-07-14",
+        { en: "2000-03-24" },
+      ),
+      ep(16, "悲しき決戦", "The Sorrowful Battle", "1995-07-21", {
         en: "2000-03-27",
-      },
-      {
-        n: 17,
-        title: { ja: "裏切りの遠き故郷", en: "Betrayed by Home, Far Away" },
-        ja: "1995-07-28",
+      }),
+      ep(17, "裏切りの遠き故郷", "Betrayed by Home, Far Away", "1995-07-28", {
         en: "2000-03-28",
-      },
-      {
-        n: 18,
-        title: { ja: "トールギス破壊", en: "Tallgeese Destroyed" },
-        ja: "1995-08-04",
+      }),
+      ep(18, "トールギス破壊", "Tallgeese Destroyed", "1995-08-04", {
         en: "2000-03-29",
-      },
-      {
-        n: 19,
-        title: { ja: "バルジ強襲", en: "Assault on Barge" },
-        ja: "1995-08-11",
+      }),
+      ep(19, "バルジ強襲", "Assault on Barge", "1995-08-11", {
         en: "2000-03-30",
-      },
-      {
-        n: 20,
-        title: { ja: "潜入、月面基地", en: "The Lunar Base Infiltration" },
-        ja: "1995-08-18",
+      }),
+      ep(20, "潜入、月面基地", "The Lunar Base Infiltration", "1995-08-18", {
         en: "2000-03-31",
-      },
-      {
-        n: 21,
-        title: { ja: "悲しみのカトル", en: "Grief Stricken Quatre" },
-        ja: "1995-08-25",
+      }),
+      ep(21, "悲しみのカトル", "Grief Stricken Quatre", "1995-08-25", {
         en: "2000-04-03",
-      },
-      {
-        n: 22,
-        title: { ja: "独立を巡る戦い", en: "The Fight for Independence" },
-        ja: "1995-08-31",
+      }),
+      ep(22, "独立を巡る戦い", "The Fight for Independence", "1995-08-31", {
         en: "2000-04-04",
-      },
-      {
-        n: 23,
-        title: {
-          ja: "死神に戻るデュオ",
-          en: "Duo, the God of Death Once Again",
-        },
-        ja: "1995-09-01",
-        en: "2000-04-05",
-      },
-      {
-        n: 24,
-        title: {
-          ja: "ゼロと呼ばれたG（ガンダム）",
-          en: "The Gundam They Called Zero",
-        },
-        ja: "1995-09-08",
-        en: "2000-04-06",
-      },
-      {
-        n: 25,
-        title: { ja: "カトルVSヒイロ", en: "Quatre VS Heero" },
-        ja: "1995-09-22",
+      }),
+      ep(
+        23,
+        "死神に戻るデュオ",
+        "Duo, the God of Death Once Again",
+        "1995-09-01",
+        { en: "2000-04-05" },
+      ),
+      ep(
+        24,
+        "ゼロと呼ばれたG（ガンダム）",
+        "The Gundam They Called Zero",
+        "1995-09-08",
+        { en: "2000-04-06" },
+      ),
+      ep(25, "カトルVSヒイロ", "Quatre VS Heero", "1995-09-22", {
         en: "2000-04-07",
-      },
-      {
-        n: 26,
-        title: {
-          ja: "燃えつきない流星",
-          en: "The Eternal Flame of the Shooting Stars",
-        },
-        ja: "1995-09-29",
-        en: "2000-04-10",
-      },
-      {
-        n: 27,
-        title: {
-          ja: "勝利と敗北の軌跡",
-          en: "The Locus of Victory and Defeat",
-        },
-        ja: "1995-10-06",
-        en: "2000-04-11",
-      },
-      {
-        n: 28,
-        title: { ja: "すれ違う運命", en: "Passing Destinies" },
-        ja: "1995-10-13",
+      }),
+      ep(
+        26,
+        "燃えつきない流星",
+        "The Eternal Flame of the Shooting Stars",
+        "1995-09-29",
+        { en: "2000-04-10" },
+      ),
+      ep(
+        27,
+        "勝利と敗北の軌跡",
+        "The Locus of Victory and Defeat",
+        "1995-10-06",
+        { en: "2000-04-11" },
+      ),
+      ep(28, "すれ違う運命", "Passing Destinies", "1995-10-13", {
         en: "2000-04-12",
-      },
-      {
-        n: 29,
-        title: { ja: "戦場のヒロイン", en: "The Heroine of the Battlefield" },
-        ja: "1995-10-20",
+      }),
+      ep(29, "戦場のヒロイン", "The Heroine of the Battlefield", "1995-10-20", {
         en: "2000-04-13",
-      },
-      {
-        n: 30,
-        title: { ja: "リリーナとの再会", en: "The Reunion with Relena" },
-        ja: "1995-10-27",
+      }),
+      ep(30, "リリーナとの再会", "The Reunion with Relena", "1995-10-27", {
         en: "2000-04-14",
-      },
-      {
-        n: 31,
-        title: {
-          ja: "ガラスの王国（サンクキングダム）",
-          en: "The Glass Kingdom",
-        },
-        ja: "1995-11-03",
-        en: "2000-04-17",
-      },
-      {
-        n: 32,
-        title: { ja: "死神とゼロの対決", en: "The God of Death Meets Zero" },
-        ja: "1995-11-17",
+      }),
+      ep(
+        31,
+        "ガラスの王国（サンクキングダム）",
+        "The Glass Kingdom",
+        "1995-11-03",
+        { en: "2000-04-17" },
+      ),
+      ep(32, "死神とゼロの対決", "The God of Death Meets Zero", "1995-11-17", {
         en: "2000-04-18",
-      },
-      {
-        n: 33,
-        title: { ja: "孤独な戦場", en: "The Lonely Battlefield" },
-        ja: "1995-11-24",
+      }),
+      ep(33, "孤独な戦場", "The Lonely Battlefield", "1995-11-24", {
         en: "2000-04-19",
-      },
-      {
-        n: 34,
-        title: { ja: "その名はエピオン", en: "And Its Name is Epyon" },
-        ja: "1995-12-01",
+      }),
+      ep(34, "その名はエピオン", "And Its Name is Epyon", "1995-12-01", {
         en: "2000-04-20",
-      },
-      {
-        n: 35,
-        title: { ja: "ウーフェイ再び", en: "The Return of Wufei" },
-        ja: "1995-12-08",
+      }),
+      ep(35, "ウーフェイ再び", "The Return of Wufei", "1995-12-08", {
         en: "2000-04-21",
-      },
-      {
-        n: 36,
-        title: {
-          ja: "王国（サンクキングダム）崩壊",
-          en: "Sanc Kingdom's Collapse",
-        },
-        ja: "1995-12-15",
-        en: "2000-04-24",
-      },
-      {
-        n: 37,
-        title: { ja: "ゼロVSエピオン", en: "Zero VS Epyon" },
-        ja: "1995-12-22",
+      }),
+      ep(
+        36,
+        "王国（サンクキングダム）崩壊",
+        "Sanc Kingdom's Collapse",
+        "1995-12-15",
+        { en: "2000-04-24" },
+      ),
+      ep(37, "ゼロVSエピオン", "Zero VS Epyon", "1995-12-22", {
         en: "2000-04-25",
-      },
-      {
-        n: 38,
-        title: {
-          ja: "女王（クイーン）リリーナ誕生",
-          en: "The Birth of Queen Relena",
-        },
-        ja: "1996-01-12",
-        en: "2000-04-26",
-      },
-      {
-        n: 39,
-        title: {
-          ja: "トロワ戦場へ帰る",
-          en: "Trowa's Return to the Battlefield",
-        },
-        ja: "1996-01-19",
-        en: "2000-04-27",
-      },
-      {
-        n: 40,
-        title: { ja: "新たなる指導者", en: "A New Leader" },
-        ja: "1996-01-26",
+      }),
+      ep(
+        38,
+        "女王（クイーン）リリーナ誕生",
+        "The Birth of Queen Relena",
+        "1996-01-12",
+        { en: "2000-04-26" },
+      ),
+      ep(
+        39,
+        "トロワ戦場へ帰る",
+        "Trowa's Return to the Battlefield",
+        "1996-01-19",
+        { en: "2000-04-27" },
+      ),
+      ep(40, "新たなる指導者", "A New Leader", "1996-01-26", {
         en: "2000-04-28",
-      },
-      {
-        n: 41,
-        title: { ja: "バルジ攻防戦", en: "Crossfire at Barge" },
-        ja: "1996-02-02",
+      }),
+      ep(41, "バルジ攻防戦", "Crossfire at Barge", "1996-02-02", {
         en: "2000-05-01",
-      },
-      {
-        n: 42,
-        title: { ja: "リーブラ発進", en: "Battleship Libra" },
-        ja: "1996-02-09",
+      }),
+      ep(42, "リーブラ発進", "Battleship Libra", "1996-02-09", {
         en: "2000-05-02",
-      },
-      {
-        n: 43,
-        title: { ja: "地上を撃つ巨光（オーロラ）", en: "Target: Earth" },
-        ja: "1996-02-16",
+      }),
+      ep(43, "地上を撃つ巨光（オーロラ）", "Target: Earth", "1996-02-16", {
         en: "2000-05-03",
-      },
-      {
-        n: 44,
-        title: { ja: "出撃Gチーム", en: "Go Forth, Gundam Team" },
-        ja: "1996-02-23",
+      }),
+      ep(44, "出撃Gチーム", "Go Forth, Gundam Team", "1996-02-23", {
         en: "2000-05-04",
-      },
-      {
-        n: 45,
-        title: { ja: "決戦の予感", en: "Signs of the Final Battle" },
-        ja: "1996-03-01",
+      }),
+      ep(45, "決戦の予感", "Signs of the Final Battle", "1996-03-01", {
         en: "2000-05-05",
-      },
-      {
-        n: 46,
-        title: { ja: "ミリアルドの決断", en: "Milliardo's Decision" },
-        ja: "1996-03-08",
+      }),
+      ep(46, "ミリアルドの決断", "Milliardo's Decision", "1996-03-08", {
         en: "2000-05-08",
-      },
-      {
-        n: 47,
-        title: { ja: "激突する宇宙", en: "Collision in Space" },
-        ja: "1996-03-15",
+      }),
+      ep(47, "激突する宇宙", "Collision in Space", "1996-03-15", {
         en: "2000-05-09",
-      },
-      {
-        n: 48,
-        title: { ja: "混迷への出撃", en: "Takeoff into Confusion" },
-        ja: "1996-03-22",
+      }),
+      ep(48, "混迷への出撃", "Takeoff into Confusion", "1996-03-22", {
         en: "2000-05-10",
-      },
-      {
-        n: 49,
-        title: { ja: "最後の勝利者", en: "The Final Victor" },
-        ja: "1996-03-29",
+      }),
+      ep(49, "最後の勝利者", "The Final Victor", "1996-03-29", {
         en: "2000-05-11",
-      },
+      }),
     ],
     releases: [
-      {
-        region: "ja",
-        channel: "broadcast",
-        label: "TV Asahi / ANN",
-        start: "1995-04-07",
-        end: "1996-03-29",
-        schedule: "weekly",
-      },
-      {
-        region: "en",
-        channel: "broadcast",
-        label: "Toonami (Cartoon Network)",
-        start: "2000-03-06",
-        end: "2000-11-17",
-        schedule: "weekly",
-      },
-      {
-        region: "en",
-        channel: "home_video",
-        label: "Bandai Entertainment DVD",
-        start: "2001",
-        schedule: "box-set",
-      },
-      {
-        region: "en",
-        channel: "home_video",
-        label: "Right Stuf / Sunrise Blu-ray",
-        start: "2017",
-        schedule: "box-set",
-      },
-      {
-        region: "en",
-        channel: "streaming",
-        label: "Crunchyroll",
-        start: "2024",
-        schedule: "simulcast",
-      },
+      rel(
+        "ja",
+        "broadcast",
+        "TV Asahi / ANN",
+        "1995-04-07",
+        "weekly",
+        "1996-03-29",
+      ),
+      rel(
+        "en",
+        "broadcast",
+        "Toonami (Cartoon Network)",
+        "2000-03-06",
+        "weekly",
+        "2000-11-17",
+      ),
+      rel("en", "home_video", "Bandai Entertainment DVD", "2001", "box-set"),
+      rel(
+        "en",
+        "home_video",
+        "Right Stuf / Sunrise Blu-ray",
+        "2017",
+        "box-set",
+      ),
+      rel("en", "streaming", "Crunchyroll", "2024", "simulcast"),
     ],
   },
-  wing_battlefield_pacifist_1998_manga: {
+  wing_opmeteor_1996_ova: {
     title: {
-      ja: "新機動戦記ガンダムW BATTLEFIELD OF PACIFIST",
-      en: "Mobile Suit Gundam Wing: Battlefield of Pacifist",
+      ja: "新機動戦記ガンダムW OPERATION METEOR",
+      en: "Gundam Wing: Operation Meteor",
     },
     u: "ac",
-    type: "manga",
+    type: "ova",
     source:
-      "https://ja.wikipedia.org/wiki/新機動戦記ガンダムW_BATTLEFIELD_OF_PACIFIST",
-    author: "Ohtagaki Kou (art), Sumizawa Katsuyuki (story)",
-    publisher: "Kodansha",
-    episodes: [{ n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "1998" }],
-    releases: [
-      {
-        region: "ja",
-        channel: "print",
-        label: "Kodansha Bom Bom Comics",
-        start: "1997",
-        end: "1998",
-        schedule: "serial",
-      },
-    ],
-  },
-  wing_blind_target_1998_manga: {
-    title: {
-      ja: "新機動戦記ガンダムW BLIND TARGET",
-      en: "Mobile Suit Gundam Wing: Blind Target",
-    },
-    u: "ac",
-    type: "manga",
-    source: "https://ja.wikipedia.org/wiki/新機動戦記ガンダムW_BLIND_TARGET",
-    author: "Akimiya Yumiko (art), Sumizawa Katsuyuki (story)",
-    publisher: "Kodansha",
+      "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_Wing_episodes",
+    note: "4-part OVA compiling series clips + new footage; never dubbed",
     episodes: [
-      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "1999" },
-      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "1999" },
+      ep(
+        1,
+        "OPERATION METEOR I: オッドナンバーズ",
+        "Operation Meteor I: Odd Numbers",
+        "1996-04-25",
+      ),
+      ep(
+        2,
+        "OPERATION METEOR I: イーブンナンバーズ",
+        "Operation Meteor I: Even Numbers",
+        "1996-04-25",
+      ),
+      ep(
+        3,
+        "OPERATION METEOR II: オッドナンバーズ II",
+        "Operation Meteor II: Odd Numbers II",
+        "1996-10-25",
+      ),
+      ep(
+        4,
+        "OPERATION METEOR II: イーブンナンバーズ II",
+        "Operation Meteor II: Even Numbers II",
+        "1996-10-25",
+      ),
     ],
     releases: [
-      {
-        region: "ja",
-        channel: "print",
-        label: "Kodansha",
-        start: "1998",
-        end: "1999",
-        schedule: "serial",
-      },
+      rel(
+        "ja",
+        "home_video",
+        "OVA release",
+        "1996-07-25",
+        "box-set",
+        "1996-10-25",
+      ),
+      rel("en", "home_video", "Right Stuf / Sunrise", "2017", "box-set"),
     ],
   },
   wing_endlesswaltz_1997_ova: {
@@ -576,55 +431,32 @@ export const acDetails: Record<string, EntryDetail | undefined> = {
     source:
       "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_Wing_episodes",
     episodes: [
-      {
-        n: 1,
-        title: { ja: "静かなる軌道", en: "Silent Orbit" },
-        ja: "1997-01-25",
+      ep(1, "静かなる軌道", "Silent Orbit", "1997-01-25", { en: "2000-11-10" }),
+      ep(2, "過ぎ去りし流星", "Operation Meteor", "1997-04-25", {
         en: "2000-11-10",
-      },
-      {
-        n: 2,
-        title: { ja: "過ぎ去りし流星", en: "Operation Meteor" },
-        ja: "1997-04-25",
+      }),
+      ep(3, "永遠への回帰", "Return to Forever", "1997-07-25", {
         en: "2000-11-10",
-      },
-      {
-        n: 3,
-        title: { ja: "永遠への回帰", en: "Return to Forever" },
-        ja: "1997-07-25",
-        en: "2000-11-10",
-      },
+      }),
     ],
     releases: [
-      {
-        region: "ja",
-        channel: "home_video",
-        label: "OVA release",
-        start: "1997-01-25",
-        end: "1997-07-25",
-        schedule: "box-set",
-      },
-      {
-        region: "en",
-        channel: "broadcast",
-        label: "Toonami (Cartoon Network)",
-        start: "2000-10-20",
-        schedule: "weekly",
-      },
-      {
-        region: "en",
-        channel: "home_video",
-        label: "Bandai Entertainment DVD",
-        start: "2001",
-        schedule: "box-set",
-      },
-      {
-        region: "en",
-        channel: "home_video",
-        label: "Right Stuf / Sunrise",
-        start: "2017",
-        schedule: "box-set",
-      },
+      rel(
+        "ja",
+        "home_video",
+        "OVA release",
+        "1997-01-25",
+        "box-set",
+        "1997-07-25",
+      ),
+      rel(
+        "en",
+        "broadcast",
+        "Toonami (Cartoon Network)",
+        "2000-10-20",
+        "weekly",
+      ),
+      rel("en", "home_video", "Bandai Entertainment DVD", "2001", "box-set"),
+      rel("en", "home_video", "Right Stuf / Sunrise", "2017", "box-set"),
     ],
   },
   wing_endlesswaltz_1998_film: {
@@ -637,31 +469,87 @@ export const acDetails: Record<string, EntryDetail | undefined> = {
     source:
       "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_Wing_episodes",
     episodes: [
-      {
-        n: 1,
-        title: {
-          ja: "新機動戦記ガンダムW Endless Waltz 特別篇",
-          en: "Endless Waltz Special Edition (compilation film)",
-        },
-        ja: "1998-08-01",
-        en: "2002-08-30",
-      },
+      ep(
+        1,
+        "新機動戦記ガンダムW Endless Waltz 特別篇",
+        "Endless Waltz Special Edition (compilation film)",
+        "1998-08-01",
+        { en: "2002-08-30" },
+      ),
     ],
     releases: [
-      {
-        region: "ja",
-        channel: "theatrical",
-        label: "Theatrical (Special Edition)",
-        start: "1998-08-01",
-        schedule: "theatrical",
-      },
-      {
-        region: "en",
-        channel: "home_video",
-        label: "Bandai Entertainment DVD",
-        start: "2001",
-        schedule: "box-set",
-      },
+      rel(
+        "ja",
+        "theatrical",
+        "Theatrical (Special Edition)",
+        "1998-08-01",
+        "theatrical",
+      ),
+      rel("en", "home_video", "Bandai Entertainment DVD", "2001", "box-set"),
+    ],
+  },
+  wing_glory_of_the_losers_manga: {
+    title: {
+      ja: "新機動戦記ガンダムW Endless Waltz 敗者たちの栄光",
+      en: "Mobile Suit Gundam Wing: Glory of the Losers",
+    },
+    u: "ac",
+    type: "manga",
+    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Wing",
+    author: "Tomofumi Ogasawara",
+    publisher: "Kadokawa Shoten",
+    magazine: "Gundam Ace",
+    note: "14 volumes 2011-2019. Modern retelling of Wing TV. Per-volume dates approximate.",
+    episodes: [
+      ep(1, "Volume 1", "Volume 1", "2011-03-23"),
+      ep(2, "Volume 2", "Volume 2", "2011-10-21"),
+      ep(3, "Volume 3", "Volume 3", "2012-06-22"),
+      ep(4, "Volume 4", "Volume 4", "2013-01-23"),
+      ep(5, "Volume 5", "Volume 5", "2013-06-22"),
+      ep(6, "Volume 6", "Volume 6", "2013-11-26"),
+      ep(7, "Volume 7", "Volume 7", "2014-07-26"),
+      ep(8, "Volume 8", "Volume 8", "2014-12-26"),
+      ep(9, "Volume 9", "Volume 9", "2015-06-26"),
+      ep(10, "Volume 10", "Volume 10", "2015-12-26"),
+      ep(11, "Volume 11", "Volume 11", "2016-06-25"),
+      ep(12, "Volume 12", "Volume 12", "2017-01-26"),
+      ep(13, "Volume 13", "Volume 13", "2017-10-26"),
+      ep(14, "Volume 14", "Volume 14", "2018-01-26"),
+    ],
+    releases: [
+      rel("ja", "print", "Kadokawa Gundam Ace", "2010-02-26", "serial", "2018"),
+      rel(
+        "en",
+        "print",
+        "Vertical Inc (English)",
+        "2018-10-16",
+        "serial",
+        "2022-01-18",
+      ),
+    ],
+  },
+  wing_frozen_teardrop_novel: {
+    title: {
+      ja: "新機動戦記ガンダムW Frozen Teardrop",
+      en: "Mobile Suit Gundam Wing: Frozen Teardrop",
+    },
+    u: "ac",
+    type: "novel",
+    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Wing",
+    author: "Katsuyuki Sumizawa",
+    publisher: "Kadokawa Shoten",
+    magazine: "Gundam Ace",
+    note: "Photo-novel sequel, serialised in Gundam Ace from 2010",
+    episodes: [ep(1, "Serialisation begins", "Serialisation begins", "2010")],
+    releases: [
+      rel(
+        "ja",
+        "print",
+        "Kadokawa Sneaker Bunko",
+        "2010-08-26",
+        "serial",
+        "2016-07-26",
+      ),
     ],
   },
   wing_episode_zero_manga: {
@@ -676,31 +564,48 @@ export const acDetails: Record<string, EntryDetail | undefined> = {
     publisher: "Kadokawa Shoten",
     note: "Prequel manga showing the Gundam pilots before the series. 1 tankobon (collected 1998)",
     episodes: [
-      {
-        n: 1,
-        title: {
-          ja: "Episode Zero (collected edition)",
-          en: "Episode Zero (collected edition)",
-        },
-        ja: "1998",
-      },
+      ep(
+        1,
+        "Episode Zero (collected edition)",
+        "Episode Zero (collected edition)",
+        "1998",
+      ),
     ],
     releases: [
-      {
-        region: "ja",
-        channel: "print",
-        label: "Gundam Ace / Kadokawa",
-        start: "1997",
-        end: "1998",
-        schedule: "serial",
-      },
-      {
-        region: "en",
-        channel: "print",
-        label: "TokyoPop / Viz (English)",
-        start: "2004",
-        schedule: "serial",
-      },
+      rel("ja", "print", "Gundam Ace / Kadokawa", "1997", "serial", "1998"),
+      rel("en", "print", "TokyoPop / Viz (English)", "2004", "serial"),
+    ],
+  },
+  wing_blind_target_1998_manga: {
+    title: {
+      ja: "新機動戦記ガンダムW BLIND TARGET",
+      en: "Mobile Suit Gundam Wing: Blind Target",
+    },
+    u: "ac",
+    type: "manga",
+    source: "https://ja.wikipedia.org/wiki/新機動戦記ガンダムW_BLIND_TARGET",
+    author: "Akimiya Yumiko (art), Sumizawa Katsuyuki (story)",
+    publisher: "Kodansha",
+    episodes: [
+      ep(1, "Volume 1", "Volume 1", "1999"),
+      ep(2, "Volume 2", "Volume 2", "1999"),
+    ],
+    releases: [rel("ja", "print", "Kodansha", "1998", "serial", "1999")],
+  },
+  wing_battlefield_pacifist_1998_manga: {
+    title: {
+      ja: "新機動戦記ガンダムW BATTLEFIELD OF PACIFIST",
+      en: "Mobile Suit Gundam Wing: Battlefield of Pacifist",
+    },
+    u: "ac",
+    type: "manga",
+    source:
+      "https://ja.wikipedia.org/wiki/新機動戦記ガンダムW_BATTLEFIELD_OF_PACIFIST",
+    author: "Ohtagaki Kou (art), Sumizawa Katsuyuki (story)",
+    publisher: "Kodansha",
+    episodes: [ep(1, "Volume 1", "Volume 1", "1998")],
+    releases: [
+      rel("ja", "print", "Kodansha Bom Bom Comics", "1997", "serial", "1998"),
     ],
   },
   wing_frozen_teardrop_manga: {
@@ -717,98 +622,14 @@ export const acDetails: Record<string, EntryDetail | undefined> = {
     magazine: "Gundam Ace",
     note: "Manga adaptation of the Frozen Teardrop novel",
     episodes: [
-      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2017" },
-      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2018" },
-      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2019" },
-      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2020" },
-      { n: 5, title: { ja: "Volume 5", en: "Volume 5" }, ja: "2021" },
+      ep(1, "Volume 1", "Volume 1", "2017"),
+      ep(2, "Volume 2", "Volume 2", "2018"),
+      ep(3, "Volume 3", "Volume 3", "2019"),
+      ep(4, "Volume 4", "Volume 4", "2020"),
+      ep(5, "Volume 5", "Volume 5", "2021"),
     ],
     releases: [
-      {
-        region: "ja",
-        channel: "print",
-        label: "Kadokawa Gundam Ace",
-        start: "2016",
-        end: "2021",
-        schedule: "serial",
-      },
-    ],
-  },
-  wing_frozen_teardrop_novel: {
-    title: {
-      ja: "新機動戦記ガンダムW Frozen Teardrop",
-      en: "Mobile Suit Gundam Wing: Frozen Teardrop",
-    },
-    u: "ac",
-    type: "novel",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Wing",
-    author: "Katsuyuki Sumizawa",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
-    note: "Photo-novel sequel, serialised in Gundam Ace from 2010",
-    episodes: [
-      {
-        n: 1,
-        title: { ja: "Serialisation begins", en: "Serialisation begins" },
-        ja: "2010",
-      },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "print",
-        label: "Kadokawa Sneaker Bunko",
-        start: "2010-08-26",
-        end: "2016-07-26",
-        schedule: "serial",
-      },
-    ],
-  },
-  wing_glory_of_the_losers_manga: {
-    title: {
-      ja: "新機動戦記ガンダムW Endless Waltz 敗者たちの栄光",
-      en: "Mobile Suit Gundam Wing: Glory of the Losers",
-    },
-    u: "ac",
-    type: "manga",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Wing",
-    author: "Tomofumi Ogasawara",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
-    note: "14 volumes 2011-2019. Modern retelling of Wing TV. Per-volume dates approximate.",
-    episodes: [
-      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2011-03-23" },
-      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2011-10-21" },
-      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2012-06-22" },
-      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2013-01-23" },
-      { n: 5, title: { ja: "Volume 5", en: "Volume 5" }, ja: "2013-06-22" },
-      { n: 6, title: { ja: "Volume 6", en: "Volume 6" }, ja: "2013-11-26" },
-      { n: 7, title: { ja: "Volume 7", en: "Volume 7" }, ja: "2014-07-26" },
-      { n: 8, title: { ja: "Volume 8", en: "Volume 8" }, ja: "2014-12-26" },
-      { n: 9, title: { ja: "Volume 9", en: "Volume 9" }, ja: "2015-06-26" },
-      { n: 10, title: { ja: "Volume 10", en: "Volume 10" }, ja: "2015-12-26" },
-      { n: 11, title: { ja: "Volume 11", en: "Volume 11" }, ja: "2016-06-25" },
-      { n: 12, title: { ja: "Volume 12", en: "Volume 12" }, ja: "2017-01-26" },
-      { n: 13, title: { ja: "Volume 13", en: "Volume 13" }, ja: "2017-10-26" },
-      { n: 14, title: { ja: "Volume 14", en: "Volume 14" }, ja: "2018-01-26" },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "print",
-        label: "Kadokawa Gundam Ace",
-        start: "2010-02-26",
-        end: "2018",
-        schedule: "serial",
-      },
-      {
-        region: "en",
-        channel: "print",
-        label: "Vertical Inc (English)",
-        start: "2018-10-16",
-        end: "2022-01-18",
-        schedule: "serial",
-      },
+      rel("ja", "print", "Kadokawa Gundam Ace", "2016", "serial", "2021"),
     ],
   },
   wing_new_visual_tba: {
@@ -822,67 +643,5 @@ export const acDetails: Record<string, EntryDetail | undefined> = {
     note: "Announced at Gundam Wing 30th anniversary event. Format, title, and date TBA.",
     episodes: [],
     releases: [],
-  },
-  wing_opmeteor_1996_ova: {
-    title: {
-      ja: "新機動戦記ガンダムW OPERATION METEOR",
-      en: "Gundam Wing: Operation Meteor",
-    },
-    u: "ac",
-    type: "ova",
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_Wing_episodes",
-    note: "4-part OVA compiling series clips + new footage; never dubbed",
-    episodes: [
-      {
-        n: 1,
-        title: {
-          ja: "OPERATION METEOR I: オッドナンバーズ",
-          en: "Operation Meteor I: Odd Numbers",
-        },
-        ja: "1996-04-25",
-      },
-      {
-        n: 2,
-        title: {
-          ja: "OPERATION METEOR I: イーブンナンバーズ",
-          en: "Operation Meteor I: Even Numbers",
-        },
-        ja: "1996-04-25",
-      },
-      {
-        n: 3,
-        title: {
-          ja: "OPERATION METEOR II: オッドナンバーズ II",
-          en: "Operation Meteor II: Odd Numbers II",
-        },
-        ja: "1996-10-25",
-      },
-      {
-        n: 4,
-        title: {
-          ja: "OPERATION METEOR II: イーブンナンバーズ II",
-          en: "Operation Meteor II: Even Numbers II",
-        },
-        ja: "1996-10-25",
-      },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "home_video",
-        label: "OVA release",
-        start: "1996-07-25",
-        end: "1996-10-25",
-        schedule: "box-set",
-      },
-      {
-        region: "en",
-        channel: "home_video",
-        label: "Right Stuf / Sunrise",
-        start: "2017",
-        schedule: "box-set",
-      },
-    ],
   },
 };

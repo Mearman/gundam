@@ -112,3 +112,46 @@ export interface EntryDetail {
   episodes: DetailEpisode[];
   releases: DetailRelease[];
 }
+
+// ── Compact data factories ──────────────────────────────────
+// Used in universe module files to keep episode/release data
+// on a single line instead of 5-8 lines per object.
+
+/** Compact episode constructor. Fields after `ja` are optional keyword-style. */
+export function ep(
+  n: number | string,
+  jaTitle: string | null,
+  enTitle: string | null,
+  ja: string,
+  extra?: {
+    en?: string;
+    season?: number;
+    cours?: number;
+    u?: string;
+    note?: string;
+  },
+): DetailEpisode {
+  const out: DetailEpisode = { n, title: { ja: jaTitle, en: enTitle }, ja };
+  if (extra !== undefined) {
+    if (extra.en !== undefined) out.en = extra.en;
+    if (extra.season !== undefined) out.season = extra.season;
+    if (extra.cours !== undefined) out.cours = extra.cours;
+    if (extra.u !== undefined) out.u = extra.u;
+    if (extra.note !== undefined) out.note = extra.note;
+  }
+  return out;
+}
+
+/** Compact release constructor. `end` is optional trailing arg. */
+export function rel(
+  region: string,
+  channel: string,
+  label: string,
+  start: string,
+  schedule: ReleaseSchedule,
+  end?: string,
+): DetailRelease {
+  const out: DetailRelease = { region, channel, label, start, schedule };
+  if (end !== undefined) out.end = end;
+  return out;
+}

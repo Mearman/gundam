@@ -1,4 +1,5 @@
 import type { Entry, EntryDetail } from "../types";
+import { ep, rel } from "../types";
 
 // Build series
 
@@ -196,48 +197,149 @@ export const buildEntries: Entry[] = [
 ];
 
 export const buildDetails: Record<string, EntryDetail | undefined> = {
-  breaker_battlogue_2021_ona: {
+  build_fighters_2013_tv: {
+    title: { ja: "ガンダムビルドファイターズ", en: "Gundam Build Fighters" },
+    u: "build",
+    type: "tv",
+    source:
+      "https://en.wikipedia.org/wiki/List_of_Gundam_Build_Fighters_episodes",
+    episodes: [
+      ep(1, "セイとレイジ", "Sei and Reiji", "2013-10-07"),
+      ep(2, "紅の彗星", "The Crimson Comet", "2013-10-14"),
+      ep(3, "フルパッケージ", "Full Package", "2013-10-21"),
+      ep(4, "ガンプラアイドル キララ☆", "Gunpla Idol Kirara", "2013-10-28"),
+      ep(5, "最強ビルダー", "The Strongest Builder", "2013-11-04"),
+      ep(6, "戦うわけ", "A Reason to Battle", "2013-11-11"),
+      ep(7, "世界の実力", "World-Level Ability", "2013-11-18"),
+      ep(8, "あい戦士たち", "Encounters of Fighters", "2013-11-25"),
+      ep(9, "想像の翼", "Wings of Imagination", "2013-12-02"),
+      ep(10, "開幕！世界大会", "The World Tournament Begins", "2013-12-09"),
+      ep(11, "ロワイヤル", "Battle Royal", "2013-12-16"),
+      ep(12, "ディスチャージ", "Discharge", "2013-12-23"),
+      ep(13, "バトルウェポン", "Battle Weapon", "2014-01-06"),
+      ep(14, "コードネームC", "Codename: C", "2014-01-13"),
+      ep(15, "ファイターのかがやき", "Fighter's Radiance", "2014-01-20"),
+      ep(16, "再会、父よ？", "Dad, We Meet Again?", "2014-01-27"),
+      ep(17, "心の形", "Model of the Heart", "2014-02-03"),
+      ep(18, "ブラッド・ハウンド", "Bloodhounds", "2014-02-10"),
+      ep(19, "アストレイの刃", "Astray's Blade", "2014-02-17"),
+      ep(20, "裏切りのアイラ", "Aila's Betrayal", "2014-02-24"),
+      ep(
+        21,
+        "きらめく粒子の中で",
+        "Amid the Glittering Particles",
+        "2014-03-03",
+      ),
+      ep(22, "名人VS名人", "Meijin vs. Meijin", "2014-03-10"),
+      ep(23, "ガンプラ・イブ", "Gunpla Eve", "2014-03-17"),
+      ep(24, "ダークマター", "Dark Matter", "2014-03-24"),
+      ep(25, "約束", "Promise", "2014-03-31"),
+    ],
+    releases: [
+      rel("ja", "broadcast", "TV Tokyo", "2013-10-07", "weekly", "2014-03-31"),
+      rel("en", "streaming", "Gundam.info YouTube", "2014", "simulcast"),
+      rel("en", "home_video", "Right Stuf / Sunrise", "2017", "box-set"),
+    ],
+  },
+  build_fighters_try_2014_tv: {
     title: {
-      ja: "ガンダムブレイカーバトローグ",
-      en: "Gundam Breaker Battlogue",
+      ja: "ガンダムビルドファイターズトライ",
+      en: "Gundam Build Fighters Try",
+    },
+    u: "build",
+    type: "tv",
+    source:
+      "https://en.wikipedia.org/wiki/List_of_Gundam_Build_Fighters_Try_episodes",
+    episodes: [
+      ep(1, "風を呼ぶ少年", "The Boy Who Calls the Wind", "2014-10-08"),
+      ep(
+        2,
+        "結成！トライ・ファイターズ",
+        "Team Up, Try Fighters!",
+        "2014-10-15",
+      ),
+      ep(3, "その名はギャン子", "Her Name Is Gyanko", "2014-10-22"),
+      ep(4, "Gミューズ", "G-Muse", "2014-10-29"),
+      ep(
+        5,
+        "憧れと挑戦を胸に",
+        "Dream and Challenge in Your Heart",
+        "2014-11-05",
+      ),
+      ep(6, "戦場の支配者", "Ruler of the Battlefield", "2014-11-12"),
+      ep(7, "素組みのシモン", "Straight-Assembly Shimon", "2014-11-19"),
+      ep(8, "この盾に誓って", "Upon This Shield", "2014-11-26"),
+      ep(9, "決戦のソロモン", "Showdown at Solomon", "2014-12-03"),
+      ep(10, "ガン☆コレ", "Gunpla Collection", "2014-12-10"),
+      ep(11, "ニールセン・ラボ", "Nielsen Labs", "2014-12-17"),
+      ep(12, "未来へ羽ばたくために", "To Fly to the Future", "2014-12-24"),
+      ep(13, "ビヨンド・ザ・ナックル", "Beyond the Knuckle", "2015-01-07"),
+      ep(14, "好敵手たち", "Worthy Rivals", "2015-01-14"),
+      ep(
+        15,
+        "新生！トライ・ファイターズ",
+        "Reborn Try Fighters!",
+        "2015-01-21",
+      ),
+      ep(16, "華麗なるシア", "Magnificent Shia", "2015-01-28"),
+      ep(17, "亡霊城の罠", "Haunted Castle Trap", "2015-02-04"),
+      ep(18, "スナイバル・ドラゴ・ギラ", "Snibal-Drago-Gira", "2015-02-11"),
+      ep(19, "運命の再会", "Fateful Reunion", "2015-02-18"),
+      ep(20, "折れない心", "Unbreakable Heart", "2015-02-25"),
+      ep(21, "蒼き翼", "Blue Wings", "2015-03-04"),
+      ep(22, "心のままに", "Follow Your Heart", "2015-03-11"),
+      ep(23, "ビルド・ファイター", "Build Fighter", "2015-03-18"),
+      ep(24, "ファイナル・バースト", "Final Burst", "2015-03-25"),
+      ep(25, "僕たちのガンプラ", "Our Gunpla", "2015-04-01"),
+      ep(
+        "SP",
+        "ガンダムビルドファイターズトライ アイランド・ウォーズ",
+        "Gundam Build Fighters Try Island Wars",
+        "2016-08-21",
+      ),
+    ],
+    releases: [
+      rel("ja", "broadcast", "TV Tokyo", "2014-10-08", "weekly", "2015-04-01"),
+      rel("en", "streaming", "Gundam.info YouTube", "2015", "simulcast"),
+      rel("en", "home_video", "Right Stuf / Sunrise", "2018", "box-set"),
+    ],
+  },
+  build_fighters_battlogue_2017_ona: {
+    title: {
+      ja: "ガンダムビルドファイターズ バトローグ",
+      en: "Gundam Build Fighters: Battlogue",
     },
     u: "build",
     type: "ona",
     source:
-      "https://en.wikipedia.org/wiki/Gundam_Breaker#Gundam_Breaker_Battlogue",
-    note: "3-episode ONA tying into the Gundam Breaker mobile game",
+      "https://en.wikipedia.org/wiki/List_of_Gundam_Build_Fighters_Try_episodes",
     episodes: [
-      {
-        n: 1,
-        title: { ja: "Breaker Battlogue 1", en: "Breaker Battlogue 1" },
-        ja: "2021-10-19",
-      },
-      {
-        n: 2,
-        title: { ja: "Breaker Battlogue 2", en: "Breaker Battlogue 2" },
-        ja: "2021-11-16",
-      },
-      {
-        n: 3,
-        title: { ja: "Breaker Battlogue 3", en: "Breaker Battlogue 3" },
-        ja: "2021-12-14",
-      },
+      ep(1, "AI Battlogue", "AI Battlogue", "2017-08-04"),
+      ep(
+        2,
+        "Smash the Enemy's Secret Factory!",
+        "Smash the Enemy's Secret Factory!",
+        "2017-09-08",
+      ),
+      ep(
+        3,
+        "The Adventures of Fumina and Gyanko",
+        "The Adventures of Fumina and Gyanko",
+        "2017-10-06",
+      ),
+      ep(4, "Our War", "Our War", "2017-11-03"),
+      ep(5, "Gunpla is the Greatest!", "Gunpla is the Greatest!", "2017-12-08"),
     ],
     releases: [
-      {
-        region: "ja",
-        channel: "streaming",
-        label: "YouTube",
-        start: "2021-10-15",
-        schedule: "simulcast",
-      },
-      {
-        region: "en",
-        channel: "streaming",
-        label: "Gundam.info YouTube",
-        start: "2021",
-        schedule: "simulcast",
-      },
+      rel(
+        "ja",
+        "streaming",
+        "YouTube",
+        "2017-08-25",
+        "simulcast",
+        "2017-09-22",
+      ),
+      rel("en", "streaming", "Gundam.info YouTube", "2017", "simulcast"),
     ],
   },
   build_divers_2018_tv: {
@@ -247,124 +349,112 @@ export const buildDetails: Record<string, EntryDetail | undefined> = {
     source: "https://en.wikipedia.org/wiki/Gundam_Build_Divers",
     note: "Aired weekly Tuesday on TV Tokyo. Prologue special released Feb 2 2018.",
     episodes: [
-      {
-        n: 0,
-        title: { ja: "プロローグ", en: "Gundam Build Divers: Prologue" },
-        ja: "2018-02-02",
-      },
-      {
-        n: 1,
-        title: { ja: "Welcome to GBN", en: "Welcome to GBN" },
-        ja: "2018-04-03",
-      },
-      {
-        n: 2,
-        title: { ja: "百鬼オーガ", en: "Chaotic Ogre" },
-        ja: "2018-04-10",
-      },
-      { n: 3, title: { ja: "守る者", en: "The Protector" }, ja: "2018-04-17" },
-      {
-        n: 4,
-        title: { ja: "霊山の虎狼", en: "Tigerwolf of the Sacred Mountain" },
-        ja: "2018-04-24",
-      },
-      {
-        n: 5,
-        title: { ja: "聖地・ペリシア", en: "Holy Land of Perisia" },
-        ja: "2018-05-01",
-      },
-      {
-        n: 6,
-        title: { ja: "過去と未来", en: "Past and Future" },
-        ja: "2018-05-08",
-      },
-      {
-        n: 7,
-        title: { ja: "フォース戦", en: "Force Battle" },
-        ja: "2018-05-15",
-      },
-      { n: 8, title: { ja: "フェス！", en: "Festival!" }, ja: "2018-05-22" },
-      {
-        n: 9,
-        title: { ja: "オーガ再び", en: "Return of the Ogre" },
-        ja: "2018-05-29",
-      },
-      {
-        n: 10,
-        title: { ja: "有志連合", en: "Coalition of Volunteers" },
-        ja: "2018-06-05",
-      },
-      {
-        n: 11,
-        title: { ja: "アヤメの涙", en: "Ayame's Tears" },
-        ja: "2018-06-12",
-      },
-      { n: 12, title: { ja: "光る翼", en: "Shining Wings" }, ja: "2018-06-19" },
-      { n: 13, title: { ja: "デュエル-決闘-", en: "Duel" }, ja: "2018-06-26" },
-      { n: 14, title: { ja: "新しい力", en: "A New Power" }, ja: "2018-07-03" },
-      {
-        n: 15,
-        title: { ja: "ロータス・チャレンジ", en: "Lotus Challenge" },
-        ja: "2018-07-10",
-      },
-      {
-        n: 16,
-        title: { ja: "再会、友よ", en: "Friends Reunited" },
-        ja: "2018-07-17",
-      },
-      { n: 17, title: { ja: "共同戦線", en: "Joint Front" }, ja: "2018-07-24" },
-      {
-        n: 18,
-        title: { ja: "男の意地", en: "A Man's Will" },
-        ja: "2018-07-31",
-      },
-      {
-        n: 19,
-        title: { ja: "ナデシコアスロン", en: "Nadeshiko-athlon" },
-        ja: "2018-08-07",
-      },
-      { n: 20, title: { ja: "真実", en: "The Truth" }, ja: "2018-08-14" },
-      {
-        n: 21,
-        title: { ja: "君の想い", en: "Your Feelings" },
-        ja: "2018-08-21",
-      },
-      { n: 22, title: { ja: "誓う心", en: "Devoted Heart" }, ja: "2018-08-28" },
-      {
-        n: 23,
-        title: { ja: "宿命の二人", en: "The Fateful Two" },
-        ja: "2018-09-04",
-      },
-      { n: 24, title: { ja: "決戦", en: "Decisive Battle" }, ja: "2018-09-11" },
-      {
-        n: 25,
-        title: { ja: "新しい世界", en: "A New World" },
-        ja: "2018-09-18",
-      },
+      ep(0, "プロローグ", "Gundam Build Divers: Prologue", "2018-02-02"),
+      ep(1, "Welcome to GBN", "Welcome to GBN", "2018-04-03"),
+      ep(2, "百鬼オーガ", "Chaotic Ogre", "2018-04-10"),
+      ep(3, "守る者", "The Protector", "2018-04-17"),
+      ep(4, "霊山の虎狼", "Tigerwolf of the Sacred Mountain", "2018-04-24"),
+      ep(5, "聖地・ペリシア", "Holy Land of Perisia", "2018-05-01"),
+      ep(6, "過去と未来", "Past and Future", "2018-05-08"),
+      ep(7, "フォース戦", "Force Battle", "2018-05-15"),
+      ep(8, "フェス！", "Festival!", "2018-05-22"),
+      ep(9, "オーガ再び", "Return of the Ogre", "2018-05-29"),
+      ep(10, "有志連合", "Coalition of Volunteers", "2018-06-05"),
+      ep(11, "アヤメの涙", "Ayame's Tears", "2018-06-12"),
+      ep(12, "光る翼", "Shining Wings", "2018-06-19"),
+      ep(13, "デュエル-決闘-", "Duel", "2018-06-26"),
+      ep(14, "新しい力", "A New Power", "2018-07-03"),
+      ep(15, "ロータス・チャレンジ", "Lotus Challenge", "2018-07-10"),
+      ep(16, "再会、友よ", "Friends Reunited", "2018-07-17"),
+      ep(17, "共同戦線", "Joint Front", "2018-07-24"),
+      ep(18, "男の意地", "A Man's Will", "2018-07-31"),
+      ep(19, "ナデシコアスロン", "Nadeshiko-athlon", "2018-08-07"),
+      ep(20, "真実", "The Truth", "2018-08-14"),
+      ep(21, "君の想い", "Your Feelings", "2018-08-21"),
+      ep(22, "誓う心", "Devoted Heart", "2018-08-28"),
+      ep(23, "宿命の二人", "The Fateful Two", "2018-09-04"),
+      ep(24, "決戦", "Decisive Battle", "2018-09-11"),
+      ep(25, "新しい世界", "A New World", "2018-09-18"),
     ],
     releases: [
-      {
-        region: "ja",
-        channel: "broadcast",
-        label: "TV Tokyo",
-        start: "2018-04-03",
-        end: "2018-09-18",
-        schedule: "weekly",
-      },
-      {
-        region: "en",
-        channel: "streaming",
-        label: "Gundam.info YouTube",
-        start: "2018",
-        schedule: "simulcast",
-      },
-      {
-        region: "en",
-        channel: "home_video",
-        label: "Right Stuf / Sunrise",
-        start: "2020",
-        schedule: "box-set",
-      },
+      rel("ja", "broadcast", "TV Tokyo", "2018-04-03", "weekly", "2018-09-18"),
+      rel("en", "streaming", "Gundam.info YouTube", "2018", "simulcast"),
+      rel("en", "home_video", "Right Stuf / Sunrise", "2020", "box-set"),
+    ],
+  },
+  build_divers_rerise_2019_ona: {
+    title: {
+      ja: "ガンダムビルドダイバーズRe:RISE",
+      en: "Gundam Build Divers Re:RISE",
+    },
+    u: "build",
+    type: "ona",
+    source: "https://en.wikipedia.org/wiki/Gundam_Build_Divers_Re:Rise",
+    note: "Streamed on Gundam Channel YouTube. Cours 1: Oct-Dec 2019; Cours 2: Apr-Sep 2020 (delayed by COVID).",
+    episodes: [
+      ep(1, "彷徨のコアガンダム", "Wandering Core Gundam", "2019-10-10", {
+        cours: 1,
+      }),
+      ep(2, "知られざるミッション", "Unknown Mission", "2019-10-17", {
+        cours: 1,
+      }),
+      ep(3, "守るべき場所", "A Place to Protect", "2019-10-24", { cours: 1 }),
+      ep(4, "傷ついた翼", "Wounded Wings", "2019-10-31", { cours: 1 }),
+      ep(5, "いま、翼ひろげて", "Now Spread Your Wings", "2019-11-07", {
+        cours: 1,
+      }),
+      ep(6, "崖っぷちのヒーロー", "Hero on the Brink", "2019-11-14", {
+        cours: 1,
+      }),
+      ep(7, "傷だらけの栄冠", "Battered Crown", "2019-11-21", { cours: 1 }),
+      ep(8, "使命と幻影", "Duty and Illusion", "2019-11-28", { cours: 1 }),
+      ep(9, "隔絶の淵から", "Abyss of Isolation", "2019-12-05", { cours: 1 }),
+      ep(10, "そこにある息吹", "The Ones Who Breathe There", "2019-12-12", {
+        cours: 1,
+      }),
+      ep(11, "ラストミッション", "Last Mission", "2019-12-19", { cours: 1 }),
+      ep(12, "震える世界", "The Shuddering World", "2019-12-26", { cours: 1 }),
+      ep(13, "このそらのどこかで", "Somewhere in This Universe", "2020-01-02", {
+        cours: 1,
+      }),
+      ep(14, "めぐりあい、そして", "Encounters, and Then...", "2020-04-09", {
+        cours: 2,
+      }),
+      ep(15, "ミッション、再び", "Mission, Again", "2020-04-16", { cours: 2 }),
+      ep(16, "天空の大地へ", "To the Heavenly Land", "2020-04-23", {
+        cours: 2,
+      }),
+      ep(17, "聖獣クアドルン", "The Sacred Beast Cuadorn", "2020-04-30", {
+        cours: 2,
+      }),
+      ep(18, "完璧な狙撃者", "Perfect Sniper", "2020-05-07", { cours: 2 }),
+      ep(19, "君がいなければ", "If It Weren't for You", "2020-05-14", {
+        cours: 2,
+      }),
+      ep(20, "託された願い", "A Wish Entrusted", "2020-05-21", { cours: 2 }),
+      ep(21, "もういちど飛ぶために", "To Fly Once More", "2020-05-28", {
+        cours: 2,
+      }),
+      ep(22, "刻限のゼルトザーム", "Seltsam's Deadline", "2020-06-04", {
+        cours: 2,
+      }),
+      ep(23, "選択のとき", "Moment of Choice", "2020-06-11", { cours: 2 }),
+      ep(24, "ビルドダイバーズ", "Build Divers", "2020-06-18", { cours: 2 }),
+      ep(25, "僕が描くあしたへ", "To the Tomorrow I Envision", "2020-06-25", {
+        cours: 2,
+      }),
+      ep(26, "Re:RISE", "Re:Rise", "2020-07-02", { cours: 2 }),
+    ],
+    releases: [
+      rel(
+        "ja",
+        "streaming",
+        "Bandai Channel / YouTube",
+        "2019-10-25",
+        "simulcast",
+        "2020-08-28",
+      ),
+      rel("en", "streaming", "Gundam.info YouTube", "2019", "simulcast"),
     ],
   },
   build_divers_battlogue_2020_ona: {
@@ -376,27 +466,195 @@ export const buildDetails: Record<string, EntryDetail | undefined> = {
     type: "ona",
     source: "https://en.wikipedia.org/wiki/Gundam_Build_Divers_Re:Rise",
     episodes: [
-      {
-        n: 1,
-        title: { ja: "ガンダムビルドダイバーズ バトローグ", en: "Battlogue" },
-        ja: "2020-11-13",
-      },
+      ep(1, "ガンダムビルドダイバーズ バトローグ", "Battlogue", "2020-11-13"),
     ],
     releases: [
-      {
-        region: "ja",
-        channel: "streaming",
-        label: "YouTube",
-        start: "2020-08-13",
-        schedule: "simulcast",
-      },
-      {
-        region: "en",
-        channel: "streaming",
-        label: "Gundam.info YouTube",
-        start: "2020",
-        schedule: "simulcast",
-      },
+      rel("ja", "streaming", "YouTube", "2020-08-13", "simulcast"),
+      rel("en", "streaming", "Gundam.info YouTube", "2020", "simulcast"),
+    ],
+  },
+  build_metaverse_2023_ona: {
+    title: { ja: "ガンダムビルドメタバース", en: "Gundam Build Metaverse" },
+    u: "build",
+    type: "ona",
+    source: "https://en.wikipedia.org/wiki/Gundam_Build_Metaverse",
+    note: "3-episode 10th anniversary mini-series streamed on Gundam Channel YouTube",
+    episodes: [
+      ep(1, "DIVE", "Dive", "2023-10-06"),
+      ep(2, "RERISE", "Re:Rise", "2023-10-20"),
+      ep(3, "TRY&FIGHT", "TRY&FIGHT", "2023-10-20"),
+    ],
+    releases: [
+      rel("ja", "streaming", "YouTube", "2023-10-20", "simulcast"),
+      rel("en", "streaming", "Gundam.info YouTube", "2023-10-20", "simulcast"),
+    ],
+  },
+  build_real_2021_live: {
+    title: { ja: "ガンダムビルドリアル", en: "Gundam Build Real" },
+    u: "build",
+    type: "live-action",
+    source: "https://en.wikipedia.org/wiki/Gundam_Build_Real",
+    note: "Live-action web drama featuring real Gunpla, 6 episodes",
+    episodes: [
+      ep(1, "再会", "Reunion", "2021-03-29", { en: "2021-08-26" }),
+      ep(2, "宝の持ち腐れ", "Wasted Treasure", "2021-04-26"),
+      ep(3, "チームに空いた穴", "The Hole in the Team", "2021-05-31"),
+      ep(4, "それぞれの過去", "Respective Pasts", "2021-06-28"),
+      ep(
+        5,
+        "東海地区大会開幕",
+        "The Tokai Regional Tournament Begins",
+        "2021-07-12",
+      ),
+      ep(6, "ガンプラは自由だ", "Gunpla is Freedom", "2021-07-19"),
+    ],
+    releases: [
+      rel(
+        "ja",
+        "streaming",
+        "Gundam Channel / Bandai Channel",
+        "2021-03-29",
+        "simulcast",
+        "2021-07-19",
+      ),
+      rel("ja", "broadcast", "BS11", "2021-06-18", "weekly", "2021-07-23"),
+      rel(
+        "en",
+        "streaming",
+        "Gundam.Info YouTube",
+        "2021-08-26",
+        "simulcast",
+        "2021-12-01",
+      ),
+    ],
+  },
+  breaker_battlogue_2021_ona: {
+    title: {
+      ja: "ガンダムブレイカーバトローグ",
+      en: "Gundam Breaker Battlogue",
+    },
+    u: "build",
+    type: "ona",
+    source:
+      "https://en.wikipedia.org/wiki/Gundam_Breaker#Gundam_Breaker_Battlogue",
+    note: "3-episode ONA tying into the Gundam Breaker mobile game",
+    episodes: [
+      ep(1, "Breaker Battlogue 1", "Breaker Battlogue 1", "2021-10-19"),
+      ep(2, "Breaker Battlogue 2", "Breaker Battlogue 2", "2021-11-16"),
+      ep(3, "Breaker Battlogue 3", "Breaker Battlogue 3", "2021-12-14"),
+    ],
+    releases: [
+      rel("ja", "streaming", "YouTube", "2021-10-15", "simulcast"),
+      rel("en", "streaming", "Gundam.info YouTube", "2021", "simulcast"),
+    ],
+  },
+  build_fighters_gm_counterattack_2017_ona: {
+    title: {
+      ja: "ガンダムビルドファイターズ GMの逆襲",
+      en: "Gundam Build Fighters: GM's Counterattack",
+    },
+    u: "build",
+    type: "ona",
+    source: "https://en.wikipedia.org/wiki/Gundam_Build_Fighters",
+    episodes: [
+      ep(
+        1,
+        "ガンダムビルドファイターズ GMの逆襲",
+        "GM's Counterattack",
+        "2017-08-25",
+      ),
+    ],
+    releases: [
+      rel("ja", "streaming", "Gundam.info YouTube", "2017-08-25", "simulcast"),
+      rel("en", "streaming", "Gundam.info YouTube", "2017-08-25", "simulcast"),
+    ],
+  },
+  gunpla_builders_beginning_g_2010_ova: {
+    title: {
+      ja: "模型戦士ガンプラビルダーズ ビギニングG",
+      en: "Model Suit Gunpla Builders Beginning G",
+    },
+    u: "build",
+    type: "ova",
+    source:
+      "https://gundam.fandom.com/wiki/Model_Suit_Gunpla_Builders_Beginning_G",
+    episodes: [
+      ep(
+        1,
+        "パーツA 「ビギニングガンダム」",
+        "Parts A: Beginning Gundam",
+        "2010-08-15",
+      ),
+      ep(
+        2,
+        "パーツB 「フォーエバーガンダム」",
+        "Parts B: Forever Gundam",
+        "2010-10-31",
+      ),
+      ep(3, "パーツC 「ビギニング30」", "Parts C: Beginning 30", "2010-12-19"),
+    ],
+    releases: [
+      rel("ja", "home_video", "OVA (bundled with MG kit)", "2010", "box-set"),
+      rel("en", "streaming", "Gundam.info YouTube", "2014", "simulcast"),
+    ],
+  },
+  build_fighters_try_island_wars_2016_ova: {
+    title: {
+      ja: "ガンダムビルドファイターズトライ アイランド・ウォーズ",
+      en: "Gundam Build Fighters Try: Island Wars",
+    },
+    u: "build",
+    type: "ova",
+    source: "https://en.wikipedia.org/wiki/Gundam_Build_Fighters_Try",
+    episodes: [
+      ep(
+        1,
+        "ガンダムビルドファイターズトライ アイランド・ウォーズ",
+        "Island Wars",
+        "2016-08-21",
+      ),
+    ],
+    releases: [
+      rel("ja", "streaming", "Gundam.info YouTube", "2016-08-21", "simulcast"),
+      rel("en", "streaming", "Gundam.info YouTube", "2016", "simulcast"),
+    ],
+  },
+  gundam_exa_2011_manga: {
+    title: { ja: "ガンダムEXA", en: "Gundam EXA" },
+    u: "build",
+    type: "manga",
+    source: "https://ja.wikipedia.org/wiki/ガンダムEXA",
+    author:
+      "Tokita Koichi (art), Tomino Yoshiyuki / Yatate Hajime (original concept)",
+    publisher: "Kadokawa",
+    magazine: "Gundam Ace",
+    episodes: [
+      ep(1, "Volume 1", "Volume 1", "2011-11-26"),
+      ep(2, "Volume 2", "Volume 2", "2012-03-26"),
+      ep(3, "Volume 3", "Volume 3", "2012-08-23"),
+      ep(4, "Volume 4", "Volume 4", "2013-01-24"),
+    ],
+    releases: [
+      rel("ja", "print", "Kadokawa Gundam Ace", "2011", "serial", "2013"),
+    ],
+  },
+  gundam_exa_vs_2014_manga: {
+    title: { ja: "ガンダムEXA VS", en: "Gundam EXA VS" },
+    u: "build",
+    type: "manga",
+    source: "https://ja.wikipedia.org/wiki/ガンダムEXA",
+    author:
+      "Tokita Koichi (art), Tomino Yoshiyuki / Yatate Hajime (original concept)",
+    publisher: "Kadokawa",
+    magazine: "Gundam Ace",
+    episodes: [
+      ep(1, "Volume 1", "Volume 1", "2014-06"),
+      ep(2, "Volume 2", "Volume 2", "2014-11"),
+      ep(3, "Volume 3", "Volume 3", "2015-06"),
+      ep(4, "Volume 4", "Volume 4", "2016-01"),
+    ],
+    releases: [
+      rel("ja", "print", "Kadokawa Gundam Ace", "2014", "serial", "2016"),
     ],
   },
   build_divers_manga: {
@@ -411,203 +669,11 @@ export const buildDetails: Record<string, EntryDetail | undefined> = {
     publisher: "Kadokawa",
     magazine: "Gundam Ace",
     episodes: [
-      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2018-12-26" },
-      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2019-09-26" },
+      ep(1, "Volume 1", "Volume 1", "2018-12-26"),
+      ep(2, "Volume 2", "Volume 2", "2019-09-26"),
     ],
     releases: [
-      {
-        region: "ja",
-        channel: "print",
-        label: "Kadokawa Gundam Ace",
-        start: "2018",
-        end: "2019",
-        schedule: "serial",
-      },
-    ],
-  },
-  build_divers_rerise_2019_ona: {
-    title: {
-      ja: "ガンダムビルドダイバーズRe:RISE",
-      en: "Gundam Build Divers Re:RISE",
-    },
-    u: "build",
-    type: "ona",
-    source: "https://en.wikipedia.org/wiki/Gundam_Build_Divers_Re:Rise",
-    note: "Streamed on Gundam Channel YouTube. Cours 1: Oct-Dec 2019; Cours 2: Apr-Sep 2020 (delayed by COVID).",
-    episodes: [
-      {
-        n: 1,
-        title: { ja: "彷徨のコアガンダム", en: "Wandering Core Gundam" },
-        ja: "2019-10-10",
-        cours: 1,
-      },
-      {
-        n: 2,
-        title: { ja: "知られざるミッション", en: "Unknown Mission" },
-        ja: "2019-10-17",
-        cours: 1,
-      },
-      {
-        n: 3,
-        title: { ja: "守るべき場所", en: "A Place to Protect" },
-        ja: "2019-10-24",
-        cours: 1,
-      },
-      {
-        n: 4,
-        title: { ja: "傷ついた翼", en: "Wounded Wings" },
-        ja: "2019-10-31",
-        cours: 1,
-      },
-      {
-        n: 5,
-        title: { ja: "いま、翼ひろげて", en: "Now Spread Your Wings" },
-        ja: "2019-11-07",
-        cours: 1,
-      },
-      {
-        n: 6,
-        title: { ja: "崖っぷちのヒーロー", en: "Hero on the Brink" },
-        ja: "2019-11-14",
-        cours: 1,
-      },
-      {
-        n: 7,
-        title: { ja: "傷だらけの栄冠", en: "Battered Crown" },
-        ja: "2019-11-21",
-        cours: 1,
-      },
-      {
-        n: 8,
-        title: { ja: "使命と幻影", en: "Duty and Illusion" },
-        ja: "2019-11-28",
-        cours: 1,
-      },
-      {
-        n: 9,
-        title: { ja: "隔絶の淵から", en: "Abyss of Isolation" },
-        ja: "2019-12-05",
-        cours: 1,
-      },
-      {
-        n: 10,
-        title: { ja: "そこにある息吹", en: "The Ones Who Breathe There" },
-        ja: "2019-12-12",
-        cours: 1,
-      },
-      {
-        n: 11,
-        title: { ja: "ラストミッション", en: "Last Mission" },
-        ja: "2019-12-19",
-        cours: 1,
-      },
-      {
-        n: 12,
-        title: { ja: "震える世界", en: "The Shuddering World" },
-        ja: "2019-12-26",
-        cours: 1,
-      },
-      {
-        n: 13,
-        title: { ja: "このそらのどこかで", en: "Somewhere in This Universe" },
-        ja: "2020-01-02",
-        cours: 1,
-      },
-      {
-        n: 14,
-        title: { ja: "めぐりあい、そして", en: "Encounters, and Then..." },
-        ja: "2020-04-09",
-        cours: 2,
-      },
-      {
-        n: 15,
-        title: { ja: "ミッション、再び", en: "Mission, Again" },
-        ja: "2020-04-16",
-        cours: 2,
-      },
-      {
-        n: 16,
-        title: { ja: "天空の大地へ", en: "To the Heavenly Land" },
-        ja: "2020-04-23",
-        cours: 2,
-      },
-      {
-        n: 17,
-        title: { ja: "聖獣クアドルン", en: "The Sacred Beast Cuadorn" },
-        ja: "2020-04-30",
-        cours: 2,
-      },
-      {
-        n: 18,
-        title: { ja: "完璧な狙撃者", en: "Perfect Sniper" },
-        ja: "2020-05-07",
-        cours: 2,
-      },
-      {
-        n: 19,
-        title: { ja: "君がいなければ", en: "If It Weren't for You" },
-        ja: "2020-05-14",
-        cours: 2,
-      },
-      {
-        n: 20,
-        title: { ja: "託された願い", en: "A Wish Entrusted" },
-        ja: "2020-05-21",
-        cours: 2,
-      },
-      {
-        n: 21,
-        title: { ja: "もういちど飛ぶために", en: "To Fly Once More" },
-        ja: "2020-05-28",
-        cours: 2,
-      },
-      {
-        n: 22,
-        title: { ja: "刻限のゼルトザーム", en: "Seltsam's Deadline" },
-        ja: "2020-06-04",
-        cours: 2,
-      },
-      {
-        n: 23,
-        title: { ja: "選択のとき", en: "Moment of Choice" },
-        ja: "2020-06-11",
-        cours: 2,
-      },
-      {
-        n: 24,
-        title: { ja: "ビルドダイバーズ", en: "Build Divers" },
-        ja: "2020-06-18",
-        cours: 2,
-      },
-      {
-        n: 25,
-        title: { ja: "僕が描くあしたへ", en: "To the Tomorrow I Envision" },
-        ja: "2020-06-25",
-        cours: 2,
-      },
-      {
-        n: 26,
-        title: { ja: "Re:RISE", en: "Re:Rise" },
-        ja: "2020-07-02",
-        cours: 2,
-      },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "streaming",
-        label: "Bandai Channel / YouTube",
-        start: "2019-10-25",
-        end: "2020-08-28",
-        schedule: "simulcast",
-      },
-      {
-        region: "en",
-        channel: "streaming",
-        label: "Gundam.info YouTube",
-        start: "2019",
-        schedule: "simulcast",
-      },
+      rel("ja", "print", "Kadokawa Gundam Ace", "2018", "serial", "2019"),
     ],
   },
   build_divers_rerise_manga: {
@@ -622,667 +688,12 @@ export const buildDetails: Record<string, EntryDetail | undefined> = {
     publisher: "Kadokawa",
     magazine: "Gundam Ace",
     episodes: [
-      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2020-03-26" },
-      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2020-08-26" },
-      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2021-02-26" },
+      ep(1, "Volume 1", "Volume 1", "2020-03-26"),
+      ep(2, "Volume 2", "Volume 2", "2020-08-26"),
+      ep(3, "Volume 3", "Volume 3", "2021-02-26"),
     ],
     releases: [
-      {
-        region: "ja",
-        channel: "print",
-        label: "Kadokawa Gundam Ace",
-        start: "2019",
-        end: "2021",
-        schedule: "serial",
-      },
-    ],
-  },
-  build_fighters_2013_tv: {
-    title: { ja: "ガンダムビルドファイターズ", en: "Gundam Build Fighters" },
-    u: "build",
-    type: "tv",
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Gundam_Build_Fighters_episodes",
-    episodes: [
-      {
-        n: 1,
-        title: { ja: "セイとレイジ", en: "Sei and Reiji" },
-        ja: "2013-10-07",
-      },
-      {
-        n: 2,
-        title: { ja: "紅の彗星", en: "The Crimson Comet" },
-        ja: "2013-10-14",
-      },
-      {
-        n: 3,
-        title: { ja: "フルパッケージ", en: "Full Package" },
-        ja: "2013-10-21",
-      },
-      {
-        n: 4,
-        title: { ja: "ガンプラアイドル キララ☆", en: "Gunpla Idol Kirara" },
-        ja: "2013-10-28",
-      },
-      {
-        n: 5,
-        title: { ja: "最強ビルダー", en: "The Strongest Builder" },
-        ja: "2013-11-04",
-      },
-      {
-        n: 6,
-        title: { ja: "戦うわけ", en: "A Reason to Battle" },
-        ja: "2013-11-11",
-      },
-      {
-        n: 7,
-        title: { ja: "世界の実力", en: "World-Level Ability" },
-        ja: "2013-11-18",
-      },
-      {
-        n: 8,
-        title: { ja: "あい戦士たち", en: "Encounters of Fighters" },
-        ja: "2013-11-25",
-      },
-      {
-        n: 9,
-        title: { ja: "想像の翼", en: "Wings of Imagination" },
-        ja: "2013-12-02",
-      },
-      {
-        n: 10,
-        title: { ja: "開幕！世界大会", en: "The World Tournament Begins" },
-        ja: "2013-12-09",
-      },
-      {
-        n: 11,
-        title: { ja: "ロワイヤル", en: "Battle Royal" },
-        ja: "2013-12-16",
-      },
-      {
-        n: 12,
-        title: { ja: "ディスチャージ", en: "Discharge" },
-        ja: "2013-12-23",
-      },
-      {
-        n: 13,
-        title: { ja: "バトルウェポン", en: "Battle Weapon" },
-        ja: "2014-01-06",
-      },
-      {
-        n: 14,
-        title: { ja: "コードネームC", en: "Codename: C" },
-        ja: "2014-01-13",
-      },
-      {
-        n: 15,
-        title: { ja: "ファイターのかがやき", en: "Fighter's Radiance" },
-        ja: "2014-01-20",
-      },
-      {
-        n: 16,
-        title: { ja: "再会、父よ？", en: "Dad, We Meet Again?" },
-        ja: "2014-01-27",
-      },
-      {
-        n: 17,
-        title: { ja: "心の形", en: "Model of the Heart" },
-        ja: "2014-02-03",
-      },
-      {
-        n: 18,
-        title: { ja: "ブラッド・ハウンド", en: "Bloodhounds" },
-        ja: "2014-02-10",
-      },
-      {
-        n: 19,
-        title: { ja: "アストレイの刃", en: "Astray's Blade" },
-        ja: "2014-02-17",
-      },
-      {
-        n: 20,
-        title: { ja: "裏切りのアイラ", en: "Aila's Betrayal" },
-        ja: "2014-02-24",
-      },
-      {
-        n: 21,
-        title: {
-          ja: "きらめく粒子の中で",
-          en: "Amid the Glittering Particles",
-        },
-        ja: "2014-03-03",
-      },
-      {
-        n: 22,
-        title: { ja: "名人VS名人", en: "Meijin vs. Meijin" },
-        ja: "2014-03-10",
-      },
-      {
-        n: 23,
-        title: { ja: "ガンプラ・イブ", en: "Gunpla Eve" },
-        ja: "2014-03-17",
-      },
-      {
-        n: 24,
-        title: { ja: "ダークマター", en: "Dark Matter" },
-        ja: "2014-03-24",
-      },
-      { n: 25, title: { ja: "約束", en: "Promise" }, ja: "2014-03-31" },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "broadcast",
-        label: "TV Tokyo",
-        start: "2013-10-07",
-        end: "2014-03-31",
-        schedule: "weekly",
-      },
-      {
-        region: "en",
-        channel: "streaming",
-        label: "Gundam.info YouTube",
-        start: "2014",
-        schedule: "simulcast",
-      },
-      {
-        region: "en",
-        channel: "home_video",
-        label: "Right Stuf / Sunrise",
-        start: "2017",
-        schedule: "box-set",
-      },
-    ],
-  },
-  build_fighters_battlogue_2017_ona: {
-    title: {
-      ja: "ガンダムビルドファイターズ バトローグ",
-      en: "Gundam Build Fighters: Battlogue",
-    },
-    u: "build",
-    type: "ona",
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Gundam_Build_Fighters_Try_episodes",
-    episodes: [
-      {
-        n: 1,
-        title: { ja: "AI Battlogue", en: "AI Battlogue" },
-        ja: "2017-08-04",
-      },
-      {
-        n: 2,
-        title: {
-          ja: "Smash the Enemy's Secret Factory!",
-          en: "Smash the Enemy's Secret Factory!",
-        },
-        ja: "2017-09-08",
-      },
-      {
-        n: 3,
-        title: {
-          ja: "The Adventures of Fumina and Gyanko",
-          en: "The Adventures of Fumina and Gyanko",
-        },
-        ja: "2017-10-06",
-      },
-      { n: 4, title: { ja: "Our War", en: "Our War" }, ja: "2017-11-03" },
-      {
-        n: 5,
-        title: { ja: "Gunpla is the Greatest!", en: "Gunpla is the Greatest!" },
-        ja: "2017-12-08",
-      },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "streaming",
-        label: "YouTube",
-        start: "2017-08-25",
-        end: "2017-09-22",
-        schedule: "simulcast",
-      },
-      {
-        region: "en",
-        channel: "streaming",
-        label: "Gundam.info YouTube",
-        start: "2017",
-        schedule: "simulcast",
-      },
-    ],
-  },
-  build_fighters_gm_counterattack_2017_ona: {
-    title: {
-      ja: "ガンダムビルドファイターズ GMの逆襲",
-      en: "Gundam Build Fighters: GM's Counterattack",
-    },
-    u: "build",
-    type: "ona",
-    source: "https://en.wikipedia.org/wiki/Gundam_Build_Fighters",
-    episodes: [
-      {
-        n: 1,
-        title: {
-          ja: "ガンダムビルドファイターズ GMの逆襲",
-          en: "GM's Counterattack",
-        },
-        ja: "2017-08-25",
-      },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "streaming",
-        label: "Gundam.info YouTube",
-        start: "2017-08-25",
-        schedule: "simulcast",
-      },
-      {
-        region: "en",
-        channel: "streaming",
-        label: "Gundam.info YouTube",
-        start: "2017-08-25",
-        schedule: "simulcast",
-      },
-    ],
-  },
-  build_fighters_try_2014_tv: {
-    title: {
-      ja: "ガンダムビルドファイターズトライ",
-      en: "Gundam Build Fighters Try",
-    },
-    u: "build",
-    type: "tv",
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Gundam_Build_Fighters_Try_episodes",
-    episodes: [
-      {
-        n: 1,
-        title: { ja: "風を呼ぶ少年", en: "The Boy Who Calls the Wind" },
-        ja: "2014-10-08",
-      },
-      {
-        n: 2,
-        title: {
-          ja: "結成！トライ・ファイターズ",
-          en: "Team Up, Try Fighters!",
-        },
-        ja: "2014-10-15",
-      },
-      {
-        n: 3,
-        title: { ja: "その名はギャン子", en: "Her Name Is Gyanko" },
-        ja: "2014-10-22",
-      },
-      { n: 4, title: { ja: "Gミューズ", en: "G-Muse" }, ja: "2014-10-29" },
-      {
-        n: 5,
-        title: {
-          ja: "憧れと挑戦を胸に",
-          en: "Dream and Challenge in Your Heart",
-        },
-        ja: "2014-11-05",
-      },
-      {
-        n: 6,
-        title: { ja: "戦場の支配者", en: "Ruler of the Battlefield" },
-        ja: "2014-11-12",
-      },
-      {
-        n: 7,
-        title: { ja: "素組みのシモン", en: "Straight-Assembly Shimon" },
-        ja: "2014-11-19",
-      },
-      {
-        n: 8,
-        title: { ja: "この盾に誓って", en: "Upon This Shield" },
-        ja: "2014-11-26",
-      },
-      {
-        n: 9,
-        title: { ja: "決戦のソロモン", en: "Showdown at Solomon" },
-        ja: "2014-12-03",
-      },
-      {
-        n: 10,
-        title: { ja: "ガン☆コレ", en: "Gunpla Collection" },
-        ja: "2014-12-10",
-      },
-      {
-        n: 11,
-        title: { ja: "ニールセン・ラボ", en: "Nielsen Labs" },
-        ja: "2014-12-17",
-      },
-      {
-        n: 12,
-        title: { ja: "未来へ羽ばたくために", en: "To Fly to the Future" },
-        ja: "2014-12-24",
-      },
-      {
-        n: 13,
-        title: { ja: "ビヨンド・ザ・ナックル", en: "Beyond the Knuckle" },
-        ja: "2015-01-07",
-      },
-      {
-        n: 14,
-        title: { ja: "好敵手たち", en: "Worthy Rivals" },
-        ja: "2015-01-14",
-      },
-      {
-        n: 15,
-        title: { ja: "新生！トライ・ファイターズ", en: "Reborn Try Fighters!" },
-        ja: "2015-01-21",
-      },
-      {
-        n: 16,
-        title: { ja: "華麗なるシア", en: "Magnificent Shia" },
-        ja: "2015-01-28",
-      },
-      {
-        n: 17,
-        title: { ja: "亡霊城の罠", en: "Haunted Castle Trap" },
-        ja: "2015-02-04",
-      },
-      {
-        n: 18,
-        title: { ja: "スナイバル・ドラゴ・ギラ", en: "Snibal-Drago-Gira" },
-        ja: "2015-02-11",
-      },
-      {
-        n: 19,
-        title: { ja: "運命の再会", en: "Fateful Reunion" },
-        ja: "2015-02-18",
-      },
-      {
-        n: 20,
-        title: { ja: "折れない心", en: "Unbreakable Heart" },
-        ja: "2015-02-25",
-      },
-      { n: 21, title: { ja: "蒼き翼", en: "Blue Wings" }, ja: "2015-03-04" },
-      {
-        n: 22,
-        title: { ja: "心のままに", en: "Follow Your Heart" },
-        ja: "2015-03-11",
-      },
-      {
-        n: 23,
-        title: { ja: "ビルド・ファイター", en: "Build Fighter" },
-        ja: "2015-03-18",
-      },
-      {
-        n: 24,
-        title: { ja: "ファイナル・バースト", en: "Final Burst" },
-        ja: "2015-03-25",
-      },
-      {
-        n: 25,
-        title: { ja: "僕たちのガンプラ", en: "Our Gunpla" },
-        ja: "2015-04-01",
-      },
-      {
-        n: "SP",
-        title: {
-          ja: "ガンダムビルドファイターズトライ アイランド・ウォーズ",
-          en: "Gundam Build Fighters Try Island Wars",
-        },
-        ja: "2016-08-21",
-      },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "broadcast",
-        label: "TV Tokyo",
-        start: "2014-10-08",
-        end: "2015-04-01",
-        schedule: "weekly",
-      },
-      {
-        region: "en",
-        channel: "streaming",
-        label: "Gundam.info YouTube",
-        start: "2015",
-        schedule: "simulcast",
-      },
-      {
-        region: "en",
-        channel: "home_video",
-        label: "Right Stuf / Sunrise",
-        start: "2018",
-        schedule: "box-set",
-      },
-    ],
-  },
-  build_fighters_try_island_wars_2016_ova: {
-    title: {
-      ja: "ガンダムビルドファイターズトライ アイランド・ウォーズ",
-      en: "Gundam Build Fighters Try: Island Wars",
-    },
-    u: "build",
-    type: "ova",
-    source: "https://en.wikipedia.org/wiki/Gundam_Build_Fighters_Try",
-    episodes: [
-      {
-        n: 1,
-        title: {
-          ja: "ガンダムビルドファイターズトライ アイランド・ウォーズ",
-          en: "Island Wars",
-        },
-        ja: "2016-08-21",
-      },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "streaming",
-        label: "Gundam.info YouTube",
-        start: "2016-08-21",
-        schedule: "simulcast",
-      },
-      {
-        region: "en",
-        channel: "streaming",
-        label: "Gundam.info YouTube",
-        start: "2016",
-        schedule: "simulcast",
-      },
-    ],
-  },
-  build_metaverse_2023_ona: {
-    title: { ja: "ガンダムビルドメタバース", en: "Gundam Build Metaverse" },
-    u: "build",
-    type: "ona",
-    source: "https://en.wikipedia.org/wiki/Gundam_Build_Metaverse",
-    note: "3-episode 10th anniversary mini-series streamed on Gundam Channel YouTube",
-    episodes: [
-      { n: 1, title: { ja: "DIVE", en: "Dive" }, ja: "2023-10-06" },
-      { n: 2, title: { ja: "RERISE", en: "Re:Rise" }, ja: "2023-10-20" },
-      { n: 3, title: { ja: "TRY&FIGHT", en: "TRY&FIGHT" }, ja: "2023-10-20" },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "streaming",
-        label: "YouTube",
-        start: "2023-10-20",
-        schedule: "simulcast",
-      },
-      {
-        region: "en",
-        channel: "streaming",
-        label: "Gundam.info YouTube",
-        start: "2023-10-20",
-        schedule: "simulcast",
-      },
-    ],
-  },
-  build_real_2021_live: {
-    title: { ja: "ガンダムビルドリアル", en: "Gundam Build Real" },
-    u: "build",
-    type: "live-action",
-    source: "https://en.wikipedia.org/wiki/Gundam_Build_Real",
-    note: "Live-action web drama featuring real Gunpla, 6 episodes",
-    episodes: [
-      {
-        n: 1,
-        title: { ja: "再会", en: "Reunion" },
-        ja: "2021-03-29",
-        en: "2021-08-26",
-      },
-      {
-        n: 2,
-        title: { ja: "宝の持ち腐れ", en: "Wasted Treasure" },
-        ja: "2021-04-26",
-      },
-      {
-        n: 3,
-        title: { ja: "チームに空いた穴", en: "The Hole in the Team" },
-        ja: "2021-05-31",
-      },
-      {
-        n: 4,
-        title: { ja: "それぞれの過去", en: "Respective Pasts" },
-        ja: "2021-06-28",
-      },
-      {
-        n: 5,
-        title: {
-          ja: "東海地区大会開幕",
-          en: "The Tokai Regional Tournament Begins",
-        },
-        ja: "2021-07-12",
-      },
-      {
-        n: 6,
-        title: { ja: "ガンプラは自由だ", en: "Gunpla is Freedom" },
-        ja: "2021-07-19",
-      },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "streaming",
-        label: "Gundam Channel / Bandai Channel",
-        start: "2021-03-29",
-        end: "2021-07-19",
-        schedule: "simulcast",
-      },
-      {
-        region: "ja",
-        channel: "broadcast",
-        label: "BS11",
-        start: "2021-06-18",
-        end: "2021-07-23",
-        schedule: "weekly",
-      },
-      {
-        region: "en",
-        channel: "streaming",
-        label: "Gundam.Info YouTube",
-        start: "2021-08-26",
-        end: "2021-12-01",
-        schedule: "simulcast",
-      },
-    ],
-  },
-  gundam_exa_2011_manga: {
-    title: { ja: "ガンダムEXA", en: "Gundam EXA" },
-    u: "build",
-    type: "manga",
-    source: "https://ja.wikipedia.org/wiki/ガンダムEXA",
-    author:
-      "Tokita Koichi (art), Tomino Yoshiyuki / Yatate Hajime (original concept)",
-    publisher: "Kadokawa",
-    magazine: "Gundam Ace",
-    episodes: [
-      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2011-11-26" },
-      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2012-03-26" },
-      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2012-08-23" },
-      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2013-01-24" },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "print",
-        label: "Kadokawa Gundam Ace",
-        start: "2011",
-        end: "2013",
-        schedule: "serial",
-      },
-    ],
-  },
-  gundam_exa_vs_2014_manga: {
-    title: { ja: "ガンダムEXA VS", en: "Gundam EXA VS" },
-    u: "build",
-    type: "manga",
-    source: "https://ja.wikipedia.org/wiki/ガンダムEXA",
-    author:
-      "Tokita Koichi (art), Tomino Yoshiyuki / Yatate Hajime (original concept)",
-    publisher: "Kadokawa",
-    magazine: "Gundam Ace",
-    episodes: [
-      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2014-06" },
-      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2014-11" },
-      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2015-06" },
-      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2016-01" },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "print",
-        label: "Kadokawa Gundam Ace",
-        start: "2014",
-        end: "2016",
-        schedule: "serial",
-      },
-    ],
-  },
-  gunpla_builders_beginning_g_2010_ova: {
-    title: {
-      ja: "模型戦士ガンプラビルダーズ ビギニングG",
-      en: "Model Suit Gunpla Builders Beginning G",
-    },
-    u: "build",
-    type: "ova",
-    source:
-      "https://gundam.fandom.com/wiki/Model_Suit_Gunpla_Builders_Beginning_G",
-    episodes: [
-      {
-        n: 1,
-        title: {
-          ja: "パーツA 「ビギニングガンダム」",
-          en: "Parts A: Beginning Gundam",
-        },
-        ja: "2010-08-15",
-      },
-      {
-        n: 2,
-        title: {
-          ja: "パーツB 「フォーエバーガンダム」",
-          en: "Parts B: Forever Gundam",
-        },
-        ja: "2010-10-31",
-      },
-      {
-        n: 3,
-        title: { ja: "パーツC 「ビギニング30」", en: "Parts C: Beginning 30" },
-        ja: "2010-12-19",
-      },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "home_video",
-        label: "OVA (bundled with MG kit)",
-        start: "2010",
-        schedule: "box-set",
-      },
-      {
-        region: "en",
-        channel: "streaming",
-        label: "Gundam.info YouTube",
-        start: "2014",
-        schedule: "simulcast",
-      },
+      rel("ja", "print", "Kadokawa Gundam Ace", "2019", "serial", "2021"),
     ],
   },
 };

@@ -1,4 +1,5 @@
 import type { Entry, EntryDetail } from "../types";
+import { ep, rel } from "../types";
 
 // Cosmic Era
 
@@ -323,29 +324,6 @@ export const ceEntries: Entry[] = [
 ];
 
 export const ceDetails: Record<string, EntryDetail | undefined> = {
-  reseed_2024_manga: {
-    title: {
-      ja: "機動戦士ガンダムSEED Re:",
-      en: "Mobile Suit Gundam SEED Re:",
-    },
-    u: "ce",
-    type: "manga",
-    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Re:",
-    author: "Ju Ishiguchi",
-    publisher: "Kadokawa",
-    magazine: "Gundam Ace",
-    note: "2024 manga retelling of the original SEED",
-    episodes: [{ n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2025" }],
-    releases: [
-      {
-        region: "ja",
-        channel: "print",
-        label: "Kadokawa Gundam Ace",
-        start: "2024",
-        schedule: "serial",
-      },
-    ],
-  },
   seed_2002_tv: {
     title: { ja: "機動戦士ガンダムSEED", en: "Mobile Suit Gundam SEED" },
     u: "ce",
@@ -353,348 +331,225 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
     source:
       "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_SEED_episodes",
     episodes: [
-      {
-        n: 1,
-        title: { ja: "偽りの平和", en: "False Peace" },
-        ja: "2002-10-05",
-        en: "2004-04-17",
-      },
-      {
-        n: 2,
-        title: { ja: "その名はガンダム", en: "Its Name: Gundam" },
-        ja: "2002-10-12",
+      ep(1, "偽りの平和", "False Peace", "2002-10-05", { en: "2004-04-17" }),
+      ep(2, "その名はガンダム", "Its Name: Gundam", "2002-10-12", {
         en: "2004-04-24",
-      },
-      {
-        n: 3,
-        title: { ja: "崩壊の大地", en: "Collapsing Land" },
-        ja: "2002-10-19",
+      }),
+      ep(3, "崩壊の大地", "Collapsing Land", "2002-10-19", {
         en: "2004-05-01",
-      },
-      {
-        n: 4,
-        title: { ja: "サイレントラン", en: "Silent Run" },
-        ja: "2002-10-26",
-        en: "2004-05-08",
-      },
-      {
-        n: 5,
-        title: { ja: "フェイズシフトダウン", en: "Phase Shift Down" },
-        ja: "2002-11-02",
+      }),
+      ep(4, "サイレントラン", "Silent Run", "2002-10-26", { en: "2004-05-08" }),
+      ep(5, "フェイズシフトダウン", "Phase Shift Down", "2002-11-02", {
         en: "2004-05-15",
-      },
-      {
-        n: 6,
-        title: { ja: "消えるガンダム", en: "The Vanishing Gundam" },
-        ja: "2002-11-09",
+      }),
+      ep(6, "消えるガンダム", "The Vanishing Gundam", "2002-11-09", {
         en: "2004-05-22",
-      },
-      {
-        n: 7,
-        title: { ja: "そらの傷跡", en: "The Scar of Space" },
-        ja: "2002-11-16",
+      }),
+      ep(7, "そらの傷跡", "The Scar of Space", "2002-11-16", {
         en: "2004-05-29",
-      },
-      {
-        n: 8,
-        title: { ja: "敵軍の歌姫", en: "The Songstress of The Enemy Forces" },
-        ja: "2002-11-23",
+      }),
+      ep(8, "敵軍の歌姫", "The Songstress of The Enemy Forces", "2002-11-23", {
         en: "2004-06-05",
-      },
-      {
-        n: 9,
-        title: { ja: "消えていく光", en: "The Fading Light" },
-        ja: "2002-11-30",
+      }),
+      ep(9, "消えていく光", "The Fading Light", "2002-11-30", {
         en: "2004-06-12",
-      },
-      {
-        n: 10,
-        title: { ja: "分かたれた道", en: "Crossroads" },
-        ja: "2002-12-07",
-        en: "2004-06-19",
-      },
-      {
-        n: 11,
-        title: { ja: "目覚める刃", en: "The Awakening Sword" },
-        ja: "2002-12-14",
+      }),
+      ep(10, "分かたれた道", "Crossroads", "2002-12-07", { en: "2004-06-19" }),
+      ep(11, "目覚める刃", "The Awakening Sword", "2002-12-14", {
         en: "2004-06-26",
-      },
-      {
-        n: 12,
-        title: { ja: "フレイの選択", en: "Flay's Decision" },
-        ja: "2002-12-21",
+      }),
+      ep(12, "フレイの選択", "Flay's Decision", "2002-12-21", {
         en: "2004-07-03",
-      },
-      {
-        n: 13,
-        title: { ja: "そらに降る星", en: "Stars Falling in Space" },
-        ja: "2002-12-28",
+      }),
+      ep(13, "そらに降る星", "Stars Falling in Space", "2002-12-28", {
         en: "2004-07-10",
-      },
-      {
-        n: 14,
-        title: { ja: "果てし無き時の中で", en: "Within Endless Time" },
-        ja: "2003-01-04",
+      }),
+      ep(14, "果てし無き時の中で", "Within Endless Time", "2003-01-04", {
         en: "2004-07-17",
-      },
-      {
-        n: 15,
-        title: { ja: "それぞれの孤独", en: "The Respective Solitudes" },
-        ja: "2003-01-11",
+      }),
+      ep(15, "それぞれの孤独", "The Respective Solitudes", "2003-01-11", {
         en: "2004-07-24",
-      },
-      {
-        n: 16,
-        title: { ja: "燃える砂塵", en: "Burning Clouds of Sand" },
-        ja: "2003-01-18",
+      }),
+      ep(16, "燃える砂塵", "Burning Clouds of Sand", "2003-01-18", {
         en: "2004-07-31",
-      },
-      {
-        n: 17,
-        title: { ja: "カガリ再び", en: "Cagalli Returns" },
-        ja: "2003-01-25",
+      }),
+      ep(17, "カガリ再び", "Cagalli Returns", "2003-01-25", {
         en: "2004-08-07",
-      },
-      {
-        n: 18,
-        title: { ja: "ペイバック", en: "Payback" },
-        ja: "2003-02-01",
-        en: "2004-08-14",
-      },
-      {
-        n: 19,
-        title: { ja: "宿敵の牙", en: "Fangs of the Enemy" },
-        ja: "2003-02-08",
+      }),
+      ep(18, "ペイバック", "Payback", "2003-02-01", { en: "2004-08-14" }),
+      ep(19, "宿敵の牙", "Fangs of the Enemy", "2003-02-08", {
         en: "2004-08-21",
-      },
-      {
-        n: 20,
-        title: { ja: "おだやかな日に", en: "On a Calm Day" },
-        ja: "2003-02-15",
+      }),
+      ep(20, "おだやかな日に", "On a Calm Day", "2003-02-15", {
         en: "2004-08-28",
-      },
-      {
-        n: 21,
-        title: { ja: "砂塵の果て", en: "Beyond the Clouds of Sand" },
-        ja: "2003-02-22",
+      }),
+      ep(21, "砂塵の果て", "Beyond the Clouds of Sand", "2003-02-22", {
         en: "2004-09-04",
-      },
-      {
-        n: 22,
-        title: { ja: "紅に染まる海", en: "The Sea Dyed Red" },
-        ja: "2003-03-01",
+      }),
+      ep(22, "紅に染まる海", "The Sea Dyed Red", "2003-03-01", {
         en: "2004-09-11",
-      },
-      {
-        n: 23,
-        title: { ja: "運命の出会い", en: "Fateful Encounter" },
-        ja: "2003-03-08",
+      }),
+      ep(23, "運命の出会い", "Fateful Encounter", "2003-03-08", {
         en: "2004-09-18",
-      },
-      {
-        n: 24,
-        title: { ja: "二人だけの戦争", en: "War for Two" },
-        ja: "2003-03-15",
+      }),
+      ep(24, "二人だけの戦争", "War for Two", "2003-03-15", {
         en: "2004-10-02",
-      },
-      {
-        n: 25,
-        title: {
-          ja: "平和の国HDリマスターでは「平和の国へ」。",
-          en: "The Land of Peace",
-        },
-        ja: "2003-03-22",
-        en: "2004-10-09",
-      },
-      {
-        n: 26,
-        title: { ja: "モーメント", en: "Moment" },
-        ja: "2003-03-29",
-        en: "2004-10-16",
-      },
-      {
-        n: 27,
-        title: { ja: "果てなきロンド", en: "Endless Rondo" },
-        ja: "2003-04-12",
+      }),
+      ep(
+        25,
+        "平和の国HDリマスターでは「平和の国へ」。",
+        "The Land of Peace",
+        "2003-03-22",
+        { en: "2004-10-09" },
+      ),
+      ep(26, "モーメント", "Moment", "2003-03-29", { en: "2004-10-16" }),
+      ep(27, "果てなきロンド", "Endless Rondo", "2003-04-12", {
         en: "2004-10-23",
-      },
-      {
-        n: 28,
-        title: { ja: "キラ", en: "Kira" },
-        ja: "2003-04-19",
-        en: "2004-10-30",
-      },
-      {
-        n: 29,
-        title: { ja: "さだめのくさび", en: "The Turning Point" },
-        ja: "2003-04-26",
+      }),
+      ep(28, "キラ", "Kira", "2003-04-19", { en: "2004-10-30" }),
+      ep(29, "さだめのくさび", "The Turning Point", "2003-04-26", {
         en: "2004-11-06",
-      },
-      {
-        n: 30,
-        title: { ja: "閃光のとき", en: "Flashing Blades" },
-        ja: "2003-05-03",
+      }),
+      ep(30, "閃光のとき", "Flashing Blades", "2003-05-03", {
         en: "2004-11-13",
-      },
-      {
-        n: 31,
-        title: { ja: "どうこくの空", en: "Grieving Skies" },
-        ja: "2003-05-10",
+      }),
+      ep(31, "どうこくの空", "Grieving Skies", "2003-05-10", {
         en: "2004-11-20",
-      },
-      {
-        n: 32,
-        title: { ja: "約束の地に", en: "In the Promised Land" },
-        ja: "2003-05-17",
+      }),
+      ep(32, "約束の地に", "In the Promised Land", "2003-05-17", {
         en: "2004-11-27",
-      },
-      {
-        n: 33,
-        title: { ja: "闇の胎動", en: "Gathering Darkness" },
-        ja: "2003-05-24",
+      }),
+      ep(33, "闇の胎動", "Gathering Darkness", "2003-05-24", {
         en: "2004-12-04",
-      },
-      {
-        n: 34,
-        title: { ja: "まなざしの先", en: "Seen and Unseen" },
-        ja: "2003-05-31",
+      }),
+      ep(34, "まなざしの先", "Seen and Unseen", "2003-05-31", {
         en: "2004-12-11",
-      },
-      {
-        n: 35,
-        title: { ja: "舞い降りるつるぎ", en: "The Descending Sword" },
-        ja: "2003-06-07",
+      }),
+      ep(35, "舞い降りるつるぎ", "The Descending Sword", "2003-06-07", {
         en: "2004-12-18",
-      },
-      {
-        n: 36,
-        title: { ja: "正義の名のもとに", en: "In the Name of Justice" },
-        ja: "2003-06-14",
+      }),
+      ep(36, "正義の名のもとに", "In the Name of Justice", "2003-06-14", {
         en: "2005-01-07",
-      },
-      {
-        n: 37,
-        title: { ja: "神のいかずち", en: "Divine Thunder" },
-        ja: "2003-06-21",
+      }),
+      ep(37, "神のいかずち", "Divine Thunder", "2003-06-21", {
         en: "2005-01-14",
-      },
-      {
-        n: 38,
-        title: { ja: "決意の砲火", en: "Decisive Fire" },
-        ja: "2003-06-28",
-        en: "2005-01-21",
-      },
-      {
-        n: 39,
-        title: { ja: "アスラン", en: "Athrun" },
-        ja: "2003-07-05",
-        en: "2005-01-28",
-      },
-      {
-        n: 40,
-        title: { ja: "暁のそらへ", en: "Into the Dawn Skies" },
-        ja: "2003-07-12",
+      }),
+      ep(38, "決意の砲火", "Decisive Fire", "2003-06-28", { en: "2005-01-21" }),
+      ep(39, "アスラン", "Athrun", "2003-07-05", { en: "2005-01-28" }),
+      ep(40, "暁のそらへ", "Into the Dawn Skies", "2003-07-12", {
         en: "2005-02-04",
-      },
-      {
-        n: 41,
-        title: { ja: "ゆれる世界", en: "Trembling World" },
-        ja: "2003-07-19",
+      }),
+      ep(41, "ゆれる世界", "Trembling World", "2003-07-19", {
         en: "2005-02-11",
-      },
-      {
-        n: 42,
-        title: { ja: "ラクス出撃", en: "Lacus Strikes" },
-        ja: "2003-07-26",
-        en: "2005-02-18",
-      },
-      {
-        n: 43,
-        title: { ja: "立ちはだかるもの", en: "What Stands in the Way" },
-        ja: "2003-08-02",
+      }),
+      ep(42, "ラクス出撃", "Lacus Strikes", "2003-07-26", { en: "2005-02-18" }),
+      ep(43, "立ちはだかるもの", "What Stands in the Way", "2003-08-02", {
         en: "2005-02-25",
-      },
-      {
-        n: 44,
-        title: { ja: "らせんのかいこう", en: "Spiral of Encounters" },
-        ja: "2003-08-09",
+      }),
+      ep(44, "らせんのかいこう", "Spiral of Encounters", "2003-08-09", {
         en: "2005-03-04",
-      },
-      {
-        n: 45,
-        title: { ja: "開く扉", en: "The Opening Door" },
-        ja: "2003-08-16",
-        en: "2005-03-11",
-      },
-      {
-        n: 46,
-        title: { ja: "たましいの場所", en: "A Place for the Soul" },
-        ja: "2003-08-30",
+      }),
+      ep(45, "開く扉", "The Opening Door", "2003-08-16", { en: "2005-03-11" }),
+      ep(46, "たましいの場所", "A Place for the Soul", "2003-08-30", {
         en: "2005-03-18",
-      },
-      {
-        n: 47,
-        title: { ja: "悪夢は再び", en: "The Nightmare Reborn" },
-        ja: "2003-09-06",
+      }),
+      ep(47, "悪夢は再び", "The Nightmare Reborn", "2003-09-06", {
         en: "2005-03-25",
-      },
-      {
-        n: 48,
-        title: { ja: "怒りの日", en: "Day of Wrath" },
-        ja: "2003-09-13",
-        en: "2005-04-01",
-      },
-      {
-        n: 49,
-        title: { ja: "終末の光", en: "The Final Light" },
-        ja: "2003-09-20",
-        en: "2005-04-08",
-      },
-      {
-        n: 50,
-        title: { ja: "終わらない明日へ", en: "To a Future that Never Ends" },
-        ja: "2003-09-27",
+      }),
+      ep(48, "怒りの日", "Day of Wrath", "2003-09-13", { en: "2005-04-01" }),
+      ep(49, "終末の光", "The Final Light", "2003-09-20", { en: "2005-04-08" }),
+      ep(50, "終わらない明日へ", "To a Future that Never Ends", "2003-09-27", {
         en: "2005-04-15",
-      },
-      {
-        n: 51,
-        title: {
-          ja: "アフターフェイズ 星の間で",
-          en: "After Phase - Between the Stars (DVD epilogue)",
-        },
-        ja: "2004-03-26",
-      },
+      }),
+      ep(
+        51,
+        "アフターフェイズ 星の間で",
+        "After Phase - Between the Stars (DVD epilogue)",
+        "2004-03-26",
+      ),
     ],
     releases: [
-      {
-        region: "ja",
-        channel: "broadcast",
-        label: "MBS / TBS",
-        start: "2002-10-05",
-        end: "2003-09-27",
-        schedule: "weekly",
-      },
-      {
-        region: "en",
-        channel: "broadcast",
-        label: "Toonami / YTV (Canada)",
-        start: "2004-04-17",
-        schedule: "weekly",
-      },
-      {
-        region: "en",
-        channel: "home_video",
-        label: "Bandai Entertainment DVD",
-        start: "2005",
-        schedule: "box-set",
-      },
-      {
-        region: "en",
-        channel: "streaming",
-        label: "Crunchyroll",
-        start: "2024",
-        schedule: "simulcast",
-      },
+      rel("ja", "broadcast", "MBS / TBS", "2002-10-05", "weekly", "2003-09-27"),
+      rel("en", "broadcast", "Toonami / YTV (Canada)", "2004-04-17", "weekly"),
+      rel("en", "home_video", "Bandai Entertainment DVD", "2005", "box-set"),
+      rel("en", "streaming", "Crunchyroll", "2024", "simulcast"),
+    ],
+  },
+  seed_special_2004_films: {
+    title: {
+      ja: "機動戦士ガンダムSEED スペシャルエディション",
+      en: "Mobile Suit Gundam SEED: Special Edition",
+    },
+    u: "ce",
+    type: "film",
+    source:
+      "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_SEED_episodes",
+    note: "3-part compilation movies summarising TV series",
+    episodes: [
+      ep(1, "砕け散る世界", "The Empty Battlefield", "2004-03-23"),
+      ep(2, "遥かなる暁", "The Far-Away Dawn", "2004-07-28"),
+      ep(3, "鳴動の宇宙", "The Rumbling Sky", "2004-10-22"),
+    ],
+    releases: [
+      rel(
+        "ja",
+        "theatrical",
+        "Theatrical release",
+        "2004-03-20",
+        "theatrical",
+        "2004-10-22",
+      ),
+      rel("en", "home_video", "Bandai Entertainment DVD", "2005", "box-set"),
+    ],
+  },
+  seed_stargazer_2006_ona: {
+    title: {
+      ja: "機動戦士ガンダムSEED C.E.73 STARGAZER",
+      en: "Mobile Suit Gundam SEED C.E. 73: Stargazer",
+    },
+    u: "ce",
+    type: "ona",
+    source:
+      "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_SEED_episodes",
+    episodes: [
+      ep(1, "Stage 01", "Stage 01", "2006-07-14"),
+      ep(2, "Stage 02", "Stage 02", "2006-08-21"),
+      ep(3, "Stage 03", "Stage 03", "2006-09-29"),
+    ],
+    releases: [
+      rel(
+        "ja",
+        "streaming",
+        "Web streaming",
+        "2006-07-14",
+        "simulcast",
+        "2006-09-01",
+      ),
+      rel("en", "home_video", "Bandai Entertainment DVD", "2008", "box-set"),
+    ],
+  },
+  seed_freedom_2024_film: {
+    title: {
+      ja: "機動戦士ガンダムSEED FREEDOM",
+      en: "Mobile Suit Gundam SEED Freedom",
+    },
+    u: "ce",
+    type: "film",
+    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Freedom",
+    episodes: [
+      ep(1, "機動戦士ガンダムSEED FREEDOM", "SEED Freedom", "2024-01-26", {
+        en: "2024-05-03",
+      }),
+    ],
+    releases: [
+      rel("ja", "theatrical", "Theatrical release", "2024-01-26", "theatrical"),
+      rel(
+        "en",
+        "theatrical",
+        "Theatrical release (international)",
+        "2024-05-03",
+        "theatrical",
+      ),
     ],
   },
   seed_2003_manga: {
@@ -709,85 +564,178 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
     publisher: "Kodansha",
     magazine: "Magazine Z",
     episodes: [
-      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2003-03" },
-      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2003-08" },
-      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2004-02" },
-      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2004-07" },
-      { n: 5, title: { ja: "Volume 5", en: "Volume 5" }, ja: "2005-01" },
+      ep(1, "Volume 1", "Volume 1", "2003-03"),
+      ep(2, "Volume 2", "Volume 2", "2003-08"),
+      ep(3, "Volume 3", "Volume 3", "2004-02"),
+      ep(4, "Volume 4", "Volume 4", "2004-07"),
+      ep(5, "Volume 5", "Volume 5", "2005-01"),
     ],
     releases: [
-      {
-        region: "ja",
-        channel: "print",
-        label: "Gundam Ace / Kadokawa",
-        start: "2003-06-01",
-        schedule: "serial",
-      },
-      {
-        region: "en",
-        channel: "print",
-        label: "Del Rey Manga (English)",
-        start: "2004",
-        schedule: "serial",
-      },
+      rel("ja", "print", "Gundam Ace / Kadokawa", "2003-06-01", "serial"),
+      rel("en", "print", "Del Rey Manga (English)", "2004", "serial"),
     ],
   },
-  seed_after_phase_2004_ova: {
+  seed_destiny_2004_tv: {
     title: {
-      ja: "機動戦士ガンダムSEED AFTER-PHASE",
-      en: "Mobile Suit Gundam SEED: After-Phase",
+      ja: "機動戦士ガンダムSEED DESTINY",
+      en: "Mobile Suit Gundam SEED Destiny",
     },
     u: "ce",
-    type: "ova",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED",
+    type: "tv",
+    source:
+      "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_SEED_Destiny_episodes",
     episodes: [
-      {
-        n: 1,
-        title: { ja: "機動戦士ガンダムSEED AFTER-PHASE", en: "After-Phase" },
-        ja: "2004-12-25",
-      },
+      ep(1, "怒れる瞳", "Angry Eyes", "2004-10-09", { en: "2007-03-09" }),
+      ep(2, "戦いを呼ぶもの", "Those Who Call for War", "2004-10-16", {
+        en: "2007-03-16",
+      }),
+      ep(3, "予兆の砲火", "Warning Shots", "2004-10-23", { en: "2007-03-23" }),
+      ep(4, "星屑の戦場", "Stardust Battlefield", "2004-11-06", {
+        en: "2007-03-30",
+      }),
+      ep(5, "癒えぬ傷痕", "Scars That Won't Heal", "2004-11-13", {
+        en: "2007-04-06",
+      }),
+      ep(6, "世界の終わる時", "The End of the World", "2004-11-20", {
+        en: "2007-04-13",
+      }),
+      ep(7, "混迷の大地", "Land of Confusion", "2004-11-27", {
+        en: "2007-04-20",
+      }),
+      ep(8, "ジャンクション", "Junction", "2004-12-04", { en: "2007-04-27" }),
+      ep(9, "驕れる牙", "Bared Fangs", "2004-12-11", { en: "2007-05-04" }),
+      ep(10, "父の呪縛", "A Father's Spell", "2004-12-18", {
+        en: "2007-05-11",
+      }),
+      ep(11, "選びし道", "The Chosen Path", "2004-12-25", { en: "2007-05-18" }),
+      ep(12, "血に染まる海", "Blood in the Water", "2004-12-25", {
+        en: "2007-05-25",
+      }),
+      ep(13, "よみがえる翼", "Resurrected Wings", "2005-01-08", {
+        en: "2007-06-01",
+      }),
+      ep(14, "明日への出航", "Flight to Tomorrow", "2005-01-15", {
+        en: "2007-06-08",
+      }),
+      ep(15, "戦場への帰還", "Return to the Battlefield", "2005-01-22", {
+        en: "2007-06-15",
+      }),
+      ep(15.5, "戦場への帰還", "Special Plus: Destiny (recap)", "2005-01-29"),
+      ep(16, "インド洋の死闘", "Struggle in the Indian Ocean", "2005-02-05", {
+        en: "2007-06-29",
+      }),
+      ep(17, "戦士の条件", "The Soldier's Life", "2005-02-12", {
+        en: "2007-07-06",
+      }),
+      ep(18, "ローエングリンを討て!", "Attack the Lohengrin", "2005-02-19", {
+        en: "2007-07-13",
+      }),
+      ep(19, "見えない真実", "The Hidden Truth", "2005-02-26", {
+        en: "2007-07-20",
+      }),
+      ep(20, "PAST", "Past", "2005-03-05", { en: "2007-07-27" }),
+      ep(21, "さまよう眸（ひとみ）", "Wandering Eyes", "2005-03-12", {
+        en: "2007-08-03",
+      }),
+      ep(22, "蒼天の剣", "Sword of the Blue Skies", "2005-03-19", {
+        en: "2007-08-10",
+      }),
+      ep(23, "戦火の蔭", "The Shadows of War", "2005-03-26", {
+        en: "2007-08-31",
+      }),
+      ep(24, "すれ違う視線", "Differing Views", "2005-04-02", {
+        en: "2007-09-07",
+      }),
+      ep(25, "罪の在処（ありか）", "The Place of Sin", "2005-04-09", {
+        en: "2007-09-14",
+      }),
+      ep(26, "約束", "The Promise", "2005-04-16", { en: "2007-09-21" }),
+      ep(27, "届かぬ想い", "Unfulfilled Feelings", "2005-04-23", {
+        en: "2007-09-28",
+      }),
+      ep(28, "残る命 散る命", "Survivors and Sacrifices", "2005-04-30", {
+        en: "2007-10-05",
+      }),
+      ep(29, "FATES", "Fates", "2005-05-07", { en: "2007-10-12" }),
+      ep(30, "刹那の夢", "A Fleeting Dream", "2005-05-14", {
+        en: "2007-10-26",
+      }),
+      ep(31, "明けない夜", "The Endless Night", "2005-05-21", {
+        en: "2007-11-02",
+      }),
+      ep(32, "ステラ", "Stella", "2005-05-28", { en: "2007-11-09" }),
+      ep(33, "示される世界", "The World Revealed", "2005-06-04", {
+        en: "2007-11-23",
+      }),
+      ep(34, "悪夢", "Nightmare", "2005-06-11", { en: "2007-11-30" }),
+      ep(35, "混沌の先に", "Eve of Chaos", "2005-06-18", { en: "2007-12-07" }),
+      ep(36, "アスラン脱走", "Athrun on the Run", "2005-06-25", {
+        en: "2007-12-14",
+      }),
+      ep(37, "雷鳴の闇", "Thunder in the Dark", "2005-07-02", {
+        en: "2007-12-21",
+      }),
+      ep(38, "新しき旗", "A New Flag", "2005-07-09", { en: "2007-12-28" }),
+      ep(39, "天空のキラ", "Kira of the Sky", "2005-07-16", {
+        en: "2008-01-04",
+      }),
+      ep(40, "黄金の意志", "Legacy of Gold", "2005-07-23", {
+        en: "2008-01-11",
+      }),
+      ep(41, "リフレイン", "Refrain", "2005-07-30", { en: "2008-01-18" }),
+      ep(42, "自由と正義と", "Freedom and Justice", "2005-08-06", {
+        en: "2008-01-25",
+      }),
+      ep(43, "反撃の声", "A Call for Counterattack", "2005-08-13", {
+        en: "2008-02-01",
+      }),
+      ep(44, "二人のラクス", "Lacus Times Two", "2005-08-20", {
+        en: "2008-02-08",
+      }),
+      ep(45, "変革の序曲", "Prelude to Revolution", "2005-08-27", {
+        en: "2008-02-15",
+      }),
+      ep(46, "真実の歌", "The Song of Truth", "2005-09-03", {
+        en: "2008-02-22",
+      }),
+      ep(47, "ミーア", "Meer", "2005-09-10", { en: "2008-02-29" }),
+      ep(48, "新世界へ", "To a New World", "2005-09-17", { en: "2008-03-07" }),
+      ep(49, "レイ", "Rey", "2005-09-24", { en: "2008-03-21" }),
+      ep(50, "最後の力", "The Final Power", "2005-10-01", { en: "2008-03-28" }),
+      ep(51, "選ばれた未来", "Final Plus: The Chosen Future", "2005-12-25"),
     ],
     releases: [
-      {
-        region: "ja",
-        channel: "home_video",
-        label: "DVD bonus",
-        start: "2004-12-25",
-        schedule: "box-set",
-      },
-      {
-        region: "en",
-        channel: "home_video",
-        label: "Bandai Entertainment DVD (bonus feature)",
-        start: "2005",
-        schedule: "box-set",
-      },
+      rel("ja", "broadcast", "MBS / TBS", "2004-10-09", "weekly", "2005-10-01"),
+      rel("en", "broadcast", "YTV (Canada)", "2006", "weekly"),
+      rel("en", "home_video", "Bandai Entertainment DVD", "2007", "box-set"),
+      rel("en", "streaming", "Crunchyroll", "2024", "simulcast"),
     ],
   },
-  seed_astray_b_2012_manga: {
+  seed_destiny_special_2006_films: {
     title: {
-      ja: "機動戦士ガンダムSEED DESTINY ASTRAY B",
-      en: "Mobile Suit Gundam SEED Destiny Astray B",
+      ja: "機動戦士ガンダムSEED DESTINY スペシャルエディション",
+      en: "Mobile Suit Gundam SEED Destiny: Special Edition",
     },
     u: "ce",
-    type: "manga",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
-    author: "Tomohiro Chiba (story), Eiichi Shimizu (art)",
-    publisher: "Kadokawa ASCII Media Works",
-    magazine: "Hobby Japan",
+    type: "film",
+    source:
+      "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_SEED_Destiny_episodes",
     episodes: [
-      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2013-03" },
-      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2014-05" },
+      ep(1, "砕け散る世界", "The Shattered World", "2006-05-02"),
+      ep(2, "戦いを呼ぶもの", "Their Respective Swords", "2006-07-27"),
+      ep(3, "予兆の砲火", "The Hellfire of Destiny", "2006-10-08"),
+      ep(4, "星屑の戦場", "The Cost of Freedom", "2007-02-23"),
     ],
     releases: [
-      {
-        region: "ja",
-        channel: "serial",
-        label: "Hobby Japan",
-        start: "2013-03",
-        end: "2014-05",
-        schedule: "serial",
-      },
+      rel(
+        "ja",
+        "theatrical",
+        "Theatrical release",
+        "2006-05-26",
+        "theatrical",
+        "2007-02-23",
+      ),
+      rel("en", "home_video", "Bandai Entertainment DVD", "2008", "box-set"),
     ],
   },
   seed_astray_manga: {
@@ -803,26 +751,99 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
     magazine: "Gundam Ace / Monthly Shōnen Ace",
     note: "Side-story manga line running parallel to SEED/SEED Destiny. Multiple sub-series: Astray (2002-04, 3 vol), Astray R (2003-04, 4 vol), Astray B (2005-06, 2 vol), Destiny Astray (2004-06, 4 vol), Astray Delta (2011-13, 2 vol), VS Astray (2012-13, 2 vol), Frame Astrays (2007, 2 vol).",
     episodes: [
-      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2003-05" },
-      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2003-09" },
-      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2004-02" },
+      ep(1, "Volume 1", "Volume 1", "2003-05"),
+      ep(2, "Volume 2", "Volume 2", "2003-09"),
+      ep(3, "Volume 3", "Volume 3", "2004-02"),
     ],
     releases: [
-      {
-        region: "ja",
-        channel: "print",
-        label: "Gundam Ace / Kadokawa",
-        start: "2002-09-01",
-        end: "2004-04-01",
-        schedule: "serial",
-      },
-      {
-        region: "en",
-        channel: "print",
-        label: "TokyoPop / Nozomi (English)",
-        start: "2005",
-        schedule: "serial",
-      },
+      rel(
+        "ja",
+        "print",
+        "Gundam Ace / Kadokawa",
+        "2002-09-01",
+        "serial",
+        "2004-04-01",
+      ),
+      rel("en", "print", "TokyoPop / Nozomi (English)", "2005", "serial"),
+    ],
+  },
+  seed_destiny_final_plus_2005_special: {
+    title: {
+      ja: "機動戦士ガンダムSEED DESTINY FINAL PLUS",
+      en: "Mobile Suit Gundam SEED Destiny: Final Plus",
+    },
+    u: "ce",
+    type: "ova",
+    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Destiny",
+    episodes: [
+      ep(
+        1,
+        "機動戦士ガンダムSEED DESTINY FINAL PLUS",
+        "The Chosen Future",
+        "2005-12-25",
+      ),
+    ],
+    releases: [
+      rel("ja", "broadcast", "TV special", "2005-12-25", "weekly"),
+      rel("en", "home_video", "Bandai Entertainment DVD", "2008", "box-set"),
+    ],
+  },
+  seed_after_phase_2004_ova: {
+    title: {
+      ja: "機動戦士ガンダムSEED AFTER-PHASE",
+      en: "Mobile Suit Gundam SEED: After-Phase",
+    },
+    u: "ce",
+    type: "ova",
+    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED",
+    episodes: [
+      ep(1, "機動戦士ガンダムSEED AFTER-PHASE", "After-Phase", "2004-12-25"),
+    ],
+    releases: [
+      rel("ja", "home_video", "DVD bonus", "2004-12-25", "box-set"),
+      rel(
+        "en",
+        "home_video",
+        "Bandai Entertainment DVD (bonus feature)",
+        "2005",
+        "box-set",
+      ),
+    ],
+  },
+  seed_msv_astray_2004_ova: {
+    title: {
+      ja: "機動戦士ガンダムSEED MSV ASTRAY",
+      en: "Mobile Suit Gundam SEED MSV Astray",
+    },
+    u: "ce",
+    type: "ova",
+    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
+    episodes: [
+      ep(1, "Part 1", "Part 1", "2004-05-25"),
+      ep(2, "Part 2", "Part 2", "2004-11-25"),
+    ],
+    releases: [rel("ja", "home_video", "Promo OVA", "2004", "box-set")],
+  },
+  seed_stargazer_compilation_2006_ova: {
+    title: {
+      ja: "機動戦士ガンダムSEED C.E.73 STARGAZER",
+      en: "Mobile Suit Gundam SEED C.E. 73: Stargazer (Compilation)",
+    },
+    u: "ce",
+    type: "ova",
+    source:
+      "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_C.E._73:_Stargazer",
+    episodes: [
+      ep(
+        1,
+        "機動戦士ガンダムSEED C.E.73 STARGAZER",
+        "Stargazer Compilation",
+        "2006-11-24",
+      ),
+    ],
+    releases: [
+      rel("ja", "home_video", "DVD compilation", "2006", "box-set"),
+      rel("en", "home_video", "Bandai Entertainment DVD", "2008", "box-set"),
     ],
   },
   seed_astray_r_2004_manga: {
@@ -837,406 +858,14 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
     publisher: "Kadokawa Shoten",
     magazine: "Shōnen Ace",
     episodes: [
-      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2003-03" },
-      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2003-09" },
-      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2004-02" },
-      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2004-08" },
+      ep(1, "Volume 1", "Volume 1", "2003-03"),
+      ep(2, "Volume 2", "Volume 2", "2003-09"),
+      ep(3, "Volume 3", "Volume 3", "2004-02"),
+      ep(4, "Volume 4", "Volume 4", "2004-08"),
     ],
     releases: [
-      {
-        region: "ja",
-        channel: "print",
-        label: "Kadokawa Shōnen Ace",
-        start: "2002-10-26",
-        end: "2006",
-        schedule: "serial",
-      },
-      {
-        region: "en",
-        channel: "print",
-        label: "Del Rey / Tokyopop",
-        start: "2005-07-26",
-        schedule: "serial",
-      },
-    ],
-  },
-  seed_delta_astray_2006_manga: {
-    title: {
-      ja: "機動戦士ガンダムSEED C.E.73 Δ (Delta) ASTRAY",
-      en: "Mobile Suit Gundam SEED C.E.73 Δ (Delta) Astray",
-    },
-    u: "ce",
-    type: "manga",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
-    author: "Tomohiro Chiba (story), Kazuhiro Okada (art)",
-    publisher: "ASCII Media Works",
-    magazine: "Dengeki Hobby Magazine",
-    episodes: [
-      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2006" },
-      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2007" },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "print",
-        label: "Kadokawa Gundam Ace",
-        start: "2006-05-26",
-        end: "2007",
-        schedule: "serial",
-      },
-    ],
-  },
-  seed_destiny_2004_tv: {
-    title: {
-      ja: "機動戦士ガンダムSEED DESTINY",
-      en: "Mobile Suit Gundam SEED Destiny",
-    },
-    u: "ce",
-    type: "tv",
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_SEED_Destiny_episodes",
-    episodes: [
-      {
-        n: 1,
-        title: { ja: "怒れる瞳", en: "Angry Eyes" },
-        ja: "2004-10-09",
-        en: "2007-03-09",
-      },
-      {
-        n: 2,
-        title: { ja: "戦いを呼ぶもの", en: "Those Who Call for War" },
-        ja: "2004-10-16",
-        en: "2007-03-16",
-      },
-      {
-        n: 3,
-        title: { ja: "予兆の砲火", en: "Warning Shots" },
-        ja: "2004-10-23",
-        en: "2007-03-23",
-      },
-      {
-        n: 4,
-        title: { ja: "星屑の戦場", en: "Stardust Battlefield" },
-        ja: "2004-11-06",
-        en: "2007-03-30",
-      },
-      {
-        n: 5,
-        title: { ja: "癒えぬ傷痕", en: "Scars That Won't Heal" },
-        ja: "2004-11-13",
-        en: "2007-04-06",
-      },
-      {
-        n: 6,
-        title: { ja: "世界の終わる時", en: "The End of the World" },
-        ja: "2004-11-20",
-        en: "2007-04-13",
-      },
-      {
-        n: 7,
-        title: { ja: "混迷の大地", en: "Land of Confusion" },
-        ja: "2004-11-27",
-        en: "2007-04-20",
-      },
-      {
-        n: 8,
-        title: { ja: "ジャンクション", en: "Junction" },
-        ja: "2004-12-04",
-        en: "2007-04-27",
-      },
-      {
-        n: 9,
-        title: { ja: "驕れる牙", en: "Bared Fangs" },
-        ja: "2004-12-11",
-        en: "2007-05-04",
-      },
-      {
-        n: 10,
-        title: { ja: "父の呪縛", en: "A Father's Spell" },
-        ja: "2004-12-18",
-        en: "2007-05-11",
-      },
-      {
-        n: 11,
-        title: { ja: "選びし道", en: "The Chosen Path" },
-        ja: "2004-12-25",
-        en: "2007-05-18",
-      },
-      {
-        n: 12,
-        title: { ja: "血に染まる海", en: "Blood in the Water" },
-        ja: "2004-12-25",
-        en: "2007-05-25",
-      },
-      {
-        n: 13,
-        title: { ja: "よみがえる翼", en: "Resurrected Wings" },
-        ja: "2005-01-08",
-        en: "2007-06-01",
-      },
-      {
-        n: 14,
-        title: { ja: "明日への出航", en: "Flight to Tomorrow" },
-        ja: "2005-01-15",
-        en: "2007-06-08",
-      },
-      {
-        n: 15,
-        title: { ja: "戦場への帰還", en: "Return to the Battlefield" },
-        ja: "2005-01-22",
-        en: "2007-06-15",
-      },
-      {
-        n: 15.5,
-        title: { ja: "戦場への帰還", en: "Special Plus: Destiny (recap)" },
-        ja: "2005-01-29",
-      },
-      {
-        n: 16,
-        title: { ja: "インド洋の死闘", en: "Struggle in the Indian Ocean" },
-        ja: "2005-02-05",
-        en: "2007-06-29",
-      },
-      {
-        n: 17,
-        title: { ja: "戦士の条件", en: "The Soldier's Life" },
-        ja: "2005-02-12",
-        en: "2007-07-06",
-      },
-      {
-        n: 18,
-        title: { ja: "ローエングリンを討て!", en: "Attack the Lohengrin" },
-        ja: "2005-02-19",
-        en: "2007-07-13",
-      },
-      {
-        n: 19,
-        title: { ja: "見えない真実", en: "The Hidden Truth" },
-        ja: "2005-02-26",
-        en: "2007-07-20",
-      },
-      {
-        n: 20,
-        title: { ja: "PAST", en: "Past" },
-        ja: "2005-03-05",
-        en: "2007-07-27",
-      },
-      {
-        n: 21,
-        title: { ja: "さまよう眸（ひとみ）", en: "Wandering Eyes" },
-        ja: "2005-03-12",
-        en: "2007-08-03",
-      },
-      {
-        n: 22,
-        title: { ja: "蒼天の剣", en: "Sword of the Blue Skies" },
-        ja: "2005-03-19",
-        en: "2007-08-10",
-      },
-      {
-        n: 23,
-        title: { ja: "戦火の蔭", en: "The Shadows of War" },
-        ja: "2005-03-26",
-        en: "2007-08-31",
-      },
-      {
-        n: 24,
-        title: { ja: "すれ違う視線", en: "Differing Views" },
-        ja: "2005-04-02",
-        en: "2007-09-07",
-      },
-      {
-        n: 25,
-        title: { ja: "罪の在処（ありか）", en: "The Place of Sin" },
-        ja: "2005-04-09",
-        en: "2007-09-14",
-      },
-      {
-        n: 26,
-        title: { ja: "約束", en: "The Promise" },
-        ja: "2005-04-16",
-        en: "2007-09-21",
-      },
-      {
-        n: 27,
-        title: { ja: "届かぬ想い", en: "Unfulfilled Feelings" },
-        ja: "2005-04-23",
-        en: "2007-09-28",
-      },
-      {
-        n: 28,
-        title: { ja: "残る命 散る命", en: "Survivors and Sacrifices" },
-        ja: "2005-04-30",
-        en: "2007-10-05",
-      },
-      {
-        n: 29,
-        title: { ja: "FATES", en: "Fates" },
-        ja: "2005-05-07",
-        en: "2007-10-12",
-      },
-      {
-        n: 30,
-        title: { ja: "刹那の夢", en: "A Fleeting Dream" },
-        ja: "2005-05-14",
-        en: "2007-10-26",
-      },
-      {
-        n: 31,
-        title: { ja: "明けない夜", en: "The Endless Night" },
-        ja: "2005-05-21",
-        en: "2007-11-02",
-      },
-      {
-        n: 32,
-        title: { ja: "ステラ", en: "Stella" },
-        ja: "2005-05-28",
-        en: "2007-11-09",
-      },
-      {
-        n: 33,
-        title: { ja: "示される世界", en: "The World Revealed" },
-        ja: "2005-06-04",
-        en: "2007-11-23",
-      },
-      {
-        n: 34,
-        title: { ja: "悪夢", en: "Nightmare" },
-        ja: "2005-06-11",
-        en: "2007-11-30",
-      },
-      {
-        n: 35,
-        title: { ja: "混沌の先に", en: "Eve of Chaos" },
-        ja: "2005-06-18",
-        en: "2007-12-07",
-      },
-      {
-        n: 36,
-        title: { ja: "アスラン脱走", en: "Athrun on the Run" },
-        ja: "2005-06-25",
-        en: "2007-12-14",
-      },
-      {
-        n: 37,
-        title: { ja: "雷鳴の闇", en: "Thunder in the Dark" },
-        ja: "2005-07-02",
-        en: "2007-12-21",
-      },
-      {
-        n: 38,
-        title: { ja: "新しき旗", en: "A New Flag" },
-        ja: "2005-07-09",
-        en: "2007-12-28",
-      },
-      {
-        n: 39,
-        title: { ja: "天空のキラ", en: "Kira of the Sky" },
-        ja: "2005-07-16",
-        en: "2008-01-04",
-      },
-      {
-        n: 40,
-        title: { ja: "黄金の意志", en: "Legacy of Gold" },
-        ja: "2005-07-23",
-        en: "2008-01-11",
-      },
-      {
-        n: 41,
-        title: { ja: "リフレイン", en: "Refrain" },
-        ja: "2005-07-30",
-        en: "2008-01-18",
-      },
-      {
-        n: 42,
-        title: { ja: "自由と正義と", en: "Freedom and Justice" },
-        ja: "2005-08-06",
-        en: "2008-01-25",
-      },
-      {
-        n: 43,
-        title: { ja: "反撃の声", en: "A Call for Counterattack" },
-        ja: "2005-08-13",
-        en: "2008-02-01",
-      },
-      {
-        n: 44,
-        title: { ja: "二人のラクス", en: "Lacus Times Two" },
-        ja: "2005-08-20",
-        en: "2008-02-08",
-      },
-      {
-        n: 45,
-        title: { ja: "変革の序曲", en: "Prelude to Revolution" },
-        ja: "2005-08-27",
-        en: "2008-02-15",
-      },
-      {
-        n: 46,
-        title: { ja: "真実の歌", en: "The Song of Truth" },
-        ja: "2005-09-03",
-        en: "2008-02-22",
-      },
-      {
-        n: 47,
-        title: { ja: "ミーア", en: "Meer" },
-        ja: "2005-09-10",
-        en: "2008-02-29",
-      },
-      {
-        n: 48,
-        title: { ja: "新世界へ", en: "To a New World" },
-        ja: "2005-09-17",
-        en: "2008-03-07",
-      },
-      {
-        n: 49,
-        title: { ja: "レイ", en: "Rey" },
-        ja: "2005-09-24",
-        en: "2008-03-21",
-      },
-      {
-        n: 50,
-        title: { ja: "最後の力", en: "The Final Power" },
-        ja: "2005-10-01",
-        en: "2008-03-28",
-      },
-      {
-        n: 51,
-        title: { ja: "選ばれた未来", en: "Final Plus: The Chosen Future" },
-        ja: "2005-12-25",
-      },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "broadcast",
-        label: "MBS / TBS",
-        start: "2004-10-09",
-        end: "2005-10-01",
-        schedule: "weekly",
-      },
-      {
-        region: "en",
-        channel: "broadcast",
-        label: "YTV (Canada)",
-        start: "2006",
-        schedule: "weekly",
-      },
-      {
-        region: "en",
-        channel: "home_video",
-        label: "Bandai Entertainment DVD",
-        start: "2007",
-        schedule: "box-set",
-      },
-      {
-        region: "en",
-        channel: "streaming",
-        label: "Crunchyroll",
-        start: "2024",
-        schedule: "simulcast",
-      },
+      rel("ja", "print", "Kadokawa Shōnen Ace", "2002-10-26", "serial", "2006"),
+      rel("en", "print", "Del Rey / Tokyopop", "2005-07-26", "serial"),
     ],
   },
   seed_destiny_astray_2004_manga: {
@@ -1251,239 +880,70 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
     publisher: "Kadokawa Shoten",
     magazine: "Gundam Ace",
     episodes: [
-      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2005-01" },
-      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2005-07" },
-      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2005-11" },
-      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2006-06" },
+      ep(1, "Volume 1", "Volume 1", "2005-01"),
+      ep(2, "Volume 2", "Volume 2", "2005-07"),
+      ep(3, "Volume 3", "Volume 3", "2005-11"),
+      ep(4, "Volume 4", "Volume 4", "2006-06"),
     ],
     releases: [
-      {
-        region: "ja",
-        channel: "print",
-        label: "Kadokawa Gundam Ace",
-        start: "2004-05-26",
-        end: "2006",
-        schedule: "serial",
-      },
+      rel("ja", "print", "Kadokawa Gundam Ace", "2004-05-26", "serial", "2006"),
     ],
   },
-  seed_destiny_astray_r_2013_manga: {
+  seed_x_astray_2003_manga: {
     title: {
-      ja: "機動戦士ガンダムSEED DESTINY ASTRAY R",
-      en: "Mobile Suit Gundam SEED Destiny Astray R",
+      ja: "機動戦士ガンダムSEED X ASTRAY",
+      en: "Mobile Suit Gundam SEED X Astray",
     },
     u: "ce",
     type: "manga",
-    source:
-      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Destiny_Astray_R",
-    author: "Tomohiro Chiba (story), Kunio Okawara (mechanical design)",
-    publisher: "ASCII Media Works",
-    episodes: [
-      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2013-06" },
-      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2014-05" },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "serial",
-        label: "Dengeki Hobby Magazine",
-        start: "2013-06",
-        end: "2014-05",
-        schedule: "serial",
-      },
-    ],
-  },
-  seed_destiny_edge_2005_manga: {
-    title: {
-      ja: "機動戦士ガンダムSEED DESTINY THE EDGE",
-      en: "Mobile Suit Gundam SEED Destiny: The Edge",
-    },
-    u: "ce",
-    type: "manga",
-    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムSEEDシリーズ_(書籍)",
-    author: "Tateishi Gichi",
-    publisher: "Kadokawa",
-    magazine: "Gundam Ace",
-    episodes: [
-      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2005-04" },
-      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2005-08" },
-      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2005-12" },
-      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2006-06" },
-      { n: 5, title: { ja: "Volume 5", en: "Volume 5" }, ja: "2006-10" },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "print",
-        label: "Kadokawa Gundam Ace",
-        start: "2005",
-        end: "2008",
-        schedule: "serial",
-      },
-    ],
-  },
-  seed_destiny_edge_desire_2008_manga: {
-    title: {
-      ja: "機動戦士ガンダムSEED DESTINY THE EDGE Desire",
-      en: "Mobile Suit Gundam SEED Destiny: The Edge Desire",
-    },
-    u: "ce",
-    type: "manga",
-    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムSEEDシリーズ_(書籍)",
-    author: "Tateishi Gichi",
-    publisher: "Kadokawa",
-    magazine: "Gundam Ace",
-    episodes: [
-      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2007-06" },
-      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2008-02" },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "print",
-        label: "Kadokawa Gundam Ace",
-        start: "2008",
-        end: "2011",
-        schedule: "serial",
-      },
-    ],
-  },
-  seed_destiny_final_plus_2005_special: {
-    title: {
-      ja: "機動戦士ガンダムSEED DESTINY FINAL PLUS",
-      en: "Mobile Suit Gundam SEED Destiny: Final Plus",
-    },
-    u: "ce",
-    type: "ova",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Destiny",
-    episodes: [
-      {
-        n: 1,
-        title: {
-          ja: "機動戦士ガンダムSEED DESTINY FINAL PLUS",
-          en: "The Chosen Future",
-        },
-        ja: "2005-12-25",
-      },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "broadcast",
-        label: "TV special",
-        start: "2005-12-25",
-        schedule: "weekly",
-      },
-      {
-        region: "en",
-        channel: "home_video",
-        label: "Bandai Entertainment DVD",
-        start: "2008",
-        schedule: "box-set",
-      },
-    ],
-  },
-  seed_destiny_magazine_z_manga: {
-    title: {
-      ja: "機動戦士ガンダムSEED DESTINY (マガジンZ版)",
-      en: "Mobile Suit Gundam SEED Destiny (Magazine Z manga)",
-    },
-    u: "ce",
-    type: "manga",
-    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムSEEDシリーズ_(書籍)",
-    author: "Iwase Masashi",
-    publisher: "Kodansha",
-    magazine: "Monthly Magazine Z",
-    episodes: [
-      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2005-04" },
-      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2005-08" },
-      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2006-06" },
-      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2006-06" },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "print",
-        label: "Kodansha Magazine Z KC",
-        start: "2005-01",
-        end: "2006-06",
-        schedule: "serial",
-      },
-    ],
-  },
-  seed_destiny_special_2006_films: {
-    title: {
-      ja: "機動戦士ガンダムSEED DESTINY スペシャルエディション",
-      en: "Mobile Suit Gundam SEED Destiny: Special Edition",
-    },
-    u: "ce",
-    type: "film",
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_SEED_Destiny_episodes",
-    episodes: [
-      {
-        n: 1,
-        title: { ja: "砕け散る世界", en: "The Shattered World" },
-        ja: "2006-05-02",
-      },
-      {
-        n: 2,
-        title: { ja: "戦いを呼ぶもの", en: "Their Respective Swords" },
-        ja: "2006-07-27",
-      },
-      {
-        n: 3,
-        title: { ja: "予兆の砲火", en: "The Hellfire of Destiny" },
-        ja: "2006-10-08",
-      },
-      {
-        n: 4,
-        title: { ja: "星屑の戦場", en: "The Cost of Freedom" },
-        ja: "2007-02-23",
-      },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "theatrical",
-        label: "Theatrical release",
-        start: "2006-05-26",
-        end: "2007-02-23",
-        schedule: "theatrical",
-      },
-      {
-        region: "en",
-        channel: "home_video",
-        label: "Bandai Entertainment DVD",
-        start: "2008",
-        schedule: "box-set",
-      },
-    ],
-  },
-  seed_eclipse_2021_manga: {
-    title: {
-      ja: "機動戦士ガンダムSEED ECLIPSE",
-      en: "Mobile Suit Gundam SEED Eclipse",
-    },
-    u: "ce",
-    type: "manga",
-    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Eclipse",
-    author: "Atsushi Soga (art), SOW (story)",
+    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
+    author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
     publisher: "Kadokawa Shoten",
     magazine: "Gundam Ace",
-    note: "Set in Cosmic Era during the interim between SEED and SEED Destiny",
     episodes: [
-      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2022-02-26" },
-      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2023" },
+      ep(1, "Volume 1", "Volume 1", "2004-05"),
+      ep(2, "Volume 2", "Volume 2", "2004-10"),
     ],
     releases: [
-      {
-        region: "ja",
-        channel: "print",
-        label: "Kadokawa Shoten",
-        start: "2021",
-        schedule: "serial",
-      },
+      rel("ja", "print", "Kadokawa Gundam Ace", "2003-05-26", "serial", "2004"),
+    ],
+  },
+  seed_delta_astray_2006_manga: {
+    title: {
+      ja: "機動戦士ガンダムSEED C.E.73 Δ (Delta) ASTRAY",
+      en: "Mobile Suit Gundam SEED C.E.73 Δ (Delta) Astray",
+    },
+    u: "ce",
+    type: "manga",
+    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
+    author: "Tomohiro Chiba (story), Kazuhiro Okada (art)",
+    publisher: "ASCII Media Works",
+    magazine: "Dengeki Hobby Magazine",
+    episodes: [
+      ep(1, "Volume 1", "Volume 1", "2006"),
+      ep(2, "Volume 2", "Volume 2", "2007"),
+    ],
+    releases: [
+      rel("ja", "print", "Kadokawa Gundam Ace", "2006-05-26", "serial", "2007"),
+    ],
+  },
+  seed_vs_astray_2010_manga: {
+    title: {
+      ja: "機動戦士ガンダムSEED VS ASTRAY",
+      en: "Mobile Suit Gundam SEED VS Astray",
+    },
+    u: "ce",
+    type: "manga",
+    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
+    author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
+    publisher: "ASCII Media Works",
+    magazine: "Dengeki Hobby Magazine",
+    episodes: [
+      ep(1, "Volume 1", "Volume 1", "2010-05"),
+      ep(2, "Volume 2", "Volume 2", "2011-01"),
+    ],
+    releases: [
+      rel("ja", "print", "Kadokawa Gundam Ace", "2010-01-26", "serial", "2012"),
     ],
   },
   seed_frame_astrays_2007_manga: {
@@ -1498,74 +958,30 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
     publisher: "Kadokawa Shoten",
     magazine: "Dengeki Hobby Magazine",
     episodes: [
-      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2008-04" },
-      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2008-11" },
+      ep(1, "Volume 1", "Volume 1", "2008-04"),
+      ep(2, "Volume 2", "Volume 2", "2008-11"),
     ],
     releases: [
-      {
-        region: "ja",
-        channel: "print",
-        label: "Hobby Japan",
-        start: "2007-04-26",
-        end: "2008",
-        schedule: "serial",
-      },
+      rel("ja", "print", "Hobby Japan", "2007-04-26", "serial", "2008"),
     ],
   },
-  seed_freedom_2024_film: {
+  seed_astray_b_2012_manga: {
     title: {
-      ja: "機動戦士ガンダムSEED FREEDOM",
-      en: "Mobile Suit Gundam SEED Freedom",
-    },
-    u: "ce",
-    type: "film",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Freedom",
-    episodes: [
-      {
-        n: 1,
-        title: { ja: "機動戦士ガンダムSEED FREEDOM", en: "SEED Freedom" },
-        ja: "2024-01-26",
-        en: "2024-05-03",
-      },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "theatrical",
-        label: "Theatrical release",
-        start: "2024-01-26",
-        schedule: "theatrical",
-      },
-      {
-        region: "en",
-        channel: "theatrical",
-        label: "Theatrical release (international)",
-        start: "2024-05-03",
-        schedule: "theatrical",
-      },
-    ],
-  },
-  seed_freedom_2024_manga: {
-    title: {
-      ja: "機動戦士ガンダムSEED FREEDOM (漫画)",
-      en: "Mobile Suit Gundam SEED Freedom (manga)",
+      ja: "機動戦士ガンダムSEED DESTINY ASTRAY B",
+      en: "Mobile Suit Gundam SEED Destiny Astray B",
     },
     u: "ce",
     type: "manga",
-    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Freedom",
-    author: "Iwase Masashi",
-    publisher: "Kadokawa",
-    magazine: "Gundam Ace",
-    note: "Manga adaptation of the SEED Freedom film",
-    episodes: [{ n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2025" }],
+    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
+    author: "Tomohiro Chiba (story), Eiichi Shimizu (art)",
+    publisher: "Kadokawa ASCII Media Works",
+    magazine: "Hobby Japan",
+    episodes: [
+      ep(1, "Volume 1", "Volume 1", "2013-03"),
+      ep(2, "Volume 2", "Volume 2", "2014-05"),
+    ],
     releases: [
-      {
-        region: "ja",
-        channel: "print",
-        label: "Kadokawa Gundam Ace",
-        start: "2024",
-        schedule: "serial",
-      },
+      rel("ja", "serial", "Hobby Japan", "2013-03", "serial", "2014-05"),
     ],
   },
   seed_freedom_zero_tba: {
@@ -1581,191 +997,147 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
     episodes: [],
     releases: [],
   },
-  seed_msv_astray_2004_ova: {
+  seed_destiny_edge_2005_manga: {
     title: {
-      ja: "機動戦士ガンダムSEED MSV ASTRAY",
-      en: "Mobile Suit Gundam SEED MSV Astray",
-    },
-    u: "ce",
-    type: "ova",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
-    episodes: [
-      { n: 1, title: { ja: "Part 1", en: "Part 1" }, ja: "2004-05-25" },
-      { n: 2, title: { ja: "Part 2", en: "Part 2" }, ja: "2004-11-25" },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "home_video",
-        label: "Promo OVA",
-        start: "2004",
-        schedule: "box-set",
-      },
-    ],
-  },
-  seed_special_2004_films: {
-    title: {
-      ja: "機動戦士ガンダムSEED スペシャルエディション",
-      en: "Mobile Suit Gundam SEED: Special Edition",
-    },
-    u: "ce",
-    type: "film",
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_SEED_episodes",
-    note: "3-part compilation movies summarising TV series",
-    episodes: [
-      {
-        n: 1,
-        title: { ja: "砕け散る世界", en: "The Empty Battlefield" },
-        ja: "2004-03-23",
-      },
-      {
-        n: 2,
-        title: { ja: "遥かなる暁", en: "The Far-Away Dawn" },
-        ja: "2004-07-28",
-      },
-      {
-        n: 3,
-        title: { ja: "鳴動の宇宙", en: "The Rumbling Sky" },
-        ja: "2004-10-22",
-      },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "theatrical",
-        label: "Theatrical release",
-        start: "2004-03-20",
-        end: "2004-10-22",
-        schedule: "theatrical",
-      },
-      {
-        region: "en",
-        channel: "home_video",
-        label: "Bandai Entertainment DVD",
-        start: "2005",
-        schedule: "box-set",
-      },
-    ],
-  },
-  seed_stargazer_2006_ona: {
-    title: {
-      ja: "機動戦士ガンダムSEED C.E.73 STARGAZER",
-      en: "Mobile Suit Gundam SEED C.E. 73: Stargazer",
-    },
-    u: "ce",
-    type: "ona",
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_SEED_episodes",
-    episodes: [
-      { n: 1, title: { ja: "Stage 01", en: "Stage 01" }, ja: "2006-07-14" },
-      { n: 2, title: { ja: "Stage 02", en: "Stage 02" }, ja: "2006-08-21" },
-      { n: 3, title: { ja: "Stage 03", en: "Stage 03" }, ja: "2006-09-29" },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "streaming",
-        label: "Web streaming",
-        start: "2006-07-14",
-        end: "2006-09-01",
-        schedule: "simulcast",
-      },
-      {
-        region: "en",
-        channel: "home_video",
-        label: "Bandai Entertainment DVD",
-        start: "2008",
-        schedule: "box-set",
-      },
-    ],
-  },
-  seed_stargazer_compilation_2006_ova: {
-    title: {
-      ja: "機動戦士ガンダムSEED C.E.73 STARGAZER",
-      en: "Mobile Suit Gundam SEED C.E. 73: Stargazer (Compilation)",
-    },
-    u: "ce",
-    type: "ova",
-    source:
-      "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_C.E._73:_Stargazer",
-    episodes: [
-      {
-        n: 1,
-        title: {
-          ja: "機動戦士ガンダムSEED C.E.73 STARGAZER",
-          en: "Stargazer Compilation",
-        },
-        ja: "2006-11-24",
-      },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "home_video",
-        label: "DVD compilation",
-        start: "2006",
-        schedule: "box-set",
-      },
-      {
-        region: "en",
-        channel: "home_video",
-        label: "Bandai Entertainment DVD",
-        start: "2008",
-        schedule: "box-set",
-      },
-    ],
-  },
-  seed_vs_astray_2010_manga: {
-    title: {
-      ja: "機動戦士ガンダムSEED VS ASTRAY",
-      en: "Mobile Suit Gundam SEED VS Astray",
+      ja: "機動戦士ガンダムSEED DESTINY THE EDGE",
+      en: "Mobile Suit Gundam SEED Destiny: The Edge",
     },
     u: "ce",
     type: "manga",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
-    author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
-    publisher: "ASCII Media Works",
-    magazine: "Dengeki Hobby Magazine",
-    episodes: [
-      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2010-05" },
-      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2011-01" },
-    ],
-    releases: [
-      {
-        region: "ja",
-        channel: "print",
-        label: "Kadokawa Gundam Ace",
-        start: "2010-01-26",
-        end: "2012",
-        schedule: "serial",
-      },
-    ],
-  },
-  seed_x_astray_2003_manga: {
-    title: {
-      ja: "機動戦士ガンダムSEED X ASTRAY",
-      en: "Mobile Suit Gundam SEED X Astray",
-    },
-    u: "ce",
-    type: "manga",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
-    author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
-    publisher: "Kadokawa Shoten",
+    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムSEEDシリーズ_(書籍)",
+    author: "Tateishi Gichi",
+    publisher: "Kadokawa",
     magazine: "Gundam Ace",
     episodes: [
-      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2004-05" },
-      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2004-10" },
+      ep(1, "Volume 1", "Volume 1", "2005-04"),
+      ep(2, "Volume 2", "Volume 2", "2005-08"),
+      ep(3, "Volume 3", "Volume 3", "2005-12"),
+      ep(4, "Volume 4", "Volume 4", "2006-06"),
+      ep(5, "Volume 5", "Volume 5", "2006-10"),
     ],
     releases: [
-      {
-        region: "ja",
-        channel: "print",
-        label: "Kadokawa Gundam Ace",
-        start: "2003-05-26",
-        end: "2004",
-        schedule: "serial",
-      },
+      rel("ja", "print", "Kadokawa Gundam Ace", "2005", "serial", "2008"),
+    ],
+  },
+  seed_destiny_edge_desire_2008_manga: {
+    title: {
+      ja: "機動戦士ガンダムSEED DESTINY THE EDGE Desire",
+      en: "Mobile Suit Gundam SEED Destiny: The Edge Desire",
+    },
+    u: "ce",
+    type: "manga",
+    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムSEEDシリーズ_(書籍)",
+    author: "Tateishi Gichi",
+    publisher: "Kadokawa",
+    magazine: "Gundam Ace",
+    episodes: [
+      ep(1, "Volume 1", "Volume 1", "2007-06"),
+      ep(2, "Volume 2", "Volume 2", "2008-02"),
+    ],
+    releases: [
+      rel("ja", "print", "Kadokawa Gundam Ace", "2008", "serial", "2011"),
+    ],
+  },
+  seed_destiny_magazine_z_manga: {
+    title: {
+      ja: "機動戦士ガンダムSEED DESTINY (マガジンZ版)",
+      en: "Mobile Suit Gundam SEED Destiny (Magazine Z manga)",
+    },
+    u: "ce",
+    type: "manga",
+    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムSEEDシリーズ_(書籍)",
+    author: "Iwase Masashi",
+    publisher: "Kodansha",
+    magazine: "Monthly Magazine Z",
+    episodes: [
+      ep(1, "Volume 1", "Volume 1", "2005-04"),
+      ep(2, "Volume 2", "Volume 2", "2005-08"),
+      ep(3, "Volume 3", "Volume 3", "2006-06"),
+      ep(4, "Volume 4", "Volume 4", "2006-06"),
+    ],
+    releases: [
+      rel(
+        "ja",
+        "print",
+        "Kodansha Magazine Z KC",
+        "2005-01",
+        "serial",
+        "2006-06",
+      ),
+    ],
+  },
+  reseed_2024_manga: {
+    title: {
+      ja: "機動戦士ガンダムSEED Re:",
+      en: "Mobile Suit Gundam SEED Re:",
+    },
+    u: "ce",
+    type: "manga",
+    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Re:",
+    author: "Ju Ishiguchi",
+    publisher: "Kadokawa",
+    magazine: "Gundam Ace",
+    note: "2024 manga retelling of the original SEED",
+    episodes: [ep(1, "Volume 1", "Volume 1", "2025")],
+    releases: [rel("ja", "print", "Kadokawa Gundam Ace", "2024", "serial")],
+  },
+  seed_freedom_2024_manga: {
+    title: {
+      ja: "機動戦士ガンダムSEED FREEDOM (漫画)",
+      en: "Mobile Suit Gundam SEED Freedom (manga)",
+    },
+    u: "ce",
+    type: "manga",
+    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Freedom",
+    author: "Iwase Masashi",
+    publisher: "Kadokawa",
+    magazine: "Gundam Ace",
+    note: "Manga adaptation of the SEED Freedom film",
+    episodes: [ep(1, "Volume 1", "Volume 1", "2025")],
+    releases: [rel("ja", "print", "Kadokawa Gundam Ace", "2024", "serial")],
+  },
+  seed_eclipse_2021_manga: {
+    title: {
+      ja: "機動戦士ガンダムSEED ECLIPSE",
+      en: "Mobile Suit Gundam SEED Eclipse",
+    },
+    u: "ce",
+    type: "manga",
+    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Eclipse",
+    author: "Atsushi Soga (art), SOW (story)",
+    publisher: "Kadokawa Shoten",
+    magazine: "Gundam Ace",
+    note: "Set in Cosmic Era during the interim between SEED and SEED Destiny",
+    episodes: [
+      ep(1, "Volume 1", "Volume 1", "2022-02-26"),
+      ep(2, "Volume 2", "Volume 2", "2023"),
+    ],
+    releases: [rel("ja", "print", "Kadokawa Shoten", "2021", "serial")],
+  },
+  seed_destiny_astray_r_2013_manga: {
+    title: {
+      ja: "機動戦士ガンダムSEED DESTINY ASTRAY R",
+      en: "Mobile Suit Gundam SEED Destiny Astray R",
+    },
+    u: "ce",
+    type: "manga",
+    source:
+      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Destiny_Astray_R",
+    author: "Tomohiro Chiba (story), Kunio Okawara (mechanical design)",
+    publisher: "ASCII Media Works",
+    episodes: [
+      ep(1, "Volume 1", "Volume 1", "2013-06"),
+      ep(2, "Volume 2", "Volume 2", "2014-05"),
+    ],
+    releases: [
+      rel(
+        "ja",
+        "serial",
+        "Dengeki Hobby Magazine",
+        "2013-06",
+        "serial",
+        "2014-05",
+      ),
     ],
   },
 };
