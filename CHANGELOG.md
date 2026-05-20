@@ -1,3 +1,9 @@
+## [1.3.3](https://github.com/Mearman/gundam/compare/v1.3.2...v1.3.3) (2026-05-20)
+
+### Chores
+
+* refresh detailed Gundam release metadata ([16327bb](https://github.com/Mearman/gundam/commit/16327bb89872ed3c5ac363203adcb2a73e8b7149))
+
 ## [1.3.2](https://github.com/Mearman/gundam/compare/v1.3.1...v1.3.2) (2026-05-20)
 
 ### Chores
