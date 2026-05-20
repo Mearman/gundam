@@ -284,12 +284,6 @@ export const buildDetails: Record<string, EntryDetail | undefined> = {
       ep(23, "ビルド・ファイター", "Build Fighter", "2015-03-18"),
       ep(24, "ファイナル・バースト", "Final Burst", "2015-03-25"),
       ep(25, "僕たちのガンプラ", "Our Gunpla", "2015-04-01"),
-      ep(
-        "SP",
-        "ガンダムビルドファイターズトライ アイランド・ウォーズ",
-        "Gundam Build Fighters Try Island Wars",
-        "2016-08-21",
-      ),
     ],
     [
       rel("ja", "broadcast", "TV Tokyo", "2014-10-08", "weekly", "2015-04-01"),
@@ -514,9 +508,12 @@ export const buildDetails: Record<string, EntryDetail | undefined> = {
     "Gundam Breaker Battlogue",
     "https://en.wikipedia.org/wiki/Gundam_Breaker#Gundam_Breaker_Battlogue",
     [
-      ep(1, "Breaker Battlogue 1", "Breaker Battlogue 1", "2021-10-19"),
-      ep(2, "Breaker Battlogue 2", "Breaker Battlogue 2", "2021-11-16"),
-      ep(3, "Breaker Battlogue 3", "Breaker Battlogue 3", "2021-12-14"),
+      ep(1, "Breaker Battlogue #1", "Breaker Battlogue #1", "2021-10-19"),
+      ep(2, "Breaker Battlogue #2", "Breaker Battlogue #2", "2021-10-26"),
+      ep(3, "Breaker Battlogue #3", "Breaker Battlogue #3", "2021-11-02"),
+      ep(4, "Breaker Battlogue #4", "Breaker Battlogue #4", "2021-11-09"),
+      ep(5, "Breaker Battlogue #5", "Breaker Battlogue #5", "2021-11-16"),
+      ep(6, "Breaker Battlogue #6", "Breaker Battlogue #6", "2021-11-23"),
     ],
     [
       rel("ja", "streaming", "YouTube", "2021-10-15", "simulcast"),

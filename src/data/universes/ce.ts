@@ -475,12 +475,6 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
       ep(50, "終わらない明日へ", "To a Future that Never Ends", "2003-09-27", {
         dateEn: "2005-04-15",
       }),
-      ep(
-        51,
-        "アフターフェイズ 星の間で",
-        "After Phase - Between the Stars (DVD epilogue)",
-        "2004-03-26",
-      ),
     ],
     [
       rel("ja", "broadcast", "MBS / TBS", "2002-10-05", "weekly", "2003-09-27"),
@@ -707,7 +701,6 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
       ep(50, "最後の力", "The Final Power", "2005-10-01", {
         dateEn: "2008-03-28",
       }),
-      ep(51, "選ばれた未来", "Final Plus: The Chosen Future", "2005-12-25"),
     ],
     [
       rel("ja", "broadcast", "MBS / TBS", "2004-10-09", "weekly", "2005-10-01"),

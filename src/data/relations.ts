@@ -222,6 +222,11 @@ export const ENTRY_RELATIONS: EntryRelation[] = [
   { from: "re010_2022_manga", type: "side_story_of", to: "zero83_1991_ova" },
   { from: "mayfly_2001_manga", type: "side_story_of", to: "zero83_1991_ova" },
   {
+    from: "zero83_afterglow_1992_film",
+    type: "compilation_of",
+    to: "zero83_1991_ova",
+  },
+  {
     from: "msigloo_apocalypse_2006_ova",
     type: "sequel_to",
     to: "msigloo_hidden_2004_ova",

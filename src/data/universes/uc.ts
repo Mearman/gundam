@@ -3677,4 +3677,26 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       note: "Third Hathaway film, completing the novel trilogy adaptation. Not yet formally dated.",
     },
   ),
+  zero83_afterglow_1992_film: det(
+    "機動戦士ガンダム0083 ジオンの残光",
+    "Mobile Suit Gundam 0083: The Afterglow of Zeon",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_0083:_Stardust_Memory",
+    [ep(1, "ジオンの残光", "The Afterglow of Zeon", "1992-08-29")],
+    [
+      rel(
+        "ja",
+        "theatrical",
+        "Japanese theatrical",
+        "1992-08-29",
+        "theatrical",
+      ),
+      rel(
+        "en",
+        "home-video",
+        "NA home video (Bandai Entertainment)",
+        "2002",
+        "box-set",
+      ),
+    ],
+  ),
 };
