@@ -15,7 +15,7 @@ export type ReleaseSchedule =
   | "weekly";
 
 export interface DetailEpisode {
-  n: number | string;
+  n?: number | string;
   title: string;
   ja: string;
   en?: string | null;
@@ -3628,31 +3628,26 @@ export const ENTRY_DETAILS = {
         n: 1,
         title: "Volume 1",
         ja: "2003",
-        en: "2004",
       },
       {
         n: 2,
         title: "Volume 2",
         ja: "2003",
-        en: "2004",
       },
       {
         n: 3,
         title: "Volume 3",
         ja: "2004",
-        en: "2005",
       },
       {
         n: 4,
         title: "Volume 4",
         ja: "2004",
-        en: "2005",
       },
       {
         n: 5,
         title: "Volume 5",
         ja: "2005",
-        en: "2006",
       },
     ],
     releases: [
@@ -6177,7 +6172,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Mobile Suit Gundam I: Awakening",
-        ja: "1979",
+        ja: "1979-11-30",
       },
       {
         n: 2,
@@ -6228,17 +6223,17 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Hathaway's Flash I",
-        ja: "1989",
+        ja: "1989-02-13",
       },
       {
         n: 2,
         title: "Hathaway's Flash II",
-        ja: "1989",
+        ja: "1990-03-01",
       },
       {
         n: 3,
         title: "Hathaway's Flash III",
-        ja: "1990",
+        ja: "1990-04-11",
       },
     ],
     releases: [
@@ -6264,7 +6259,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Beltorchika's Children",
-        ja: "1988-04",
+        ja: "1988-02-20",
       },
     ],
     releases: [
@@ -6289,58 +6284,58 @@ export const ENTRY_DETAILS = {
     episodes: [
       {
         n: 1,
-        title: "Volume 1: The Day of the Unicorn",
-        ja: "2007",
+        title: "Volume 1: The Day of the Unicorn (Part 1)",
+        ja: "2007-09-21",
       },
       {
         n: 2,
-        title: "Volume 2: Cosmic Babel",
-        ja: "2007",
+        title: "Volume 2: The Day of the Unicorn (Part 2)",
+        ja: "2007-09-21",
       },
       {
         n: 3,
         title: "Volume 3: The Red Comet",
-        ja: "2008",
+        ja: "2007-12-20",
       },
       {
         n: 4,
-        title: "Volume 4: The Possibility of the Beast",
-        ja: "2008",
+        title: "Volume 4: Palau Capture Battle",
+        ja: "2008-04-24",
       },
       {
         n: 5,
-        title: "Volume 5: Black Unicorn",
-        ja: "2008",
+        title: "Volume 5: The Ghost of Laplace",
+        ja: "2008-07-24",
       },
       {
         n: 6,
-        title: "Volume 6: A Domain of Reason",
-        ja: "2009",
+        title: "Volume 6: In the Depths of a Gravity Well",
+        ja: "2008-10-23",
       },
       {
         n: 7,
-        title: "Volume 7: Republic of Coronation",
-        ja: "2009",
+        title: "Volume 7: Black Unicorn",
+        ja: "2008-12-24",
       },
       {
         n: 8,
-        title: "Volume 8: Beyond the Rainbow",
-        ja: "2009",
+        title: "Volume 8: The Sky and the Stars",
+        ja: "2009-04-23",
       },
       {
         n: 9,
-        title: "Volume 9: The Cage of Phoenix",
-        ja: "2009",
+        title: "Volume 9: Over the Rainbow (Part 1)",
+        ja: "2009-08-20",
       },
       {
         n: 10,
-        title: "Volume 10: Over the Rainbow",
-        ja: "2010",
+        title: "Volume 10: Over the Rainbow (Part 2)",
+        ja: "2009-08-20",
       },
       {
         n: 11,
-        title: "Volume 11: Phoenix Hunting (epilogue collection)",
-        ja: "2014",
+        title: "Volume 11: Phoenix Hunting",
+        ja: "2016-03-26",
       },
     ],
     releases: [
@@ -6905,32 +6900,32 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "1995",
+        ja: "1995-03-10",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "1995",
+        ja: "1995-08-07",
       },
       {
         n: 3,
         title: "Volume 3",
-        ja: "1996",
+        ja: "1996-03-06",
       },
       {
         n: 4,
         title: "Volume 4",
-        ja: "1996",
+        ja: "1996-08-08",
       },
       {
         n: 5,
         title: "Volume 5",
-        ja: "1996",
+        ja: "1997-02-07",
       },
       {
         n: 6,
         title: "Volume 6",
-        ja: "1997",
+        ja: "1997-06-05",
       },
     ],
     releases: [
@@ -6954,14 +6949,8 @@ export const ENTRY_DETAILS = {
     source: "https://en.wikipedia.org/wiki/Crossbone_Gundam",
     episodes: [
       {
-        n: 1,
         title: "Volume 1",
-        ja: "2003",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2004",
+        ja: "2005-01-26",
       },
     ],
     releases: [
@@ -6985,14 +6974,16 @@ export const ENTRY_DETAILS = {
     source: "https://en.wikipedia.org/wiki/Crossbone_Gundam",
     episodes: [
       {
-        n: 1,
         title: "Volume 1",
-        ja: "2006",
+        ja: "2006-12-26",
       },
       {
-        n: 2,
         title: "Volume 2",
-        ja: "2007",
+        ja: "2007-05-26",
+      },
+      {
+        title: "Volume 3",
+        ja: "2007-12-26",
       },
     ],
     releases: [
@@ -7019,62 +7010,62 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2012",
+        ja: "2012-05-26",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "2012",
+        ja: "2012-08-25",
       },
       {
         n: 3,
         title: "Volume 3",
-        ja: "2013",
+        ja: "2013-02-22",
       },
       {
         n: 4,
         title: "Volume 4",
-        ja: "2013",
+        ja: "2013-06-24",
       },
       {
         n: 5,
         title: "Volume 5",
-        ja: "2014",
+        ja: "2013-10-24",
       },
       {
         n: 6,
         title: "Volume 6",
-        ja: "2014",
+        ja: "2014-03-26",
       },
       {
         n: 7,
         title: "Volume 7",
-        ja: "2015",
+        ja: "2014-09-24",
       },
       {
         n: 8,
         title: "Volume 8",
-        ja: "2015",
+        ja: "2015-01-22",
       },
       {
         n: 9,
         title: "Volume 9",
-        ja: "2016",
+        ja: "2015-04-25",
       },
       {
         n: 10,
         title: "Volume 10",
-        ja: "2016",
+        ja: "2015-08-26",
       },
       {
         n: 11,
         title: "Volume 11",
-        ja: "2017",
+        ja: "2015-12-26",
       },
       {
         n: 12,
         title: "Volume 12",
-        ja: "2017",
+        ja: "2016-05-25",
       },
     ],
     releases: [
@@ -7101,67 +7092,67 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2017",
+        ja: "2016-12-26",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "2017",
+        ja: "2017-04-24",
       },
       {
         n: 3,
         title: "Volume 3",
-        ja: "2018",
+        ja: "2017-08-26",
       },
       {
         n: 4,
         title: "Volume 4",
-        ja: "2018",
+        ja: "2018-02-10",
       },
       {
         n: 5,
         title: "Volume 5",
-        ja: "2019",
+        ja: "2018-06-26",
       },
       {
         n: 6,
         title: "Volume 6",
-        ja: "2019",
+        ja: "2018-10-26",
       },
       {
         n: 7,
         title: "Volume 7",
-        ja: "2020",
+        ja: "2019-01-26",
       },
       {
         n: 8,
         title: "Volume 8",
-        ja: "2020",
+        ja: "2019-06-24",
       },
       {
         n: 9,
         title: "Volume 9",
-        ja: "2021",
+        ja: "2019-10-25",
       },
       {
         n: 10,
         title: "Volume 10",
-        ja: "2021",
+        ja: "2020-01-24",
       },
       {
         n: 11,
         title: "Volume 11",
-        ja: "2022",
+        ja: "2020-06-25",
       },
       {
         n: 12,
         title: "Volume 12",
-        ja: "2022",
+        ja: "2020-11-25",
       },
       {
         n: 13,
         title: "Volume 13",
-        ja: "2023",
+        ja: "2021-03-26",
       },
     ],
     releases: [
@@ -7185,14 +7176,12 @@ export const ENTRY_DETAILS = {
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Crossbone_Gundam",
     episodes: [
       {
-        n: 1,
         title: "Volume 1",
-        ja: "2021",
+        ja: "2022-02-25",
       },
       {
-        n: 2,
         title: "Volume 2",
-        ja: "2022",
+        ja: "2022-09-26",
       },
     ],
     releases: [
@@ -7216,14 +7205,12 @@ export const ENTRY_DETAILS = {
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Crossbone_Gundam",
     episodes: [
       {
-        n: 1,
         title: "Volume 1",
-        ja: "2023",
+        ja: "2023-06-26",
       },
       {
-        n: 2,
         title: "Volume 2",
-        ja: "2024",
+        ja: "2024-01-26",
       },
     ],
     releases: [
@@ -7249,7 +7236,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2025",
+        ja: "2024-10-25",
       },
       {
         n: 2,
@@ -7280,72 +7267,62 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "1994",
+        ja: "1994-10-13",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "1995",
+        ja: "1995-02-23",
       },
       {
         n: 3,
         title: "Volume 3",
-        ja: "1995",
+        ja: "1995-09-27",
       },
       {
         n: 4,
         title: "Volume 4",
-        ja: "1996",
+        ja: "1996-04-05",
       },
       {
         n: 5,
         title: "Volume 5",
-        ja: "1997",
+        ja: "1997-09-27",
       },
       {
         n: 6,
         title: "Volume 6",
-        ja: "1997",
+        ja: "1998-12-16",
       },
       {
         n: 7,
         title: "Volume 7",
-        ja: "1998",
+        ja: "2000-03-27",
       },
       {
         n: 8,
         title: "Volume 8",
-        ja: "1999",
+        ja: "2001-06-01",
       },
       {
         n: 9,
         title: "Volume 9",
-        ja: "1999",
+        ja: "2002-07-27",
       },
       {
         n: 10,
         title: "Volume 10",
-        ja: "2000",
+        ja: "2003-09-27",
       },
       {
         n: 11,
         title: "Volume 11",
-        ja: "2001",
+        ja: "2004-11-27",
       },
       {
         n: 12,
         title: "Volume 12",
-        ja: "2002",
-      },
-      {
-        n: 13,
-        title: "Volume 13",
-        ja: "2004",
-      },
-      {
-        n: 14,
-        title: "Volume 14",
-        ja: "2005",
+        ja: "2005-11-26",
       },
     ],
     releases: [
@@ -7372,21 +7349,21 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2016",
+        ja: "1982-04-10",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "2019",
+        ja: "1982-05-30",
       },
     ],
     releases: [
       {
         region: "ja",
         channel: "print",
-        label: "Gundam Ace / Kadokawa",
-        start: "2014",
-        end: "2019",
+        label: "Akita Shoten / Boken-Oh",
+        start: "1979-05",
+        end: "1982",
         schedule: "serial",
       },
     ],
@@ -7404,92 +7381,92 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "A Fomenting Storm",
-        ja: "2014",
+        ja: "2014-02-26",
       },
       {
         n: 2,
         title: "Torrington Base",
-        ja: "2014",
+        ja: "2014-02-26",
       },
       {
         n: 3,
         title: "Real Combat & Explosive Blasts",
-        ja: "2015",
+        ja: "2014-07-26",
       },
       {
         n: 4,
         title: "Into Battle, Albion",
-        ja: "2015",
+        ja: "2015-01-26",
       },
       {
         n: 5,
         title: "Assault Landing Operation",
-        ja: "2015",
+        ja: "2015-07-25",
       },
       {
         n: 6,
         title: "Lhasa Base",
-        ja: "2016",
+        ja: "2016-01-26",
       },
       {
         n: 7,
         title: "A Declaration of War",
-        ja: "2016",
+        ja: "2016-08-26",
       },
       {
         n: 8,
         title: "Dark Passage",
-        ja: "2017",
+        ja: "2017-02-25",
       },
       {
         n: 9,
         title: "Skies of Chaos",
-        ja: "2017",
+        ja: "2017-09-25",
       },
       {
         n: 10,
         title: "Darkening Skies",
-        ja: "2018",
+        ja: "2018-02-26",
       },
       {
         n: 11,
         title: "Fight With a Cause",
-        ja: "2018",
+        ja: "2018-08-24",
       },
       {
         n: 12,
         title: "Curtain of Betrayal",
-        ja: "2019",
+        ja: "2019-02-25",
       },
       {
         n: 13,
         title: "Those Called Gundam",
-        ja: "2019",
+        ja: "2019-08-24",
       },
       {
         n: 14,
         title: "Orbital Battlefield",
-        ja: "2020",
+        ja: "2020-02-25",
       },
       {
         n: 15,
         title: "Showdown",
-        ja: "2020",
+        ja: "2020-08-25",
       },
       {
         n: 16,
         title: "Abrading Earth",
-        ja: "2021",
+        ja: "2021-03-25",
       },
       {
         n: 17,
         title: "The Immortal 4th Team",
-        ja: "2022",
+        ja: "2022-02-26",
       },
       {
         n: 18,
         title: "The Third Spear",
-        ja: "2023",
+        ja: "2023-03-25",
       },
     ],
     releases: [
@@ -7553,86 +7530,72 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2011",
-        en: "2018",
+        ja: "2011-03-23",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "2011",
-        en: "2019",
+        ja: "2011-10-21",
       },
       {
         n: 3,
         title: "Volume 3",
-        ja: "2012",
-        en: "2019",
+        ja: "2012-06-22",
       },
       {
         n: 4,
         title: "Volume 4",
-        ja: "2012",
-        en: "2019",
+        ja: "2013-01-23",
       },
       {
         n: 5,
         title: "Volume 5",
-        ja: "2013",
-        en: "2019",
+        ja: "2013-06-22",
       },
       {
         n: 6,
         title: "Volume 6",
-        ja: "2013",
-        en: "2020",
+        ja: "2013-11-26",
       },
       {
         n: 7,
         title: "Volume 7",
-        ja: "2014",
-        en: "2020",
+        ja: "2014-07-26",
       },
       {
         n: 8,
         title: "Volume 8",
-        ja: "2015",
-        en: "2020",
+        ja: "2014-12-26",
       },
       {
         n: 9,
         title: "Volume 9",
-        ja: "2015",
-        en: "2020",
+        ja: "2015-06-26",
       },
       {
         n: 10,
         title: "Volume 10",
-        ja: "2016",
-        en: "2021",
+        ja: "2015-12-26",
       },
       {
         n: 11,
         title: "Volume 11",
-        ja: "2017",
-        en: "2021",
+        ja: "2016-06-25",
       },
       {
         n: 12,
         title: "Volume 12",
-        ja: "2017",
-        en: "2021",
+        ja: "2017-01-26",
       },
       {
         n: 13,
         title: "Volume 13",
-        ja: "2018",
-        en: "2021",
+        ja: "2017-10-26",
       },
       {
         n: 14,
         title: "Volume 14",
-        ja: "2018",
-        en: "2022",
+        ja: "2018-01-26",
       },
     ],
     releases: [
@@ -10712,7 +10675,27 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "1987",
+        ja: "1988-09-01",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "1989-09-01",
+      },
+      {
+        n: 3,
+        title: "Volume 3",
+        ja: "1990-09-01",
+      },
+      {
+        n: 4,
+        title: "Volume 4",
+        ja: "1992-02-01",
+      },
+      {
+        n: 5,
+        title: "Volume 5",
+        ja: "1992-04-01",
       },
     ],
     releases: [
@@ -10735,7 +10718,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "1987",
+        ja: "1987-12",
       },
     ],
     releases: [
@@ -10758,7 +10741,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Part 1",
-        ja: "1988",
+        ja: "1990-07",
       },
     ],
     releases: [
