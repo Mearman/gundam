@@ -1,3 +1,9 @@
+## [1.4.0](https://github.com/Mearman/gundam/compare/v1.3.6...v1.4.0) (2026-05-20)
+
+### Features
+
+* display version link in footer from package.json ([fcf8fdf](https://github.com/Mearman/gundam/commit/fcf8fdf12e43541ad0fdbe33f3e6c3978d58fb9e))
+
 ## [1.3.6](https://github.com/Mearman/gundam/compare/v1.3.5...v1.3.6) (2026-05-20)
 
 ### Chores
