@@ -1,3 +1,9 @@
+## [1.13.0](https://github.com/Mearman/gundam/compare/v1.12.0...v1.13.0) (2026-05-20)
+
+### Features
+
+* draw data-driven relation lines between entries ([965aad8](https://github.com/Mearman/gundam/commit/965aad8cea3db8c0859b65705bb61060e438751d))
+
 ## [1.12.0](https://github.com/Mearman/gundam/compare/v1.11.0...v1.12.0) (2026-05-20)
 
 ### Features
