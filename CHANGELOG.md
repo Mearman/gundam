@@ -1,3 +1,9 @@
+## [1.3.5](https://github.com/Mearman/gundam/compare/v1.3.4...v1.3.5) (2026-05-20)
+
+### Bug Fixes
+
+* pin zoom controls to viewport, not scroll content ([89e2e76](https://github.com/Mearman/gundam/commit/89e2e76d65f3fdb48fdb69e527d1fe259dfc91af))
+
 ## [1.3.4](https://github.com/Mearman/gundam/compare/v1.3.3...v1.3.4) (2026-05-20)
 
 ### Bug Fixes
