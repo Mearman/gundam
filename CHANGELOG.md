@@ -1,3 +1,9 @@
+## [1.9.0](https://github.com/Mearman/gundam/compare/v1.8.0...v1.9.0) (2026-05-20)
+
+### Features
+
+* refresh detail data from updated JSON source ([7fe7fcd](https://github.com/Mearman/gundam/commit/7fe7fcda7ba91e075df55779878a731db8fc2349))
+
 ## [1.8.0](https://github.com/Mearman/gundam/compare/v1.7.0...v1.8.0) (2026-05-20)
 
 ### Features
