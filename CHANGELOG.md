@@ -1,3 +1,9 @@
+## [1.11.0](https://github.com/Mearman/gundam/compare/v1.10.1...v1.11.0) (2026-05-20)
+
+### Features
+
+* add entry relations module, fix Legendary film universe ([3e24122](https://github.com/Mearman/gundam/commit/3e241221e82bd1f619136da0e4d97cbfbf3930f7))
+
 ## [1.10.1](https://github.com/Mearman/gundam/compare/v1.10.0...v1.10.1) (2026-05-20)
 
 ### Chores
