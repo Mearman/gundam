@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/Mearman/gundam/compare/v1.1.2...v1.2.0) (2026-05-20)
+
+### Features
+
+* add detailed Gundam release metadata ([7898289](https://github.com/Mearman/gundam/commit/789828976b2d993ebeeb24d59ced3bd3aa2c9744))
+* show detailed release metadata in entry tooltips ([ebdba80](https://github.com/Mearman/gundam/commit/ebdba80a8ff0dd26a367b7cf69ee7af7aebdc354))
+
 ## [1.1.2](https://github.com/Mearman/gundam/compare/v1.1.1...v1.1.2) (2026-05-20)
 
 ### Bug Fixes
