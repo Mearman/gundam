@@ -1,3 +1,9 @@
+## [1.4.1](https://github.com/Mearman/gundam/compare/v1.4.0...v1.4.1) (2026-05-20)
+
+### Bug Fixes
+
+* build pages after release for correct version ([4c42d70](https://github.com/Mearman/gundam/commit/4c42d705906aae47727bda1f7f42c6a0b4a60aab))
+
 ## [1.4.0](https://github.com/Mearman/gundam/compare/v1.3.6...v1.4.0) (2026-05-20)
 
 ### Features
