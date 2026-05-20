@@ -1,4 +1,5 @@
 import type { Entry, StoryStackedEntry, Universe } from "./types";
+import { entryInUniverse } from "./types";
 import { ENTRIES, UNIVERSES } from "./timeline";
 
 // ── In-universe date parsing ────────────────────────────
@@ -77,7 +78,7 @@ export interface StoryRange {
 const UNIVERSE_IN_RANGE = new Map<string, StoryRange | null>();
 
 function computeUniverseInRange(universeId: string): void {
-  const entries = ENTRIES.filter((e) => e.u === universeId);
+  const entries = ENTRIES.filter((e) => entryInUniverse(e, universeId));
   let min = Infinity;
   let max = -Infinity;
   for (const e of entries) {

@@ -21,7 +21,7 @@ export type TextLang = "en" | "ja" | "tba";
 
 export interface Entry {
   detailId?: string;
-  u: string;
+  u: string | string[];
   d: string;
   t: string;
   n?: string;
@@ -30,6 +30,14 @@ export interface Entry {
   m: MediaKind;
   a: AudioLang;
   s: TextLang;
+}
+
+/** Check whether an entry belongs to a given universe. */
+export function entryInUniverse(entry: Entry, universeId: string): boolean {
+  if (Array.isArray(entry.u)) {
+    return entry.u.includes(universeId);
+  }
+  return entry.u === universeId;
 }
 
 export interface StackedEntry extends Entry {

@@ -15,6 +15,7 @@ import type {
   Filters,
   AxisMode,
 } from "../data/types";
+import { entryInUniverse } from "../data/types";
 import { getEntryDetail } from "../data/details";
 import type { DetailRelease } from "../data/details";
 import {
@@ -799,7 +800,7 @@ export function TimelineLanes({
 
   const lanes = universes
     .map((u) => {
-      const uniEntries = entries.filter((e) => e.u === u.id);
+      const uniEntries = entries.filter((e) => entryInUniverse(e, u.id));
       if (uniEntries.length === 0) return null;
 
       const mode = getEffectiveMode(globalMode, u.id);
@@ -912,7 +913,8 @@ export function TimelineLanes({
             </span>
             <span className={s.laneName}>{u.name}</span>
             <span className={s.laneCount}>
-              {entries.filter((e) => e.u === u.id).length} entries · {u.desc}
+              {entries.filter((e) => entryInUniverse(e, u.id)).length} entries ·{" "}
+              {u.desc}
             </span>
           </div>
         ))}

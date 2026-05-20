@@ -93,13 +93,6 @@ export const UNIVERSES: Universe[] = [
     color: "#B4B2A9",
     desc: "Super-deformed lines",
   },
-  {
-    id: "mixed",
-    name: "Multi-universe",
-    abbr: "Various",
-    color: "#8B8B8B",
-    desc: "crossover · anthology",
-  },
 ];
 
 export const ENTRIES: Entry[] = [
@@ -1338,10 +1331,10 @@ export const ENTRIES: Entry[] = [
   },
   {
     detailId: "gundam_evolve_2001_ova",
-    u: "mixed",
+    u: ["uc", "fc", "aw"],
     d: "various",
     t: "Gundam Evolve",
-    n: "15 episodes",
+    n: "15 shorts spanning UC, FC, and AW",
     y1: 2001,
     y2: 2019,
     m: "ova",
@@ -1385,8 +1378,8 @@ export const ENTRIES: Entry[] = [
   },
   {
     detailId: "gundam_perfect_mission_2009_ova",
-    u: "mixed",
-    d: "various",
+    u: "uc",
+    d: "U.C.",
     t: "GUNDAM PERFECT MISSION",
     n: "Short promotional OVA for Gundam 30th anniversary featuring Amuro's voice actor",
     y1: 2009,
