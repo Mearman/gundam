@@ -1585,7 +1585,7 @@ export const ENTRY_DETAILS = {
       {
         n: 2,
         title: "Middle (中)",
-        ja: "1999",
+        ja: "1999-12",
       },
       {
         n: 3,
@@ -2111,16 +2111,6 @@ export const ENTRY_DETAILS = {
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_Origin",
     note: "24 tankōbon volumes 2002-2015 (serialised 25 June 2001 - 25 June 2011). Per-volume dates approximate where exact tankobon dates not in available sources.",
     episodes: [
-      {
-        n: "serial-start",
-        title: "Serialisation begins (Gundam Ace)",
-        ja: "2001-06-25",
-      },
-      {
-        n: "serial-end",
-        title: "Serialisation ends",
-        ja: "2011-06-25",
-      },
       {
         n: 1,
         title: "Activation",
@@ -3975,12 +3965,12 @@ export const ENTRY_DETAILS = {
         en: "2008-03-28",
       },
       {
-        n: "15.5",
+        n: 15.5,
         title: "Special Plus: Destiny (recap)",
         ja: "2005-01-29",
       },
       {
-        n: "51",
+        n: 51,
         title: "Final Plus: The Chosen Future",
         ja: "2005-12-25",
       },
@@ -4463,7 +4453,7 @@ export const ENTRY_DETAILS = {
     note: "Includes Prologue special (n=0). Several broadcast delays during run (eps 7, 11, 12, 18 each delayed one week).",
     episodes: [
       {
-        n: "0",
+        n: 0,
         title: "Prologue",
         ja: "2022-07-14",
       },
@@ -6071,11 +6061,6 @@ export const ENTRY_DETAILS = {
     note: "TV broadcast began April 8 2025 on Tokyo MX (12 ep weekly Tuesday). Compilation film 'Beginning' released Jan 17 2025.",
     episodes: [
       {
-        n: "Beginning film",
-        title: "GQuuuuuuX -Beginning-",
-        ja: "2025-01-17",
-      },
-      {
         n: 1,
         ja: "2025-04-08",
         title: "A Signature of the Red Comet",
@@ -6951,6 +6936,7 @@ export const ENTRY_DETAILS = {
       {
         title: "Volume 1",
         ja: "2005-01-26",
+        n: 1,
       },
     ],
     releases: [
@@ -6976,14 +6962,17 @@ export const ENTRY_DETAILS = {
       {
         title: "Volume 1",
         ja: "2006-12-26",
+        n: 1,
       },
       {
         title: "Volume 2",
         ja: "2007-05-26",
+        n: 2,
       },
       {
         title: "Volume 3",
         ja: "2007-12-26",
+        n: 3,
       },
     ],
     releases: [
@@ -7178,10 +7167,12 @@ export const ENTRY_DETAILS = {
       {
         title: "Volume 1",
         ja: "2022-02-25",
+        n: 1,
       },
       {
         title: "Volume 2",
         ja: "2022-09-26",
+        n: 2,
       },
     ],
     releases: [
@@ -7207,10 +7198,12 @@ export const ENTRY_DETAILS = {
       {
         title: "Volume 1",
         ja: "2023-06-26",
+        n: 1,
       },
       {
         title: "Volume 2",
         ja: "2024-01-26",
+        n: 2,
       },
     ],
     releases: [
@@ -7628,7 +7621,7 @@ export const ENTRY_DETAILS = {
     note: "Photo-novel sequel, serialised in Gundam Ace from 2010",
     episodes: [
       {
-        n: "serial-start",
+        n: 1,
         title: "Serialisation begins",
         ja: "2010",
       },
@@ -8057,7 +8050,7 @@ export const ENTRY_DETAILS = {
     note: "Aired weekly Tuesday on TV Tokyo. Prologue special released Feb 2 2018.",
     episodes: [
       {
-        n: "Prologue",
+        n: 0,
         title: "Gundam Build Divers: Prologue",
         ja: "2018-02-02",
       },
@@ -9641,11 +9634,6 @@ export const ENTRY_DETAILS = {
     note: "Side-story manga line running parallel to SEED/SEED Destiny. Multiple sub-series: Astray (2002-04, 3 vol), Astray R (2003-04, 4 vol), Astray B (2005-06, 2 vol), Destiny Astray (2004-06, 4 vol), Astray Delta (2011-13, 2 vol), VS Astray (2012-13, 2 vol), Frame Astrays (2007, 2 vol).",
     episodes: [
       {
-        n: "serial-start",
-        title: "Astray serialisation begins",
-        ja: "2002",
-      },
-      {
         n: 1,
         title: "Astray Vol 1",
         ja: "2003",
@@ -9691,7 +9679,7 @@ export const ENTRY_DETAILS = {
     note: "Prequel manga set before the TV series, covering the Vanadis Institute incident.",
     episodes: [
       {
-        n: "serial-start",
+        n: 1,
         title: "Serialisation begins",
         ja: "2023",
       },
@@ -11192,6 +11180,2092 @@ export const ENTRY_DETAILS = {
         start: "2008-09-26",
         end: "2013",
         schedule: "serial",
+      },
+    ],
+  },
+  green_divers_2001_film: {
+    title: "Gundam New Experience: Green Divers",
+    u: "uc",
+    type: "film",
+    source: "https://ja.wikipedia.org/wiki/ガンダム新体験_グリーンダイバーズ",
+    episodes: [
+      {
+        n: 1,
+        title: "Green Divers",
+        ja: "2001-08-10",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "theatrical",
+        label: "Shibuya Tokyu Bunkakaikan E-Field dome screening",
+        start: "2001-08-10",
+        end: "2001-12",
+        schedule: "theatrical",
+      },
+    ],
+  },
+  ring_of_gundam_2009_film: {
+    title: "Ring of Gundam",
+    u: "uc-alt",
+    type: "film",
+    source: "https://ja.wikipedia.org/wiki/リング・オブ・ガンダム",
+    note: "5min 36sec CG short for Gundam 30th anniversary",
+    episodes: [
+      {
+        n: 1,
+        title: "Ring of Gundam",
+        ja: "2009-08-21",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "theatrical",
+        label: "GUNDAM BIG EXPO screening",
+        start: "2009-08-21",
+        end: "2009-09-21",
+        schedule: "theatrical",
+      },
+      {
+        region: "ja",
+        channel: "home_video",
+        label: "Gundam 30th Anniversary Documentary Memorial Box Blu-ray",
+        start: "2010-07-23",
+        schedule: "box-set",
+      },
+    ],
+  },
+  mission_to_the_rise_1998_film: {
+    title: "GUNDAM Mission to the Rise",
+    u: "uc-alt",
+    type: "film",
+    source: "https://ja.wikipedia.org/wiki/GUNDAM_Mission_to_the_Rise",
+    note: "7min CG+live-action short by Mamoru Oshii",
+    episodes: [
+      {
+        n: 1,
+        title: "Mission to the Rise",
+        ja: "1998-08-01",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "theatrical",
+        label: "Gundam Big Bang Declaration event screening",
+        start: "1998-08-01",
+        schedule: "theatrical",
+      },
+    ],
+  },
+  gundam_perfect_mission_2009_ova: {
+    title: "GUNDAM PERFECT MISSION",
+    u: "mixed",
+    type: "ova",
+    source: "https://ja.wikipedia.org/wiki/GUNDAM_PERFECT_MISSION",
+    note: "Short promotional OVA for Gundam 30th anniversary featuring Amuro's voice actor",
+    episodes: [
+      {
+        n: 1,
+        title: "GUNDAM PERFECT MISSION",
+        ja: "2009",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "home_video",
+        label: "GUNDAM OP/ED COLLECTION DVD",
+        start: "2009",
+        schedule: "box-set",
+      },
+    ],
+  },
+  sd_gundam_1988_ova: {
+    title: "Mobile Suit SD Gundam (OVA series)",
+    u: "sd",
+    type: "ova",
+    source: "https://ja.wikipedia.org/wiki/機動戦士SDガンダム",
+    episodes: [
+      {
+        n: 1,
+        title: "MK-I: Gekitou-hen / Kyuujitsu-hen / Kessen-hen",
+        ja: "1988-05-25",
+      },
+      {
+        n: 2,
+        title:
+          "MK-II: Korogaru Colony Jiken / Ganso Gundam Meibamen-shuu / Gandan Densetsu",
+        ja: "1989-06-25",
+      },
+      {
+        n: 3,
+        title:
+          "MK-III: Uchuu no Shinpi Daisakusen + SD Sengokuden (4 chapters)",
+        ja: "1990-03-25",
+      },
+      {
+        n: 4,
+        title: "MK-IV: Yume no Maron-sha + SD Gundam Mou Race",
+        ja: "1990-09-25",
+      },
+      {
+        n: 5,
+        title:
+          "MK-V: Hakobiya Ri-Gazi no Kiseki + SD Sengokuden + SD Gundam Souseiki",
+        ja: "1990-10-25",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "home_video",
+        label: "Bandai VHS / laserdisc",
+        start: "1988-05-25",
+        end: "1990-10-25",
+        schedule: "box-set",
+      },
+    ],
+  },
+  sd_gundam_gyakushuu_1989_film: {
+    title: "Mobile Suit SD Gundam no Gyakushuu",
+    u: "sd",
+    type: "film",
+    source: "https://ja.wikipedia.org/wiki/機動戦士SDガンダム",
+    note: "Double-billed with Char's Counterattack; contained Arashi wo Yobu Gakuensai + SD Sengokuden Bakuchuu Oujou no Shou",
+    episodes: [
+      {
+        n: 1,
+        title: "Arashi wo Yobu Gakuensai (Storming School Festival)",
+        ja: "1988-05-25",
+      },
+      {
+        n: 2,
+        title: "SD Sengokuden Bakuchuu Oujou no Shou",
+        ja: "1989-07-15",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "theatrical",
+        label: "Theatrical double-bill (CCA / Patlabor)",
+        start: "1988-05-25",
+        end: "1989-07-15",
+        schedule: "theatrical",
+      },
+    ],
+  },
+  sd_gundam_kinkyuu_1991_film: {
+    title: "Musha Kishi Command SD Gundam Kinkyuu Shutsugeki",
+    u: "sd",
+    type: "film",
+    source:
+      "https://ja.wikipedia.org/wiki/武者・騎士・コマンド_SDガンダム緊急出撃",
+    note: "Theatrical short double-billed with Gundam F91",
+    episodes: [
+      {
+        n: 1,
+        title: "Musha Kishi Command SD Gundam Kinkyuu Shutsugeki",
+        ja: "1991-03-16",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "theatrical",
+        label: "Double-billed with Gundam F91",
+        start: "1991-03-16",
+        schedule: "theatrical",
+      },
+      {
+        region: "ja",
+        channel: "home_video",
+        label: "Bandai VHS/laserdisc",
+        start: "1991-08-22",
+        schedule: "box-set",
+      },
+    ],
+  },
+  sd_gundam_matsuri_1993_film: {
+    title: "SD Gundam Matsuri",
+    u: "sd",
+    type: "film",
+    source: "https://ja.wikipedia.org/wiki/機動戦士SDガンダム",
+    note: "Triple-bill anime film: SD Command Senki Super G-Arms + SD Sengokuden Tenkataiheiben + SD Gundam Gaiden Seikibutsu Monogatari",
+    episodes: [
+      {
+        n: 1,
+        title: "SD Command Senki Gundam Force SUPER G-ARMS",
+        ja: "1993-03-13",
+      },
+      {
+        n: 2,
+        title: "SD Sengokuden Tenkataiheiben",
+        ja: "1993-03-13",
+      },
+      {
+        n: 3,
+        title: "SD Gundam Gaiden Seikibutsu Monogatari (chapters 1-2)",
+        ja: "1993-03-13",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "theatrical",
+        label: "Theatrical triple-bill",
+        start: "1993-03-13",
+        schedule: "theatrical",
+      },
+    ],
+  },
+  sd_gundam_force_hakai_2004_film: {
+    title: "SD Gundam Force: Hakai Taishougun Arawaru!! Zako?",
+    u: "sd",
+    type: "film",
+    source: "https://ja.wikipedia.org/wiki/SDガンダムフォース",
+    note: "Short film screened with SD Gundam Force episodes",
+    episodes: [
+      {
+        n: 1,
+        title: "Hakai Taishougun Arawaru!! Zako?",
+        ja: "2004",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "theatrical",
+        label: "Screened with SD Gundam Force",
+        start: "2004",
+        schedule: "theatrical",
+      },
+    ],
+  },
+  origin_movie_edition_2024_film: {
+    title: "Mobile Suit Gundam: The Origin (Movie Edition)",
+    u: "uc",
+    type: "film",
+    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダム_THE_ORIGIN",
+    note: "3-chapter theatrical compilation of the 6-episode OVA, re-edited for cinema",
+    episodes: [
+      {
+        n: 1,
+        title: "Chapter 1: Shaa Seira-hen",
+        ja: "2024",
+      },
+      {
+        n: 2,
+        title: "Chapter 2: Kaisen-hen",
+        ja: "2024",
+      },
+      {
+        n: 3,
+        title: "Chapter 3: Roum-hen",
+        ja: "2024",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "theatrical",
+        label: "Theatrical compilation screening",
+        start: "2024",
+        schedule: "theatrical",
+      },
+    ],
+  },
+  gunpla_kun_2022_tv: {
+    title: "Gunpla-Kun to Gundam Base Kouryaku-Sen",
+    u: "sd",
+    type: "ona",
+    source: "https://ja.wikipedia.org/wiki/ガンプラくん",
+    note: "SD anime shorts featuring Gunpla-Kun characters",
+    episodes: [],
+    releases: [
+      {
+        region: "ja",
+        channel: "streaming",
+        label: "YouTube / Gundam Channel",
+        start: "2022",
+        schedule: "simulcast",
+      },
+    ],
+  },
+  seed_freedom_zero_tba: {
+    title: "Mobile Suit Gundam SEED Freedom Zero",
+    u: "ce",
+    type: "film",
+    source:
+      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_FREEDOM_Zero",
+    note: "Prequel to SEED Freedom. TBA",
+    episodes: [],
+    releases: [],
+  },
+  gundam_legendary_tba: {
+    title: "Gundam (Legendary Pictures live-action)",
+    u: "mixed",
+    type: "live-action",
+    source: "https://en.wikipedia.org/wiki/Gundam_(film)",
+    note: "Netflix live-action film by Legendary Pictures. TBA",
+    episodes: [],
+    releases: [],
+  },
+  ibo_makan_tba_film: {
+    title: "Mobile Suit Gundam: Iron-Blooded Orphans — Makan no Kusabi",
+    u: "pd",
+    type: "film",
+    source:
+      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Iron-Blooded_Orphans",
+    note: "Cinematic interlude / bridge film. TBA",
+    episodes: [],
+    releases: [],
+  },
+  zeta_define_2011_manga: {
+    title: "Mobile Suit Zeta Gundam Define",
+    u: "uc",
+    type: "manga",
+    author: "Hoshino Katsuhiro",
+    publisher: "Kadokawa",
+    magazine: "Gundam Ace",
+    source: "https://ja.wikipedia.org/wiki/機動戦士Ζガンダム_Define",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2011-11-26",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2012-03-26",
+      },
+      {
+        n: 3,
+        title: "Volume 3",
+        ja: "2012-07-26",
+      },
+      {
+        n: 4,
+        title: "Volume 4",
+        ja: "2012-11-26",
+      },
+      {
+        n: 5,
+        title: "Volume 5",
+        ja: "2013-03-26",
+      },
+      {
+        n: 6,
+        title: "Volume 6",
+        ja: "2013-08-22",
+      },
+      {
+        n: 7,
+        title: "Volume 7",
+        ja: "2014-02-26",
+      },
+      {
+        n: 8,
+        title: "Volume 8",
+        ja: "2014-10-25",
+      },
+      {
+        n: 9,
+        title: "Volume 9",
+        ja: "2015-03-26",
+      },
+      {
+        n: 10,
+        title: "Volume 10",
+        ja: "2015-08-26",
+      },
+      {
+        n: 11,
+        title: "Volume 11",
+        ja: "2016-03-08",
+      },
+      {
+        n: 12,
+        title: "Volume 12",
+        ja: "2017-06-26",
+      },
+      {
+        n: 13,
+        title: "Volume 13",
+        ja: "2018-03-26",
+      },
+      {
+        n: 14,
+        title: "Volume 14",
+        ja: "2018-10-26",
+      },
+      {
+        n: 15,
+        title: "Volume 15",
+        ja: "2019-03-26",
+      },
+      {
+        n: 16,
+        title: "Volume 16",
+        ja: "2020-01-23",
+      },
+      {
+        n: 17,
+        title: "Volume 17",
+        ja: "2020-09-26",
+      },
+      {
+        n: 18,
+        title: "Volume 18",
+        ja: "2021-04-26",
+      },
+      {
+        n: 19,
+        title: "Volume 19",
+        ja: "2023-03-25",
+      },
+      {
+        n: 20,
+        title: "Volume 20",
+        ja: "2024-02-26",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kadokawa Gundam Ace",
+        start: "2011",
+        end: "2024",
+        schedule: "serial",
+      },
+    ],
+  },
+  cda_2002_manga: {
+    title: "Mobile Suit Gundam C.D.A.: Portraits of Young Comet",
+    u: "uc",
+    type: "manga",
+    author: "Hiroyuki Kitazume",
+    publisher: "Kadokawa",
+    magazine: "Gundam Ace",
+    source:
+      "https://ja.wikipedia.org/wiki/機動戦士ガンダム_C.D.A._若き彗星の肖像",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2002-11",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2003",
+      },
+      {
+        n: 3,
+        title: "Volume 3",
+        ja: "2004",
+      },
+      {
+        n: 4,
+        title: "Volume 4",
+        ja: "2004",
+      },
+      {
+        n: 5,
+        title: "Volume 5",
+        ja: "2005",
+      },
+      {
+        n: 6,
+        title: "Volume 6",
+        ja: "2005",
+      },
+      {
+        n: 7,
+        title: "Volume 7",
+        ja: "2006",
+      },
+      {
+        n: 8,
+        title: "Volume 8",
+        ja: "2006",
+      },
+      {
+        n: 9,
+        title: "Volume 9",
+        ja: "2007",
+      },
+      {
+        n: 10,
+        title: "Volume 10",
+        ja: "2008",
+      },
+      {
+        n: 11,
+        title: "Volume 11",
+        ja: "2008",
+      },
+      {
+        n: 12,
+        title: "Volume 12",
+        ja: "2009",
+      },
+      {
+        n: 13,
+        title: "Volume 13",
+        ja: "2009",
+      },
+      {
+        n: 14,
+        title: "Volume 14",
+        ja: "2010",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kadokawa Gundam Ace",
+        start: "2002-06",
+        end: "2010-06",
+        schedule: "serial",
+      },
+    ],
+  },
+  developers_2004_manga: {
+    title: "Developers: Mobile Suit Gundam Before the One Year War",
+    u: "uc",
+    type: "manga",
+    author: "Kazuhisa Kondo",
+    publisher: "Media Works",
+    source:
+      "https://ja.wikipedia.org/wiki/Developers_機動戦士ガンダム_Before_One_Year_War",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2003-11-26",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Media Works Dengeki Comics",
+        start: "2003",
+        end: "2004",
+        schedule: "serial",
+      },
+    ],
+  },
+  hathaway_manga_2020_manga: {
+    title: "Mobile Suit Gundam: Hathaway's Flash (manga)",
+    u: "uc",
+    type: "manga",
+    author: "Sabishi Uroaki",
+    publisher: "Kadokawa",
+    magazine: "Gundam Ace",
+    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダム_閃光のハサウェイ",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2021-05-10",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2022-03-26",
+      },
+      {
+        n: 3,
+        title: "Volume 3",
+        ja: "2022-11-26",
+      },
+      {
+        n: 4,
+        title: "Volume 4",
+        ja: "2023-09-26",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kadokawa Gundam Ace",
+        start: "2020-05",
+        end: "2023-08",
+        schedule: "serial",
+      },
+    ],
+  },
+  moon_gundam_2017_manga: {
+    title: "Mobile Suit Moon Gundam",
+    u: "uc",
+    type: "manga",
+    author: "Fukui Harutoki (story), Tamura Kouji (art)",
+    publisher: "Kadokawa",
+    magazine: "Gundam Ace",
+    source: "https://ja.wikipedia.org/wiki/機動戦士ムーンガンダム",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2018-09-26",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2018-09-26",
+      },
+      {
+        n: 3,
+        title: "Volume 3",
+        ja: "2019-03-26",
+      },
+      {
+        n: 4,
+        title: "Volume 4",
+        ja: "2019-10-26",
+      },
+      {
+        n: 5,
+        title: "Volume 5",
+        ja: "2020-03-26",
+      },
+      {
+        n: 6,
+        title: "Volume 6",
+        ja: "2020-10-26",
+      },
+      {
+        n: 7,
+        title: "Volume 7",
+        ja: "2021-03-26",
+      },
+      {
+        n: 8,
+        title: "Volume 8",
+        ja: "2021-10-26",
+      },
+      {
+        n: 9,
+        title: "Volume 9",
+        ja: "2022-03-26",
+      },
+      {
+        n: 10,
+        title: "Volume 10",
+        ja: "2022-10-25",
+      },
+      {
+        n: 11,
+        title: "Volume 11",
+        ja: "2023-03-25",
+      },
+      {
+        n: 12,
+        title: "Volume 12",
+        ja: "2023-12-26",
+      },
+      {
+        n: 13,
+        title: "Volume 13",
+        ja: "2024-07-25",
+      },
+      {
+        n: 14,
+        title: "Volume 14",
+        ja: "2025-04-25",
+      },
+      {
+        n: 15,
+        title: "Volume 15",
+        ja: "2025-11-26",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kadokawa Gundam Ace",
+        start: "2017-12",
+        end: "",
+        schedule: "serial",
+      },
+    ],
+  },
+  unicorn_bd_2010_manga: {
+    title: "Mobile Suit Gundam Unicorn Bande Dessinée",
+    u: "uc",
+    type: "manga",
+    author: "Ohtagaki Kou",
+    publisher: "Kadokawa",
+    magazine: "Gundam Ace",
+    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムUC",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2010",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2011",
+      },
+      {
+        n: 3,
+        title: "Volume 3",
+        ja: "2012",
+      },
+      {
+        n: 4,
+        title: "Volume 4",
+        ja: "2013",
+      },
+      {
+        n: 5,
+        title: "Volume 5",
+        ja: "2014",
+      },
+      {
+        n: 6,
+        title: "Volume 6",
+        ja: "2015",
+      },
+      {
+        n: 7,
+        title: "Volume 7",
+        ja: "2016",
+      },
+      {
+        n: 8,
+        title: "Volume 8",
+        ja: "2017",
+      },
+      {
+        n: 9,
+        title: "Volume 9",
+        ja: "2018",
+      },
+      {
+        n: 10,
+        title: "Volume 10",
+        ja: "2019",
+      },
+      {
+        n: 11,
+        title: "Volume 11",
+        ja: "2020",
+      },
+      {
+        n: 12,
+        title: "Volume 12",
+        ja: "2021",
+      },
+      {
+        n: 13,
+        title: "Volume 13",
+        ja: "2022",
+      },
+      {
+        n: 14,
+        title: "Volume 14",
+        ja: "2023",
+      },
+      {
+        n: 15,
+        title: "Volume 15",
+        ja: "2024",
+      },
+      {
+        n: 16,
+        title: "Volume 16",
+        ja: "2025",
+      },
+      {
+        n: 17,
+        title: "Volume 17",
+        ja: "2025",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kadokawa Gundam Ace",
+        start: "2010-03",
+        end: "",
+        schedule: "serial",
+      },
+    ],
+  },
+  johnny_ridden_2010_manga: {
+    title: "Mobile Suit Gundam MSV-R: Return of Johnny Ridden",
+    u: "uc",
+    type: "manga",
+    author: "Ark Performance",
+    publisher: "Kadokawa",
+    magazine: "Gundam Ace",
+    source:
+      "https://ja.wikipedia.org/wiki/機動戦士ガンダム_MSV-R_ジョニー・ライデンの帰還",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2010-12-25",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2011-04-26",
+      },
+      {
+        n: 3,
+        title: "Volume 3",
+        ja: "2011-10-26",
+      },
+      {
+        n: 4,
+        title: "Volume 4",
+        ja: "2012-03-26",
+      },
+      {
+        n: 5,
+        title: "Volume 5",
+        ja: "2012-09-26",
+      },
+      {
+        n: 6,
+        title: "Volume 6",
+        ja: "2013-03-26",
+      },
+      {
+        n: 7,
+        title: "Volume 7",
+        ja: "2013-09-26",
+      },
+      {
+        n: 8,
+        title: "Volume 8",
+        ja: "2014-03-24",
+      },
+      {
+        n: 9,
+        title: "Volume 9",
+        ja: "2014-09-26",
+      },
+      {
+        n: 10,
+        title: "Volume 10",
+        ja: "2015-03-26",
+      },
+      {
+        n: 11,
+        title: "Volume 11",
+        ja: "2015-09-26",
+      },
+      {
+        n: 12,
+        title: "Volume 12",
+        ja: "2016-03-26",
+      },
+      {
+        n: 13,
+        title: "Volume 13",
+        ja: "2016-11-26",
+      },
+      {
+        n: 14,
+        title: "Volume 14",
+        ja: "2017-04-04",
+      },
+      {
+        n: 15,
+        title: "Volume 15",
+        ja: "2017-09-25",
+      },
+      {
+        n: 16,
+        title: "Volume 16",
+        ja: "2018-03-26",
+      },
+      {
+        n: 17,
+        title: "Volume 17",
+        ja: "2018-10-26",
+      },
+      {
+        n: 18,
+        title: "Volume 18",
+        ja: "2019-03-26",
+      },
+      {
+        n: 19,
+        title: "Volume 19",
+        ja: "2019-09-21",
+      },
+      {
+        n: 20,
+        title: "Volume 20",
+        ja: "2020-03-26",
+      },
+      {
+        n: 21,
+        title: "Volume 21",
+        ja: "2021-01-26",
+      },
+      {
+        n: 22,
+        title: "Volume 22",
+        ja: "2021-09-25",
+      },
+      {
+        n: 23,
+        title: "Volume 23",
+        ja: "2022-03-26",
+      },
+      {
+        n: 24,
+        title: "Volume 24",
+        ja: "2022-09-26",
+      },
+      {
+        n: 25,
+        title: "Volume 25",
+        ja: "2023-03-25",
+      },
+      {
+        n: 26,
+        title: "Volume 26",
+        ja: "2023-09-26",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kadokawa Gundam Ace",
+        start: "2010-06",
+        end: "2023-09",
+        schedule: "serial",
+      },
+    ],
+  },
+  narrative_2018_novel: {
+    title: "Mobile Suit Gundam Narrative (novel)",
+    u: "uc",
+    type: "novel",
+    author: "Kurokawa Hiroyuki",
+    publisher: "Kadokawa",
+    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムNT",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2018-11-21",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kadokawa Sneaker Bunko",
+        start: "2018-11-21",
+        schedule: "serial",
+      },
+    ],
+  },
+  wing_blind_target_1998_manga: {
+    title: "Mobile Suit Gundam Wing: Blind Target",
+    u: "ac",
+    type: "manga",
+    author: "Akimiya Yumiko (art), Sumizawa Katsuyuki (story)",
+    publisher: "Kodansha",
+    source: "https://ja.wikipedia.org/wiki/新機動戦記ガンダムW_BLIND_TARGET",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "1999",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "1999",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kodansha",
+        start: "1998",
+        end: "1999",
+        schedule: "serial",
+      },
+    ],
+  },
+  wing_battlefield_pacifist_1998_manga: {
+    title: "Mobile Suit Gundam Wing: Battlefield of Pacifist",
+    u: "ac",
+    type: "manga",
+    author: "Ohtagaki Kou (art), Sumizawa Katsuyuki (story)",
+    publisher: "Kodansha",
+    source:
+      "https://ja.wikipedia.org/wiki/新機動戦記ガンダムW_BATTLEFIELD_OF_PACIFIST",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "1998",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kodansha Bom Bom Comics",
+        start: "1997",
+        end: "1998",
+        schedule: "serial",
+      },
+    ],
+  },
+  seed_destiny_edge_2005_manga: {
+    title: "Mobile Suit Gundam SEED Destiny: The Edge",
+    u: "ce",
+    type: "manga",
+    author: "Tateishi Gichi",
+    publisher: "Kadokawa",
+    magazine: "Gundam Ace",
+    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムSEEDシリーズ_(書籍)",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2005",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2006",
+      },
+      {
+        n: 3,
+        title: "Volume 3",
+        ja: "2007",
+      },
+      {
+        n: 4,
+        title: "Volume 4",
+        ja: "2007",
+      },
+      {
+        n: 5,
+        title: "Volume 5",
+        ja: "2008",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kadokawa Gundam Ace",
+        start: "2005",
+        end: "2008",
+        schedule: "serial",
+      },
+    ],
+  },
+  seed_destiny_edge_desire_2008_manga: {
+    title: "Mobile Suit Gundam SEED Destiny: The Edge Desire",
+    u: "ce",
+    type: "manga",
+    author: "Tateishi Gichi",
+    publisher: "Kadokawa",
+    magazine: "Gundam Ace",
+    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムSEEDシリーズ_(書籍)",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2009",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2010",
+      },
+      {
+        n: 3,
+        title: "Volume 3",
+        ja: "2011",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kadokawa Gundam Ace",
+        start: "2008",
+        end: "2011",
+        schedule: "serial",
+      },
+    ],
+  },
+  super_g_gundam_2010_manga: {
+    title: "Super! Kidou Butouden G Gundam",
+    u: "fc",
+    type: "manga",
+    author: "Shimamoto Kazuhiko",
+    publisher: "Kadokawa",
+    magazine: "Gundam Ace",
+    source: "https://ja.wikipedia.org/wiki/超級!機動武闘伝Gガンダム",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2010-12-25",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2011-02-26",
+      },
+      {
+        n: 3,
+        title: "Volume 3",
+        ja: "2011-04-26",
+      },
+      {
+        n: 4,
+        title: "Volume 4",
+        ja: "2011-07-26",
+      },
+      {
+        n: 5,
+        title: "Volume 5",
+        ja: "2011-09-26",
+      },
+      {
+        n: 6,
+        title: "Volume 6",
+        ja: "2011-12-26",
+      },
+      {
+        n: 7,
+        title: "Volume 7",
+        ja: "2012-04-26",
+      },
+      {
+        n: 8,
+        title: "Volume 8",
+        ja: "2012-06-23",
+      },
+      {
+        n: 9,
+        title: "Volume 9",
+        ja: "2012-09-24",
+      },
+      {
+        n: 10,
+        title: "Volume 10",
+        ja: "2013-01-26",
+      },
+      {
+        n: 11,
+        title: "Volume 11",
+        ja: "2013-04-26",
+      },
+      {
+        n: 12,
+        title: "Volume 12",
+        ja: "2013-07-25",
+      },
+      {
+        n: 13,
+        title: "Volume 13",
+        ja: "2013-10-24",
+      },
+      {
+        n: 14,
+        title: "Volume 14",
+        ja: "2014-01-24",
+      },
+      {
+        n: 15,
+        title: "Volume 15",
+        ja: "2014-06-23",
+      },
+      {
+        n: 16,
+        title: "Volume 16",
+        ja: "2015-01-22",
+      },
+      {
+        n: 17,
+        title: "Volume 17",
+        ja: "2015-08-26",
+      },
+      {
+        n: 18,
+        title: "Volume 18",
+        ja: "2016-07-26",
+      },
+      {
+        n: 19,
+        title: "Volume 19",
+        ja: "2016-09-26",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kadokawa Gundam Ace",
+        start: "2010-09",
+        end: "2016-10",
+        schedule: "serial",
+      },
+    ],
+  },
+  gundam_exa_2011_manga: {
+    title: "Gundam EXA",
+    u: "build",
+    type: "manga",
+    author:
+      "Tokita Koichi (art), Tomino Yoshiyuki / Yatate Hajime (original concept)",
+    publisher: "Kadokawa",
+    magazine: "Gundam Ace",
+    source: "https://ja.wikipedia.org/wiki/ガンダムEXA",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2011-11-26",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2012-03-26",
+      },
+      {
+        n: 3,
+        title: "Volume 3",
+        ja: "2012-08-23",
+      },
+      {
+        n: 4,
+        title: "Volume 4",
+        ja: "2013-01-24",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kadokawa Gundam Ace",
+        start: "2011",
+        end: "2013",
+        schedule: "serial",
+      },
+    ],
+  },
+  gundam_exa_vs_2014_manga: {
+    title: "Gundam EXA VS",
+    u: "build",
+    type: "manga",
+    author:
+      "Tokita Koichi (art), Tomino Yoshiyuki / Yatate Hajime (original concept)",
+    publisher: "Kadokawa",
+    magazine: "Gundam Ace",
+    source: "https://ja.wikipedia.org/wiki/ガンダムEXA",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2014-06",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2014-11",
+      },
+      {
+        n: 3,
+        title: "Volume 3",
+        ja: "2015-06",
+      },
+      {
+        n: 4,
+        title: "Volume 4",
+        ja: "2016-01",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kadokawa Gundam Ace",
+        start: "2014",
+        end: "2016",
+        schedule: "serial",
+      },
+    ],
+  },
+  crossbone_zeroiber_2024_manga: {
+    title: "Crossbone Gundam: Zeroiber",
+    u: "uc",
+    type: "manga",
+    author: "Hasegawa Yuichi",
+    publisher: "Kadokawa",
+    magazine: "Gundam Ace",
+    source: "https://ja.wikipedia.org/wiki/機動戦士クロスボーン・ガンダム",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2025-06-26",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2025-12-26",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kadokawa Gundam Ace",
+        start: "2024",
+        end: "",
+        schedule: "serial",
+      },
+    ],
+  },
+  gaia_gear_1992_radio: {
+    title: "Gaia Gear (radio drama)",
+    u: "uc",
+    type: "ona",
+    source: "https://ja.wikipedia.org/wiki/ガイア・ギア",
+    note: "26-episode radio drama adaptation broadcast on Bunka Housou",
+    episodes: [
+      {
+        n: 1,
+        title: "Episode 1",
+        ja: "1992-04-12",
+      },
+      {
+        n: 26,
+        title: "Episode 26",
+        ja: "1992-10-04",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "broadcast",
+        label: "Bunka Housou (radio)",
+        start: "1992-04-12",
+        end: "1992-10-04",
+        schedule: "weekly",
+      },
+      {
+        region: "ja",
+        channel: "home_video",
+        label: "Bandai Music Entertainment CD (5 volumes)",
+        start: "1992-11-21",
+        end: "1993-07-21",
+        schedule: "box-set",
+      },
+    ],
+  },
+  mayfly_2001_manga: {
+    title: "Mobile Suit Gundam 0083: Mayfly of Space",
+    u: "uc",
+    type: "manga",
+    author: "Hiroshi Nakanishi",
+    publisher: "Media Works",
+    magazine: "Dengeki Daioh",
+    source:
+      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_0083:_Mayfly_of_Space",
+    note: "Cima Garahau side story set during 0083",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2001",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2002",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Media Works Dengeki Comics",
+        start: "2001",
+        end: "2002",
+        schedule: "serial",
+      },
+    ],
+  },
+  re010_2022_manga: {
+    title: "Mobile Suit Gundam 0083: Re:010",
+    u: "uc",
+    type: "manga",
+    author: "Tsukasa Kotobuki",
+    publisher: "Kadokawa",
+    magazine: "Gundam Ace",
+    source:
+      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_0083:_Stardust_Memory_(Manga)",
+    note: "2022 manga retelling of 0083 Stardust Memory",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2023",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2024",
+      },
+      {
+        n: 3,
+        title: "Volume 3",
+        ja: "2024",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kadokawa Gundam Ace",
+        start: "2022",
+        end: "",
+        schedule: "serial",
+      },
+    ],
+  },
+  gundam_san_manga: {
+    title: "Mobile Suit Gundam-san (manga)",
+    u: "uc",
+    type: "manga",
+    author: "Hideki Ohwada",
+    publisher: "Kadokawa",
+    magazine: "Gundam Ace",
+    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムさん",
+    note: "4koma parody manga with sub-stories (队长のザクさん, 宇宙岛のガルマくん, ガンダム创世 etc.)",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2007-10",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2009",
+      },
+      {
+        n: 3,
+        title: "Volume 3",
+        ja: "2011",
+      },
+      {
+        n: 4,
+        title: "Volume 4",
+        ja: "2013",
+      },
+      {
+        n: 5,
+        title: "Volume 5",
+        ja: "2014",
+      },
+      {
+        n: 6,
+        title: "Volume 6",
+        ja: "2016",
+      },
+      {
+        n: 7,
+        title: "Volume 7",
+        ja: "2019",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kadokawa Gundam Ace",
+        start: "2007-10",
+        end: "2019-05",
+        schedule: "serial",
+      },
+    ],
+  },
+  seed_magazine_z_manga: {
+    title: "Mobile Suit Gundam SEED (Magazine Z manga)",
+    u: "ce",
+    type: "manga",
+    author: "Iwase Masashi",
+    publisher: "Kodansha",
+    magazine: "Monthly Magazine Z",
+    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムSEEDシリーズ_(書籍)",
+    note: "Separate from the Comic BonBon adaptation; faithful anime retelling with original touches",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2003",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2003",
+      },
+      {
+        n: 3,
+        title: "Volume 3",
+        ja: "2004",
+      },
+      {
+        n: 4,
+        title: "Volume 4",
+        ja: "2004",
+      },
+      {
+        n: 5,
+        title: "Volume 5",
+        ja: "2004",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kodansha Magazine Z KC",
+        start: "2002-12",
+        end: "2004-12",
+        schedule: "serial",
+      },
+    ],
+  },
+  seed_destiny_magazine_z_manga: {
+    title: "Mobile Suit Gundam SEED Destiny (Magazine Z manga)",
+    u: "ce",
+    type: "manga",
+    author: "Iwase Masashi",
+    publisher: "Kodansha",
+    magazine: "Monthly Magazine Z",
+    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムSEEDシリーズ_(書籍)",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2005",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2005",
+      },
+      {
+        n: 3,
+        title: "Volume 3",
+        ja: "2006",
+      },
+      {
+        n: 4,
+        title: "Volume 4",
+        ja: "2006",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kodansha Magazine Z KC",
+        start: "2005-01",
+        end: "2006-06",
+        schedule: "serial",
+      },
+    ],
+  },
+  reseed_2024_manga: {
+    title: "Mobile Suit Gundam SEED Re:",
+    u: "ce",
+    type: "manga",
+    author: "Ju Ishiguchi",
+    publisher: "Kadokawa",
+    magazine: "Gundam Ace",
+    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Re:",
+    note: "2024 manga retelling of the original SEED",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2025",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kadokawa Gundam Ace",
+        start: "2024",
+        end: "",
+        schedule: "serial",
+      },
+    ],
+  },
+  seed_freedom_2024_manga: {
+    title: "Mobile Suit Gundam SEED Freedom (manga)",
+    u: "ce",
+    type: "manga",
+    author: "Iwase Masashi",
+    publisher: "Kadokawa",
+    magazine: "Gundam Ace",
+    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Freedom",
+    note: "Manga adaptation of the SEED Freedom film",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2025",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kadokawa Gundam Ace",
+        start: "2024",
+        end: "",
+        schedule: "serial",
+      },
+    ],
+  },
+  ibo_steel_moon_2016_manga: {
+    title: "Mobile Suit Gundam: Iron-Blooded Orphans — Steel Moon (Getsuei)",
+    u: "pd",
+    type: "manga",
+    author: "Hajime Kamoshida (story), Kenji Tachibana (art)",
+    publisher: "Kadokawa",
+    magazine: "Monthly Shounen Sirius",
+    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダム_鉄血のオルフェンズ",
+    note: "Side story manga set on Mars alongside the main TV series. 4 volumes (全4巻)",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2016-10-26",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2017-03-25",
+      },
+      {
+        n: 3,
+        title: "Volume 3",
+        ja: "2017-10-26",
+      },
+      {
+        n: 4,
+        title: "Volume 4",
+        ja: "2018-05-25",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kadokawa Sirius KC",
+        start: "2016-06",
+        end: "2018-04",
+        schedule: "serial",
+      },
+    ],
+  },
+  turn_a_manga: {
+    title: "∀ Gundam (manga)",
+    u: "cc",
+    type: "manga",
+    author: "Atsushi Soga",
+    publisher: "Kodansha",
+    magazine: "Comic BomBom",
+    source: "https://gundam.fandom.com/wiki/∀_Gundam_(Manga)",
+    note: "5-volume manga adaptation of the Turn A TV series",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "1999",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2000",
+      },
+      {
+        n: 3,
+        title: "Volume 3",
+        ja: "2000",
+      },
+      {
+        n: 4,
+        title: "Volume 4",
+        ja: "2000",
+      },
+      {
+        n: 5,
+        title: "Volume 5",
+        ja: "2000",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kodansha KC BomBom",
+        start: "1999",
+        end: "2000",
+        schedule: "serial",
+      },
+    ],
+  },
+  gundam00_manga: {
+    title: "Mobile Suit Gundam 00 (manga)",
+    u: "ad",
+    type: "manga",
+    author: "Kouzu Tarou",
+    publisher: "Kadokawa",
+    magazine: "Gundam Ace / Kerokero Ace",
+    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_00_(Manga)",
+    note: "6-volume manga adaptation of the TV series",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2008",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2008",
+      },
+      {
+        n: 3,
+        title: "Volume 3",
+        ja: "2009",
+      },
+      {
+        n: 4,
+        title: "Volume 4",
+        ja: "2009",
+      },
+      {
+        n: 5,
+        title: "Volume 5",
+        ja: "2010",
+      },
+      {
+        n: 6,
+        title: "Volume 6",
+        ja: "2010",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kadokawa Kerokero Ace / Gundam Ace",
+        start: "2007",
+        end: "2010",
+        schedule: "serial",
+      },
+    ],
+  },
+  gundam00i_2314_2010_manga: {
+    title: "Mobile Suit Gundam 00I 2314",
+    u: "ad",
+    type: "manga",
+    author: "Tomofumi Ogasawara",
+    publisher: "Kadokawa",
+    magazine: "Gundam Ace",
+    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_00I_2314",
+    note: "Sequel to 00I, set in AD 2314 before the movie",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2012",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2013",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kadokawa Gundam Ace",
+        start: "2011",
+        end: "2013",
+        schedule: "serial",
+      },
+    ],
+  },
+  wing_frozen_teardrop_manga: {
+    title: "New Mobile Report Gundam Wing: Frozen Teardrop — Hanamoyu",
+    u: "ac",
+    type: "manga",
+    author: "Kurosaki Kabuto (art), Sumizawa Katsuyuki (story)",
+    publisher: "Kadokawa",
+    magazine: "Gundam Ace",
+    source:
+      "https://gundam.fandom.com/wiki/New_Victory_Report_Gundam_W:_Frozen_Teardrop",
+    note: "Manga adaptation of the Frozen Teardrop novel",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2017",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2018",
+      },
+      {
+        n: 3,
+        title: "Volume 3",
+        ja: "2019",
+      },
+      {
+        n: 4,
+        title: "Volume 4",
+        ja: "2020",
+      },
+      {
+        n: 5,
+        title: "Volume 5",
+        ja: "2021",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kadokawa Gundam Ace",
+        start: "2016",
+        end: "2021",
+        schedule: "serial",
+      },
+    ],
+  },
+  build_divers_manga: {
+    title: "Gundam Build Divers (manga)",
+    u: "build",
+    type: "manga",
+    author: "Masaru Ikko",
+    publisher: "Hobby Japan",
+    source: "https://gundam.fandom.com/wiki/Gundam_Build_Divers_(Manga)",
+    note: "Manga adaptation with different story elements from the anime",
+    episodes: [],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Hobby Japan Comics",
+        start: "2018",
+        end: "2019",
+        schedule: "serial",
+      },
+    ],
+  },
+  build_divers_rerise_manga: {
+    title: "Gundam Build Divers Re:RISE (manga)",
+    u: "build",
+    type: "manga",
+    author: "Masaru Ikko",
+    publisher: "Hobby Japan",
+    source:
+      "https://gundam.fandom.com/wiki/Gundam_Build_Divers_Re:RISE_(Manga)",
+    episodes: [],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Hobby Japan Comics",
+        start: "2019",
+        end: "2021",
+        schedule: "serial",
+      },
+    ],
+  },
+  breaker_battlogue_manga: {
+    title: "Gundam Breaker: Battlogue (manga)",
+    u: "build",
+    type: "manga",
+    author: "Various",
+    publisher: "Kadokawa",
+    source: "https://gundam.fandom.com/wiki/Gundam_Breaker_Battlogue",
+    note: "Manga adaptation tied to Gundam Breaker Battlogue ONA",
+    episodes: [],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kadokawa",
+        start: "2021",
+        end: "2022",
+        schedule: "serial",
+      },
+    ],
+  },
+  for_the_barrel_2000_novel: {
+    title: "FOR THE BARREL",
+    u: "uc-alt",
+    type: "novel",
+    author: "Gichi Otsuka",
+    publisher: "Kadokawa",
+    magazine: "NewType",
+    source: "https://gundam.fandom.com/wiki/For_the_Barrel",
+    note: "Abstract reimagining of the original Gundam in alternate UC; serialized Aug 2000 – Jun 2002",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2000",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2001",
+      },
+      {
+        n: 3,
+        title: "Volume 3",
+        ja: "2002",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kadokawa NewType serialization",
+        start: "2000-08",
+        end: "2002-06",
+        schedule: "serial",
+      },
+    ],
+  },
+  age_novel_2012: {
+    title: "Mobile Suit Gundam AGE (novel)",
+    u: "ag",
+    type: "novel",
+    author: "Akihiro Yamada",
+    publisher: "Shueisha",
+    magazine: "Super Dash Bunko",
+    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_AGE",
+    note: "Novelization of the AGE TV series",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2012",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2012",
+      },
+      {
+        n: 3,
+        title: "Volume 3",
+        ja: "2012",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Shueisha Super Dash Bunko",
+        start: "2012",
+        end: "2012",
+        schedule: "serial",
+      },
+    ],
+  },
+  ibo_gekkou_2016_manga: {
+    title: "Mobile Suit Gundam: Iron-Blooded Orphans — Gekkou",
+    u: "pd",
+    type: "manga",
+    author: "Kazuhiro Ochi",
+    publisher: "Kadokawa",
+    magazine: "Gundam Ace",
+    source:
+      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Iron-Blooded_Orphans",
+    note: "IBO manga adaptation by Kazuhiro Ochi, 2 volumes",
+    episodes: [
+      {
+        n: 1,
+        title: "Volume 1",
+        ja: "2016",
+      },
+      {
+        n: 2,
+        title: "Volume 2",
+        ja: "2017",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "print",
+        label: "Kadokawa Gundam Ace",
+        start: "2016",
+        end: "2017",
+        schedule: "serial",
+      },
+    ],
+  },
+  sd_gundam_world_sangoku_special_2020_ova: {
+    title: "SD Gundam World Sangoku Soketsuden: Brave Battle Warriors",
+    u: "sd",
+    type: "ova",
+    source: "https://gundam.fandom.com/wiki/SD_Gundam_World_Sangoku_Soketsuden",
+    note: "Special OVA episodes of Sangoku Soketsuden",
+    episodes: [
+      {
+        n: 1,
+        title: "Brave Battle Warriors Special",
+        ja: "2020",
+      },
+    ],
+    releases: [
+      {
+        region: "ja",
+        channel: "streaming",
+        label: "YouTube Gundam Channel",
+        start: "2020",
+        schedule: "simulcast",
       },
     ],
   },
