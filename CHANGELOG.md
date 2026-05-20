@@ -1,3 +1,9 @@
+## [1.12.0](https://github.com/Mearman/gundam/compare/v1.11.0...v1.12.0) (2026-05-20)
+
+### Features
+
+* show entry relations in tooltip ([6fd813d](https://github.com/Mearman/gundam/commit/6fd813d099fbca07b5afd5b91fde1a25d405e261))
+
 ## [1.11.0](https://github.com/Mearman/gundam/compare/v1.10.1...v1.11.0) (2026-05-20)
 
 ### Features
