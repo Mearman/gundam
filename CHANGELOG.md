@@ -1,3 +1,11 @@
+## [1.1.0](https://github.com/Mearman/gundam/compare/v1.0.0...v1.1.0) (2026-05-20)
+
+### Features
+
+* add axis mode toggle to filter bar ([9c01ff8](https://github.com/Mearman/gundam/commit/9c01ff8b0261c5769ffdc09aae3cfec918c8d545))
+* add story and both rendering modes with relationship overlay ([eaf8036](https://github.com/Mearman/gundam/commit/eaf8036664293707b2912f7909aef641fa22c497))
+* add story timeline data layer with in-universe date parsing ([cf82325](https://github.com/Mearman/gundam/commit/cf8232507435e65d7886e804738b895391b9a553))
+
 ## 1.0.0 (2026-05-19)
 
 ### Features
