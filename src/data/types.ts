@@ -61,3 +61,54 @@ export interface Filters {
   density: Density;
   axis: AxisMode;
 }
+
+export type DetailMediaType =
+  | "film"
+  | "live-action"
+  | "manga"
+  | "novel"
+  | "ona"
+  | "ova"
+  | "tv";
+
+export type ReleaseSchedule =
+  | "box-set"
+  | "serial"
+  | "simulcast"
+  | "theatrical"
+  | "weekly";
+
+export interface DetailEpisode {
+  n?: number | string;
+  title?: { ja: string | null; en: string | null };
+  ja: string;
+  en?: string | null;
+  note?: string;
+  season?: number;
+  cours?: number;
+  u?: string | string[];
+}
+
+export interface DetailRelease {
+  region: string;
+  channel: string;
+  label: string;
+  start: string;
+  end?: string;
+  schedule: ReleaseSchedule;
+  note?: string;
+  u?: string | string[];
+}
+
+export interface EntryDetail {
+  title: { ja: string; en: string };
+  u: string | string[];
+  type: DetailMediaType;
+  source: string;
+  author?: string;
+  publisher?: string;
+  magazine?: string;
+  note?: string;
+  episodes: DetailEpisode[];
+  releases: DetailRelease[];
+}
