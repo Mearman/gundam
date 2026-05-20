@@ -1,5 +1,5 @@
 import type { Entry, EntryDetail } from "../types";
-import { entry, ep, rel } from "../types";
+import { entry, det, ep, rel } from "../types";
 
 // Build series
 
@@ -197,11 +197,11 @@ export const buildEntries: Entry[] = [
 ];
 
 export const buildDetails: Record<string, EntryDetail | undefined> = {
-  build_fighters_2013_tv: {
-    title: { ja: "ガンダムビルドファイターズ", en: "Gundam Build Fighters" },
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Gundam_Build_Fighters_episodes",
-    episodes: [
+  build_fighters_2013_tv: det(
+    "ガンダムビルドファイターズ",
+    "Gundam Build Fighters",
+    "https://en.wikipedia.org/wiki/List_of_Gundam_Build_Fighters_episodes",
+    [
       ep(1, "セイとレイジ", "Sei and Reiji", "2013-10-07"),
       ep(2, "紅の彗星", "The Crimson Comet", "2013-10-14"),
       ep(3, "フルパッケージ", "Full Package", "2013-10-21"),
@@ -233,20 +233,17 @@ export const buildDetails: Record<string, EntryDetail | undefined> = {
       ep(24, "ダークマター", "Dark Matter", "2014-03-24"),
       ep(25, "約束", "Promise", "2014-03-31"),
     ],
-    releases: [
+    [
       rel("ja", "broadcast", "TV Tokyo", "2013-10-07", "weekly", "2014-03-31"),
       rel("en", "streaming", "Gundam.info YouTube", "2014", "simulcast"),
       rel("en", "home_video", "Right Stuf / Sunrise", "2017", "box-set"),
     ],
-  },
-  build_fighters_try_2014_tv: {
-    title: {
-      ja: "ガンダムビルドファイターズトライ",
-      en: "Gundam Build Fighters Try",
-    },
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Gundam_Build_Fighters_Try_episodes",
-    episodes: [
+  ),
+  build_fighters_try_2014_tv: det(
+    "ガンダムビルドファイターズトライ",
+    "Gundam Build Fighters Try",
+    "https://en.wikipedia.org/wiki/List_of_Gundam_Build_Fighters_Try_episodes",
+    [
       ep(1, "風を呼ぶ少年", "The Boy Who Calls the Wind", "2014-10-08"),
       ep(
         2,
@@ -294,20 +291,17 @@ export const buildDetails: Record<string, EntryDetail | undefined> = {
         "2016-08-21",
       ),
     ],
-    releases: [
+    [
       rel("ja", "broadcast", "TV Tokyo", "2014-10-08", "weekly", "2015-04-01"),
       rel("en", "streaming", "Gundam.info YouTube", "2015", "simulcast"),
       rel("en", "home_video", "Right Stuf / Sunrise", "2018", "box-set"),
     ],
-  },
-  build_fighters_battlogue_2017_ona: {
-    title: {
-      ja: "ガンダムビルドファイターズ バトローグ",
-      en: "Gundam Build Fighters: Battlogue",
-    },
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Gundam_Build_Fighters_Try_episodes",
-    episodes: [
+  ),
+  build_fighters_battlogue_2017_ona: det(
+    "ガンダムビルドファイターズ バトローグ",
+    "Gundam Build Fighters: Battlogue",
+    "https://en.wikipedia.org/wiki/List_of_Gundam_Build_Fighters_Try_episodes",
+    [
       ep(1, "AI Battlogue", "AI Battlogue", "2017-08-04"),
       ep(
         2,
@@ -324,7 +318,7 @@ export const buildDetails: Record<string, EntryDetail | undefined> = {
       ep(4, "Our War", "Our War", "2017-11-03"),
       ep(5, "Gunpla is the Greatest!", "Gunpla is the Greatest!", "2017-12-08"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "streaming",
@@ -335,12 +329,12 @@ export const buildDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "streaming", "Gundam.info YouTube", "2017", "simulcast"),
     ],
-  },
-  build_divers_2018_tv: {
-    title: { ja: "ガンダムビルドダイバーズ", en: "Gundam Build Divers" },
-    source: "https://en.wikipedia.org/wiki/Gundam_Build_Divers",
-    note: "Aired weekly Tuesday on TV Tokyo. Prologue special released Feb 2 2018.",
-    episodes: [
+  ),
+  build_divers_2018_tv: det(
+    "ガンダムビルドダイバーズ",
+    "Gundam Build Divers",
+    "https://en.wikipedia.org/wiki/Gundam_Build_Divers",
+    [
       ep(0, "プロローグ", "Gundam Build Divers: Prologue", "2018-02-02"),
       ep(1, "Welcome to GBN", "Welcome to GBN", "2018-04-03"),
       ep(2, "百鬼オーガ", "Chaotic Ogre", "2018-04-10"),
@@ -368,20 +362,20 @@ export const buildDetails: Record<string, EntryDetail | undefined> = {
       ep(24, "決戦", "Decisive Battle", "2018-09-11"),
       ep(25, "新しい世界", "A New World", "2018-09-18"),
     ],
-    releases: [
+    [
       rel("ja", "broadcast", "TV Tokyo", "2018-04-03", "weekly", "2018-09-18"),
       rel("en", "streaming", "Gundam.info YouTube", "2018", "simulcast"),
       rel("en", "home_video", "Right Stuf / Sunrise", "2020", "box-set"),
     ],
-  },
-  build_divers_rerise_2019_ona: {
-    title: {
-      ja: "ガンダムビルドダイバーズRe:RISE",
-      en: "Gundam Build Divers Re:RISE",
+    {
+      note: "Aired weekly Tuesday on TV Tokyo. Prologue special released Feb 2 2018.",
     },
-    source: "https://en.wikipedia.org/wiki/Gundam_Build_Divers_Re:Rise",
-    note: "Streamed on Gundam Channel YouTube. Cours 1: Oct-Dec 2019; Cours 2: Apr-Sep 2020 (delayed by COVID).",
-    episodes: [
+  ),
+  build_divers_rerise_2019_ona: det(
+    "ガンダムビルドダイバーズRe:RISE",
+    "Gundam Build Divers Re:RISE",
+    "https://en.wikipedia.org/wiki/Gundam_Build_Divers_Re:Rise",
+    [
       ep(1, "彷徨のコアガンダム", "Wandering Core Gundam", "2019-10-10", {
         cours: 1,
       }),
@@ -435,7 +429,7 @@ export const buildDetails: Record<string, EntryDetail | undefined> = {
       }),
       ep(26, "Re:RISE", "Re:Rise", "2020-07-02", { cours: 2 }),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "streaming",
@@ -446,40 +440,42 @@ export const buildDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "streaming", "Gundam.info YouTube", "2019", "simulcast"),
     ],
-  },
-  build_divers_battlogue_2020_ona: {
-    title: {
-      ja: "ガンダムビルドダイバーズ バトローグ",
-      en: "Gundam Build Divers: Battlogue",
+    {
+      note: "Streamed on Gundam Channel YouTube. Cours 1: Oct-Dec 2019; Cours 2: Apr-Sep 2020 (delayed by COVID).",
     },
-    source: "https://en.wikipedia.org/wiki/Gundam_Build_Divers_Re:Rise",
-    episodes: [
-      ep(1, "ガンダムビルドダイバーズ バトローグ", "Battlogue", "2020-11-13"),
-    ],
-    releases: [
+  ),
+  build_divers_battlogue_2020_ona: det(
+    "ガンダムビルドダイバーズ バトローグ",
+    "Gundam Build Divers: Battlogue",
+    "https://en.wikipedia.org/wiki/Gundam_Build_Divers_Re:Rise",
+    [ep(1, "ガンダムビルドダイバーズ バトローグ", "Battlogue", "2020-11-13")],
+    [
       rel("ja", "streaming", "YouTube", "2020-08-13", "simulcast"),
       rel("en", "streaming", "Gundam.info YouTube", "2020", "simulcast"),
     ],
-  },
-  build_metaverse_2023_ona: {
-    title: { ja: "ガンダムビルドメタバース", en: "Gundam Build Metaverse" },
-    source: "https://en.wikipedia.org/wiki/Gundam_Build_Metaverse",
-    note: "3-episode 10th anniversary mini-series streamed on Gundam Channel YouTube",
-    episodes: [
+  ),
+  build_metaverse_2023_ona: det(
+    "ガンダムビルドメタバース",
+    "Gundam Build Metaverse",
+    "https://en.wikipedia.org/wiki/Gundam_Build_Metaverse",
+    [
       ep(1, "DIVE", "Dive", "2023-10-06"),
       ep(2, "RERISE", "Re:Rise", "2023-10-20"),
       ep(3, "TRY&FIGHT", "TRY&FIGHT", "2023-10-20"),
     ],
-    releases: [
+    [
       rel("ja", "streaming", "YouTube", "2023-10-20", "simulcast"),
       rel("en", "streaming", "Gundam.info YouTube", "2023-10-20", "simulcast"),
     ],
-  },
-  build_real_2021_live: {
-    title: { ja: "ガンダムビルドリアル", en: "Gundam Build Real" },
-    source: "https://en.wikipedia.org/wiki/Gundam_Build_Real",
-    note: "Live-action web drama featuring real Gunpla, 6 episodes",
-    episodes: [
+    {
+      note: "3-episode 10th anniversary mini-series streamed on Gundam Channel YouTube",
+    },
+  ),
+  build_real_2021_live: det(
+    "ガンダムビルドリアル",
+    "Gundam Build Real",
+    "https://en.wikipedia.org/wiki/Gundam_Build_Real",
+    [
       ep(1, "再会", "Reunion", "2021-03-29", { en: "2021-08-26" }),
       ep(2, "宝の持ち腐れ", "Wasted Treasure", "2021-04-26"),
       ep(3, "チームに空いた穴", "The Hole in the Team", "2021-05-31"),
@@ -492,7 +488,7 @@ export const buildDetails: Record<string, EntryDetail | undefined> = {
       ),
       ep(6, "ガンプラは自由だ", "Gunpla is Freedom", "2021-07-19"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "streaming",
@@ -511,32 +507,28 @@ export const buildDetails: Record<string, EntryDetail | undefined> = {
         "2021-12-01",
       ),
     ],
-  },
-  breaker_battlogue_2021_ona: {
-    title: {
-      ja: "ガンダムブレイカーバトローグ",
-      en: "Gundam Breaker Battlogue",
-    },
-    source:
-      "https://en.wikipedia.org/wiki/Gundam_Breaker#Gundam_Breaker_Battlogue",
-    note: "3-episode ONA tying into the Gundam Breaker mobile game",
-    episodes: [
+    { note: "Live-action web drama featuring real Gunpla, 6 episodes" },
+  ),
+  breaker_battlogue_2021_ona: det(
+    "ガンダムブレイカーバトローグ",
+    "Gundam Breaker Battlogue",
+    "https://en.wikipedia.org/wiki/Gundam_Breaker#Gundam_Breaker_Battlogue",
+    [
       ep(1, "Breaker Battlogue 1", "Breaker Battlogue 1", "2021-10-19"),
       ep(2, "Breaker Battlogue 2", "Breaker Battlogue 2", "2021-11-16"),
       ep(3, "Breaker Battlogue 3", "Breaker Battlogue 3", "2021-12-14"),
     ],
-    releases: [
+    [
       rel("ja", "streaming", "YouTube", "2021-10-15", "simulcast"),
       rel("en", "streaming", "Gundam.info YouTube", "2021", "simulcast"),
     ],
-  },
-  build_fighters_gm_counterattack_2017_ona: {
-    title: {
-      ja: "ガンダムビルドファイターズ GMの逆襲",
-      en: "Gundam Build Fighters: GM's Counterattack",
-    },
-    source: "https://en.wikipedia.org/wiki/Gundam_Build_Fighters",
-    episodes: [
+    { note: "3-episode ONA tying into the Gundam Breaker mobile game" },
+  ),
+  build_fighters_gm_counterattack_2017_ona: det(
+    "ガンダムビルドファイターズ GMの逆襲",
+    "Gundam Build Fighters: GM's Counterattack",
+    "https://en.wikipedia.org/wiki/Gundam_Build_Fighters",
+    [
       ep(
         1,
         "ガンダムビルドファイターズ GMの逆襲",
@@ -544,19 +536,16 @@ export const buildDetails: Record<string, EntryDetail | undefined> = {
         "2017-08-25",
       ),
     ],
-    releases: [
+    [
       rel("ja", "streaming", "Gundam.info YouTube", "2017-08-25", "simulcast"),
       rel("en", "streaming", "Gundam.info YouTube", "2017-08-25", "simulcast"),
     ],
-  },
-  gunpla_builders_beginning_g_2010_ova: {
-    title: {
-      ja: "模型戦士ガンプラビルダーズ ビギニングG",
-      en: "Model Suit Gunpla Builders Beginning G",
-    },
-    source:
-      "https://gundam.fandom.com/wiki/Model_Suit_Gunpla_Builders_Beginning_G",
-    episodes: [
+  ),
+  gunpla_builders_beginning_g_2010_ova: det(
+    "模型戦士ガンプラビルダーズ ビギニングG",
+    "Model Suit Gunpla Builders Beginning G",
+    "https://gundam.fandom.com/wiki/Model_Suit_Gunpla_Builders_Beginning_G",
+    [
       ep(
         1,
         "パーツA 「ビギニングガンダム」",
@@ -571,18 +560,16 @@ export const buildDetails: Record<string, EntryDetail | undefined> = {
       ),
       ep(3, "パーツC 「ビギニング30」", "Parts C: Beginning 30", "2010-12-19"),
     ],
-    releases: [
+    [
       rel("ja", "home_video", "OVA (bundled with MG kit)", "2010", "box-set"),
       rel("en", "streaming", "Gundam.info YouTube", "2014", "simulcast"),
     ],
-  },
-  build_fighters_try_island_wars_2016_ova: {
-    title: {
-      ja: "ガンダムビルドファイターズトライ アイランド・ウォーズ",
-      en: "Gundam Build Fighters Try: Island Wars",
-    },
-    source: "https://en.wikipedia.org/wiki/Gundam_Build_Fighters_Try",
-    episodes: [
+  ),
+  build_fighters_try_island_wars_2016_ova: det(
+    "ガンダムビルドファイターズトライ アイランド・ウォーズ",
+    "Gundam Build Fighters Try: Island Wars",
+    "https://en.wikipedia.org/wiki/Gundam_Build_Fighters_Try",
+    [
       ep(
         1,
         "ガンダムビルドファイターズトライ アイランド・ウォーズ",
@@ -590,78 +577,76 @@ export const buildDetails: Record<string, EntryDetail | undefined> = {
         "2016-08-21",
       ),
     ],
-    releases: [
+    [
       rel("ja", "streaming", "Gundam.info YouTube", "2016-08-21", "simulcast"),
       rel("en", "streaming", "Gundam.info YouTube", "2016", "simulcast"),
     ],
-  },
-  gundam_exa_2011_manga: {
-    title: { ja: "ガンダムEXA", en: "Gundam EXA" },
-    source: "https://ja.wikipedia.org/wiki/ガンダムEXA",
-    author:
-      "Tokita Koichi (art), Tomino Yoshiyuki / Yatate Hajime (original concept)",
-    publisher: "Kadokawa",
-    magazine: "Gundam Ace",
-    episodes: [
+  ),
+  gundam_exa_2011_manga: det(
+    "ガンダムEXA",
+    "Gundam EXA",
+    "https://ja.wikipedia.org/wiki/ガンダムEXA",
+    [
       ep(1, "Volume 1", "Volume 1", "2011-11-26"),
       ep(2, "Volume 2", "Volume 2", "2012-03-26"),
       ep(3, "Volume 3", "Volume 3", "2012-08-23"),
       ep(4, "Volume 4", "Volume 4", "2013-01-24"),
     ],
-    releases: [
-      rel("ja", "print", "Kadokawa Gundam Ace", "2011", "serial", "2013"),
-    ],
-  },
-  gundam_exa_vs_2014_manga: {
-    title: { ja: "ガンダムEXA VS", en: "Gundam EXA VS" },
-    source: "https://ja.wikipedia.org/wiki/ガンダムEXA",
-    author:
-      "Tokita Koichi (art), Tomino Yoshiyuki / Yatate Hajime (original concept)",
-    publisher: "Kadokawa",
-    magazine: "Gundam Ace",
-    episodes: [
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2011", "serial", "2013")],
+    {
+      author:
+        "Tokita Koichi (art), Tomino Yoshiyuki / Yatate Hajime (original concept)",
+      publisher: "Kadokawa",
+      magazine: "Gundam Ace",
+    },
+  ),
+  gundam_exa_vs_2014_manga: det(
+    "ガンダムEXA VS",
+    "Gundam EXA VS",
+    "https://ja.wikipedia.org/wiki/ガンダムEXA",
+    [
       ep(1, "Volume 1", "Volume 1", "2014-06"),
       ep(2, "Volume 2", "Volume 2", "2014-11"),
       ep(3, "Volume 3", "Volume 3", "2015-06"),
       ep(4, "Volume 4", "Volume 4", "2016-01"),
     ],
-    releases: [
-      rel("ja", "print", "Kadokawa Gundam Ace", "2014", "serial", "2016"),
-    ],
-  },
-  build_divers_manga: {
-    title: {
-      ja: "ガンダムビルドダイバーズ BREAK",
-      en: "Gundam Build Divers BREAK",
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2014", "serial", "2016")],
+    {
+      author:
+        "Tokita Koichi (art), Tomino Yoshiyuki / Yatate Hajime (original concept)",
+      publisher: "Kadokawa",
+      magazine: "Gundam Ace",
     },
-    source: "https://ja.wikipedia.org/wiki/ガンダムビルドダイバーズ",
-    author: "Shiitake Gensui (art), Kansai Ryouji (scenario)",
-    publisher: "Kadokawa",
-    magazine: "Gundam Ace",
-    episodes: [
+  ),
+  build_divers_manga: det(
+    "ガンダムビルドダイバーズ BREAK",
+    "Gundam Build Divers BREAK",
+    "https://ja.wikipedia.org/wiki/ガンダムビルドダイバーズ",
+    [
       ep(1, "Volume 1", "Volume 1", "2018-12-26"),
       ep(2, "Volume 2", "Volume 2", "2019-09-26"),
     ],
-    releases: [
-      rel("ja", "print", "Kadokawa Gundam Ace", "2018", "serial", "2019"),
-    ],
-  },
-  build_divers_rerise_manga: {
-    title: {
-      ja: "ガンダムビルドダイバーズ Re:RISE",
-      en: "Gundam Build Diver RISE",
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2018", "serial", "2019")],
+    {
+      author: "Shiitake Gensui (art), Kansai Ryouji (scenario)",
+      publisher: "Kadokawa",
+      magazine: "Gundam Ace",
     },
-    source: "https://ja.wikipedia.org/wiki/ガンダムビルドダイバーズRe:RISE",
-    author: "Shiitake Gensui (art), Kansai Ryouji (scenario)",
-    publisher: "Kadokawa",
-    magazine: "Gundam Ace",
-    episodes: [
+  ),
+  build_divers_rerise_manga: det(
+    "ガンダムビルドダイバーズ Re:RISE",
+    "Gundam Build Diver RISE",
+    "https://ja.wikipedia.org/wiki/ガンダムビルドダイバーズRe:RISE",
+    [
       ep(1, "Volume 1", "Volume 1", "2020-03-26"),
       ep(2, "Volume 2", "Volume 2", "2020-08-26"),
       ep(3, "Volume 3", "Volume 3", "2021-02-26"),
     ],
-    releases: [
-      rel("ja", "print", "Kadokawa Gundam Ace", "2019", "serial", "2021"),
-    ],
-  },
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2019", "serial", "2021")],
+    {
+      author: "Shiitake Gensui (art), Kansai Ryouji (scenario)",
+      publisher: "Kadokawa",
+      magazine: "Gundam Ace",
+    },
+  ),
 };

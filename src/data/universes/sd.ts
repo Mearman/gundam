@@ -1,5 +1,5 @@
 import type { Entry, EntryDetail } from "../types";
-import { entry, ep, rel } from "../types";
+import { entry, det, ep, rel } from "../types";
 
 // SD Gundam
 
@@ -150,11 +150,11 @@ export const sdEntries: Entry[] = [
 ];
 
 export const sdDetails: Record<string, EntryDetail | undefined> = {
-  sd_gundam_force_2004_tv: {
-    title: { ja: "SDガンダムフォース", en: "Superior Defender Gundam Force" },
-    source: "https://en.wikipedia.org/wiki/Superior_Defender_Gundam_Force",
-    note: "First aired in US on Cartoon Network Sep 12 2004; in Japan Jan 22 2005 - Jan 27 2006 (52 ep total, weekly Saturday on TV Asahi)",
-    episodes: [
+  sd_gundam_force_2004_tv: det(
+    "SDガンダムフォース",
+    "Superior Defender Gundam Force",
+    "https://en.wikipedia.org/wiki/Superior_Defender_Gundam_Force",
+    [
       ep(1, "その名はキャプテン", null, "2004-01-07"),
       ep(2, "輝け！ソウルドライブ", null, "2004-01-14"),
       ep(3, "天駆ける騎士 ゼロ", null, "2004-01-21"),
@@ -208,7 +208,7 @@ export const sdDetails: Record<string, EntryDetail | undefined> = {
       ep(51, "大決戦！ジェネラルVSみんな", null, "2004-12-22"),
       ep(52, "帰り道", null, "2004-12-29"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "broadcast",
@@ -219,16 +219,15 @@ export const sdDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "broadcast", "Cartoon Network US", "2004", "weekly", "2005"),
     ],
-  },
-  sd_gundam_sangokuden_2010_tv: {
-    title: {
-      ja: "BB戦士三国伝",
-      en: "SD Gundam Sangokuden Brave Battle Warriors",
+    {
+      note: "First aired in US on Cartoon Network Sep 12 2004; in Japan Jan 22 2005 - Jan 27 2006 (52 ep total, weekly Saturday on TV Asahi)",
     },
-    source:
-      "https://en.wikipedia.org/wiki/SD_Gundam_Sangokuden_Brave_Battle_Warriors",
-    note: "Three Kingdoms-themed SD Gundam, weekly Sat from April 3 2010",
-    episodes: [
+  ),
+  sd_gundam_sangokuden_2010_tv: det(
+    "BB戦士三国伝",
+    "SD Gundam Sangokuden Brave Battle Warriors",
+    "https://en.wikipedia.org/wiki/SD_Gundam_Sangokuden_Brave_Battle_Warriors",
+    [
       ep(1, "英雄登場", "Birth of a Hero", "2010-04-03"),
       ep(2, "出会い", "Encounter", "2010-04-10"),
       ep(3, "民のために", "For the People", "2010-04-17"),
@@ -306,17 +305,14 @@ export const sdDetails: Record<string, EntryDetail | undefined> = {
       ep(50, "龍の輝き", "Radiance of the Dragon", "2011-03-12"),
       ep(51, "三国の志", "Legacy of the Three Kingdoms", "2011-03-19"),
     ],
-    releases: [
-      rel("ja", "broadcast", "TV Tokyo", "2010-04-03", "weekly", "2011-03-26"),
-    ],
-  },
-  sd_gundam_sangoku_soketsuden_2019_ona: {
-    title: {
-      ja: "SDガンダムワールド 三国創傑伝",
-      en: "SD Gundam World Sangoku Soketsuden",
-    },
-    source: "https://en.wikipedia.org/wiki/SD_Gundam_World_Sangoku_Soketsuden",
-    episodes: [
+    [rel("ja", "broadcast", "TV Tokyo", "2010-04-03", "weekly", "2011-03-26")],
+    { note: "Three Kingdoms-themed SD Gundam, weekly Sat from April 3 2010" },
+  ),
+  sd_gundam_sangoku_soketsuden_2019_ona: det(
+    "SDガンダムワールド 三国創傑伝",
+    "SD Gundam World Sangoku Soketsuden",
+    "https://en.wikipedia.org/wiki/SD_Gundam_World_Sangoku_Soketsuden",
+    [
       ep(1, "Dragon's Watch", "Dragon's Watch", "2019-07-26"),
       ep(2, "Feel A Future", "Feel A Future", "2019-08-23"),
       ep(3, "Blue Wing", "Blue Wing", "2019-09-29"),
@@ -328,7 +324,7 @@ export const sdDetails: Record<string, EntryDetail | undefined> = {
       ep(9, "Libra", "Libra", "2021-03-25"),
       ep(10, "Try Alive", "Try Alive", "2021-03-25"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "streaming",
@@ -339,15 +335,12 @@ export const sdDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "streaming", "Gundam.info YouTube", "2019", "simulcast"),
     ],
-  },
-  sd_gundam_world_heroes_2021_ona: {
-    title: {
-      ja: "SDガンダムワールド ヒーローズ",
-      en: "SD Gundam World Heroes",
-    },
-    source: "https://en.wikipedia.org/wiki/SD_Gundam_World_Heroes",
-    note: "Streamed weekly on Gundam Info YouTube channel from April 8 2021",
-    episodes: [
+  ),
+  sd_gundam_world_heroes_2021_ona: det(
+    "SDガンダムワールド ヒーローズ",
+    "SD Gundam World Heroes",
+    "https://en.wikipedia.org/wiki/SD_Gundam_World_Heroes",
+    [
       ep(1, "落ちてきた運命", "Falling Destiny", "2021-04-08"),
       ep(2, "正義を呼ぶ声", "A Voice That Calls for Justice", "2021-04-15"),
       ep(3, "もうひとりの悟空", "Another Wukong", "2021-04-22"),
@@ -388,7 +381,7 @@ export const sdDetails: Record<string, EntryDetail | undefined> = {
       ep(23, "悟空の正体", "The Truth of Wukong", "2021-09-09"),
       ep(24, "選んだ未来", "Chosen Future", "2021-09-16"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "streaming",
@@ -399,15 +392,15 @@ export const sdDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "streaming", "Gundam.info YouTube", "2021", "simulcast"),
     ],
-  },
-  sd_sangokuden_2010_film: {
-    title: {
-      ja: "超電影版SDガンダム三国伝 Brave Battle Warriors",
-      en: "Chō Denei-ban SD Gundam Sangokuden Brave Battle Warriors",
+    {
+      note: "Streamed weekly on Gundam Info YouTube channel from April 8 2021",
     },
-    source:
-      "https://en.wikipedia.org/wiki/SD_Gundam_Sangokuden_Brave_Battle_Warriors",
-    episodes: [
+  ),
+  sd_sangokuden_2010_film: det(
+    "超電影版SDガンダム三国伝 Brave Battle Warriors",
+    "Chō Denei-ban SD Gundam Sangokuden Brave Battle Warriors",
+    "https://en.wikipedia.org/wiki/SD_Gundam_Sangokuden_Brave_Battle_Warriors",
+    [
       ep(
         1,
         "超電影版SDガンダム三国伝 Brave Battle Warriors",
@@ -415,17 +408,13 @@ export const sdDetails: Record<string, EntryDetail | undefined> = {
         "2010-02-27",
       ),
     ],
-    releases: [
-      rel("ja", "theatrical", "Theatrical release", "2010-02-27", "theatrical"),
-    ],
-  },
-  sd_gundam_1988_ova: {
-    title: {
-      ja: "機動戦士SDガンダム",
-      en: "Mobile Suit SD Gundam (OVA series)",
-    },
-    source: "https://ja.wikipedia.org/wiki/機動戦士SDガンダム",
-    episodes: [
+    [rel("ja", "theatrical", "Theatrical release", "2010-02-27", "theatrical")],
+  ),
+  sd_gundam_1988_ova: det(
+    "機動戦士SDガンダム",
+    "Mobile Suit SD Gundam (OVA series)",
+    "https://ja.wikipedia.org/wiki/機動戦士SDガンダム",
+    [
       ep(
         1,
         "MK-I: Gekitou-hen / Kyuujitsu-hen / Kessen-hen",
@@ -457,7 +446,7 @@ export const sdDetails: Record<string, EntryDetail | undefined> = {
         "1990-10-25",
       ),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "home_video",
@@ -467,15 +456,12 @@ export const sdDetails: Record<string, EntryDetail | undefined> = {
         "1990-10-25",
       ),
     ],
-  },
-  sd_gundam_gyakushuu_1989_film: {
-    title: {
-      ja: "機動戦士SDガンダムの逆襲",
-      en: "Mobile Suit SD Gundam no Gyakushuu",
-    },
-    source: "https://ja.wikipedia.org/wiki/機動戦士SDガンダム",
-    note: "Double-billed with Char's Counterattack; contained Arashi wo Yobu Gakuensai + SD Sengokuden Bakuchuu Oujou no Shou",
-    episodes: [
+  ),
+  sd_gundam_gyakushuu_1989_film: det(
+    "機動戦士SDガンダムの逆襲",
+    "Mobile Suit SD Gundam no Gyakushuu",
+    "https://ja.wikipedia.org/wiki/機動戦士SDガンダム",
+    [
       ep(
         1,
         "嵐を呼ぶ学園祭",
@@ -489,7 +475,7 @@ export const sdDetails: Record<string, EntryDetail | undefined> = {
         "1989-07-15",
       ),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "theatrical",
@@ -499,16 +485,15 @@ export const sdDetails: Record<string, EntryDetail | undefined> = {
         "1989-07-15",
       ),
     ],
-  },
-  sd_gundam_kinkyuu_1991_film: {
-    title: {
-      ja: "武者騎士コマンドSDガンダム緊急出撃",
-      en: "Musha Kishi Command SD Gundam Kinkyuu Shutsugeki",
+    {
+      note: "Double-billed with Char's Counterattack; contained Arashi wo Yobu Gakuensai + SD Sengokuden Bakuchuu Oujou no Shou",
     },
-    source:
-      "https://ja.wikipedia.org/wiki/武者・騎士・コマンド_SDガンダム緊急出撃",
-    note: "Theatrical short double-billed with Gundam F91",
-    episodes: [
+  ),
+  sd_gundam_kinkyuu_1991_film: det(
+    "武者騎士コマンドSDガンダム緊急出撃",
+    "Musha Kishi Command SD Gundam Kinkyuu Shutsugeki",
+    "https://ja.wikipedia.org/wiki/武者・騎士・コマンド_SDガンダム緊急出撃",
+    [
       ep(
         1,
         "武者騎士コマンドSDガンダム緊急出撃",
@@ -516,7 +501,7 @@ export const sdDetails: Record<string, EntryDetail | undefined> = {
         "1991-03-16",
       ),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "theatrical",
@@ -526,12 +511,13 @@ export const sdDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("ja", "home_video", "Bandai VHS/laserdisc", "1991-08-22", "box-set"),
     ],
-  },
-  sd_gundam_matsuri_1993_film: {
-    title: { ja: "SDガンダムまつり", en: "SD Gundam Matsuri" },
-    source: "https://ja.wikipedia.org/wiki/機動戦士SDガンダム",
-    note: "Triple-bill anime film: SD Command Senki Super G-Arms + SD Sengokuden Tenkataiheiben + SD Gundam Gaiden Seikibutsu Monogatari",
-    episodes: [
+    { note: "Theatrical short double-billed with Gundam F91" },
+  ),
+  sd_gundam_matsuri_1993_film: det(
+    "SDガンダムまつり",
+    "SD Gundam Matsuri",
+    "https://ja.wikipedia.org/wiki/機動戦士SDガンダム",
+    [
       ep(
         1,
         "SDコマンド戦記ガンダムフォース SUPER G-ARMS",
@@ -551,7 +537,7 @@ export const sdDetails: Record<string, EntryDetail | undefined> = {
         "1993-03-13",
       ),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "theatrical",
@@ -560,15 +546,15 @@ export const sdDetails: Record<string, EntryDetail | undefined> = {
         "theatrical",
       ),
     ],
-  },
-  sd_gundam_force_hakai_2004_film: {
-    title: {
-      ja: "SDガンダムフォース 破壊大将軍あらわる!! ザコ?",
-      en: "SD Gundam Force: Hakai Taishougun Arawaru!! Zako?",
+    {
+      note: "Triple-bill anime film: SD Command Senki Super G-Arms + SD Sengokuden Tenkataiheiben + SD Gundam Gaiden Seikibutsu Monogatari",
     },
-    source: "https://ja.wikipedia.org/wiki/SDガンダムフォース",
-    note: "Short film screened with SD Gundam Force episodes",
-    episodes: [
+  ),
+  sd_gundam_force_hakai_2004_film: det(
+    "SDガンダムフォース 破壊大将軍あらわる!! ザコ?",
+    "SD Gundam Force: Hakai Taishougun Arawaru!! Zako?",
+    "https://ja.wikipedia.org/wiki/SDガンダムフォース",
+    [
       ep(
         1,
         "SDガンダムフォース 破壊大将軍あらわる!! ザコ?",
@@ -576,7 +562,7 @@ export const sdDetails: Record<string, EntryDetail | undefined> = {
         "2004",
       ),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "theatrical",
@@ -585,12 +571,13 @@ export const sdDetails: Record<string, EntryDetail | undefined> = {
         "theatrical",
       ),
     ],
-  },
-  gunpla_kun_2022_tv: {
-    title: { ja: "ガンプラくん", en: "Gunpla-Kun" },
-    source: "https://ja.wikipedia.org/wiki/ガンプラくん",
-    note: "SD character anime shorts promoting Gunpla. Includes TV special, Build Metaverse special, and Gekijou shorts.",
-    episodes: [
+    { note: "Short film screened with SD Gundam Force episodes" },
+  ),
+  gunpla_kun_2022_tv: det(
+    "ガンプラくん",
+    "Gunpla-Kun",
+    "https://ja.wikipedia.org/wiki/ガンプラくん",
+    [
       ep(1, "ガンプラくん、子供部屋に立つ！！", null, "2021-08-19"),
       ep(2, "ガンプラくん、道具を準備せよ", null, "2021-08-19"),
       ep(3, "ガンプラくん、用語にこだわる！", null, "2021-08-19"),
@@ -619,7 +606,7 @@ export const sdDetails: Record<string, EntryDetail | undefined> = {
       ep("G2", "ガンプラくん劇場 哀・戦士編", null, "2024-12-02"),
       ep("G3", "ガンプラくん劇場 めぐりあい宇宙編", null, "2024-12-02"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "streaming",
@@ -643,15 +630,15 @@ export const sdDetails: Record<string, EntryDetail | undefined> = {
         "simulcast",
       ),
     ],
-  },
-  sd_gundam_world_sangoku_special_2020_ova: {
-    title: {
-      ja: "SDガンダムワールド三国創傑伝",
-      en: "SD Gundam World Sangoku Soketsuden: Brave Battle Warriors",
+    {
+      note: "SD character anime shorts promoting Gunpla. Includes TV special, Build Metaverse special, and Gekijou shorts.",
     },
-    source: "https://gundam.fandom.com/wiki/SD_Gundam_World_Sangoku_Soketsuden",
-    note: "Special OVA episodes of Sangoku Soketsuden",
-    episodes: [
+  ),
+  sd_gundam_world_sangoku_special_2020_ova: det(
+    "SDガンダムワールド三国創傑伝",
+    "SD Gundam World Sangoku Soketsuden: Brave Battle Warriors",
+    "https://gundam.fandom.com/wiki/SD_Gundam_World_Sangoku_Soketsuden",
+    [
       ep(
         1,
         "SDガンダムワールド三国創傑伝",
@@ -659,8 +646,7 @@ export const sdDetails: Record<string, EntryDetail | undefined> = {
         "2020",
       ),
     ],
-    releases: [
-      rel("ja", "streaming", "YouTube Gundam Channel", "2020", "simulcast"),
-    ],
-  },
+    [rel("ja", "streaming", "YouTube Gundam Channel", "2020", "simulcast")],
+    { note: "Special OVA episodes of Sangoku Soketsuden" },
+  ),
 };

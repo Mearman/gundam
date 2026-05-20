@@ -1,5 +1,5 @@
 import type { Entry, EntryDetail } from "../types";
-import { entry, ep, rel } from "../types";
+import { entry, det, ep, rel } from "../types";
 
 // Other (PD, FC, uc-alt, AG, CC, AS, RC, AW)
 
@@ -378,11 +378,11 @@ export const otherEntries: Entry[] = [
 ];
 
 export const otherDetails: Record<string, EntryDetail | undefined> = {
-  g_gundam_1994_tv: {
-    title: { ja: "機動武闘伝Gガンダム", en: "Mobile Fighter G Gundam" },
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Mobile_Fighter_G_Gundam_episodes",
-    episodes: [
+  g_gundam_1994_tv: det(
+    "機動武闘伝Gガンダム",
+    "Mobile Fighter G Gundam",
+    "https://en.wikipedia.org/wiki/List_of_Mobile_Fighter_G_Gundam_episodes",
+    [
       ep(
         1,
         "ファイト開始! 地球に落ちたガンダム",
@@ -727,7 +727,7 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
         { en: "2002-10-16" },
       ),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "broadcast",
@@ -753,50 +753,46 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "streaming", "Crunchyroll", "2024", "simulcast"),
     ],
-  },
-  g_gundam_1994_manga: {
-    title: {
-      ja: "機動武闘伝Gガンダム (漫画)",
-      en: "Mobile Fighter G Gundam (manga)",
-    },
-    source: "https://en.wikipedia.org/wiki/Mobile_Fighter_G_Gundam",
-    author: "Kōichi Tokita",
-    publisher: "Kodansha",
-    magazine: "Comic BonBon",
-    episodes: [
+  ),
+  g_gundam_1994_manga: det(
+    "機動武闘伝Gガンダム (漫画)",
+    "Mobile Fighter G Gundam (manga)",
+    "https://en.wikipedia.org/wiki/Mobile_Fighter_G_Gundam",
+    [
       ep(1, "Volume 1", "Volume 1", "2005-09"),
       ep(2, "Volume 2", "Volume 2", "2005-10"),
       ep(3, "Volume 3", "Volume 3", "2005-11"),
     ],
-    releases: [
+    [
       rel("ja", "print", "Comic BomBom / Kodansha", "1994", "serial", "1995"),
       rel("en", "print", "TokyoPop (English)", "2004", "serial"),
     ],
-  },
-  g_gundam_1995_novel: {
-    title: {
-      ja: "機動武闘伝Gガンダム (小説版)",
-      en: "Mobile Fighter G Gundam (novelization)",
+    {
+      author: "Kōichi Tokita",
+      publisher: "Kodansha",
+      magazine: "Comic BonBon",
     },
-    source: "https://en.wikipedia.org/wiki/Mobile_Fighter_G_Gundam",
-    author: "Yoshitake Suzuki",
-    publisher: "Kadokawa Shoten / Sneaker Bunko",
-    episodes: [
+  ),
+  g_gundam_1995_novel: det(
+    "機動武闘伝Gガンダム (小説版)",
+    "Mobile Fighter G Gundam (novelization)",
+    "https://en.wikipedia.org/wiki/Mobile_Fighter_G_Gundam",
+    [
       ep(1, "Volume 1", "Volume 1", "1995"),
       ep(2, "Volume 2", "Volume 2", "1995"),
       ep(3, "Volume 3", "Volume 3", "1996"),
     ],
-    releases: [rel("ja", "print", "Kadokawa Sneaker Bunko", "1995", "serial")],
-  },
-  witch_from_mercury_2022_tv: {
-    title: {
-      ja: "機動戦士ガンダム 水星の魔女",
-      en: "Mobile Suit Gundam: The Witch from Mercury",
+    [rel("ja", "print", "Kadokawa Sneaker Bunko", "1995", "serial")],
+    {
+      author: "Yoshitake Suzuki",
+      publisher: "Kadokawa Shoten / Sneaker Bunko",
     },
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam:_The_Witch_from_Mercury_episodes",
-    note: "Includes Prologue special (n=0). Several broadcast delays during run (eps 7, 11, 12, 18 each delayed one week).",
-    episodes: [
+  ),
+  witch_from_mercury_2022_tv: det(
+    "機動戦士ガンダム 水星の魔女",
+    "Mobile Suit Gundam: The Witch from Mercury",
+    "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam:_The_Witch_from_Mercury_episodes",
+    [
       ep(0, "PROLOGUE", "Prologue", "2022-07-14"),
       ep(1, "魔女と花嫁", "The Witch and the Bride", "2022-10-02"),
       ep(2, "呪いのモビルスーツ", "Cursed Mobile Suit", "2022-10-09"),
@@ -838,7 +834,7 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
         "2023-07-02",
       ),
     ],
-    releases: [
+    [
       rel("ja", "broadcast", "MBS / TBS", "2022-10-02", "weekly", "2023-07-02"),
       rel(
         "en",
@@ -849,16 +845,15 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "home_video", "Crunchyroll / Sony Blu-ray", "2024", "box-set"),
     ],
-  },
-  ibo_2015_tv: {
-    title: {
-      ja: "機動戦士ガンダム 鉄血のオルフェンズ",
-      en: "Mobile Suit Gundam: Iron-Blooded Orphans",
+    {
+      note: "Includes Prologue special (n=0). Several broadcast delays during run (eps 7, 11, 12, 18 each delayed one week).",
     },
-    source:
-      "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Iron-Blooded_Orphans",
-    note: "Season 1: Oct 2015-Mar 2016 (25 ep). Season 2: Oct 2016-Apr 2017 (25 ep). Dates approximated weekly Sunday broadcast.",
-    episodes: [
+  ),
+  ibo_2015_tv: det(
+    "機動戦士ガンダム 鉄血のオルフェンズ",
+    "Mobile Suit Gundam: Iron-Blooded Orphans",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Iron-Blooded_Orphans",
+    [
       ep(1, "鉄と血と", "Iron and Blood...", "2015-10-04", { season: 1 }),
       ep(2, "バルバトス", "Barbatos", "2015-10-11", { season: 1 }),
       ep(3, "散華", "Glorious Demise", "2015-10-18", { season: 1 }),
@@ -952,7 +947,7 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
       }),
       ep(50, "彼等の居場所", "Their Place", "2017-03-19", { season: 2 }),
     ],
-    releases: [
+    [
       rel("ja", "broadcast", "MBS / TBS", "2015-10-04", "weekly", "2017-04-02"),
       rel(
         "en",
@@ -970,16 +965,15 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
         "box-set",
       ),
     ],
-  },
-  ibo_urdrhunt_2022_ona: {
-    title: {
-      ja: "機動戦士ガンダム 鉄血のオルフェンズ Urðr-Hunt",
-      en: "Mobile Suit Gundam: Iron-Blooded Orphans — Urðr-Hunt",
+    {
+      note: "Season 1: Oct 2015-Mar 2016 (25 ep). Season 2: Oct 2016-Apr 2017 (25 ep). Dates approximated weekly Sunday broadcast.",
     },
-    source:
-      "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Iron-Blooded_Orphans",
-    note: "Mobile game tie-in 12-episode ONA serialized in-app starting Oct 2022",
-    episodes: [
+  ),
+  ibo_urdrhunt_2022_ona: det(
+    "機動戦士ガンダム 鉄血のオルフェンズ Urðr-Hunt",
+    "Mobile Suit Gundam: Iron-Blooded Orphans — Urðr-Hunt",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Iron-Blooded_Orphans",
+    [
       ep(1, "端白星", "Radonitsa", "2022-11-15"),
       ep(2, "出航", "The Girl Who Dances with the Sea", "2022-11-15"),
       ep(3, "598", "The Urðr-Hunt", "2022-11-15"),
@@ -993,7 +987,7 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
       ep(11, "伸ばした手の彼方", "The Last Hunt", "2022-11-15"),
       ep(12, "紫電のソラ", "To the Place We Call Home", "2022-11-15"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "streaming",
@@ -1002,12 +996,15 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
         "simulcast",
       ),
     ],
-  },
-  age_2011_tv: {
-    title: { ja: "機動戦士ガンダムAGE", en: "Mobile Suit Gundam AGE" },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_AGE",
-    note: "Aired weekly on Sunday MBS Oct 9 2011 - Sep 23 2012",
-    episodes: [
+    {
+      note: "Mobile game tie-in 12-episode ONA serialized in-app starting Oct 2022",
+    },
+  ),
+  age_2011_tv: det(
+    "機動戦士ガンダムAGE",
+    "Mobile Suit Gundam AGE",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_AGE",
+    [
       ep(1, "救世主ガンダム", "Saviour Gundam", "2011-10-09"),
       ep(2, "AGEの力", "The Power of AGE", "2011-10-16"),
       ep(3, "ゆがむコロニー", "Shattered Colony", "2011-10-23"),
@@ -1088,7 +1085,7 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
       ep(48, "絶望の煌めき", "The Glitter of Despair", "2012-09-02"),
       ep(49, "長き旅の終わり", "End of a Long Journey", "2012-09-09"),
     ],
-    releases: [
+    [
       rel("ja", "broadcast", "MBS / TBS", "2011-10-09", "weekly", "2012-09-23"),
       rel(
         "en",
@@ -1099,12 +1096,13 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "home_video", "Right Stuf / Sunrise", "2019", "box-set"),
     ],
-  },
-  reconguista_2014_tv: {
-    title: { ja: "ガンダム Gのレコンギスタ", en: "Gundam Reconguista in G" },
-    source: "https://en.wikipedia.org/wiki/Gundam_Reconguista_in_G",
-    note: "Aired weekly on MBS/TBS Oct 2 2014 - Mar 26 2015",
-    episodes: [
+    { note: "Aired weekly on Sunday MBS Oct 9 2011 - Sep 23 2012" },
+  ),
+  reconguista_2014_tv: det(
+    "ガンダム Gのレコンギスタ",
+    "Gundam Reconguista in G",
+    "https://en.wikipedia.org/wiki/Gundam_Reconguista_in_G",
+    [
       ep(1, "謎のモビルスーツ", "The Mysterious Mobile Suit", "2014-10-02"),
       ep(2, "G-セルフ起動!", "G-Self, Start Up!", "2014-10-09"),
       ep(3, "旅客機の秘密", "The Pressure of Montero", "2014-10-16"),
@@ -1167,7 +1165,7 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
       ),
       ep(26, "愛の力", "Rising on Earth", "2015-03-26"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "broadcast",
@@ -1179,14 +1177,13 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
       rel("en", "home_video", "Right Stuf / Sunrise", "2016", "box-set"),
       rel("en", "streaming", "Crunchyroll", "2024", "simulcast"),
     ],
-  },
-  reconguista_films_2019: {
-    title: {
-      ja: "ガンダム Gのレコンギスタ (劇場版)",
-      en: "Gundam Reconguista in G (compilation films)",
-    },
-    source: "https://en.wikipedia.org/wiki/Gundam_Reconguista_in_G",
-    episodes: [
+    { note: "Aired weekly on MBS/TBS Oct 2 2014 - Mar 26 2015" },
+  ),
+  reconguista_films_2019: det(
+    "ガンダム Gのレコンギスタ (劇場版)",
+    "Gundam Reconguista in G (compilation films)",
+    "https://en.wikipedia.org/wiki/Gundam_Reconguista_in_G",
+    [
       ep(1, "行け！コア・ファイター", "Go! Core Fighter", "2019-11-29"),
       ep(2, "ベルリの進撃", "Bellri's Fierce Charge", "2020-02-21"),
       ep(3, "宇宙からの遺産", "Legacy from Space", "2021-07-22"),
@@ -1198,7 +1195,7 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
       ),
       ep(5, "螺旋の向こう", "Beyond the Crystallized World", "2022-08-05"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "theatrical",
@@ -1208,12 +1205,12 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
         "2022-08-05",
       ),
     ],
-  },
-  x_1996_tv: {
-    title: { ja: "機動新世紀ガンダムX", en: "After War Gundam X" },
-    source: "https://en.wikipedia.org/wiki/After_War_Gundam_X",
-    note: "Aired Apr 5 1996 - Dec 28 1996 on TV Asahi. Cancelled early (originally 49 episodes planned).",
-    episodes: [
+  ),
+  x_1996_tv: det(
+    "機動新世紀ガンダムX",
+    "After War Gundam X",
+    "https://en.wikipedia.org/wiki/After_War_Gundam_X",
+    [
       ep(1, "月は出ているか？", "Has the Moon Come Up?", "1996-04-05"),
       ep(2, "あなたに、力を…", "I'll Give You Power...", "1996-04-12"),
       ep(
@@ -1309,7 +1306,7 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
         "1996-12-27",
       ),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "broadcast",
@@ -1327,12 +1324,15 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
         "box-set",
       ),
     ],
-  },
-  turn_a_1999_tv: {
-    title: { ja: "∀ガンダム", en: "Turn A Gundam" },
-    source: "https://en.wikipedia.org/wiki/Turn_A_Gundam",
-    note: "Aired Apr 9 1999 - Apr 14 2000 on Fuji TV (50 episodes weekly Friday).",
-    episodes: [
+    {
+      note: "Aired Apr 5 1996 - Dec 28 1996 on TV Asahi. Cancelled early (originally 49 episodes planned).",
+    },
+  ),
+  turn_a_1999_tv: det(
+    "∀ガンダム",
+    "Turn A Gundam",
+    "https://en.wikipedia.org/wiki/Turn_A_Gundam",
+    [
       ep(1, "月に吠える", "Howl at the Moon", "1999-04-09"),
       ep(2, "成人式", "The Coming of Age Ceremony", "1999-04-16"),
       ep(3, "祭の後", "After the Festival", "1999-04-23"),
@@ -1394,7 +1394,7 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
       ep(49, "月光蝶", "Moonlight Butterfly", "2000-03-10"),
       ep(50, "黄金の秋", "Golden Autumn", "2000-03-17"),
     ],
-    releases: [
+    [
       rel("ja", "broadcast", "Fuji TV", "1999-04-09", "weekly", "2000-04-14"),
       rel(
         "en",
@@ -1411,18 +1411,19 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
         "box-set",
       ),
     ],
-  },
-  turn_a_2002_films: {
-    title: {
-      ja: "∀ガンダム I地球光/IIムーンライト・バタフライ",
-      en: "Turn A Gundam: Earth Light / Moonlight Butterfly",
+    {
+      note: "Aired Apr 9 1999 - Apr 14 2000 on Fuji TV (50 episodes weekly Friday).",
     },
-    source: "https://en.wikipedia.org/wiki/Turn_A_Gundam",
-    episodes: [
+  ),
+  turn_a_2002_films: det(
+    "∀ガンダム I地球光/IIムーンライト・バタフライ",
+    "Turn A Gundam: Earth Light / Moonlight Butterfly",
+    "https://en.wikipedia.org/wiki/Turn_A_Gundam",
+    [
       ep(1, "月に吠える", "Earth Light", "2002-02-09"),
       ep(2, "成人式", "Moonlight Butterfly", "2002-02-09"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "theatrical",
@@ -1433,15 +1434,12 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "home_video", "Right Stuf / Sunrise", "2017", "box-set"),
     ],
-  },
-  gquuuuuux_2025_tv: {
-    title: {
-      ja: "機動戦士Gundam GQuuuuuuX",
-      en: "Mobile Suit Gundam GQuuuuuuX",
-    },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_GQuuuuuuX",
-    note: "TV broadcast began April 8 2025 on Tokyo MX (12 ep weekly Tuesday). Compilation film 'Beginning' released Jan 17 2025.",
-    episodes: [
+  ),
+  gquuuuuux_2025_tv: det(
+    "機動戦士Gundam GQuuuuuuX",
+    "Mobile Suit Gundam GQuuuuuuX",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_GQuuuuuuX",
+    [
       ep(1, "赤いガンダム", "The Red Gundam", "2025-04-09"),
       ep(2, "白いガンダム", "The White Gundam", "2025-04-16"),
       ep(3, "クランバトルのマチュ", "Machu in Clan Battle", "2025-04-23"),
@@ -1465,59 +1463,54 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
       ep(11, "アルファ殺したち", "Alphacide", "2025-06-18"),
       ep(12, "だから僕は…", "That's Why I...", "2025-06-25"),
     ],
-    releases: [
+    [
       rel("ja", "broadcast", "MBS / TBS", "2025-04-09", "weekly"),
       rel("en", "streaming", "Crunchyroll", "2025-04-09", "simulcast"),
       rel("en", "streaming", "Amazon Prime Video", "2025-04-09", "simulcast"),
     ],
-  },
-  age_memory_of_eden_2013_ova: {
-    title: {
-      ja: "機動戦士ガンダムAGE MEMORY OF EDEN",
-      en: "Mobile Suit Gundam AGE: Memory of Eden",
+    {
+      note: "TV broadcast began April 8 2025 on Tokyo MX (12 ep weekly Tuesday). Compilation film 'Beginning' released Jan 17 2025.",
     },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_AGE",
-    note: "Compilation OVA focusing on Asemu and Zeheart's arc. Released in two parts.",
-    episodes: [
+  ),
+  age_memory_of_eden_2013_ova: det(
+    "機動戦士ガンダムAGE MEMORY OF EDEN",
+    "Mobile Suit Gundam AGE: Memory of Eden",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_AGE",
+    [
       ep(1, "救世主ガンダム", "Memory of Eden Part 1", "2013-07-26"),
       ep(2, "AGEの力", "Memory of Eden Part 2", "2013-07-26"),
     ],
-    releases: [
+    [
       rel("ja", "home_video", "OVA Blu-ray/DVD", "2013-05-22", "box-set"),
       rel("en", "home_video", "Right Stuf / Sunrise", "2019", "box-set"),
     ],
-  },
-  wfm_vanadis_heart_manga: {
-    title: {
-      ja: "機動戦士ガンダム 水星の魔女 ヴァナディースハート",
-      en: "Mobile Suit Gundam: The Witch from Mercury — Vanadis Heart",
+    {
+      note: "Compilation OVA focusing on Asemu and Zeheart's arc. Released in two parts.",
     },
-    source:
-      "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_Witch_from_Mercury",
-    author: "Various",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
-    note: "Prequel manga set before the TV series, covering the Vanadis Institute incident.",
-    episodes: [
+  ),
+  wfm_vanadis_heart_manga: det(
+    "機動戦士ガンダム 水星の魔女 ヴァナディースハート",
+    "Mobile Suit Gundam: The Witch from Mercury — Vanadis Heart",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_Witch_from_Mercury",
+    [
       ep(1, "Volume 1", "Volume 1", "2023-07"),
       ep(2, "Volume 2", "Volume 2", "2024-02"),
       ep(3, "Volume 3", "Volume 3", "2024-09"),
     ],
-    releases: [
-      rel("ja", "print", "Gundam Ace / Kadokawa", "2023-06-26", "serial"),
-    ],
-  },
-  g_gundam_fight_7th_1996_manga: {
-    title: {
-      ja: "機動武闘伝外伝 Gundam Fight 7th",
-      en: "Kidō Butōden Gaiden Gundam Fight 7th",
+    [rel("ja", "print", "Gundam Ace / Kadokawa", "2023-06-26", "serial")],
+    {
+      author: "Various",
+      publisher: "Kadokawa Shoten",
+      magazine: "Gundam Ace",
+      note: "Prequel manga set before the TV series, covering the Vanadis Institute incident.",
     },
-    source: "https://en.wikipedia.org/wiki/G_Gundam",
-    author: "Kōichi Tokita",
-    publisher: "Kodansha",
-    magazine: "Comic BonBon",
-    episodes: [ep(1, "Volume 1", "Volume 1", "1997-01-08")],
-    releases: [
+  ),
+  g_gundam_fight_7th_1996_manga: det(
+    "機動武闘伝外伝 Gundam Fight 7th",
+    "Kidō Butōden Gaiden Gundam Fight 7th",
+    "https://en.wikipedia.org/wiki/G_Gundam",
+    [ep(1, "Volume 1", "Volume 1", "1997-01-08")],
+    [
       rel(
         "ja",
         "print",
@@ -1527,11 +1520,17 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
         "1996-12-01",
       ),
     ],
-  },
-  gundam_evolve_2001_ova: {
-    title: { ja: "GUNDAM EVOLVE", en: "Gundam Evolve" },
-    source: "https://en.wikipedia.org/wiki/Gundam_Evolve",
-    episodes: [
+    {
+      author: "Kōichi Tokita",
+      publisher: "Kodansha",
+      magazine: "Comic BonBon",
+    },
+  ),
+  gundam_evolve_2001_ova: det(
+    "GUNDAM EVOLVE",
+    "Gundam Evolve",
+    "https://en.wikipedia.org/wiki/Gundam_Evolve",
+    [
       ep(1, "RX-78-2 Gundam", "RX-78-2 Gundam", "2001-10-26", { u: "uc" }),
       ep(2, "RX-178 Gundam Mk-II", "RX-178 Gundam Mk-II", "2002-03-26", {
         u: "uc",
@@ -1586,7 +1585,7 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
         { u: "uc" },
       ),
     ],
-    releases: [
+    [
       rel("ja", "home_video", "Evolve ../+ (eps 1-5)", "2003-06-09", "box-set"),
       rel(
         "ja",
@@ -1604,15 +1603,12 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "home_video", "Right Stuf / Sunrise", "2019", "box-set"),
     ],
-  },
-  ibo_urdrhunt_movie_2025_film: {
-    title: {
-      ja: "機動戦士ガンダム鉄血のオルフェンズ Urðr-Hunt – Path of the Little Challenger",
-      en: "Mobile Suit Gundam: Iron-Blooded Orphans Urðr-Hunt – Path of the Little Challenger",
-    },
-    source:
-      "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Iron-Blooded_Orphans",
-    episodes: [
+  ),
+  ibo_urdrhunt_movie_2025_film: det(
+    "機動戦士ガンダム鉄血のオルフェンズ Urðr-Hunt – Path of the Little Challenger",
+    "Mobile Suit Gundam: Iron-Blooded Orphans Urðr-Hunt – Path of the Little Challenger",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Iron-Blooded_Orphans",
+    [
       ep(
         1,
         "機動戦士ガンダム鉄血のオルフェンズ Urðr-Hunt – Path of the Little Challenger",
@@ -1620,7 +1616,7 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
         "2025-05-30",
       ),
     ],
-    releases: [
+    [
       rel("ja", "theatrical", "Theatrical release", "2025-05-30", "theatrical"),
       rel(
         "en",
@@ -1630,17 +1626,13 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
         "theatrical",
       ),
     ],
-  },
-  gquuuuuux_beginning_2025_film: {
-    title: {
-      ja: "機動戦士Gundam GQuuuuuuX Beginning",
-      en: "Mobile Suit Gundam GQuuuuuuX: Beginning",
-    },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_GQuuuuuuX",
-    episodes: [
-      ep(1, "機動戦士Gundam GQuuuuuuX Beginning", "Beginning", "2025-01-17"),
-    ],
-    releases: [
+  ),
+  gquuuuuux_beginning_2025_film: det(
+    "機動戦士Gundam GQuuuuuuX Beginning",
+    "Mobile Suit Gundam GQuuuuuuX: Beginning",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_GQuuuuuuX",
+    [ep(1, "機動戦士Gundam GQuuuuuuX Beginning", "Beginning", "2025-01-17")],
+    [
       rel("ja", "theatrical", "Theatrical release", "2025-01-17", "theatrical"),
       rel(
         "en",
@@ -1650,13 +1642,13 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
         "theatrical",
       ),
     ],
-  },
-  ring_of_gundam_2009_film: {
-    title: { ja: "リング・オブ・ガンダム", en: "Ring of Gundam" },
-    source: "https://ja.wikipedia.org/wiki/リング・オブ・ガンダム",
-    note: "5min 36sec CG short for Gundam 30th anniversary",
-    episodes: [ep(1, "リング・オブ・ガンダム", "Ring of Gundam", "2009-08-21")],
-    releases: [
+  ),
+  ring_of_gundam_2009_film: det(
+    "リング・オブ・ガンダム",
+    "Ring of Gundam",
+    "https://ja.wikipedia.org/wiki/リング・オブ・ガンダム",
+    [ep(1, "リング・オブ・ガンダム", "Ring of Gundam", "2009-08-21")],
+    [
       rel(
         "ja",
         "theatrical",
@@ -1673,18 +1665,14 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
         "box-set",
       ),
     ],
-  },
-  mission_to_the_rise_1998_film: {
-    title: {
-      ja: "GUNDAM Mission to the Rise",
-      en: "GUNDAM Mission to the Rise",
-    },
-    source: "https://ja.wikipedia.org/wiki/GUNDAM_Mission_to_the_Rise",
-    note: "7min CG+live-action short by Mamoru Oshii",
-    episodes: [
-      ep(1, "GUNDAM Mission to the Rise", "Mission to the Rise", "1998-08-01"),
-    ],
-    releases: [
+    { note: "5min 36sec CG short for Gundam 30th anniversary" },
+  ),
+  mission_to_the_rise_1998_film: det(
+    "GUNDAM Mission to the Rise",
+    "GUNDAM Mission to the Rise",
+    "https://ja.wikipedia.org/wiki/GUNDAM_Mission_to_the_Rise",
+    [ep(1, "GUNDAM Mission to the Rise", "Mission to the Rise", "1998-08-01")],
+    [
       rel(
         "ja",
         "theatrical",
@@ -1693,28 +1681,21 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
         "theatrical",
       ),
     ],
-  },
-  ibo_makan_tba_film: {
-    title: {
-      ja: "機動戦士ガンダム 鉄血のオルフェンズ 魔剣の楔",
-      en: "Mobile Suit Gundam: Iron-Blooded Orphans — Makan no Kusabi",
-    },
-    source:
-      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Iron-Blooded_Orphans",
-    note: "Cinematic interlude / bridge film. TBA",
-    episodes: [],
-    releases: [],
-  },
-  super_g_gundam_2010_manga: {
-    title: {
-      ja: "超級!機動武闘伝Gガンダム",
-      en: "Super! Kidou Butouden G Gundam",
-    },
-    source: "https://ja.wikipedia.org/wiki/超級!機動武闘伝Gガンダム",
-    author: "Shimamoto Kazuhiko",
-    publisher: "Kadokawa",
-    magazine: "Gundam Ace",
-    episodes: [
+    { note: "7min CG+live-action short by Mamoru Oshii" },
+  ),
+  ibo_makan_tba_film: det(
+    "機動戦士ガンダム 鉄血のオルフェンズ 魔剣の楔",
+    "Mobile Suit Gundam: Iron-Blooded Orphans — Makan no Kusabi",
+    "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Iron-Blooded_Orphans",
+    [],
+    [],
+    { note: "Cinematic interlude / bridge film. TBA" },
+  ),
+  super_g_gundam_2010_manga: det(
+    "超級!機動武闘伝Gガンダム",
+    "Super! Kidou Butouden G Gundam",
+    "https://ja.wikipedia.org/wiki/超級!機動武闘伝Gガンダム",
+    [
       ep(1, "Volume 1", "Volume 1", "2010-12-25"),
       ep(2, "Volume 2", "Volume 2", "2011-02-26"),
       ep(3, "Volume 3", "Volume 3", "2011-04-26"),
@@ -1735,61 +1716,60 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
       ep(18, "Volume 18", "Volume 18", "2016-07-26"),
       ep(19, "Volume 19", "Volume 19", "2016-09-26"),
     ],
-    releases: [
-      rel("ja", "print", "Kadokawa Gundam Ace", "2010-09", "serial", "2016-10"),
-    ],
-  },
-  ibo_steel_moon_2016_manga: {
-    title: {
-      ja: "機動戦士ガンダム 鉄血のオルフェンズ 月鋼",
-      en: "Mobile Suit Gundam: Iron-Blooded Orphans — Steel Moon (Getsuei)",
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2010-09", "serial", "2016-10")],
+    {
+      author: "Shimamoto Kazuhiko",
+      publisher: "Kadokawa",
+      magazine: "Gundam Ace",
     },
-    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダム_鉄血のオルフェンズ",
-    author: "Hajime Kamoshida (story), Kenji Tachibana (art)",
-    publisher: "Kadokawa",
-    magazine: "Monthly Shounen Sirius",
-    note: "Side story manga set on Mars alongside the main TV series. 4 volumes (全4巻)",
-    episodes: [
+  ),
+  ibo_steel_moon_2016_manga: det(
+    "機動戦士ガンダム 鉄血のオルフェンズ 月鋼",
+    "Mobile Suit Gundam: Iron-Blooded Orphans — Steel Moon (Getsuei)",
+    "https://ja.wikipedia.org/wiki/機動戦士ガンダム_鉄血のオルフェンズ",
+    [
       ep(1, "Volume 1", "Volume 1", "2016-10-26"),
       ep(2, "Volume 2", "Volume 2", "2017-03-25"),
       ep(3, "Volume 3", "Volume 3", "2017-10-26"),
       ep(4, "Volume 4", "Volume 4", "2018-05-25"),
     ],
-    releases: [
-      rel("ja", "print", "Kadokawa Sirius KC", "2016-06", "serial", "2018-04"),
-    ],
-  },
-  turn_a_manga: {
-    title: { ja: "∀ガンダム (漫画)", en: "∀ Gundam (manga)" },
-    source: "https://gundam.fandom.com/wiki/∀_Gundam_(Manga)",
-    author: "Atsushi Soga",
-    publisher: "Kodansha",
-    magazine: "Comic BomBom",
-    note: "5-volume manga adaptation of the Turn A TV series",
-    episodes: [
+    [rel("ja", "print", "Kadokawa Sirius KC", "2016-06", "serial", "2018-04")],
+    {
+      author: "Hajime Kamoshida (story), Kenji Tachibana (art)",
+      publisher: "Kadokawa",
+      magazine: "Monthly Shounen Sirius",
+      note: "Side story manga set on Mars alongside the main TV series. 4 volumes (全4巻)",
+    },
+  ),
+  turn_a_manga: det(
+    "∀ガンダム (漫画)",
+    "∀ Gundam (manga)",
+    "https://gundam.fandom.com/wiki/∀_Gundam_(Manga)",
+    [
       ep(1, "Volume 1", "Volume 1", "1999-12"),
       ep(2, "Volume 2", "Volume 2", "2000-06"),
       ep(3, "Volume 3", "Volume 3", "2001-01"),
       ep(4, "Volume 4", "Volume 4", "2001-08"),
       ep(5, "Volume 5", "Volume 5", "2002-05"),
     ],
-    releases: [
-      rel("ja", "print", "Kodansha KC BomBom", "1999", "serial", "2000"),
-    ],
-  },
-  for_the_barrel_2000_novel: {
-    title: { ja: "FOR THE BARREL", en: "FOR THE BARREL" },
-    source: "https://gundam.fandom.com/wiki/For_the_Barrel",
-    author: "Gichi Otsuka",
-    publisher: "Kadokawa",
-    magazine: "NewType",
-    note: "Abstract reimagining of the original Gundam in alternate UC; serialized Aug 2000 – Jun 2002",
-    episodes: [
+    [rel("ja", "print", "Kodansha KC BomBom", "1999", "serial", "2000")],
+    {
+      author: "Atsushi Soga",
+      publisher: "Kodansha",
+      magazine: "Comic BomBom",
+      note: "5-volume manga adaptation of the Turn A TV series",
+    },
+  ),
+  for_the_barrel_2000_novel: det(
+    "FOR THE BARREL",
+    "FOR THE BARREL",
+    "https://gundam.fandom.com/wiki/For_the_Barrel",
+    [
       ep(1, "Volume 1", "Volume 1", "2000"),
       ep(2, "Volume 2", "Volume 2", "2001"),
       ep(3, "Volume 3", "Volume 3", "2002"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "print",
@@ -1799,43 +1779,44 @@ export const otherDetails: Record<string, EntryDetail | undefined> = {
         "2002-06",
       ),
     ],
-  },
-  age_novel_2012: {
-    title: {
-      ja: "機動戦士ガンダムAGE (小説)",
-      en: "Mobile Suit Gundam AGE (novel)",
+    {
+      author: "Gichi Otsuka",
+      publisher: "Kadokawa",
+      magazine: "NewType",
+      note: "Abstract reimagining of the original Gundam in alternate UC; serialized Aug 2000 – Jun 2002",
     },
-    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_AGE",
-    author: "Akihiro Yamada",
-    publisher: "Shueisha",
-    magazine: "Super Dash Bunko",
-    note: "Novelization of the AGE TV series",
-    episodes: [
+  ),
+  age_novel_2012: det(
+    "機動戦士ガンダムAGE (小説)",
+    "Mobile Suit Gundam AGE (novel)",
+    "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_AGE",
+    [
       ep(1, "Stand Up", "Stand Up", "2012-02"),
       ep(2, "Awaken", "Awaken", "2012-04"),
       ep(3, "Second Age", "Second Age", "2012-06"),
     ],
-    releases: [
-      rel("ja", "print", "Shueisha Super Dash Bunko", "2012", "serial", "2012"),
-    ],
-  },
-  ibo_gekkou_2016_manga: {
-    title: {
-      ja: "機動士ガンダム 鉄血のオルフェンズ 弐",
-      en: "Mobile Suit Gundam: Iron-Blooded Orphans — Gekkou",
+    [rel("ja", "print", "Shueisha Super Dash Bunko", "2012", "serial", "2012")],
+    {
+      author: "Akihiro Yamada",
+      publisher: "Shueisha",
+      magazine: "Super Dash Bunko",
+      note: "Novelization of the AGE TV series",
     },
-    source:
-      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Iron-Blooded_Orphans",
-    author: "Kazuhiro Ochi",
-    publisher: "Kadokawa",
-    magazine: "Gundam Ace",
-    note: "IBO manga adaptation by Kazuhiro Ochi, 2 volumes",
-    episodes: [
+  ),
+  ibo_gekkou_2016_manga: det(
+    "機動士ガンダム 鉄血のオルフェンズ 弐",
+    "Mobile Suit Gundam: Iron-Blooded Orphans — Gekkou",
+    "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Iron-Blooded_Orphans",
+    [
       ep(1, "Volume 1", "Volume 1", "2016"),
       ep(2, "Volume 2", "Volume 2", "2017"),
     ],
-    releases: [
-      rel("ja", "print", "Kadokawa Gundam Ace", "2016", "serial", "2017"),
-    ],
-  },
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2016", "serial", "2017")],
+    {
+      author: "Kazuhiro Ochi",
+      publisher: "Kadokawa",
+      magazine: "Gundam Ace",
+      note: "IBO manga adaptation by Kazuhiro Ochi, 2 volumes",
+    },
+  ),
 };

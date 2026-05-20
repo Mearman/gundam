@@ -27,9 +27,9 @@ function App() {
   );
 
   const visibleCount = ENTRIES.filter((e) => {
-    const okMedia = matchesMediaFilter(filters.media, e.m);
-    const okAudio = filters.audio === "all" || filters.audio === e.a;
-    const okText = filters.text === "all" || filters.text === e.s;
+    const okMedia = matchesMediaFilter(filters.media, e.media);
+    const okAudio = filters.audio === "all" || filters.audio === e.audio;
+    const okText = filters.text === "all" || filters.text === e.subs;
     return okMedia && okAudio && okText;
   }).length;
 

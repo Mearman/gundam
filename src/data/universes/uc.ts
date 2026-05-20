@@ -1,5 +1,5 @@
 import type { Entry, EntryDetail } from "../types";
-import { entry, ep, rel } from "../types";
+import { entry, det, ep, rel } from "../types";
 
 // Universal Century
 
@@ -993,10 +993,11 @@ export const ucEntries: Entry[] = [
 ];
 
 export const ucDetails: Record<string, EntryDetail | undefined> = {
-  msg_1979_tv: {
-    title: { ja: "機動戦士ガンダム", en: "Mobile Suit Gundam" },
-    source: "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_episodes",
-    episodes: [
+  msg_1979_tv: det(
+    "機動戦士ガンダム",
+    "Mobile Suit Gundam",
+    "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_episodes",
+    [
       ep(1, "ガンダム大地に立つ!!", "Gundam Rising", "1979-04-07", {
         en: "2001-07-23",
       }),
@@ -1128,7 +1129,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         note: "Aired on Toonami's 'New Year's Evil' special",
       }),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "broadcast",
@@ -1161,12 +1162,12 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "streaming", "Crunchyroll", "2024-01-01", "simulcast"),
     ],
-  },
-  zeta_1985_tv: {
-    title: { ja: "機動戦士Ζガンダム", en: "Mobile Suit Zeta Gundam" },
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Zeta_Gundam_episodes",
-    episodes: [
+  ),
+  zeta_1985_tv: det(
+    "機動戦士Ζガンダム",
+    "Mobile Suit Zeta Gundam",
+    "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Zeta_Gundam_episodes",
+    [
       ep(1, "黒いガンダム", "The Black Gundam", "1985-03-02"),
       ep(2, "旅立ち", "Departure", "1985-03-09"),
       ep(3, "カプセルの中", "Inside the Capsule", "1985-03-16"),
@@ -1218,7 +1219,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ep(49, "生命散って", "Casualties of War", "1986-02-15"),
       ep(50, "を駆ける", "Riders in the Skies", "1986-02-22"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "broadcast",
@@ -1244,12 +1245,12 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "streaming", "Crunchyroll / Funimation", "2020", "simulcast"),
     ],
-  },
-  zz_1986_tv: {
-    title: { ja: "機動戦士ガンダムZZ", en: "Mobile Suit Gundam ZZ" },
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_ZZ_episodes",
-    episodes: [
+  ),
+  zz_1986_tv: det(
+    "機動戦士ガンダムZZ",
+    "Mobile Suit Gundam ZZ",
+    "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_ZZ_episodes",
+    [
       ep(1, "プレリュードΖΖ", "Prelude of ZZ", "1986-03-01"),
       ep(
         2,
@@ -1318,7 +1319,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ep(46, "バイブレーション", "Vibration", "1987-01-24"),
       ep(47, "戦士、再び……", "Warrior, Once More...", "1987-01-31"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "broadcast",
@@ -1337,15 +1338,12 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "streaming", "Crunchyroll / Funimation", "2020", "simulcast"),
     ],
-  },
-  zero80_1989_ova: {
-    title: {
-      ja: "機動戦士ガンダム0080 ポケットの中の戦争",
-      en: "Mobile Suit Gundam 0080: War in the Pocket",
-    },
-    source:
-      "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_0080:_War_in_the_Pocket",
-    episodes: [
+  ),
+  zero80_1989_ova: det(
+    "機動戦士ガンダム0080 ポケットの中の戦争",
+    "Mobile Suit Gundam 0080: War in the Pocket",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_0080:_War_in_the_Pocket",
+    [
       ep(
         1,
         "戦場までは何マイル？",
@@ -1377,7 +1375,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         en: "2001-11-13",
       }),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "home_video",
@@ -1425,15 +1423,12 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "box-set",
       ),
     ],
-  },
-  zero83_1991_ova: {
-    title: {
-      ja: "機動戦士ガンダム0083 STARDUST MEMORY",
-      en: "Mobile Suit Gundam 0083: Stardust Memory",
-    },
-    source:
-      "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_0083:_Stardust_Memory",
-    episodes: [
+  ),
+  zero83_1991_ova: det(
+    "機動戦士ガンダム0083 STARDUST MEMORY",
+    "Mobile Suit Gundam 0083: Stardust Memory",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_0083:_Stardust_Memory",
+    [
       ep(1, "ガンダム強奪 STARDUST RISING", "Gundamjack", "1991-05-23", {
         en: "2002-02-23",
       }),
@@ -1518,7 +1513,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         { en: "2002-05-18" },
       ),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "home_video",
@@ -1545,12 +1540,12 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "box-set",
       ),
     ],
-  },
-  victory_1993_tv: {
-    title: { ja: "機動戦士Vガンダム", en: "Mobile Suit Victory Gundam" },
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Victory_Gundam_episodes",
-    episodes: [
+  ),
+  victory_1993_tv: det(
+    "機動戦士Vガンダム",
+    "Mobile Suit Victory Gundam",
+    "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Victory_Gundam_episodes",
+    [
       ep(1, "白いモビルスーツ", "The White Mobile Suit", "1993-04-02"),
       ep(
         2,
@@ -1633,7 +1628,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ),
       ep(51, "天使たちの昇天", "The Ascension of the Angels", "1994-03-25"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "broadcast",
@@ -1650,15 +1645,12 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "box-set",
       ),
     ],
-  },
-  msteam08_1996_ova: {
-    title: {
-      ja: "機動戦士ガンダム 第08MS小隊",
-      en: "Mobile Suit Gundam: The 08th MS Team",
-    },
-    source:
-      "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_08th_MS_Team",
-    episodes: [
+  ),
+  msteam08_1996_ova: det(
+    "機動戦士ガンダム 第08MS小隊",
+    "Mobile Suit Gundam: The 08th MS Team",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_08th_MS_Team",
+    [
       ep(1, "二人だけの戦争", "War for Two", "1996-01-25"),
       ep(2, "密林のガンダム", "Gundams in the Jungle", "1996-01-25"),
       ep(
@@ -1687,7 +1679,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ),
       ep(12, "ラスト・リゾート", "Last Resort", "1999-07-25"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "home_video",
@@ -1713,15 +1705,12 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "streaming", "Crunchyroll", "2024", "simulcast"),
     ],
-  },
-  msteam08_millers_report_1998_film: {
-    title: {
-      ja: "機動戦士ガンダム 第08MS小隊 ミラーズ・リポート",
-      en: "Mobile Suit Gundam: The 08th MS Team — Miller's Report",
-    },
-    source:
-      "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_08th_MS_Team",
-    episodes: [
+  ),
+  msteam08_millers_report_1998_film: det(
+    "機動戦士ガンダム 第08MS小隊 ミラーズ・リポート",
+    "Mobile Suit Gundam: The 08th MS Team — Miller's Report",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_08th_MS_Team",
+    [
       ep(
         1,
         "機動戦士ガンダム 第08MS小隊 ミラーズ・リポート",
@@ -1730,35 +1719,28 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         { note: "Theatrical compilation film" },
       ),
     ],
-    releases: [
+    [
       rel("ja", "theatrical", "Theatrical release", "1998-08-01", "theatrical"),
       rel("en", "home_video", "Bandai Entertainment DVD", "2003", "box-set"),
     ],
-  },
-  msteam08_1999_novel: {
-    title: {
-      ja: "機動戦士ガンダム 第08MS小隊 (小説版)",
-      en: "Mobile Suit Gundam: The 08th MS Team (novelization)",
-    },
-    source:
-      "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_08th_MS_Team",
-    author: "Ichirō Ōkouchi",
-    publisher: "Kadokawa Sneaker Bunko",
-    episodes: [
+  ),
+  msteam08_1999_novel: det(
+    "機動戦士ガンダム 第08MS小隊 (小説版)",
+    "Mobile Suit Gundam: The 08th MS Team (novelization)",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_08th_MS_Team",
+    [
       ep(1, "Upper (上)", "Upper (上)", "1999-04-27"),
       ep(2, "Middle (中)", "Middle (中)", "1999-06-29"),
       ep(3, "Lower (下)", "Lower (下)", "1999-12"),
     ],
-    releases: [rel("ja", "print", "Kadokawa Sneaker Bunko", "1999", "serial")],
-  },
-  chars_counterattack_1988_film: {
-    title: {
-      ja: "機動戦士ガンダム 逆襲のシャア",
-      en: "Mobile Suit Gundam: Char's Counterattack",
-    },
-    source:
-      "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Char%27s_Counterattack",
-    episodes: [
+    [rel("ja", "print", "Kadokawa Sneaker Bunko", "1999", "serial")],
+    { author: "Ichirō Ōkouchi", publisher: "Kadokawa Sneaker Bunko" },
+  ),
+  chars_counterattack_1988_film: det(
+    "機動戦士ガンダム 逆襲のシャア",
+    "Mobile Suit Gundam: Char's Counterattack",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Char%27s_Counterattack",
+    [
       ep(
         1,
         "機動戦士ガンダム 逆襲のシャア",
@@ -1766,7 +1748,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "1988-03-12",
       ),
     ],
-    releases: [
+    [
       rel("ja", "theatrical", "Theatrical release", "1988-03-12", "theatrical"),
       rel(
         "en",
@@ -1784,23 +1766,24 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "streaming", "Crunchyroll", "2024", "simulcast"),
     ],
-  },
-  f91_1991_film: {
-    title: { ja: "機動戦士ガンダムF91", en: "Mobile Suit Gundam F91" },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_F91",
-    episodes: [ep(1, "機動戦士ガンダムF91", "Gundam F91", "1991-03-16")],
-    releases: [
+  ),
+  f91_1991_film: det(
+    "機動戦士ガンダムF91",
+    "Mobile Suit Gundam F91",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_F91",
+    [ep(1, "機動戦士ガンダムF91", "Gundam F91", "1991-03-16")],
+    [
       rel("ja", "theatrical", "Theatrical release", "1991-03-16", "theatrical"),
       rel("en", "home_video", "Bandai Entertainment DVD", "2004", "box-set"),
       rel("en", "home_video", "Right Stuf / Sunrise", "2017", "box-set"),
       rel("en", "streaming", "Crunchyroll", "2024", "simulcast"),
     ],
-  },
-  unicorn_2010_ova: {
-    title: { ja: "機動戦士ガンダムUC", en: "Mobile Suit Gundam Unicorn" },
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_Unicorn_episodes",
-    episodes: [
+  ),
+  unicorn_2010_ova: det(
+    "機動戦士ガンダムUC",
+    "Mobile Suit Gundam Unicorn",
+    "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_Unicorn_episodes",
+    [
       ep(1, "96年目の出発(たびだち)", "Day of the Unicorn", "2010-02-20"),
       ep(2, "最初の血", "The Second Coming of Char", "2010-11-12"),
       ep(3, "それはガンダムと呼ばれた", "The Ghost of Laplace", "2011-03-05"),
@@ -1820,7 +1803,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ),
       ep(7, "パラオ攻略戦", "Over the Rainbow", "2014-06-06"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "home_video",
@@ -1844,15 +1827,12 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "box-set",
       ),
     ],
-  },
-  unicorn_re0096_2016_tv: {
-    title: {
-      ja: "機動戦士ガンダムユニコーンRE:0096",
-      en: "Mobile Suit Gundam Unicorn RE:0096",
-    },
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_Unicorn_episodes",
-    episodes: [
+  ),
+  unicorn_re0096_2016_tv: det(
+    "機動戦士ガンダムユニコーンRE:0096",
+    "Mobile Suit Gundam Unicorn RE:0096",
+    "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_Unicorn_episodes",
+    [
       ep(1, "96年目の出発(たびだち)", "Departure 0096", "2016-04-03", {
         en: "2017-01-08",
       }),
@@ -1930,7 +1910,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       }),
       ep(22, "帰還", "Return", "2016-09-11", { en: "2017-06-11" }),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "broadcast",
@@ -1948,14 +1928,12 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "broadcast", "Toonami (Adult Swim)", "2018-01-13", "weekly"),
     ],
-  },
-  origin_2015_ova: {
-    title: {
-      ja: "機動戦士ガンダム THE ORIGIN",
-      en: "Mobile Suit Gundam: The Origin",
-    },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_Origin",
-    episodes: [
+  ),
+  origin_2015_ova: det(
+    "機動戦士ガンダム THE ORIGIN",
+    "Mobile Suit Gundam: The Origin",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_Origin",
+    [
       ep(1, "青い瞳のキャスバル", "Blue-Eyed Casval", "2015-02-28"),
       ep(2, "哀しみのアルテイシア", "Artesia's Sorrow", "2015-10-31"),
       ep(3, "暁の蜂起", "Dawn of Rebellion", "2016-05-21"),
@@ -1963,7 +1941,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ep(5, "激突 ルウム会戦", "Clash at Loum", "2017-09-02"),
       ep(6, "誕生 赤い彗星", "Rise of the Red Comet", "2018-05-05"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "theatrical",
@@ -1975,15 +1953,12 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       rel("en", "streaming", "Crunchyroll / Funimation", "2015", "simulcast"),
       rel("en", "home_video", "Right Stuf / Sunrise", "2017", "box-set"),
     ],
-  },
-  origin_advent_2019_tv: {
-    title: {
-      ja: "機動戦士ガンダム THE ORIGIN 前夜 赤い彗星",
-      en: "Mobile Suit Gundam: The Origin — Advent of the Red Comet",
-    },
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam:_The_Origin_episodes",
-    episodes: [
+  ),
+  origin_advent_2019_tv: det(
+    "機動戦士ガンダム THE ORIGIN 前夜 赤い彗星",
+    "Mobile Suit Gundam: The Origin — Advent of the Red Comet",
+    "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam:_The_Origin_episodes",
+    [
       ep(1, "ジオンの子", "Child of Zeon", "2019-04-29", { en: "2019-07-07" }),
       ep(2, "母との約束", "A Promise with Mother", "2019-05-06", {
         en: "2019-07-14",
@@ -2024,7 +1999,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         en: "2019-10-05",
       }),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "broadcast",
@@ -2036,18 +2011,12 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       rel("en", "streaming", "Crunchyroll / Funimation", "2019", "simulcast"),
       rel("en", "home_video", "Right Stuf / Sunrise", "2020", "box-set"),
     ],
-  },
-  origin_2001_manga: {
-    title: {
-      ja: "機動戦士ガンダム THE ORIGIN",
-      en: "Mobile Suit Gundam: The Origin (manga)",
-    },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_Origin",
-    author: "Yoshikazu Yasuhiko",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
-    note: "24 tankōbon volumes 2002-2015 (serialised 25 June 2001 - 25 June 2011). Per-volume dates approximate where exact tankobon dates not in available sources.",
-    episodes: [
+  ),
+  origin_2001_manga: det(
+    "機動戦士ガンダム THE ORIGIN",
+    "Mobile Suit Gundam: The Origin (manga)",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_Origin",
+    [
       ep(1, "Activation", "Activation", "2002-06-01"),
       ep(2, "Fierce Battle", "Fierce Battle", "2002-07-26"),
       ep(3, "Garma (Part 1)", "Garma (Part 1)", "2002-11-26"),
@@ -2103,7 +2072,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ep(23, "Encounters in Space", "Encounters in Space", "2011-11-26"),
       ep(24, "Special Edition", "Special Edition", "2015-02-26"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "print",
@@ -2121,22 +2090,23 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "2015-11-24",
       ),
     ],
-  },
-  msg_tomino_novel_trilogy: {
-    title: {
-      ja: "機動戦士ガンダム (小説版)",
-      en: "Mobile Suit Gundam (Tomino novelization trilogy)",
+    {
+      author: "Yoshikazu Yasuhiko",
+      publisher: "Kadokawa Shoten",
+      magazine: "Gundam Ace",
+      note: "24 tankōbon volumes 2002-2015 (serialised 25 June 2001 - 25 June 2011). Per-volume dates approximate where exact tankobon dates not in available sources.",
     },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam",
-    author: "Yoshiyuki Tomino",
-    publisher: "Sora Shobo (later Kadokawa)",
-    note: "Original novelisation, divergent from anime ending (Amuro dies). Major source for later UC works.",
-    episodes: [
+  ),
+  msg_tomino_novel_trilogy: det(
+    "機動戦士ガンダム (小説版)",
+    "Mobile Suit Gundam (Tomino novelization trilogy)",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam",
+    [
       ep(1, "Volume 1", "Volume 1", "1987-10"),
       ep(2, "Volume 2", "Volume 2", "1987-11"),
       ep(3, "Volume 3", "Volume 3", "1987-11"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "print",
@@ -2155,22 +2125,22 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "print", "Vertical Inc re-release", "2012", "serial"),
     ],
-  },
-  hathaway_flash_1989_novel: {
-    title: {
-      ja: "機動戦士ガンダム 閃光のハサウェイ",
-      en: "Mobile Suit Gundam: Hathaway's Flash (novel trilogy)",
+    {
+      author: "Yoshiyuki Tomino",
+      publisher: "Sora Shobo (later Kadokawa)",
+      note: "Original novelisation, divergent from anime ending (Amuro dies). Major source for later UC works.",
     },
-    source:
-      "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Hathaway%27s_Flash",
-    author: "Yoshiyuki Tomino",
-    publisher: "Kadokawa Shoten",
-    episodes: [
+  ),
+  hathaway_flash_1989_novel: det(
+    "機動戦士ガンダム 閃光のハサウェイ",
+    "Mobile Suit Gundam: Hathaway's Flash (novel trilogy)",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Hathaway%27s_Flash",
+    [
       ep(1, "Hathaway's Flash I", "Hathaway's Flash I", "1989-02-13"),
       ep(2, "Hathaway's Flash II", "Hathaway's Flash II", "1990-03-01"),
       ep(3, "Hathaway's Flash III", "Hathaway's Flash III", "1990-04-11"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "print",
@@ -2180,34 +2150,25 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "1990-04-20",
       ),
     ],
-  },
-  beltorchikas_children_1988_novel: {
-    title: {
-      ja: "機動戦士ガンダム 逆襲のシャア ベルトーチカ・チルドレン",
-      en: "Mobile Suit Gundam: Beltorchika's Children",
+    { author: "Yoshiyuki Tomino", publisher: "Kadokawa Shoten" },
+  ),
+  beltorchikas_children_1988_novel: det(
+    "機動戦士ガンダム 逆襲のシャア ベルトーチカ・チルドレン",
+    "Mobile Suit Gundam: Beltorchika's Children",
+    "https://en.wikipedia.org/wiki/Beltorchika%27s_Children",
+    [ep(1, "Beltorchika's Children", "Beltorchika's Children", "1988-02-20")],
+    [rel("ja", "print", "Kadokawa Sneaker Bunko", "1988-02-20", "serial")],
+    {
+      author: "Yoshiyuki Tomino",
+      publisher: "Kadokawa Shoten",
+      note: "Alternate novelisation of Char's Counterattack featuring Beltorchika Irma rather than Quess Paraya.",
     },
-    source: "https://en.wikipedia.org/wiki/Beltorchika%27s_Children",
-    author: "Yoshiyuki Tomino",
-    publisher: "Kadokawa Shoten",
-    note: "Alternate novelisation of Char's Counterattack featuring Beltorchika Irma rather than Quess Paraya.",
-    episodes: [
-      ep(1, "Beltorchika's Children", "Beltorchika's Children", "1988-02-20"),
-    ],
-    releases: [
-      rel("ja", "print", "Kadokawa Sneaker Bunko", "1988-02-20", "serial"),
-    ],
-  },
-  unicorn_2007_novel: {
-    title: {
-      ja: "機動戦士ガンダムUC (小説)",
-      en: "Mobile Suit Gundam Unicorn (light novels)",
-    },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Unicorn",
-    author: "Harutoshi Fukui",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
-    note: "Original light novel series; OVA is adaptation. 10 main volumes + 1 epilogue volume.",
-    episodes: [
+  ),
+  unicorn_2007_novel: det(
+    "機動戦士ガンダムUC (小説)",
+    "Mobile Suit Gundam Unicorn (light novels)",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Unicorn",
+    [
       ep(
         1,
         "Volume 1: The Day of the Unicorn (Part 1)",
@@ -2265,7 +2226,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "2016-03-26",
       ),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "print",
@@ -2275,14 +2236,18 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "2009-08-26",
       ),
     ],
-  },
-  thunderbolt_2015_ona: {
-    title: {
-      ja: "機動戦士ガンダムサンダーボルト",
-      en: "Mobile Suit Gundam Thunderbolt",
+    {
+      author: "Harutoshi Fukui",
+      publisher: "Kadokawa Shoten",
+      magazine: "Gundam Ace",
+      note: "Original light novel series; OVA is adaptation. 10 main volumes + 1 epilogue volume.",
     },
-    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Thunderbolt",
-    episodes: [
+  ),
+  thunderbolt_2015_ona: det(
+    "機動戦士ガンダムサンダーボルト",
+    "Mobile Suit Gundam Thunderbolt",
+    "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Thunderbolt",
+    [
       ep(1, "Episode 1", "Episode 1", "2015-12-25"),
       ep(2, "Episode 2", "Episode 2", "2016-02-12"),
       ep(3, "Episode 3", "Episode 3", "2016-03-18"),
@@ -2292,7 +2257,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ep(7, "Episode 7", "Episode 7", "2017-05-31"),
       ep(8, "Episode 8", "Episode 8", "2017-07-14"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "streaming",
@@ -2318,18 +2283,12 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "box-set",
       ),
     ],
-  },
-  thunderbolt_2012_manga: {
-    title: {
-      ja: "機動戦士ガンダム サンダーボルト",
-      en: "Mobile Suit Gundam Thunderbolt (manga)",
-    },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Thunderbolt",
-    author: "Yasuo Ohtagaki",
-    publisher: "Shogakukan",
-    magazine: "Big Comic Superior",
-    note: "Began serialisation March 2012; ongoing. Collected in 20+ tankōbon volumes.",
-    episodes: [
+  ),
+  thunderbolt_2012_manga: det(
+    "機動戦士ガンダム サンダーボルト",
+    "Mobile Suit Gundam Thunderbolt (manga)",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Thunderbolt",
+    [
       ep(1, "Volume 1", "Volume 1", "2012-10-30", { en: "2016-11-15" }),
       ep(2, "Volume 2", "Volume 2", "2013-05-30", { en: "2017-02-21" }),
       ep(3, "Volume 3", "Volume 3", "2014-02-28", { en: "2017-05-16" }),
@@ -2358,7 +2317,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ep(26, "Volume 26", "Volume 26", "2025-08-29"),
       ep(27, "Volume 27", "Volume 27", "2025-12-19"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "print",
@@ -2376,14 +2335,18 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "serial",
       ),
     ],
-  },
-  twilight_axis_2017_ona: {
-    title: {
-      ja: "機動戦士ガンダム Twilight AXIS",
-      en: "Mobile Suit Gundam: Twilight AXIS",
+    {
+      author: "Yasuo Ohtagaki",
+      publisher: "Shogakukan",
+      magazine: "Big Comic Superior",
+      note: "Began serialisation March 2012; ongoing. Collected in 20+ tankōbon volumes.",
     },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Twilight_AXIS",
-    episodes: [
+  ),
+  twilight_axis_2017_ona: det(
+    "機動戦士ガンダム Twilight AXIS",
+    "Mobile Suit Gundam: Twilight AXIS",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Twilight_AXIS",
+    [
       ep(1, "Episode 1", "Episode 1", "2017-06-23"),
       ep(2, "Episode 2", "Episode 2", "2017-07-07"),
       ep(3, "Episode 3", "Episode 3", "2017-07-21"),
@@ -2391,7 +2354,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ep(5, "Episode 5", "Episode 5", "2017-08-18"),
       ep(6, "Episode 6", "Episode 6", "2017-09-01"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "streaming",
@@ -2409,12 +2372,13 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "streaming", "Gundam.info YouTube", "2017", "simulcast"),
     ],
-  },
-  narrative_2018_film: {
-    title: { ja: "機動戦士ガンダムNT", en: "Mobile Suit Gundam Narrative" },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Narrative",
-    episodes: [ep(1, "機動戦士ガンダムNT", "Gundam Narrative", "2018-11-30")],
-    releases: [
+  ),
+  narrative_2018_film: det(
+    "機動戦士ガンダムNT",
+    "Mobile Suit Gundam Narrative",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Narrative",
+    [ep(1, "機動戦士ガンダムNT", "Gundam Narrative", "2018-11-30")],
+    [
       rel("ja", "theatrical", "Theatrical release", "2018-11-30", "theatrical"),
       rel("en", "streaming", "Right Stuf / Crunchyroll", "2020", "simulcast"),
       rel(
@@ -2425,17 +2389,13 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "box-set",
       ),
     ],
-  },
-  hathaway_2021_film: {
-    title: {
-      ja: "機動戦士ガンダム 閃光のハサウェイ",
-      en: "Mobile Suit Gundam: Hathaway",
-    },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Hathaway",
-    episodes: [
-      ep(1, "機動戦士ガンダム 閃光のハサウェイ", "Hathaway", "2021-06-11"),
-    ],
-    releases: [
+  ),
+  hathaway_2021_film: det(
+    "機動戦士ガンダム 閃光のハサウェイ",
+    "Mobile Suit Gundam: Hathaway",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Hathaway",
+    [ep(1, "機動戦士ガンダム 閃光のハサウェイ", "Hathaway", "2021-06-11")],
+    [
       rel("ja", "theatrical", "Theatrical release", "2021-06-11", "theatrical"),
       rel("en", "streaming", "Netflix", "2021-07-01", "simulcast"),
       rel(
@@ -2453,15 +2413,12 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "theatrical",
       ),
     ],
-  },
-  cucuruz_doan_2022_film: {
-    title: {
-      ja: "機動戦士ガンダム ククルス・ドアンの島",
-      en: "Mobile Suit Gundam: Cucuruz Doan's Island",
-    },
-    source:
-      "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Cucuruz_Doan%27s_Island",
-    episodes: [
+  ),
+  cucuruz_doan_2022_film: det(
+    "機動戦士ガンダム ククルス・ドアンの島",
+    "Mobile Suit Gundam: Cucuruz Doan's Island",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Cucuruz_Doan%27s_Island",
+    [
       ep(
         1,
         "機動戦士ガンダム ククルス・ドアンの島",
@@ -2469,21 +2426,17 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "2022-06-03",
       ),
     ],
-    releases: [
+    [
       rel("ja", "theatrical", "Theatrical release", "2022-06-03", "theatrical"),
       rel("en", "home_video", "Right Stuf / Sunrise", "2023", "box-set"),
       rel("en", "streaming", "Crunchyroll", "2023", "simulcast"),
     ],
-  },
-  requiem_for_vengeance_2024_ona: {
-    title: {
-      ja: "機動戦士ガンダム REQUIEM FOR VENGEANCE",
-      en: "Mobile Suit Gundam: Requiem for Vengeance",
-    },
-    source:
-      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Requiem_for_Vengeance",
-    note: "All 6 episodes released simultaneously on Netflix",
-    episodes: [
+  ),
+  requiem_for_vengeance_2024_ona: det(
+    "機動戦士ガンダム REQUIEM FOR VENGEANCE",
+    "Mobile Suit Gundam: Requiem for Vengeance",
+    "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Requiem_for_Vengeance",
+    [
       ep(1, "Haunted Forest", "Haunted Forest", "2024-10-17"),
       ep(2, "Broken", "Broken", "2024-10-17"),
       ep(3, "Junkyard", "Junkyard", "2024-10-17"),
@@ -2491,18 +2444,17 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ep(5, "The River", "The River", "2024-10-17"),
       ep(6, "Convoy to Oblivion", "Convoy to Oblivion", "2024-10-17"),
     ],
-    releases: [
+    [
       rel("ja", "streaming", "Netflix Japan", "2024-10-17", "simulcast"),
       rel("en", "streaming", "Netflix (worldwide)", "2024-10-17", "simulcast"),
     ],
-  },
-  hathaway_sorcery_2026_film: {
-    title: {
-      ja: "機動戦士ガンダム 閃光のハサウェイ キルケーの魔女",
-      en: "Mobile Suit Gundam: Hathaway — Sorcery of Nymph Circe",
-    },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Hathaway",
-    episodes: [
+    { note: "All 6 episodes released simultaneously on Netflix" },
+  ),
+  hathaway_sorcery_2026_film: det(
+    "機動戦士ガンダム 閃光のハサウェイ キルケーの魔女",
+    "Mobile Suit Gundam: Hathaway — Sorcery of Nymph Circe",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Hathaway",
+    [
       ep(
         1,
         "機動戦士ガンダム 閃光のハサウェイ キルケーの魔女",
@@ -2510,21 +2462,13 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "2026-01-30",
       ),
     ],
-    releases: [
-      rel("ja", "theatrical", "Theatrical release", "2026-01-30", "theatrical"),
-    ],
-  },
-  crossbone_1994_manga: {
-    title: {
-      ja: "機動戦士クロスボーン・ガンダム",
-      en: "Mobile Suit Crossbone Gundam",
-    },
-    source: "https://en.wikipedia.org/wiki/Crossbone_Gundam",
-    author: "Yuichi Hasegawa (story: Yoshiyuki Tomino)",
-    publisher: "Kadokawa Shoten",
-    magazine: "Shōnen Ace",
-    note: "Original series 1994-1997; 6 volumes. Setting: UC 0133 (10 years after F91).",
-    episodes: [
+    [rel("ja", "theatrical", "Theatrical release", "2026-01-30", "theatrical")],
+  ),
+  crossbone_1994_manga: det(
+    "機動戦士クロスボーン・ガンダム",
+    "Mobile Suit Crossbone Gundam",
+    "https://en.wikipedia.org/wiki/Crossbone_Gundam",
+    [
       ep(1, "Volume 1", "Volume 1", "1995-03-10"),
       ep(2, "Volume 2", "Volume 2", "1995-08-07"),
       ep(3, "Volume 3", "Volume 3", "1996-03-06"),
@@ -2532,7 +2476,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ep(5, "Volume 5", "Volume 5", "1997-02-07"),
       ep(6, "Volume 6", "Volume 6", "1997-06-05"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "print",
@@ -2542,50 +2486,46 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "1997-01-25",
       ),
     ],
-  },
-  crossbone_skullheart_2002_manga: {
-    title: {
-      ja: "機動戦士クロスボーン・ガンダム スカルハート",
-      en: "Crossbone Gundam: Skull Heart",
+    {
+      author: "Yuichi Hasegawa (story: Yoshiyuki Tomino)",
+      publisher: "Kadokawa Shoten",
+      magazine: "Shōnen Ace",
+      note: "Original series 1994-1997; 6 volumes. Setting: UC 0133 (10 years after F91).",
     },
-    source: "https://en.wikipedia.org/wiki/Crossbone_Gundam",
-    author: "Yuichi Hasegawa",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
-    episodes: [ep(1, "Volume 1", "Volume 1", "2005-01-26")],
-    releases: [
-      rel("ja", "print", "Kadokawa Gundam Ace", "2002", "serial", "2004"),
-    ],
-  },
-  crossbone_steelseven_2006_manga: {
-    title: {
-      ja: "機動戦士クロスボーン・ガンダム 鋼鉄の7人",
-      en: "Crossbone Gundam: The Steel Seven",
+  ),
+  crossbone_skullheart_2002_manga: det(
+    "機動戦士クロスボーン・ガンダム スカルハート",
+    "Crossbone Gundam: Skull Heart",
+    "https://en.wikipedia.org/wiki/Crossbone_Gundam",
+    [ep(1, "Volume 1", "Volume 1", "2005-01-26")],
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2002", "serial", "2004")],
+    {
+      author: "Yuichi Hasegawa",
+      publisher: "Kadokawa Shoten",
+      magazine: "Gundam Ace",
     },
-    source: "https://en.wikipedia.org/wiki/Crossbone_Gundam",
-    author: "Yuichi Hasegawa",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
-    episodes: [
+  ),
+  crossbone_steelseven_2006_manga: det(
+    "機動戦士クロスボーン・ガンダム 鋼鉄の7人",
+    "Crossbone Gundam: The Steel Seven",
+    "https://en.wikipedia.org/wiki/Crossbone_Gundam",
+    [
       ep(1, "Volume 1", "Volume 1", "2006-12-26"),
       ep(2, "Volume 2", "Volume 2", "2007-05-26"),
       ep(3, "Volume 3", "Volume 3", "2007-12-26"),
     ],
-    releases: [
-      rel("ja", "print", "Kadokawa Gundam Ace", "2006", "serial", "2007"),
-    ],
-  },
-  crossbone_ghost_2011_manga: {
-    title: {
-      ja: "機動戦士クロスボーン・ガンダム ゴースト",
-      en: "Crossbone Gundam: Ghost",
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2006", "serial", "2007")],
+    {
+      author: "Yuichi Hasegawa",
+      publisher: "Kadokawa Shoten",
+      magazine: "Gundam Ace",
     },
-    source: "https://en.wikipedia.org/wiki/Crossbone_Gundam",
-    author: "Yuichi Hasegawa",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
-    note: "12 volumes; setting UC 0153 (concurrent with V Gundam). Per-volume dates approximate.",
-    episodes: [
+  ),
+  crossbone_ghost_2011_manga: det(
+    "機動戦士クロスボーン・ガンダム ゴースト",
+    "Crossbone Gundam: Ghost",
+    "https://en.wikipedia.org/wiki/Crossbone_Gundam",
+    [
       ep(1, "Volume 1", "Volume 1", "2012-05-26"),
       ep(2, "Volume 2", "Volume 2", "2012-08-25"),
       ep(3, "Volume 3", "Volume 3", "2013-02-22"),
@@ -2599,18 +2539,19 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ep(11, "Volume 11", "Volume 11", "2015-12-26"),
       ep(12, "Volume 12", "Volume 12", "2016-05-25"),
     ],
-    releases: [
-      rel("ja", "print", "Kadokawa Gundam Ace", "2011", "serial", "2016-03"),
-    ],
-  },
-  crossbone_dust_2016_manga: {
-    title: { ja: "クロスボーン・ガンダム DUST", en: "Crossbone Gundam: Dust" },
-    source: "https://en.wikipedia.org/wiki/Crossbone_Gundam",
-    author: "Yuichi Hasegawa",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
-    note: "13 volumes; setting UC 0169. Per-volume dates approximate.",
-    episodes: [
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2011", "serial", "2016-03")],
+    {
+      author: "Yuichi Hasegawa",
+      publisher: "Kadokawa Shoten",
+      magazine: "Gundam Ace",
+      note: "12 volumes; setting UC 0153 (concurrent with V Gundam). Per-volume dates approximate.",
+    },
+  ),
+  crossbone_dust_2016_manga: det(
+    "クロスボーン・ガンダム DUST",
+    "Crossbone Gundam: Dust",
+    "https://en.wikipedia.org/wiki/Crossbone_Gundam",
+    [
       ep(1, "Volume 1", "Volume 1", "2016-12-26"),
       ep(2, "Volume 2", "Volume 2", "2017-04-24"),
       ep(3, "Volume 3", "Volume 3", "2017-08-26"),
@@ -2625,24 +2566,23 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ep(12, "Volume 12", "Volume 12", "2020-11-25"),
       ep(13, "Volume 13", "Volume 13", "2021-03-26"),
     ],
-    releases: [
-      rel("ja", "print", "Kadokawa Gundam Ace", "2016", "serial", "2020-08"),
-    ],
-  },
-  crossbone_x11_2021_manga: {
-    title: {
-      ja: "機動戦士クロスボーン・ガンダム X-11",
-      en: "Crossbone Gundam: X-11",
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2016", "serial", "2020-08")],
+    {
+      author: "Yuichi Hasegawa",
+      publisher: "Kadokawa Shoten",
+      magazine: "Gundam Ace",
+      note: "13 volumes; setting UC 0169. Per-volume dates approximate.",
     },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Crossbone_Gundam",
-    author: "Yuichi Hasegawa",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
-    episodes: [
+  ),
+  crossbone_x11_2021_manga: det(
+    "機動戦士クロスボーン・ガンダム X-11",
+    "Crossbone Gundam: X-11",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Crossbone_Gundam",
+    [
       ep(1, "Volume 1", "Volume 1", "2022-02-25"),
       ep(2, "Volume 2", "Volume 2", "2022-09-26"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "print",
@@ -2652,53 +2592,48 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "2022-05-26",
       ),
     ],
-  },
-  crossbone_lovepiece_2022_manga: {
-    title: {
-      ja: "クロスボーン・ガンダム Love & Piece",
-      en: "Crossbone Gundam: Love & Piece",
+    {
+      author: "Yuichi Hasegawa",
+      publisher: "Kadokawa Shoten",
+      magazine: "Gundam Ace",
     },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Crossbone_Gundam",
-    author: "Yuichi Hasegawa",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
-    episodes: [
+  ),
+  crossbone_lovepiece_2022_manga: det(
+    "クロスボーン・ガンダム Love & Piece",
+    "Crossbone Gundam: Love & Piece",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Crossbone_Gundam",
+    [
       ep(1, "Volume 1", "Volume 1", "2023-06-26"),
       ep(2, "Volume 2", "Volume 2", "2024-01-26"),
     ],
-    releases: [
-      rel("ja", "print", "Gundam Ace / Kadokawa", "2022-04-26", "serial"),
-    ],
-  },
-  crossbone_seeraeuber_2024_manga: {
-    title: {
-      ja: "クロスボーン・ガンダム ゼーライバー",
-      en: "Crossbone Gundam: Seeräuber",
+    [rel("ja", "print", "Gundam Ace / Kadokawa", "2022-04-26", "serial")],
+    {
+      author: "Yuichi Hasegawa",
+      publisher: "Kadokawa Shoten",
+      magazine: "Gundam Ace",
     },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Crossbone_Gundam",
-    author: "Yuichi Hasegawa",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
-    note: "Ongoing as of 2026",
-    episodes: [
+  ),
+  crossbone_seeraeuber_2024_manga: det(
+    "クロスボーン・ガンダム ゼーライバー",
+    "Crossbone Gundam: Seeräuber",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Crossbone_Gundam",
+    [
       ep(1, "Volume 1", "Volume 1", "2024-10-25"),
       ep(2, "Volume 2", "Volume 2", "2025"),
     ],
-    releases: [
-      rel("ja", "print", "Gundam Ace / Kadokawa", "2024-07-26", "serial"),
-    ],
-  },
-  msg_0079_kondo_manga: {
-    title: {
-      ja: "機動戦士ガンダム0079",
-      en: "Mobile Suit Gundam 0079 (Kazuhisa Kondo)",
+    [rel("ja", "print", "Gundam Ace / Kadokawa", "2024-07-26", "serial")],
+    {
+      author: "Yuichi Hasegawa",
+      publisher: "Kadokawa Shoten",
+      magazine: "Gundam Ace",
+      note: "Ongoing as of 2026",
     },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam",
-    author: "Kazuhisa Kondo",
-    publisher: "MediaWorks",
-    magazine: "Cyber Comics → Dengeki Daioh",
-    note: "12 volumes 1992-2005, long-running retelling. Per-volume dates approximate.",
-    episodes: [
+  ),
+  msg_0079_kondo_manga: det(
+    "機動戦士ガンダム0079",
+    "Mobile Suit Gundam 0079 (Kazuhisa Kondo)",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam",
+    [
       ep(1, "Volume 1", "Volume 1", "1994-10-13"),
       ep(2, "Volume 2", "Volume 2", "1995-02-23"),
       ep(3, "Volume 3", "Volume 3", "1995-09-27"),
@@ -2712,25 +2647,23 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ep(11, "Volume 11", "Volume 11", "2004-11-27"),
       ep(12, "Volume 12", "Volume 12", "2005-11-26"),
     ],
-    releases: [
-      rel("ja", "print", "Comic BomBom / Kodansha", "1993", "serial", "2003"),
-    ],
-  },
-  msg_okazaki_manga: {
-    title: {
-      ja: "機動戦士ガンダム (岡崎剛之)",
-      en: "Mobile Suit Gundam (Yū Okazaki)",
+    [rel("ja", "print", "Comic BomBom / Kodansha", "1993", "serial", "2003")],
+    {
+      author: "Kazuhisa Kondo",
+      publisher: "MediaWorks",
+      magazine: "Cyber Comics → Dengeki Daioh",
+      note: "12 volumes 1992-2005, long-running retelling. Per-volume dates approximate.",
     },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam",
-    author: "Yū Okazaki",
-    publisher: "Akita Shoten",
-    magazine: "Boken-Oh",
-    note: "First MSG manga adaptation, contemporaneous with original anime broadcast",
-    episodes: [
+  ),
+  msg_okazaki_manga: det(
+    "機動戦士ガンダム (岡崎剛之)",
+    "Mobile Suit Gundam (Yū Okazaki)",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam",
+    [
       ep(1, "Volume 1", "Volume 1", "1982-04-10"),
       ep(2, "Volume 2", "Volume 2", "1982-05-30"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "print",
@@ -2740,18 +2673,18 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "1982",
       ),
     ],
-  },
-  zero83_rebellion_manga: {
-    title: {
-      ja: "機動戦士ガンダム0083 REBELLION",
-      en: "Mobile Suit Gundam 0083: Rebellion",
+    {
+      author: "Yū Okazaki",
+      publisher: "Akita Shoten",
+      magazine: "Boken-Oh",
+      note: "First MSG manga adaptation, contemporaneous with original anime broadcast",
     },
-    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_0083_Rebellion",
-    author: "Masato Natsumoto (story: Takashi Imanishi)",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
-    note: "18 volumes 2013-2023. Per-volume dates approximate.",
-    episodes: [
+  ),
+  zero83_rebellion_manga: det(
+    "機動戦士ガンダム0083 REBELLION",
+    "Mobile Suit Gundam 0083: Rebellion",
+    "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_0083_Rebellion",
+    [
       ep(1, "A Fomenting Storm", "A Fomenting Storm", "2014-02-26"),
       ep(2, "Torrington Base", "Torrington Base", "2014-02-26"),
       ep(
@@ -2781,7 +2714,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ep(17, "The Immortal 4th Team", "The Immortal 4th Team", "2022-02-26"),
       ep(18, "The Third Spear", "The Third Spear", "2023-03-25"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "print",
@@ -2791,43 +2724,41 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "2023-03-25",
       ),
     ],
-  },
-  msteam08_manga: {
-    title: {
-      ja: "機動戦士ガンダム 第08MS小隊 U.C.0079+α",
-      en: "Mobile Suit Gundam 08th MS Team: U.C.0079+α",
+    {
+      author: "Masato Natsumoto (story: Takashi Imanishi)",
+      publisher: "Kadokawa Shoten",
+      magazine: "Gundam Ace",
+      note: "18 volumes 2013-2023. Per-volume dates approximate.",
     },
-    source:
-      "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_08th_MS_Team",
-    author: "Umanosuke Iida",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
-    episodes: [
+  ),
+  msteam08_manga: det(
+    "機動戦士ガンダム 第08MS小隊 U.C.0079+α",
+    "Mobile Suit Gundam 08th MS Team: U.C.0079+α",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_08th_MS_Team",
+    [
       ep(1, "Volume 1", "Volume 1", "1997"),
       ep(2, "Volume 2", "Volume 2", "1998"),
       ep(3, "Volume 3", "Volume 3", "1999"),
     ],
-    releases: [
-      rel("ja", "print", "Comic BomBom / Kodansha", "1996", "serial", "1999"),
-    ],
-  },
-  origin_msd_doan_2016_manga: {
-    title: {
-      ja: "機動戦士ガンダム THE ORIGIN MSD ククルス・ドアンの島",
-      en: "Mobile Suit Gundam: The Origin MSD — Cucuruz Doan's Island",
+    [rel("ja", "print", "Comic BomBom / Kodansha", "1996", "serial", "1999")],
+    {
+      author: "Umanosuke Iida",
+      publisher: "Kadokawa Shoten",
+      magazine: "Gundam Ace",
     },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_Origin",
-    author: "Junji Ono",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
-    episodes: [
+  ),
+  origin_msd_doan_2016_manga: det(
+    "機動戦士ガンダム THE ORIGIN MSD ククルス・ドアンの島",
+    "Mobile Suit Gundam: The Origin MSD — Cucuruz Doan's Island",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_Origin",
+    [
       ep(1, "Volume 1", "Volume 1", "2017-02-25", { en: "2024-10-01" }),
       ep(2, "Volume 2", "Volume 2", "2017-10-26", { en: "2024-12-03" }),
       ep(3, "Volume 3", "Volume 3", "2018-03-26", { en: "2025-02-04" }),
       ep(4, "Volume 4", "Volume 4", "2018-11-26", { en: "2025-04-01" }),
       ep(5, "Volume 5", "Volume 5", "2019-08-26", { en: "2025-06-03" }),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "print",
@@ -2845,15 +2776,17 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "2025-06-03",
       ),
     ],
-  },
-  msg_1981_compilation_films: {
-    title: {
-      ja: "機動戦士ガンダム (劇場版)",
-      en: "Mobile Suit Gundam I / II / III (compilation trilogy)",
+    {
+      author: "Junji Ono",
+      publisher: "Kadokawa Shoten",
+      magazine: "Gundam Ace",
     },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_(film)",
-    note: "Compilation film trilogy condensing the 43-episode TV series. Significant plot differences from TV including altered character deaths and Amuro's Newtype awakening.",
-    episodes: [
+  ),
+  msg_1981_compilation_films: det(
+    "機動戦士ガンダム (劇場版)",
+    "Mobile Suit Gundam I / II / III (compilation trilogy)",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_(film)",
+    [
       ep(1, "機動戦士ガンダム", "Mobile Suit Gundam I", "1981-03-14"),
       ep(
         2,
@@ -2868,7 +2801,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "1982-03-13",
       ),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "theatrical",
@@ -2887,19 +2820,20 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "streaming", "Crunchyroll", "2024-01-01", "simulcast"),
     ],
-  },
-  zeta_new_translation_2005_films: {
-    title: {
-      ja: "機動戦士Ζガンダム A New Translation",
-      en: "Mobile Suit Zeta Gundam: A New Translation",
+    {
+      note: "Compilation film trilogy condensing the 43-episode TV series. Significant plot differences from TV including altered character deaths and Amuro's Newtype awakening.",
     },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Zeta_Gundam",
-    episodes: [
+  ),
+  zeta_new_translation_2005_films: det(
+    "機動戦士Ζガンダム A New Translation",
+    "Mobile Suit Zeta Gundam: A New Translation",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Zeta_Gundam",
+    [
       ep(1, "星を継ぐ者", "Heirs to the Stars", "2005-05-28"),
       ep(2, "恋人たち", "Lovers", "2005-10-29"),
       ep(3, "星の鼓動は愛", "Love Is the Pulse of the Stars", "2006-03-06"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "theatrical",
@@ -2916,24 +2850,22 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "box-set",
       ),
     ],
-  },
-  gsaviour_2000_film: {
-    title: { ja: "G-SAVIOUR", en: "G-Saviour" },
-    source: "https://en.wikipedia.org/wiki/G-Saviour",
-    episodes: [ep(1, "G-SAVIOUR", "G-Saviour", "2000-12-29")],
-    releases: [
+  ),
+  gsaviour_2000_film: det(
+    "G-SAVIOUR",
+    "G-Saviour",
+    "https://en.wikipedia.org/wiki/G-Saviour",
+    [ep(1, "G-SAVIOUR", "G-Saviour", "2000-12-29")],
+    [
       rel("ja", "broadcast", "TV Asahi broadcast", "2000-12-29", "theatrical"),
       rel("en", "home_video", "Bandai Entertainment DVD", "2002", "box-set"),
     ],
-  },
-  msigloo_hidden_2004_ova: {
-    title: {
-      ja: "機動戦士ガンダム MS IGLOO -1年戦争全記録-",
-      en: "Mobile Suit Gundam MS IGLOO: The Hidden One Year War",
-    },
-    source:
-      "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_MS_IGLOO:_The_Hidden_One_Year_War",
-    episodes: [
+  ),
+  msigloo_hidden_2004_ova: det(
+    "機動戦士ガンダム MS IGLOO -1年戦争全記録-",
+    "Mobile Suit Gundam MS IGLOO: The Hidden One Year War",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_MS_IGLOO:_The_Hidden_One_Year_War",
+    [
       ep(1, "あの死神を撃て！", "The Vanished Lieutenant", "2004-07-27"),
       ep(
         2,
@@ -2948,7 +2880,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "2005-04-22",
       ),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "theatrical",
@@ -2959,20 +2891,17 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "home_video", "Right Stuf / Sunrise", "2017", "box-set"),
     ],
-  },
-  msigloo_apocalypse_2006_ova: {
-    title: {
-      ja: "機動戦士ガンダム MS IGLOO -黙示録0079-",
-      en: "Mobile Suit Gundam MS IGLOO: Apocalypse 0079",
-    },
-    source:
-      "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_MS_IGLOO:_Apocalypse_0079",
-    episodes: [
+  ),
+  msigloo_apocalypse_2006_ova: det(
+    "機動戦士ガンダム MS IGLOO -黙示録0079-",
+    "Mobile Suit Gundam MS IGLOO: Apocalypse 0079",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_MS_IGLOO:_Apocalypse_0079",
+    [
       ep(1, "あの死神を撃て！", "A Fleeting Rainbow", "2006-04-26"),
       ep(2, "陸の王者、前へ！", "The Boundless Gulf of Fire", "2006-10-25"),
       ep(3, "オデッサ、鉄の嵐！", "Spirits Returning to the Sky", "2007-08-24"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "home_video",
@@ -2983,15 +2912,12 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "home_video", "Right Stuf / Sunrise", "2017", "box-set"),
     ],
-  },
-  msigloo2_gravity_front_2008_ova: {
-    title: {
-      ja: "機動戦士ガンダム MS IGLOO 2 重力戦線",
-      en: "Mobile Suit Gundam MS IGLOO 2: Gravity Front",
-    },
-    source:
-      "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_MS_IGLOO_2:_Gravity_Front",
-    episodes: [
+  ),
+  msigloo2_gravity_front_2008_ova: det(
+    "機動戦士ガンダム MS IGLOO 2 重力戦線",
+    "Mobile Suit Gundam MS IGLOO 2: Gravity Front",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_MS_IGLOO_2:_Gravity_Front",
+    [
       ep(1, "Shoot That Down!", "Shoot That Down!", "2008-10-24"),
       ep(
         2,
@@ -3006,7 +2932,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "2009-06-26",
       ),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "home_video",
@@ -3017,14 +2943,12 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "home_video", "Right Stuf / Sunrise", "2019", "box-set"),
     ],
-  },
-  thunderbolt_december_sky_2016_film: {
-    title: {
-      ja: "機動戦士ガンダムサンダーボルト DECEMBER SKY",
-      en: "Mobile Suit Gundam Thunderbolt: December Sky",
-    },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Thunderbolt",
-    episodes: [
+  ),
+  thunderbolt_december_sky_2016_film: det(
+    "機動戦士ガンダムサンダーボルト DECEMBER SKY",
+    "Mobile Suit Gundam Thunderbolt: December Sky",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Thunderbolt",
+    [
       ep(
         1,
         "機動戦士ガンダムサンダーボルト DECEMBER SKY",
@@ -3032,7 +2956,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "2016-06-25",
       ),
     ],
-    releases: [
+    [
       rel("ja", "theatrical", "Theatrical release", "2016-06-25", "theatrical"),
       rel("en", "streaming", "Gundam.info YouTube", "2016-06-04", "simulcast"),
       rel(
@@ -3043,14 +2967,12 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "box-set",
       ),
     ],
-  },
-  thunderbolt_bandit_flower_2017_film: {
-    title: {
-      ja: "機動戦士ガンダムサンダーボルト BANDIT FLOWER",
-      en: "Mobile Suit Gundam Thunderbolt: Bandit Flower",
-    },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Thunderbolt",
-    episodes: [
+  ),
+  thunderbolt_bandit_flower_2017_film: det(
+    "機動戦士ガンダムサンダーボルト BANDIT FLOWER",
+    "Mobile Suit Gundam Thunderbolt: Bandit Flower",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Thunderbolt",
+    [
       ep(
         1,
         "機動戦士ガンダムサンダーボルト BANDIT FLOWER",
@@ -3058,7 +2980,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "2017-11-18",
       ),
     ],
-    releases: [
+    [
       rel("ja", "theatrical", "Theatrical release", "2017-11-18", "theatrical"),
       rel("en", "streaming", "Gundam.info YouTube", "2018-03-12", "simulcast"),
       rel(
@@ -3069,14 +2991,12 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "box-set",
       ),
     ],
-  },
-  twilight_axis_red_trace_2017_film: {
-    title: {
-      ja: "機動戦士ガンダム Twilight AXIS 赤き残痕",
-      en: "Mobile Suit Gundam: Twilight AXIS Red Trace",
-    },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Twilight_AXIS",
-    episodes: [
+  ),
+  twilight_axis_red_trace_2017_film: det(
+    "機動戦士ガンダム Twilight AXIS 赤き残痕",
+    "Mobile Suit Gundam: Twilight AXIS Red Trace",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Twilight_AXIS",
+    [
       ep(
         1,
         "機動戦士ガンダム Twilight AXIS 赤き残痕",
@@ -3084,18 +3004,13 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "2017-11-18",
       ),
     ],
-    releases: [
-      rel("ja", "theatrical", "Theatrical release", "2017-11-18", "theatrical"),
-    ],
-  },
-  msteam08_3d_2013_special: {
-    title: {
-      ja: "機動戦士ガンダム 第08MS小隊 三次元との戦い",
-      en: "Mobile Suit Gundam: The 08th MS Team: Battle in Three Dimensions",
-    },
-    source:
-      "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_08th_MS_Team",
-    episodes: [
+    [rel("ja", "theatrical", "Theatrical release", "2017-11-18", "theatrical")],
+  ),
+  msteam08_3d_2013_special: det(
+    "機動戦士ガンダム 第08MS小隊 三次元との戦い",
+    "Mobile Suit Gundam: The 08th MS Team: Battle in Three Dimensions",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_08th_MS_Team",
+    [
       ep(
         1,
         "機動戦士ガンダム 第08MS小隊 三次元との戦い",
@@ -3103,15 +3018,16 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "2013-02-22",
       ),
     ],
-    releases: [
+    [
       rel("ja", "home_video", "Bundled with BD box", "2013-02-22", "box-set"),
       rel("en", "home_video", "Right Stuf / Sunrise", "2019", "box-set"),
     ],
-  },
-  gundam_san_2014_tv: {
-    title: { ja: "機動戦士ガンダムさん", en: "Mobile Suit Gundam-san" },
-    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam-san",
-    episodes: [
+  ),
+  gundam_san_2014_tv: det(
+    "機動戦士ガンダムさん",
+    "Mobile Suit Gundam-san",
+    "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam-san",
+    [
       ep(1, "赤いのが好き", "He Likes the Red One", "2014-07-06"),
       ep(2, "思春期のアムロさん", "Amuro Going Through Puberty", "2014-07-13"),
       ep(3, "ハロ男の憂鬱", "The Melancholy of Haro-man", "2014-07-20"),
@@ -3131,7 +3047,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ep(12, "キシリアたん14歳", "Kycilia-tan, Age 14", "2014-09-21"),
       ep(13, "ホクロの人が好き", "He Likes People with Moles", "2014-09-28"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "broadcast",
@@ -3148,13 +3064,13 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "simulcast",
       ),
     ],
-  },
-  gundam_g40_2020_ona: {
-    title: { ja: "機動戦士ガンダムG40", en: "Mobile Suit Gundam G40" },
-    source:
-      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_40th_Anniversary_Project",
-    episodes: [ep(1, "機動戦士ガンダムG40", "G40", "2020-01-21")],
-    releases: [
+  ),
+  gundam_g40_2020_ona: det(
+    "機動戦士ガンダムG40",
+    "Mobile Suit Gundam G40",
+    "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_40th_Anniversary_Project",
+    [ep(1, "機動戦士ガンダムG40", "G40", "2020-01-21")],
+    [
       rel(
         "ja",
         "streaming",
@@ -3164,17 +3080,13 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "streaming", "Gundam.info YouTube", "2020-01-21", "simulcast"),
     ],
-  },
-  silver_phantom_2024_vr: {
-    title: {
-      ja: "機動戦士ガンダム：銀灰の幻影",
-      en: "Mobile Suit Gundam: Silver Phantom",
-    },
-    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Silver_Phantom",
-    episodes: [
-      ep(1, "機動戦士ガンダム：銀灰の幻影", "Silver Phantom", "2024-10-22"),
-    ],
-    releases: [
+  ),
+  silver_phantom_2024_vr: det(
+    "機動戦士ガンダム：銀灰の幻影",
+    "Mobile Suit Gundam: Silver Phantom",
+    "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Silver_Phantom",
+    [ep(1, "機動戦士ガンダム：銀灰の幻影", "Silver Phantom", "2024-10-22")],
+    [
       rel("ja", "theatrical", "VR experience", "2024-10-22", "theatrical"),
       rel(
         "en",
@@ -3184,33 +3096,26 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "theatrical",
       ),
     ],
-  },
-  battlefield_record_2009_ova: {
-    title: {
-      ja: "機動戦士ガンダム戦記 アバンタイトル",
-      en: "Mobile Suit Gundam: Battlefield Record Avant-Title",
-    },
-    source:
-      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Battlefield_Record_U.C._0081",
-    episodes: [
-      ep(1, "機動戦士ガンダム戦記 アバンタイトル", "Avant-Title", "2009-09-17"),
-    ],
-    releases: [rel("ja", "home_video", "Game tie-in OVA", "2009", "box-set")],
-  },
-  gaia_gear_1987_novel: {
-    title: { ja: "ガイア・ギア", en: "Gaia Gear" },
-    source: "https://en.wikipedia.org/wiki/Gaia_Gear_(novel)",
-    author: "Yoshiyuki Tomino",
-    publisher: "Kadokawa Shoten",
-    magazine: "Newtype",
-    episodes: [
+  ),
+  battlefield_record_2009_ova: det(
+    "機動戦士ガンダム戦記 アバンタイトル",
+    "Mobile Suit Gundam: Battlefield Record Avant-Title",
+    "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Battlefield_Record_U.C._0081",
+    [ep(1, "機動戦士ガンダム戦記 アバンタイトル", "Avant-Title", "2009-09-17")],
+    [rel("ja", "home_video", "Game tie-in OVA", "2009", "box-set")],
+  ),
+  gaia_gear_1987_novel: det(
+    "ガイア・ギア",
+    "Gaia Gear",
+    "https://en.wikipedia.org/wiki/Gaia_Gear_(novel)",
+    [
       ep(1, "Volume 1", "Volume 1", "1988-09-01"),
       ep(2, "Volume 2", "Volume 2", "1989-09-01"),
       ep(3, "Volume 3", "Volume 3", "1990-09-01"),
       ep(4, "Volume 4", "Volume 4", "1992-02-01"),
       ep(5, "Volume 5", "Volume 5", "1992-04-01"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "print",
@@ -3220,18 +3125,18 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "1991-04-01",
       ),
     ],
-  },
-  high_streamer_1987_novel: {
-    title: {
-      ja: "機動戦士ガンダム 逆襲のシャア ハイ・ストリーマー",
-      en: "Mobile Suit Gundam: High Streamer",
+    {
+      author: "Yoshiyuki Tomino",
+      publisher: "Kadokawa Shoten",
+      magazine: "Newtype",
     },
-    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_High_Streamer",
-    author: "Yoshiyuki Tomino",
-    publisher: "De Agostini Japan",
-    magazine: "Gundam Ace",
-    episodes: [ep(1, "Volume 1", "Volume 1", "1987-12")],
-    releases: [
+  ),
+  high_streamer_1987_novel: det(
+    "機動戦士ガンダム 逆襲のシャア ハイ・ストリーマー",
+    "Mobile Suit Gundam: High Streamer",
+    "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_High_Streamer",
+    [ep(1, "Volume 1", "Volume 1", "1987-12")],
+    [
       rel(
         "ja",
         "print",
@@ -3241,15 +3146,18 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "1988-06-01",
       ),
     ],
-  },
-  sentinel_1988_novel: {
-    title: { ja: "ガンダム・センチネル", en: "Gundam Sentinel" },
-    source: "https://en.wikipedia.org/wiki/Gundam_Sentinel",
-    author: "Masaya Takahashi",
-    publisher: "Dai Nippon Kaiga",
-    magazine: "Model Graphix",
-    episodes: [ep(1, "Part 1", "Part 1", "1990-07")],
-    releases: [
+    {
+      author: "Yoshiyuki Tomino",
+      publisher: "De Agostini Japan",
+      magazine: "Gundam Ace",
+    },
+  ),
+  sentinel_1988_novel: det(
+    "ガンダム・センチネル",
+    "Gundam Sentinel",
+    "https://en.wikipedia.org/wiki/Gundam_Sentinel",
+    [ep(1, "Part 1", "Part 1", "1990-07")],
+    [
       rel(
         "ja",
         "print",
@@ -3259,19 +3167,18 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "1997",
       ),
     ],
-  },
-  advance_of_zeta_wings_2002_manga: {
-    title: {
-      ja: "ADVANCE OF Ζ ティターンズの旗のもとに",
-      en: "Advance of Zeta: In the Wings of Time",
+    {
+      author: "Masaya Takahashi",
+      publisher: "Dai Nippon Kaiga",
+      magazine: "Model Graphix",
     },
-    source:
-      "https://en.wikipedia.org/wiki/Advance_of_Zeta:_In_the_Wings_of_Time",
-    author: "Kenji Mizuhara",
-    publisher: "Dengeki Hobby Magazine (ASCII Media Works)",
-    magazine: "Dengeki Hobby Magazine",
-    episodes: [ep(1, "Volume 1", "Volume 1", "2002")],
-    releases: [
+  ),
+  advance_of_zeta_wings_2002_manga: det(
+    "ADVANCE OF Ζ ティターンズの旗のもとに",
+    "Advance of Zeta: In the Wings of Time",
+    "https://en.wikipedia.org/wiki/Advance_of_Zeta:_In_the_Wings_of_Time",
+    [ep(1, "Volume 1", "Volume 1", "2002")],
+    [
       rel(
         "ja",
         "print",
@@ -3281,19 +3188,18 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "2008",
       ),
     ],
-  },
-  advance_of_zeta_titans_2012_manga: {
-    title: {
-      ja: "ADVANCE OF Ζ ティターンズの旗のもとに",
-      en: "Advance of Zeta: Under the Banner of the Titans",
+    {
+      author: "Kenji Mizuhara",
+      publisher: "Dengeki Hobby Magazine (ASCII Media Works)",
+      magazine: "Dengeki Hobby Magazine",
     },
-    source:
-      "https://en.wikipedia.org/wiki/Advance_of_Zeta:_In_the_Wings_of_Time",
-    author: "Toshihiro Ishigami",
-    publisher: "Dengeki Hobby Magazine (ASCII Media Works)",
-    magazine: "Dengeki Hobby Magazine",
-    episodes: [ep(1, "Volume 1", "Volume 1", "2012")],
-    releases: [
+  ),
+  advance_of_zeta_titans_2012_manga: det(
+    "ADVANCE OF Ζ ティターンズの旗のもとに",
+    "Advance of Zeta: Under the Banner of the Titans",
+    "https://en.wikipedia.org/wiki/Advance_of_Zeta:_In_the_Wings_of_Time",
+    [ep(1, "Volume 1", "Volume 1", "2012")],
+    [
       rel(
         "ja",
         "print",
@@ -3303,19 +3209,18 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "2016",
       ),
     ],
-  },
-  advance_of_zeta_traitor_2014_manga: {
-    title: {
-      ja: "ADVANCE OF Ζ 刻に抗う者",
-      en: "Advance of Zeta: The Traitor to Destiny",
+    {
+      author: "Toshihiro Ishigami",
+      publisher: "Dengeki Hobby Magazine (ASCII Media Works)",
+      magazine: "Dengeki Hobby Magazine",
     },
-    source:
-      "https://en.wikipedia.org/wiki/Advance_of_Zeta:_In_the_Wings_of_Time",
-    author: "Toshihiro Ishigami",
-    publisher: "Dengeki Hobby Magazine (ASCII Media Works)",
-    magazine: "Dengeki Hobby Magazine",
-    episodes: [ep(1, "Volume 1", "Volume 1", "2014")],
-    releases: [
+  ),
+  advance_of_zeta_traitor_2014_manga: det(
+    "ADVANCE OF Ζ 刻に抗う者",
+    "Advance of Zeta: The Traitor to Destiny",
+    "https://en.wikipedia.org/wiki/Advance_of_Zeta:_In_the_Wings_of_Time",
+    [ep(1, "Volume 1", "Volume 1", "2014")],
+    [
       rel(
         "ja",
         "print",
@@ -3325,17 +3230,17 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "2017",
       ),
     ],
-  },
-  ecole_du_ciel_2002_manga: {
-    title: {
-      ja: "機動戦士ガンダム エコール・デュ・シエル",
-      en: "Mobile Suit Gundam: Ecole du Ciel",
+    {
+      author: "Toshihiro Ishigami",
+      publisher: "Dengeki Hobby Magazine (ASCII Media Works)",
+      magazine: "Dengeki Hobby Magazine",
     },
-    source: "https://en.wikipedia.org/wiki/Ecole_du_Ciel",
-    author: "Kenichi Nakahara (art), Haruhiko Mikimoto (character design)",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
-    episodes: [
+  ),
+  ecole_du_ciel_2002_manga: det(
+    "機動戦士ガンダム エコール・デュ・シエル",
+    "Mobile Suit Gundam: Ecole du Ciel",
+    "https://en.wikipedia.org/wiki/Ecole_du_Ciel",
+    [
       ep(1, "Volume 1", "Volume 1", "2002-11-26"),
       ep(2, "Volume 2", "Volume 2", "2003-08-01"),
       ep(3, "Volume 3", "Volume 3", "2004-03-26"),
@@ -3349,7 +3254,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ep(11, "Volume 11", "Volume 11", "2008-06-26"),
       ep(12, "Volume 12", "Volume 12", "2011-03-26"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "print",
@@ -3360,19 +3265,18 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "print", "Tokyopop (partial)", "2005-06-07", "serial"),
     ],
-  },
-  blue_destiny_1997_manga: {
-    title: {
-      ja: "機動戦士ガンダム外伝 THE BLUE DESTINY",
-      en: "Mobile Suit Gundam: Blue Destiny",
+    {
+      author: "Kenichi Nakahara (art), Haruhiko Mikimoto (character design)",
+      publisher: "Kadokawa Shoten",
+      magazine: "Gundam Ace",
     },
-    source:
-      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_The_Blue_Destiny",
-    author: "Ryoji Sekinishi",
-    publisher: "Bandai Entertainment",
-    magazine: "Comic BomBom",
-    episodes: [ep(1, "Volume 1", "Volume 1", "1997")],
-    releases: [
+  ),
+  blue_destiny_1997_manga: det(
+    "機動戦士ガンダム外伝 THE BLUE DESTINY",
+    "Mobile Suit Gundam: Blue Destiny",
+    "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_The_Blue_Destiny",
+    [ep(1, "Volume 1", "Volume 1", "1997")],
+    [
       rel(
         "ja",
         "print",
@@ -3382,33 +3286,33 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "1998-08-25",
       ),
     ],
-  },
-  lost_war_chronicles_2002_manga: {
-    title: {
-      ja: "機動戦士ガンダム戦記 Lost War Chronicles",
-      en: "Mobile Suit Gundam: Lost War Chronicles",
+    {
+      author: "Ryoji Sekinishi",
+      publisher: "Bandai Entertainment",
+      magazine: "Comic BomBom",
     },
-    source:
-      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Lost_War_Chronicles",
-    author: "Toshihiro Kawamoto, Hiroshi Ōsaka",
-    publisher: "Bandai",
-    magazine: "Gundam Ace",
-    episodes: [ep(1, "Volume 1", "Volume 1", "2002")],
-    releases: [
+  ),
+  lost_war_chronicles_2002_manga: det(
+    "機動戦士ガンダム戦記 Lost War Chronicles",
+    "Mobile Suit Gundam: Lost War Chronicles",
+    "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Lost_War_Chronicles",
+    [ep(1, "Volume 1", "Volume 1", "2002")],
+    [
       rel("ja", "print", "Kadokawa Gundam Ace", "2002-08-26", "serial", "2004"),
       rel("en", "print", "Tokyopop", "2005-06-07", "serial"),
     ],
-  },
-  green_divers_2001_film: {
-    title: {
-      ja: "ガンダム新体験 グリーンダイバーズ",
-      en: "Gundam New Experience: Green Divers",
+    {
+      author: "Toshihiro Kawamoto, Hiroshi Ōsaka",
+      publisher: "Bandai",
+      magazine: "Gundam Ace",
     },
-    source: "https://ja.wikipedia.org/wiki/ガンダム新体験_グリーンダイバーズ",
-    episodes: [
-      ep(1, "ガンダム新体験 グリーンダイバーズ", "Green Divers", "2001-08-10"),
-    ],
-    releases: [
+  ),
+  green_divers_2001_film: det(
+    "ガンダム新体験 グリーンダイバーズ",
+    "Gundam New Experience: Green Divers",
+    "https://ja.wikipedia.org/wiki/ガンダム新体験_グリーンダイバーズ",
+    [ep(1, "ガンダム新体験 グリーンダイバーズ", "Green Divers", "2001-08-10")],
+    [
       rel(
         "ja",
         "theatrical",
@@ -3418,31 +3322,27 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "2001-12",
       ),
     ],
-  },
-  gundam_perfect_mission_2009_ova: {
-    title: { ja: "GUNDAM PERFECT MISSION", en: "GUNDAM PERFECT MISSION" },
-    source: "https://ja.wikipedia.org/wiki/GUNDAM_PERFECT_MISSION",
-    note: "Short promotional OVA for Gundam 30th anniversary featuring Amuro's voice actor",
-    episodes: [
-      ep(1, "GUNDAM PERFECT MISSION", "GUNDAM PERFECT MISSION", "2009"),
-    ],
-    releases: [
-      rel("ja", "home_video", "GUNDAM OP/ED COLLECTION DVD", "2009", "box-set"),
-    ],
-  },
-  origin_movie_edition_2024_film: {
-    title: {
-      ja: "機動戦士ガンダム THE ORIGIN (劇場版)",
-      en: "Mobile Suit Gundam: The Origin (Movie Edition)",
+  ),
+  gundam_perfect_mission_2009_ova: det(
+    "GUNDAM PERFECT MISSION",
+    "GUNDAM PERFECT MISSION",
+    "https://ja.wikipedia.org/wiki/GUNDAM_PERFECT_MISSION",
+    [ep(1, "GUNDAM PERFECT MISSION", "GUNDAM PERFECT MISSION", "2009")],
+    [rel("ja", "home_video", "GUNDAM OP/ED COLLECTION DVD", "2009", "box-set")],
+    {
+      note: "Short promotional OVA for Gundam 30th anniversary featuring Amuro's voice actor",
     },
-    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダム_THE_ORIGIN",
-    note: "3-chapter theatrical compilation of the 6-episode OVA, re-edited for cinema",
-    episodes: [
+  ),
+  origin_movie_edition_2024_film: det(
+    "機動戦士ガンダム THE ORIGIN (劇場版)",
+    "Mobile Suit Gundam: The Origin (Movie Edition)",
+    "https://ja.wikipedia.org/wiki/機動戦士ガンダム_THE_ORIGIN",
+    [
       ep(1, "蒼い瞳のキャスバル", "Chapter 1: Shaa Seira-hen", "2024"),
       ep(2, "哀しみのアルテイシア", "Chapter 2: Kaisen-hen", "2024"),
       ep(3, "暁の蜂起", "Chapter 3: Roum-hen", "2024"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "theatrical",
@@ -3451,27 +3351,23 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "theatrical",
       ),
     ],
-  },
-  gundam_legendary_tba: {
-    title: {
-      ja: "GUNDAM (Netflix)",
-      en: "Gundam (Legendary Pictures live-action)",
+    {
+      note: "3-chapter theatrical compilation of the 6-episode OVA, re-edited for cinema",
     },
-    source: "https://en.wikipedia.org/wiki/Gundam_(film)",
-    note: "Netflix live-action film by Legendary Pictures. TBA",
-    episodes: [],
-    releases: [],
-  },
-  zeta_define_2011_manga: {
-    title: {
-      ja: "機動戦士Ζガンダム Define",
-      en: "Mobile Suit Zeta Gundam Define",
-    },
-    source: "https://ja.wikipedia.org/wiki/機動戦士Ζガンダム_Define",
-    author: "Hoshino Katsuhiro",
-    publisher: "Kadokawa",
-    magazine: "Gundam Ace",
-    episodes: [
+  ),
+  gundam_legendary_tba: det(
+    "GUNDAM (Netflix)",
+    "Gundam (Legendary Pictures live-action)",
+    "https://en.wikipedia.org/wiki/Gundam_(film)",
+    [],
+    [],
+    { note: "Netflix live-action film by Legendary Pictures. TBA" },
+  ),
+  zeta_define_2011_manga: det(
+    "機動戦士Ζガンダム Define",
+    "Mobile Suit Zeta Gundam Define",
+    "https://ja.wikipedia.org/wiki/機動戦士Ζガンダム_Define",
+    [
       ep(1, "Volume 1", "Volume 1", "2011-11-26"),
       ep(2, "Volume 2", "Volume 2", "2012-03-26"),
       ep(3, "Volume 3", "Volume 3", "2012-07-26"),
@@ -3495,21 +3391,18 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ep(21, "Volume 21", "Volume 21", "2025-05-23"),
       ep(22, "Volume 22", "Volume 22", "2026-01-23"),
     ],
-    releases: [
-      rel("ja", "print", "Kadokawa Gundam Ace", "2011", "serial", "2026-01-23"),
-    ],
-  },
-  cda_2002_manga: {
-    title: {
-      ja: "機動戦士ガンダム C.D.A. 若き彗星の肖像",
-      en: "Mobile Suit Gundam C.D.A.: Portraits of Young Comet",
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2011", "serial", "2026-01-23")],
+    {
+      author: "Hoshino Katsuhiro",
+      publisher: "Kadokawa",
+      magazine: "Gundam Ace",
     },
-    source:
-      "https://ja.wikipedia.org/wiki/機動戦士ガンダム_C.D.A._若き彗星の肖像",
-    author: "Hiroyuki Kitazume",
-    publisher: "Kadokawa",
-    magazine: "Gundam Ace",
-    episodes: [
+  ),
+  cda_2002_manga: det(
+    "機動戦士ガンダム C.D.A. 若き彗星の肖像",
+    "Mobile Suit Gundam C.D.A.: Portraits of Young Comet",
+    "https://ja.wikipedia.org/wiki/機動戦士ガンダム_C.D.A._若き彗星の肖像",
+    [
       ep(1, "Volume 1", "Volume 1", "2002-11-22"),
       ep(2, "Volume 2", "Volume 2", "2003-11-25"),
       ep(3, "Volume 3", "Volume 3", "2004-07-26"),
@@ -3525,7 +3418,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ep(13, "Volume 13", "Volume 13", "2009-05-26"),
       ep(14, "Volume 14", "Volume 14", "2010-03-26"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "print",
@@ -3535,18 +3428,18 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "2010-03-26",
       ),
     ],
-  },
-  developers_2004_manga: {
-    title: {
-      ja: "Developers 機動戦士ガンダム Before One Year War",
-      en: "Developers: Mobile Suit Gundam Before the One Year War",
+    {
+      author: "Hiroyuki Kitazume",
+      publisher: "Kadokawa",
+      magazine: "Gundam Ace",
     },
-    source:
-      "https://ja.wikipedia.org/wiki/Developers_機動戦士ガンダム_Before_One_Year_War",
-    author: "Kazuhisa Kondo",
-    publisher: "Media Works",
-    episodes: [ep(1, "Volume 1", "Volume 1", "2003-11-26")],
-    releases: [
+  ),
+  developers_2004_manga: det(
+    "Developers 機動戦士ガンダム Before One Year War",
+    "Developers: Mobile Suit Gundam Before the One Year War",
+    "https://ja.wikipedia.org/wiki/Developers_機動戦士ガンダム_Before_One_Year_War",
+    [ep(1, "Volume 1", "Volume 1", "2003-11-26")],
+    [
       rel(
         "ja",
         "print",
@@ -3556,33 +3449,26 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "2004",
       ),
     ],
-  },
-  hathaway_manga_2020_manga: {
-    title: {
-      ja: "機動戦士ガンダム 閃光のハサウェイ (漫画)",
-      en: "Mobile Suit Gundam: Hathaway's Flash (manga)",
-    },
-    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダム_閃光のハサウェイ",
-    author: "Sabishi Uroaki",
-    publisher: "Kadokawa",
-    magazine: "Gundam Ace",
-    episodes: [
+    { author: "Kazuhisa Kondo", publisher: "Media Works" },
+  ),
+  hathaway_manga_2020_manga: det(
+    "機動戦士ガンダム 閃光のハサウェイ (漫画)",
+    "Mobile Suit Gundam: Hathaway's Flash (manga)",
+    "https://ja.wikipedia.org/wiki/機動戦士ガンダム_閃光のハサウェイ",
+    [
       ep(1, "Volume 1", "Volume 1", "2021-05-10"),
       ep(2, "Volume 2", "Volume 2", "2022-03-26"),
       ep(3, "Volume 3", "Volume 3", "2022-11-26"),
       ep(4, "Volume 4", "Volume 4", "2023-09-26"),
     ],
-    releases: [
-      rel("ja", "print", "Kadokawa Gundam Ace", "2020-05", "serial", "2023-08"),
-    ],
-  },
-  moon_gundam_2017_manga: {
-    title: { ja: "機動戦士ムーンガンダム", en: "Mobile Suit Moon Gundam" },
-    source: "https://ja.wikipedia.org/wiki/機動戦士ムーンガンダム",
-    author: "Fukui Harutoki (story), Tamura Kouji (art)",
-    publisher: "Kadokawa",
-    magazine: "Gundam Ace",
-    episodes: [
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2020-05", "serial", "2023-08")],
+    { author: "Sabishi Uroaki", publisher: "Kadokawa", magazine: "Gundam Ace" },
+  ),
+  moon_gundam_2017_manga: det(
+    "機動戦士ムーンガンダム",
+    "Mobile Suit Moon Gundam",
+    "https://ja.wikipedia.org/wiki/機動戦士ムーンガンダム",
+    [
       ep(1, "Volume 1", "Volume 1", "2018-09-26"),
       ep(2, "Volume 2", "Volume 2", "2018-09-26"),
       ep(3, "Volume 3", "Volume 3", "2019-03-26"),
@@ -3599,18 +3485,18 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ep(14, "Volume 14", "Volume 14", "2025-04-25"),
       ep(15, "Volume 15", "Volume 15", "2025-11-26"),
     ],
-    releases: [rel("ja", "print", "Kadokawa Gundam Ace", "2017-12", "serial")],
-  },
-  unicorn_bd_2010_manga: {
-    title: {
-      ja: "機動戦士ガンダムUC バンデシネ",
-      en: "Mobile Suit Gundam Unicorn Bande Dessinée",
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2017-12", "serial")],
+    {
+      author: "Fukui Harutoki (story), Tamura Kouji (art)",
+      publisher: "Kadokawa",
+      magazine: "Gundam Ace",
     },
-    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムUC",
-    author: "Harutoshi Fukui (story), Kouzou Oomori (art)",
-    publisher: "Kadokawa",
-    magazine: "Gundam Ace",
-    episodes: [
+  ),
+  unicorn_bd_2010_manga: det(
+    "機動戦士ガンダムUC バンデシネ",
+    "Mobile Suit Gundam Unicorn Bande Dessinée",
+    "https://ja.wikipedia.org/wiki/機動戦士ガンダムUC",
+    [
       ep(1, "Volume 1", "Volume 1", "2010-07-26"),
       ep(2, "Volume 2", "Volume 2", "2010-11-26"),
       ep(3, "Volume 3", "Volume 3", "2011-03-26"),
@@ -3629,19 +3515,18 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ep(16, "Volume 16", "Volume 16", "2016-10-26"),
       ep(17, "Volume 17", "Volume 17", "2017-02-25"),
     ],
-    releases: [rel("ja", "print", "Kadokawa Gundam Ace", "2010-03", "serial")],
-  },
-  johnny_ridden_2010_manga: {
-    title: {
-      ja: "機動戦士ガンダム MSV-R ジョニー・ライデンの帰還",
-      en: "Mobile Suit Gundam MSV-R: Return of Johnny Ridden",
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2010-03", "serial")],
+    {
+      author: "Harutoshi Fukui (story), Kouzou Oomori (art)",
+      publisher: "Kadokawa",
+      magazine: "Gundam Ace",
     },
-    source:
-      "https://ja.wikipedia.org/wiki/機動戦士ガンダム_MSV-R_ジョニー・ライデンの帰還",
-    author: "Ark Performance",
-    publisher: "Kadokawa",
-    magazine: "Gundam Ace",
-    episodes: [
+  ),
+  johnny_ridden_2010_manga: det(
+    "機動戦士ガンダム MSV-R ジョニー・ライデンの帰還",
+    "Mobile Suit Gundam MSV-R: Return of Johnny Ridden",
+    "https://ja.wikipedia.org/wiki/機動戦士ガンダム_MSV-R_ジョニー・ライデンの帰還",
+    [
       ep(1, "Volume 1", "Volume 1", "2010-12-25"),
       ep(2, "Volume 2", "Volume 2", "2011-04-26"),
       ep(3, "Volume 3", "Volume 3", "2011-10-26"),
@@ -3669,43 +3554,41 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ep(25, "Volume 25", "Volume 25", "2023-03-25"),
       ep(26, "Volume 26", "Volume 26", "2023-09-26"),
     ],
-    releases: [
-      rel("ja", "print", "Kadokawa Gundam Ace", "2010-06", "serial", "2023-09"),
-    ],
-  },
-  narrative_2018_novel: {
-    title: {
-      ja: "機動戦士ガンダムNT (小説)",
-      en: "Mobile Suit Gundam Narrative (novel)",
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2010-06", "serial", "2023-09")],
+    {
+      author: "Ark Performance",
+      publisher: "Kadokawa",
+      magazine: "Gundam Ace",
     },
-    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムNT",
-    author: "Kurokawa Hiroyuki",
-    publisher: "Kadokawa",
-    episodes: [ep(1, "Volume 1", "Volume 1", "2018-11-21")],
-    releases: [
-      rel("ja", "print", "Kadokawa Sneaker Bunko", "2018-11-21", "serial"),
-    ],
-  },
-  crossbone_zeroiber_2024_manga: {
-    title: {
-      ja: "クロスボーン・ガンダム ゼロイバー",
-      en: "Crossbone Gundam: Zeroiber",
-    },
-    source: "https://ja.wikipedia.org/wiki/機動戦士クロスボーン・ガンダム",
-    author: "Hasegawa Yuichi",
-    publisher: "Kadokawa",
-    magazine: "Gundam Ace",
-    episodes: [
+  ),
+  narrative_2018_novel: det(
+    "機動戦士ガンダムNT (小説)",
+    "Mobile Suit Gundam Narrative (novel)",
+    "https://ja.wikipedia.org/wiki/機動戦士ガンダムNT",
+    [ep(1, "Volume 1", "Volume 1", "2018-11-21")],
+    [rel("ja", "print", "Kadokawa Sneaker Bunko", "2018-11-21", "serial")],
+    { author: "Kurokawa Hiroyuki", publisher: "Kadokawa" },
+  ),
+  crossbone_zeroiber_2024_manga: det(
+    "クロスボーン・ガンダム ゼロイバー",
+    "Crossbone Gundam: Zeroiber",
+    "https://ja.wikipedia.org/wiki/機動戦士クロスボーン・ガンダム",
+    [
       ep(1, "Volume 1", "Volume 1", "2025-06-26"),
       ep(2, "Volume 2", "Volume 2", "2025-12-26"),
     ],
-    releases: [rel("ja", "print", "Kadokawa Gundam Ace", "2024", "serial")],
-  },
-  gaia_gear_1992_radio: {
-    title: { ja: "ガイア・ギア", en: "Gaia Gear (radio drama)" },
-    source: "https://ja.wikipedia.org/wiki/ガイア・ギア",
-    note: "26-episode radio drama adaptation broadcast on Bunka Housou",
-    episodes: [
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2024", "serial")],
+    {
+      author: "Hasegawa Yuichi",
+      publisher: "Kadokawa",
+      magazine: "Gundam Ace",
+    },
+  ),
+  gaia_gear_1992_radio: det(
+    "ガイア・ギア",
+    "Gaia Gear (radio drama)",
+    "https://ja.wikipedia.org/wiki/ガイア・ギア",
+    [
       ep(1, "シャア再び", null, "1992-04-12"),
       ep(2, "宇宙の呼び声", null, "1992-04-19"),
       ep(3, "メモリー・クローン", null, "1992-04-26"),
@@ -3733,7 +3616,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ep(25, "エヴァリーの声", null, "1992-09-27"),
       ep(26, "ペーパー・キャッスル", null, "1992-10-04"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "broadcast",
@@ -3751,23 +3634,17 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "1993-07-21",
       ),
     ],
-  },
-  mayfly_2001_manga: {
-    title: {
-      ja: "機動戦士ガンダム0083 宇宙の蜉蝣",
-      en: "Mobile Suit Gundam 0083: Mayfly of Space",
-    },
-    source:
-      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_0083:_Mayfly_of_Space",
-    author: "Hiroshi Nakanishi",
-    publisher: "Media Works",
-    magazine: "Dengeki Daioh",
-    note: "Cima Garahau side story set during 0083",
-    episodes: [
+    { note: "26-episode radio drama adaptation broadcast on Bunka Housou" },
+  ),
+  mayfly_2001_manga: det(
+    "機動戦士ガンダム0083 宇宙の蜉蝣",
+    "Mobile Suit Gundam 0083: Mayfly of Space",
+    "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_0083:_Mayfly_of_Space",
+    [
       ep(1, "Volume 1", "Volume 1", "2001"),
       ep(2, "Volume 2", "Volume 2", "2002"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "print",
@@ -3777,33 +3654,35 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "2002",
       ),
     ],
-  },
-  re010_2022_manga: {
-    title: {
-      ja: "機動戦士ガンダム0083 Re:010",
-      en: "Mobile Suit Gundam 0083: Re:010",
+    {
+      author: "Hiroshi Nakanishi",
+      publisher: "Media Works",
+      magazine: "Dengeki Daioh",
+      note: "Cima Garahau side story set during 0083",
     },
-    source:
-      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_0083:_Stardust_Memory_(Manga)",
-    author: "Tsukasa Kotobuki",
-    publisher: "Kadokawa",
-    magazine: "Gundam Ace",
-    note: "2022 manga retelling of 0083 Stardust Memory",
-    episodes: [
+  ),
+  re010_2022_manga: det(
+    "機動戦士ガンダム0083 Re:010",
+    "Mobile Suit Gundam 0083: Re:010",
+    "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_0083:_Stardust_Memory_(Manga)",
+    [
       ep(1, "Volume 1", "Volume 1", "2023"),
       ep(2, "Volume 2", "Volume 2", "2024"),
       ep(3, "Volume 3", "Volume 3", "2024"),
     ],
-    releases: [rel("ja", "print", "Kadokawa Gundam Ace", "2022", "serial")],
-  },
-  gundam_san_manga: {
-    title: { ja: "機動戦士ガンダムさん", en: "Mobile Suit Gundam-san (manga)" },
-    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムさん",
-    author: "Hideki Ohwada",
-    publisher: "Kadokawa",
-    magazine: "Gundam Ace",
-    note: "4koma parody manga with sub-stories (队长のザクさん, 宇宙岛のガルマくん, ガンダム创世 etc.)",
-    episodes: [
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2022", "serial")],
+    {
+      author: "Tsukasa Kotobuki",
+      publisher: "Kadokawa",
+      magazine: "Gundam Ace",
+      note: "2022 manga retelling of 0083 Stardust Memory",
+    },
+  ),
+  gundam_san_manga: det(
+    "機動戦士ガンダムさん",
+    "Mobile Suit Gundam-san (manga)",
+    "https://ja.wikipedia.org/wiki/機動戦士ガンダムさん",
+    [
       ep(1, "Volume 1", "Volume 1", "2005-08-26"),
       ep(2, "Volume 2", "Volume 2", "2006-12-26"),
       ep(3, "Volume 3", "Volume 3", "2007-12-26"),
@@ -3828,7 +3707,7 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
       ep(22, "Volume 22", "Volume 22", "2024-10-25"),
       ep(23, "Volume 23", "Volume 23", "2026-01-23"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "print",
@@ -3838,15 +3717,21 @@ export const ucDetails: Record<string, EntryDetail | undefined> = {
         "2026-01-23",
       ),
     ],
-  },
-  hathaway_chokou_tba_film: {
-    title: {
-      ja: "機動戦士ガンダム 閃光のハサウェイ 長呪の松",
-      en: "Mobile Suit Gundam: Hathaway — Chōkō no Matsu (working title)",
+    {
+      author: "Hideki Ohwada",
+      publisher: "Kadokawa",
+      magazine: "Gundam Ace",
+      note: "4koma parody manga with sub-stories (队长のザクさん, 宇宙岛のガルマくん, ガンダム创世 etc.)",
     },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Hathaway",
-    note: "Third Hathaway film, completing the novel trilogy adaptation. Not yet formally dated.",
-    episodes: [],
-    releases: [],
-  },
+  ),
+  hathaway_chokou_tba_film: det(
+    "機動戦士ガンダム 閃光のハサウェイ 長呪の松",
+    "Mobile Suit Gundam: Hathaway — Chōkō no Matsu (working title)",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Hathaway",
+    [],
+    [],
+    {
+      note: "Third Hathaway film, completing the novel trilogy adaptation. Not yet formally dated.",
+    },
+  ),
 };

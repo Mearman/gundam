@@ -21,23 +21,23 @@ export type TextLang = "en" | "ja" | "tba";
 
 export interface Entry {
   detailId?: string;
-  u: string | string[];
-  d: string;
-  t: string;
-  n?: string;
+  universe: string | string[];
+  era: string;
+  title: string;
+  note?: string;
   y1: number;
   y2: number;
-  m: MediaKind;
-  a: AudioLang;
-  s: TextLang;
+  media: MediaKind;
+  audio: AudioLang;
+  subs: TextLang;
 }
 
 /** Check whether an entry belongs to a given universe. */
 export function entryInUniverse(entry: Entry, universeId: string): boolean {
-  if (Array.isArray(entry.u)) {
-    return entry.u.includes(universeId);
+  if (Array.isArray(entry.universe)) {
+    return entry.universe.includes(universeId);
   }
-  return entry.u === universeId;
+  return entry.universe === universeId;
 }
 
 export interface StackedEntry extends Entry {
@@ -62,7 +62,7 @@ export interface Filters {
   axis: AxisMode;
 }
 
-// DetailMediaType removed — media type is on Entry.m
+// DetailMediaType removed — media type is on Entry.media
 
 export type ReleaseSchedule =
   | "box-set"
@@ -109,21 +109,60 @@ export interface EntryDetail {
 // as possible. Each factory produces the same runtime objects
 // as the old verbose object literals.
 
-/** Compact timeline entry constructor. `n` is optional trailing string. */
+/** Compact timeline entry constructor. */
 export function entry(
   detailId: string,
-  u: string | string[],
-  d: string,
-  t: string,
+  universe: string | string[],
+  era: string,
+  title: string,
   y1: number,
   y2: number,
-  m: MediaKind,
-  a: AudioLang,
-  s: TextLang,
-  n?: string,
+  media: MediaKind,
+  audio: AudioLang,
+  subs: TextLang,
+  note?: string,
 ): Entry {
-  const out: Entry = { detailId, u, d, t, y1, y2, m, a, s };
-  if (n !== undefined) out.n = n;
+  const out: Entry = {
+    detailId,
+    universe,
+    era,
+    title,
+    y1,
+    y2,
+    media,
+    audio,
+    subs,
+  };
+  if (note !== undefined) out.note = note;
+  return out;
+}
+
+/** Compact detail record constructor. Title and source are always required. */
+export function det(
+  jaTitle: string,
+  enTitle: string,
+  source: string,
+  episodes: DetailEpisode[],
+  releases: DetailRelease[],
+  extra?: {
+    author?: string;
+    publisher?: string;
+    magazine?: string;
+    note?: string;
+  },
+): EntryDetail {
+  const out: EntryDetail = {
+    title: { ja: jaTitle, en: enTitle },
+    source,
+    episodes,
+    releases,
+  };
+  if (extra !== undefined) {
+    if (extra.author !== undefined) out.author = extra.author;
+    if (extra.publisher !== undefined) out.publisher = extra.publisher;
+    if (extra.magazine !== undefined) out.magazine = extra.magazine;
+    if (extra.note !== undefined) out.note = extra.note;
+  }
   return out;
 }
 

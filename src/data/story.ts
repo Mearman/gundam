@@ -82,7 +82,7 @@ function computeUniverseInRange(universeId: string): void {
   let min = Infinity;
   let max = -Infinity;
   for (const e of entries) {
-    const p = parseInUniverseDate(e.d);
+    const p = parseInUniverseDate(e.era);
     if (p === null) continue;
     if (p.start < min) min = p.start;
     if (p.end > max) max = p.end;
@@ -160,7 +160,7 @@ export function assignStacksByStory(entries: Entry[]): StoryStackedEntry[] {
   }[] = [];
 
   for (const e of entries) {
-    const p = parseInUniverseDate(e.d);
+    const p = parseInUniverseDate(e.era);
     if (p !== null) {
       items.push({ entry: e, start: p.start, end: p.end });
     }

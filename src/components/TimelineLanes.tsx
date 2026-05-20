@@ -120,12 +120,12 @@ function TimelineEntry({
   width,
   top,
 }: TimelineEntryProps) {
-  const okMedia = matchesMediaFilter(filters.media, e.m);
-  const okAudio = filters.audio === "all" || filters.audio === e.a;
-  const okText = filters.text === "all" || filters.text === e.s;
+  const okMedia = matchesMediaFilter(filters.media, e.media);
+  const okAudio = filters.audio === "all" || filters.audio === e.audio;
+  const okText = filters.text === "all" || filters.text === e.subs;
   const visible = okMedia && okAudio && okText;
   const isCompact = filters.density === "compact";
-  const isTba = e.a === "tba";
+  const isTba = e.audio === "tba";
 
   const [hovered, setHovered] = useState(false);
   const [pos, setPos] = useState({ x: 0, y: 0 });
@@ -189,17 +189,17 @@ function TimelineEntry({
         }}
       >
         <span className={s.entryIcon} style={{ color: u.color }}>
-          {MEDIA_ICONS[e.m]}
+          {MEDIA_ICONS[e.media]}
         </span>
         <span className={isCompact ? s.entryTitleHidden : s.entryTitle}>
-          {e.t}
+          {e.title}
         </span>
         <span className={isCompact ? s.entryMarksHidden : s.entryMarks}>
-          <span className={`${s.entryMark} ${markClass(e.a)}`}>
-            {MARK_LABELS[e.a]}
+          <span className={`${s.entryMark} ${markClass(e.audio)}`}>
+            {MARK_LABELS[e.audio]}
           </span>
-          <span className={`${s.entryMark} ${markClass(e.s)}`}>
-            {MARK_LABELS[e.s]}
+          <span className={`${s.entryMark} ${markClass(e.subs)}`}>
+            {MARK_LABELS[e.subs]}
           </span>
         </span>
         <span
@@ -299,7 +299,7 @@ function Tooltip({ entry: e, universe: u, allUniverses, x, y }: TooltipProps) {
     tba: "Format TBA",
   };
 
-  const isPrintMedia = e.m === "manga" || e.m === "novel";
+  const isPrintMedia = e.media === "manga" || e.media === "novel";
   const hasDetailMeta =
     detail !== undefined &&
     (detail.author !== undefined ||
@@ -323,14 +323,14 @@ function Tooltip({ entry: e, universe: u, allUniverses, x, y }: TooltipProps) {
           background: u.color,
         }}
       />
-      <div className={s.ttTitle}>{detail?.title.en ?? e.t}</div>
-      {e.n !== undefined && <div className={s.ttNote}>{e.n}</div>}
+      <div className={s.ttTitle}>{detail?.title.en ?? e.title}</div>
+      {e.note !== undefined && <div className={s.ttNote}>{e.note}</div>}
       {hasDetailNote && <div className={s.ttNote}>{detail.note}</div>}
       <div className={s.ttGrid}>
         <span className={s.ttKey}>Universe</span>
         <span className={s.ttVal}>
-          {Array.isArray(e.u)
-            ? e.u
+          {Array.isArray(e.universe)
+            ? e.universe
                 .map((uid) => {
                   const found = allUniverses.find((uv) => uv.id === uid);
                   return found ? `${found.name} · ${found.abbr}` : uid;
@@ -339,15 +339,15 @@ function Tooltip({ entry: e, universe: u, allUniverses, x, y }: TooltipProps) {
             : `${u.name} · ${u.abbr}`}
         </span>
         <span className={s.ttKey}>In-univ.</span>
-        <span className={s.ttVal}>{e.d}</span>
+        <span className={s.ttVal}>{e.era}</span>
         <span className={s.ttKey}>Released</span>
         <span className={s.ttVal}>{yearText}</span>
         <span className={s.ttKey}>Media</span>
-        <span className={s.ttVal}>{mediaNames[e.m]}</span>
+        <span className={s.ttVal}>{mediaNames[e.media]}</span>
         <span className={s.ttKey}>Audio</span>
-        <span className={s.ttVal}>{audioLabel[e.a]}</span>
+        <span className={s.ttVal}>{audioLabel[e.audio]}</span>
         <span className={s.ttKey}>Text</span>
-        <span className={s.ttVal}>{textLabel[e.s]}</span>
+        <span className={s.ttVal}>{textLabel[e.subs]}</span>
 
         {hasDetailMeta && (
           <>
@@ -686,7 +686,7 @@ function StoryEntries({
         const top = topOffset + item.storyStack * (ROW_H + ROW_GAP);
         return (
           <TimelineEntry
-            key={`s-${universe.id}-${String(item.storyStart)}-${item.t}`}
+            key={`s-${universe.id}-${String(item.storyStart)}-${item.title}`}
             entry={item}
             universe={universe}
             allUniverses={allUniverses}
@@ -906,9 +906,9 @@ export function TimelineLanes({
       }
 
       const hasVisible = stackedRelease.some((e) => {
-        const okMedia = matchesMediaFilter(filters.media, e.m);
-        const okAudio = filters.audio === "all" || filters.audio === e.a;
-        const okText = filters.text === "all" || filters.text === e.s;
+        const okMedia = matchesMediaFilter(filters.media, e.media);
+        const okAudio = filters.audio === "all" || filters.audio === e.audio;
+        const okText = filters.text === "all" || filters.text === e.subs;
         return okMedia && okAudio && okText;
       });
 
@@ -1044,7 +1044,7 @@ export function TimelineLanes({
                         const top = LANE_PAD + e.stack * (ROW_H + ROW_GAP);
                         return (
                           <TimelineEntry
-                            key={`r-${u.id}-${String(e.y1)}-${e.t}`}
+                            key={`r-${u.id}-${String(e.y1)}-${e.title}`}
                             entry={e}
                             universe={u}
                             allUniverses={universes}

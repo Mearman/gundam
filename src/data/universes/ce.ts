@@ -1,5 +1,5 @@
 import type { Entry, EntryDetail } from "../types";
-import { entry, ep, rel } from "../types";
+import { entry, det, ep, rel } from "../types";
 
 // Cosmic Era
 
@@ -324,11 +324,11 @@ export const ceEntries: Entry[] = [
 ];
 
 export const ceDetails: Record<string, EntryDetail | undefined> = {
-  seed_2002_tv: {
-    title: { ja: "機動戦士ガンダムSEED", en: "Mobile Suit Gundam SEED" },
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_SEED_episodes",
-    episodes: [
+  seed_2002_tv: det(
+    "機動戦士ガンダムSEED",
+    "Mobile Suit Gundam SEED",
+    "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_SEED_episodes",
+    [
       ep(1, "偽りの平和", "False Peace", "2002-10-05", { en: "2004-04-17" }),
       ep(2, "その名はガンダム", "Its Name: Gundam", "2002-10-12", {
         en: "2004-04-24",
@@ -466,27 +466,23 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
         "2004-03-26",
       ),
     ],
-    releases: [
+    [
       rel("ja", "broadcast", "MBS / TBS", "2002-10-05", "weekly", "2003-09-27"),
       rel("en", "broadcast", "Toonami / YTV (Canada)", "2004-04-17", "weekly"),
       rel("en", "home_video", "Bandai Entertainment DVD", "2005", "box-set"),
       rel("en", "streaming", "Crunchyroll", "2024", "simulcast"),
     ],
-  },
-  seed_special_2004_films: {
-    title: {
-      ja: "機動戦士ガンダムSEED スペシャルエディション",
-      en: "Mobile Suit Gundam SEED: Special Edition",
-    },
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_SEED_episodes",
-    note: "3-part compilation movies summarising TV series",
-    episodes: [
+  ),
+  seed_special_2004_films: det(
+    "機動戦士ガンダムSEED スペシャルエディション",
+    "Mobile Suit Gundam SEED: Special Edition",
+    "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_SEED_episodes",
+    [
       ep(1, "砕け散る世界", "The Empty Battlefield", "2004-03-23"),
       ep(2, "遥かなる暁", "The Far-Away Dawn", "2004-07-28"),
       ep(3, "鳴動の宇宙", "The Rumbling Sky", "2004-10-22"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "theatrical",
@@ -497,20 +493,18 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "home_video", "Bandai Entertainment DVD", "2005", "box-set"),
     ],
-  },
-  seed_stargazer_2006_ona: {
-    title: {
-      ja: "機動戦士ガンダムSEED C.E.73 STARGAZER",
-      en: "Mobile Suit Gundam SEED C.E. 73: Stargazer",
-    },
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_SEED_episodes",
-    episodes: [
+    { note: "3-part compilation movies summarising TV series" },
+  ),
+  seed_stargazer_2006_ona: det(
+    "機動戦士ガンダムSEED C.E.73 STARGAZER",
+    "Mobile Suit Gundam SEED C.E. 73: Stargazer",
+    "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_SEED_episodes",
+    [
       ep(1, "Stage 01", "Stage 01", "2006-07-14"),
       ep(2, "Stage 02", "Stage 02", "2006-08-21"),
       ep(3, "Stage 03", "Stage 03", "2006-09-29"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "streaming",
@@ -521,19 +515,17 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "home_video", "Bandai Entertainment DVD", "2008", "box-set"),
     ],
-  },
-  seed_freedom_2024_film: {
-    title: {
-      ja: "機動戦士ガンダムSEED FREEDOM",
-      en: "Mobile Suit Gundam SEED Freedom",
-    },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Freedom",
-    episodes: [
+  ),
+  seed_freedom_2024_film: det(
+    "機動戦士ガンダムSEED FREEDOM",
+    "Mobile Suit Gundam SEED Freedom",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Freedom",
+    [
       ep(1, "機動戦士ガンダムSEED FREEDOM", "SEED Freedom", "2024-01-26", {
         en: "2024-05-03",
       }),
     ],
-    releases: [
+    [
       rel("ja", "theatrical", "Theatrical release", "2024-01-26", "theatrical"),
       rel(
         "en",
@@ -543,36 +535,33 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
         "theatrical",
       ),
     ],
-  },
-  seed_2003_manga: {
-    title: {
-      ja: "機動戦士ガンダムSEED (漫画)",
-      en: "Mobile Suit Gundam SEED (manga)",
-    },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED",
-    author: "Masatsugu Iwase",
-    publisher: "Kodansha",
-    magazine: "Magazine Z",
-    episodes: [
+  ),
+  seed_2003_manga: det(
+    "機動戦士ガンダムSEED (漫画)",
+    "Mobile Suit Gundam SEED (manga)",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED",
+    [
       ep(1, "Volume 1", "Volume 1", "2003-03"),
       ep(2, "Volume 2", "Volume 2", "2003-08"),
       ep(3, "Volume 3", "Volume 3", "2004-02"),
       ep(4, "Volume 4", "Volume 4", "2004-07"),
       ep(5, "Volume 5", "Volume 5", "2005-01"),
     ],
-    releases: [
+    [
       rel("ja", "print", "Gundam Ace / Kadokawa", "2003-06-01", "serial"),
       rel("en", "print", "Del Rey Manga (English)", "2004", "serial"),
     ],
-  },
-  seed_destiny_2004_tv: {
-    title: {
-      ja: "機動戦士ガンダムSEED DESTINY",
-      en: "Mobile Suit Gundam SEED Destiny",
+    {
+      author: "Masatsugu Iwase",
+      publisher: "Kodansha",
+      magazine: "Magazine Z",
     },
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_SEED_Destiny_episodes",
-    episodes: [
+  ),
+  seed_destiny_2004_tv: det(
+    "機動戦士ガンダムSEED DESTINY",
+    "Mobile Suit Gundam SEED Destiny",
+    "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_SEED_Destiny_episodes",
+    [
       ep(1, "怒れる瞳", "Angry Eyes", "2004-10-09", { en: "2007-03-09" }),
       ep(2, "戦いを呼ぶもの", "Those Who Call for War", "2004-10-16", {
         en: "2007-03-16",
@@ -692,27 +681,24 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
       ep(50, "最後の力", "The Final Power", "2005-10-01", { en: "2008-03-28" }),
       ep(51, "選ばれた未来", "Final Plus: The Chosen Future", "2005-12-25"),
     ],
-    releases: [
+    [
       rel("ja", "broadcast", "MBS / TBS", "2004-10-09", "weekly", "2005-10-01"),
       rel("en", "broadcast", "YTV (Canada)", "2006", "weekly"),
       rel("en", "home_video", "Bandai Entertainment DVD", "2007", "box-set"),
       rel("en", "streaming", "Crunchyroll", "2024", "simulcast"),
     ],
-  },
-  seed_destiny_special_2006_films: {
-    title: {
-      ja: "機動戦士ガンダムSEED DESTINY スペシャルエディション",
-      en: "Mobile Suit Gundam SEED Destiny: Special Edition",
-    },
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_SEED_Destiny_episodes",
-    episodes: [
+  ),
+  seed_destiny_special_2006_films: det(
+    "機動戦士ガンダムSEED DESTINY スペシャルエディション",
+    "Mobile Suit Gundam SEED Destiny: Special Edition",
+    "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_SEED_Destiny_episodes",
+    [
       ep(1, "砕け散る世界", "The Shattered World", "2006-05-02"),
       ep(2, "戦いを呼ぶもの", "Their Respective Swords", "2006-07-27"),
       ep(3, "予兆の砲火", "The Hellfire of Destiny", "2006-10-08"),
       ep(4, "星屑の戦場", "The Cost of Freedom", "2007-02-23"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "theatrical",
@@ -723,23 +709,17 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "home_video", "Bandai Entertainment DVD", "2008", "box-set"),
     ],
-  },
-  seed_astray_manga: {
-    title: {
-      ja: "機動戦士ガンダムSEED ASTRAY",
-      en: "Mobile Suit Gundam SEED Astray",
-    },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
-    author: "Yoshiyuki Tomino (concept) / various",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace / Monthly Shōnen Ace",
-    note: "Side-story manga line running parallel to SEED/SEED Destiny. Multiple sub-series: Astray (2002-04, 3 vol), Astray R (2003-04, 4 vol), Astray B (2005-06, 2 vol), Destiny Astray (2004-06, 4 vol), Astray Delta (2011-13, 2 vol), VS Astray (2012-13, 2 vol), Frame Astrays (2007, 2 vol).",
-    episodes: [
+  ),
+  seed_astray_manga: det(
+    "機動戦士ガンダムSEED ASTRAY",
+    "Mobile Suit Gundam SEED Astray",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
+    [
       ep(1, "Volume 1", "Volume 1", "2003-05"),
       ep(2, "Volume 2", "Volume 2", "2003-09"),
       ep(3, "Volume 3", "Volume 3", "2004-02"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "print",
@@ -750,14 +730,18 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "print", "TokyoPop / Nozomi (English)", "2005", "serial"),
     ],
-  },
-  seed_destiny_final_plus_2005_special: {
-    title: {
-      ja: "機動戦士ガンダムSEED DESTINY FINAL PLUS",
-      en: "Mobile Suit Gundam SEED Destiny: Final Plus",
+    {
+      author: "Yoshiyuki Tomino (concept) / various",
+      publisher: "Kadokawa Shoten",
+      magazine: "Gundam Ace / Monthly Shōnen Ace",
+      note: "Side-story manga line running parallel to SEED/SEED Destiny. Multiple sub-series: Astray (2002-04, 3 vol), Astray R (2003-04, 4 vol), Astray B (2005-06, 2 vol), Destiny Astray (2004-06, 4 vol), Astray Delta (2011-13, 2 vol), VS Astray (2012-13, 2 vol), Frame Astrays (2007, 2 vol).",
     },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Destiny",
-    episodes: [
+  ),
+  seed_destiny_final_plus_2005_special: det(
+    "機動戦士ガンダムSEED DESTINY FINAL PLUS",
+    "Mobile Suit Gundam SEED Destiny: Final Plus",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Destiny",
+    [
       ep(
         1,
         "機動戦士ガンダムSEED DESTINY FINAL PLUS",
@@ -765,21 +749,17 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
         "2005-12-25",
       ),
     ],
-    releases: [
+    [
       rel("ja", "broadcast", "TV special", "2005-12-25", "weekly"),
       rel("en", "home_video", "Bandai Entertainment DVD", "2008", "box-set"),
     ],
-  },
-  seed_after_phase_2004_ova: {
-    title: {
-      ja: "機動戦士ガンダムSEED AFTER-PHASE",
-      en: "Mobile Suit Gundam SEED: After-Phase",
-    },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED",
-    episodes: [
-      ep(1, "機動戦士ガンダムSEED AFTER-PHASE", "After-Phase", "2004-12-25"),
-    ],
-    releases: [
+  ),
+  seed_after_phase_2004_ova: det(
+    "機動戦士ガンダムSEED AFTER-PHASE",
+    "Mobile Suit Gundam SEED: After-Phase",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED",
+    [ep(1, "機動戦士ガンダムSEED AFTER-PHASE", "After-Phase", "2004-12-25")],
+    [
       rel("ja", "home_video", "DVD bonus", "2004-12-25", "box-set"),
       rel(
         "en",
@@ -789,27 +769,22 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
         "box-set",
       ),
     ],
-  },
-  seed_msv_astray_2004_ova: {
-    title: {
-      ja: "機動戦士ガンダムSEED MSV ASTRAY",
-      en: "Mobile Suit Gundam SEED MSV Astray",
-    },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
-    episodes: [
+  ),
+  seed_msv_astray_2004_ova: det(
+    "機動戦士ガンダムSEED MSV ASTRAY",
+    "Mobile Suit Gundam SEED MSV Astray",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
+    [
       ep(1, "Part 1", "Part 1", "2004-05-25"),
       ep(2, "Part 2", "Part 2", "2004-11-25"),
     ],
-    releases: [rel("ja", "home_video", "Promo OVA", "2004", "box-set")],
-  },
-  seed_stargazer_compilation_2006_ova: {
-    title: {
-      ja: "機動戦士ガンダムSEED C.E.73 STARGAZER",
-      en: "Mobile Suit Gundam SEED C.E. 73: Stargazer (Compilation)",
-    },
-    source:
-      "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_C.E._73:_Stargazer",
-    episodes: [
+    [rel("ja", "home_video", "Promo OVA", "2004", "box-set")],
+  ),
+  seed_stargazer_compilation_2006_ova: det(
+    "機動戦士ガンダムSEED C.E.73 STARGAZER",
+    "Mobile Suit Gundam SEED C.E. 73: Stargazer (Compilation)",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_C.E._73:_Stargazer",
+    [
       ep(
         1,
         "機動戦士ガンダムSEED C.E.73 STARGAZER",
@@ -817,199 +792,167 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
         "2006-11-24",
       ),
     ],
-    releases: [
+    [
       rel("ja", "home_video", "DVD compilation", "2006", "box-set"),
       rel("en", "home_video", "Bandai Entertainment DVD", "2008", "box-set"),
     ],
-  },
-  seed_astray_r_2004_manga: {
-    title: {
-      ja: "機動戦士ガンダムSEED X ASTRAY R",
-      en: "Mobile Suit Gundam SEED Astray R",
-    },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
-    author: "Tomohiro Chiba (story), Yasunari Toda (art)",
-    publisher: "Kadokawa Shoten",
-    magazine: "Shōnen Ace",
-    episodes: [
+  ),
+  seed_astray_r_2004_manga: det(
+    "機動戦士ガンダムSEED X ASTRAY R",
+    "Mobile Suit Gundam SEED Astray R",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
+    [
       ep(1, "Volume 1", "Volume 1", "2003-03"),
       ep(2, "Volume 2", "Volume 2", "2003-09"),
       ep(3, "Volume 3", "Volume 3", "2004-02"),
       ep(4, "Volume 4", "Volume 4", "2004-08"),
     ],
-    releases: [
+    [
       rel("ja", "print", "Kadokawa Shōnen Ace", "2002-10-26", "serial", "2006"),
       rel("en", "print", "Del Rey / Tokyopop", "2005-07-26", "serial"),
     ],
-  },
-  seed_destiny_astray_2004_manga: {
-    title: {
-      ja: "機動戦士ガンダムSEED DESTINY ASTRAY",
-      en: "Mobile Suit Gundam SEED Destiny Astray",
+    {
+      author: "Tomohiro Chiba (story), Yasunari Toda (art)",
+      publisher: "Kadokawa Shoten",
+      magazine: "Shōnen Ace",
     },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
-    author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
-    episodes: [
+  ),
+  seed_destiny_astray_2004_manga: det(
+    "機動戦士ガンダムSEED DESTINY ASTRAY",
+    "Mobile Suit Gundam SEED Destiny Astray",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
+    [
       ep(1, "Volume 1", "Volume 1", "2005-01"),
       ep(2, "Volume 2", "Volume 2", "2005-07"),
       ep(3, "Volume 3", "Volume 3", "2005-11"),
       ep(4, "Volume 4", "Volume 4", "2006-06"),
     ],
-    releases: [
-      rel("ja", "print", "Kadokawa Gundam Ace", "2004-05-26", "serial", "2006"),
-    ],
-  },
-  seed_x_astray_2003_manga: {
-    title: {
-      ja: "機動戦士ガンダムSEED X ASTRAY",
-      en: "Mobile Suit Gundam SEED X Astray",
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2004-05-26", "serial", "2006")],
+    {
+      author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
+      publisher: "Kadokawa Shoten",
+      magazine: "Gundam Ace",
     },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
-    author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
-    episodes: [
+  ),
+  seed_x_astray_2003_manga: det(
+    "機動戦士ガンダムSEED X ASTRAY",
+    "Mobile Suit Gundam SEED X Astray",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
+    [
       ep(1, "Volume 1", "Volume 1", "2004-05"),
       ep(2, "Volume 2", "Volume 2", "2004-10"),
     ],
-    releases: [
-      rel("ja", "print", "Kadokawa Gundam Ace", "2003-05-26", "serial", "2004"),
-    ],
-  },
-  seed_delta_astray_2006_manga: {
-    title: {
-      ja: "機動戦士ガンダムSEED C.E.73 Δ (Delta) ASTRAY",
-      en: "Mobile Suit Gundam SEED C.E.73 Δ (Delta) Astray",
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2003-05-26", "serial", "2004")],
+    {
+      author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
+      publisher: "Kadokawa Shoten",
+      magazine: "Gundam Ace",
     },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
-    author: "Tomohiro Chiba (story), Kazuhiro Okada (art)",
-    publisher: "ASCII Media Works",
-    magazine: "Dengeki Hobby Magazine",
-    episodes: [
+  ),
+  seed_delta_astray_2006_manga: det(
+    "機動戦士ガンダムSEED C.E.73 Δ (Delta) ASTRAY",
+    "Mobile Suit Gundam SEED C.E.73 Δ (Delta) Astray",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
+    [
       ep(1, "Volume 1", "Volume 1", "2006"),
       ep(2, "Volume 2", "Volume 2", "2007"),
     ],
-    releases: [
-      rel("ja", "print", "Kadokawa Gundam Ace", "2006-05-26", "serial", "2007"),
-    ],
-  },
-  seed_vs_astray_2010_manga: {
-    title: {
-      ja: "機動戦士ガンダムSEED VS ASTRAY",
-      en: "Mobile Suit Gundam SEED VS Astray",
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2006-05-26", "serial", "2007")],
+    {
+      author: "Tomohiro Chiba (story), Kazuhiro Okada (art)",
+      publisher: "ASCII Media Works",
+      magazine: "Dengeki Hobby Magazine",
     },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
-    author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
-    publisher: "ASCII Media Works",
-    magazine: "Dengeki Hobby Magazine",
-    episodes: [
+  ),
+  seed_vs_astray_2010_manga: det(
+    "機動戦士ガンダムSEED VS ASTRAY",
+    "Mobile Suit Gundam SEED VS Astray",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
+    [
       ep(1, "Volume 1", "Volume 1", "2010-05"),
       ep(2, "Volume 2", "Volume 2", "2011-01"),
     ],
-    releases: [
-      rel("ja", "print", "Kadokawa Gundam Ace", "2010-01-26", "serial", "2012"),
-    ],
-  },
-  seed_frame_astrays_2007_manga: {
-    title: {
-      ja: "機動戦士ガンダムSEED FRAME ASTRAYS",
-      en: "Mobile Suit Gundam SEED Frame Astrays",
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2010-01-26", "serial", "2012")],
+    {
+      author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
+      publisher: "ASCII Media Works",
+      magazine: "Dengeki Hobby Magazine",
     },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
-    author: "Tomohiro Chiba (story), Kazuhiro Okada (art)",
-    publisher: "Kadokawa Shoten",
-    magazine: "Dengeki Hobby Magazine",
-    episodes: [
+  ),
+  seed_frame_astrays_2007_manga: det(
+    "機動戦士ガンダムSEED FRAME ASTRAYS",
+    "Mobile Suit Gundam SEED Frame Astrays",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
+    [
       ep(1, "Volume 1", "Volume 1", "2008-04"),
       ep(2, "Volume 2", "Volume 2", "2008-11"),
     ],
-    releases: [
-      rel("ja", "print", "Hobby Japan", "2007-04-26", "serial", "2008"),
-    ],
-  },
-  seed_astray_b_2012_manga: {
-    title: {
-      ja: "機動戦士ガンダムSEED DESTINY ASTRAY B",
-      en: "Mobile Suit Gundam SEED Destiny Astray B",
+    [rel("ja", "print", "Hobby Japan", "2007-04-26", "serial", "2008")],
+    {
+      author: "Tomohiro Chiba (story), Kazuhiro Okada (art)",
+      publisher: "Kadokawa Shoten",
+      magazine: "Dengeki Hobby Magazine",
     },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
-    author: "Tomohiro Chiba (story), Eiichi Shimizu (art)",
-    publisher: "Kadokawa ASCII Media Works",
-    magazine: "Hobby Japan",
-    episodes: [
+  ),
+  seed_astray_b_2012_manga: det(
+    "機動戦士ガンダムSEED DESTINY ASTRAY B",
+    "Mobile Suit Gundam SEED Destiny Astray B",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
+    [
       ep(1, "Volume 1", "Volume 1", "2013-03"),
       ep(2, "Volume 2", "Volume 2", "2014-05"),
     ],
-    releases: [
-      rel("ja", "serial", "Hobby Japan", "2013-03", "serial", "2014-05"),
-    ],
-  },
-  seed_freedom_zero_tba: {
-    title: {
-      ja: "機動戦士ガンダムSEED FREEDOM ZERO",
-      en: "Mobile Suit Gundam SEED Freedom Zero",
+    [rel("ja", "serial", "Hobby Japan", "2013-03", "serial", "2014-05")],
+    {
+      author: "Tomohiro Chiba (story), Eiichi Shimizu (art)",
+      publisher: "Kadokawa ASCII Media Works",
+      magazine: "Hobby Japan",
     },
-    source:
-      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_FREEDOM_Zero",
-    note: "Prequel to SEED Freedom. TBA",
-    episodes: [],
-    releases: [],
-  },
-  seed_destiny_edge_2005_manga: {
-    title: {
-      ja: "機動戦士ガンダムSEED DESTINY THE EDGE",
-      en: "Mobile Suit Gundam SEED Destiny: The Edge",
-    },
-    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムSEEDシリーズ_(書籍)",
-    author: "Tateishi Gichi",
-    publisher: "Kadokawa",
-    magazine: "Gundam Ace",
-    episodes: [
+  ),
+  seed_freedom_zero_tba: det(
+    "機動戦士ガンダムSEED FREEDOM ZERO",
+    "Mobile Suit Gundam SEED Freedom Zero",
+    "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_FREEDOM_Zero",
+    [],
+    [],
+    { note: "Prequel to SEED Freedom. TBA" },
+  ),
+  seed_destiny_edge_2005_manga: det(
+    "機動戦士ガンダムSEED DESTINY THE EDGE",
+    "Mobile Suit Gundam SEED Destiny: The Edge",
+    "https://ja.wikipedia.org/wiki/機動戦士ガンダムSEEDシリーズ_(書籍)",
+    [
       ep(1, "Volume 1", "Volume 1", "2005-04"),
       ep(2, "Volume 2", "Volume 2", "2005-08"),
       ep(3, "Volume 3", "Volume 3", "2005-12"),
       ep(4, "Volume 4", "Volume 4", "2006-06"),
       ep(5, "Volume 5", "Volume 5", "2006-10"),
     ],
-    releases: [
-      rel("ja", "print", "Kadokawa Gundam Ace", "2005", "serial", "2008"),
-    ],
-  },
-  seed_destiny_edge_desire_2008_manga: {
-    title: {
-      ja: "機動戦士ガンダムSEED DESTINY THE EDGE Desire",
-      en: "Mobile Suit Gundam SEED Destiny: The Edge Desire",
-    },
-    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムSEEDシリーズ_(書籍)",
-    author: "Tateishi Gichi",
-    publisher: "Kadokawa",
-    magazine: "Gundam Ace",
-    episodes: [
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2005", "serial", "2008")],
+    { author: "Tateishi Gichi", publisher: "Kadokawa", magazine: "Gundam Ace" },
+  ),
+  seed_destiny_edge_desire_2008_manga: det(
+    "機動戦士ガンダムSEED DESTINY THE EDGE Desire",
+    "Mobile Suit Gundam SEED Destiny: The Edge Desire",
+    "https://ja.wikipedia.org/wiki/機動戦士ガンダムSEEDシリーズ_(書籍)",
+    [
       ep(1, "Volume 1", "Volume 1", "2007-06"),
       ep(2, "Volume 2", "Volume 2", "2008-02"),
     ],
-    releases: [
-      rel("ja", "print", "Kadokawa Gundam Ace", "2008", "serial", "2011"),
-    ],
-  },
-  seed_destiny_magazine_z_manga: {
-    title: {
-      ja: "機動戦士ガンダムSEED DESTINY (マガジンZ版)",
-      en: "Mobile Suit Gundam SEED Destiny (Magazine Z manga)",
-    },
-    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムSEEDシリーズ_(書籍)",
-    author: "Iwase Masashi",
-    publisher: "Kodansha",
-    magazine: "Monthly Magazine Z",
-    episodes: [
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2008", "serial", "2011")],
+    { author: "Tateishi Gichi", publisher: "Kadokawa", magazine: "Gundam Ace" },
+  ),
+  seed_destiny_magazine_z_manga: det(
+    "機動戦士ガンダムSEED DESTINY (マガジンZ版)",
+    "Mobile Suit Gundam SEED Destiny (Magazine Z manga)",
+    "https://ja.wikipedia.org/wiki/機動戦士ガンダムSEEDシリーズ_(書籍)",
+    [
       ep(1, "Volume 1", "Volume 1", "2005-04"),
       ep(2, "Volume 2", "Volume 2", "2005-08"),
       ep(3, "Volume 3", "Volume 3", "2006-06"),
       ep(4, "Volume 4", "Volume 4", "2006-06"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "print",
@@ -1019,63 +962,63 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
         "2006-06",
       ),
     ],
-  },
-  reseed_2024_manga: {
-    title: {
-      ja: "機動戦士ガンダムSEED Re:",
-      en: "Mobile Suit Gundam SEED Re:",
+    {
+      author: "Iwase Masashi",
+      publisher: "Kodansha",
+      magazine: "Monthly Magazine Z",
     },
-    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Re:",
-    author: "Ju Ishiguchi",
-    publisher: "Kadokawa",
-    magazine: "Gundam Ace",
-    note: "2024 manga retelling of the original SEED",
-    episodes: [ep(1, "Volume 1", "Volume 1", "2025")],
-    releases: [rel("ja", "print", "Kadokawa Gundam Ace", "2024", "serial")],
-  },
-  seed_freedom_2024_manga: {
-    title: {
-      ja: "機動戦士ガンダムSEED FREEDOM (漫画)",
-      en: "Mobile Suit Gundam SEED Freedom (manga)",
+  ),
+  reseed_2024_manga: det(
+    "機動戦士ガンダムSEED Re:",
+    "Mobile Suit Gundam SEED Re:",
+    "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Re:",
+    [ep(1, "Volume 1", "Volume 1", "2025")],
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2024", "serial")],
+    {
+      author: "Ju Ishiguchi",
+      publisher: "Kadokawa",
+      magazine: "Gundam Ace",
+      note: "2024 manga retelling of the original SEED",
     },
-    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Freedom",
-    author: "Iwase Masashi",
-    publisher: "Kadokawa",
-    magazine: "Gundam Ace",
-    note: "Manga adaptation of the SEED Freedom film",
-    episodes: [ep(1, "Volume 1", "Volume 1", "2025")],
-    releases: [rel("ja", "print", "Kadokawa Gundam Ace", "2024", "serial")],
-  },
-  seed_eclipse_2021_manga: {
-    title: {
-      ja: "機動戦士ガンダムSEED ECLIPSE",
-      en: "Mobile Suit Gundam SEED Eclipse",
+  ),
+  seed_freedom_2024_manga: det(
+    "機動戦士ガンダムSEED FREEDOM (漫画)",
+    "Mobile Suit Gundam SEED Freedom (manga)",
+    "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Freedom",
+    [ep(1, "Volume 1", "Volume 1", "2025")],
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2024", "serial")],
+    {
+      author: "Iwase Masashi",
+      publisher: "Kadokawa",
+      magazine: "Gundam Ace",
+      note: "Manga adaptation of the SEED Freedom film",
     },
-    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Eclipse",
-    author: "Atsushi Soga (art), SOW (story)",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
-    note: "Set in Cosmic Era during the interim between SEED and SEED Destiny",
-    episodes: [
+  ),
+  seed_eclipse_2021_manga: det(
+    "機動戦士ガンダムSEED ECLIPSE",
+    "Mobile Suit Gundam SEED Eclipse",
+    "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Eclipse",
+    [
       ep(1, "Volume 1", "Volume 1", "2022-02-26"),
       ep(2, "Volume 2", "Volume 2", "2023"),
     ],
-    releases: [rel("ja", "print", "Kadokawa Shoten", "2021", "serial")],
-  },
-  seed_destiny_astray_r_2013_manga: {
-    title: {
-      ja: "機動戦士ガンダムSEED DESTINY ASTRAY R",
-      en: "Mobile Suit Gundam SEED Destiny Astray R",
+    [rel("ja", "print", "Kadokawa Shoten", "2021", "serial")],
+    {
+      author: "Atsushi Soga (art), SOW (story)",
+      publisher: "Kadokawa Shoten",
+      magazine: "Gundam Ace",
+      note: "Set in Cosmic Era during the interim between SEED and SEED Destiny",
     },
-    source:
-      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Destiny_Astray_R",
-    author: "Tomohiro Chiba (story), Kunio Okawara (mechanical design)",
-    publisher: "ASCII Media Works",
-    episodes: [
+  ),
+  seed_destiny_astray_r_2013_manga: det(
+    "機動戦士ガンダムSEED DESTINY ASTRAY R",
+    "Mobile Suit Gundam SEED Destiny Astray R",
+    "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Destiny_Astray_R",
+    [
       ep(1, "Volume 1", "Volume 1", "2013-06"),
       ep(2, "Volume 2", "Volume 2", "2014-05"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "serial",
@@ -1085,5 +1028,9 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
         "2014-05",
       ),
     ],
-  },
+    {
+      author: "Tomohiro Chiba (story), Kunio Okawara (mechanical design)",
+      publisher: "ASCII Media Works",
+    },
+  ),
 };

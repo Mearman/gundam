@@ -1,5 +1,5 @@
 import type { Entry, EntryDetail } from "../types";
-import { entry, ep, rel } from "../types";
+import { entry, det, ep, rel } from "../types";
 
 // After Colony
 
@@ -151,11 +151,11 @@ export const acEntries: Entry[] = [
 ];
 
 export const acDetails: Record<string, EntryDetail | undefined> = {
-  wing_1995_tv: {
-    title: { ja: "新機動戦記ガンダムW", en: "Mobile Suit Gundam Wing" },
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_Wing_episodes",
-    episodes: [
+  wing_1995_tv: det(
+    "新機動戦記ガンダムW",
+    "Mobile Suit Gundam Wing",
+    "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_Wing_episodes",
+    [
       ep(1, "少女が見た流星", "The Shooting Star She Saw", "1995-04-07", {
         en: "2000-03-06",
       }),
@@ -344,7 +344,7 @@ export const acDetails: Record<string, EntryDetail | undefined> = {
         en: "2000-05-11",
       }),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "broadcast",
@@ -371,16 +371,12 @@ export const acDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "streaming", "Crunchyroll", "2024", "simulcast"),
     ],
-  },
-  wing_opmeteor_1996_ova: {
-    title: {
-      ja: "新機動戦記ガンダムW OPERATION METEOR",
-      en: "Gundam Wing: Operation Meteor",
-    },
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_Wing_episodes",
-    note: "4-part OVA compiling series clips + new footage; never dubbed",
-    episodes: [
+  ),
+  wing_opmeteor_1996_ova: det(
+    "新機動戦記ガンダムW OPERATION METEOR",
+    "Gundam Wing: Operation Meteor",
+    "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_Wing_episodes",
+    [
       ep(
         1,
         "OPERATION METEOR I: オッドナンバーズ",
@@ -406,7 +402,7 @@ export const acDetails: Record<string, EntryDetail | undefined> = {
         "1996-10-25",
       ),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "home_video",
@@ -417,15 +413,13 @@ export const acDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "home_video", "Right Stuf / Sunrise", "2017", "box-set"),
     ],
-  },
-  wing_endlesswaltz_1997_ova: {
-    title: {
-      ja: "新機動戦記ガンダムW Endless Waltz",
-      en: "Gundam Wing: Endless Waltz",
-    },
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_Wing_episodes",
-    episodes: [
+    { note: "4-part OVA compiling series clips + new footage; never dubbed" },
+  ),
+  wing_endlesswaltz_1997_ova: det(
+    "新機動戦記ガンダムW Endless Waltz",
+    "Gundam Wing: Endless Waltz",
+    "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_Wing_episodes",
+    [
       ep(1, "静かなる軌道", "Silent Orbit", "1997-01-25", { en: "2000-11-10" }),
       ep(2, "過ぎ去りし流星", "Operation Meteor", "1997-04-25", {
         en: "2000-11-10",
@@ -434,7 +428,7 @@ export const acDetails: Record<string, EntryDetail | undefined> = {
         en: "2000-11-10",
       }),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "home_video",
@@ -453,15 +447,12 @@ export const acDetails: Record<string, EntryDetail | undefined> = {
       rel("en", "home_video", "Bandai Entertainment DVD", "2001", "box-set"),
       rel("en", "home_video", "Right Stuf / Sunrise", "2017", "box-set"),
     ],
-  },
-  wing_endlesswaltz_1998_film: {
-    title: {
-      ja: "新機動戦記ガンダムW Endless Waltz 特別篇",
-      en: "Gundam Wing: Endless Waltz Special Edition",
-    },
-    source:
-      "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_Wing_episodes",
-    episodes: [
+  ),
+  wing_endlesswaltz_1998_film: det(
+    "新機動戦記ガンダムW Endless Waltz 特別篇",
+    "Gundam Wing: Endless Waltz Special Edition",
+    "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_Wing_episodes",
+    [
       ep(
         1,
         "新機動戦記ガンダムW Endless Waltz 特別篇",
@@ -470,7 +461,7 @@ export const acDetails: Record<string, EntryDetail | undefined> = {
         { en: "2002-08-30" },
       ),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "theatrical",
@@ -480,18 +471,12 @@ export const acDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "home_video", "Bandai Entertainment DVD", "2001", "box-set"),
     ],
-  },
-  wing_glory_of_the_losers_manga: {
-    title: {
-      ja: "新機動戦記ガンダムW Endless Waltz 敗者たちの栄光",
-      en: "Mobile Suit Gundam Wing: Glory of the Losers",
-    },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Wing",
-    author: "Tomofumi Ogasawara",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
-    note: "14 volumes 2011-2019. Modern retelling of Wing TV. Per-volume dates approximate.",
-    episodes: [
+  ),
+  wing_glory_of_the_losers_manga: det(
+    "新機動戦記ガンダムW Endless Waltz 敗者たちの栄光",
+    "Mobile Suit Gundam Wing: Glory of the Losers",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Wing",
+    [
       ep(1, "Volume 1", "Volume 1", "2011-03-23"),
       ep(2, "Volume 2", "Volume 2", "2011-10-21"),
       ep(3, "Volume 3", "Volume 3", "2012-06-22"),
@@ -507,7 +492,7 @@ export const acDetails: Record<string, EntryDetail | undefined> = {
       ep(13, "Volume 13", "Volume 13", "2017-10-26"),
       ep(14, "Volume 14", "Volume 14", "2018-01-26"),
     ],
-    releases: [
+    [
       rel("ja", "print", "Kadokawa Gundam Ace", "2010-02-26", "serial", "2018"),
       rel(
         "en",
@@ -518,19 +503,19 @@ export const acDetails: Record<string, EntryDetail | undefined> = {
         "2022-01-18",
       ),
     ],
-  },
-  wing_frozen_teardrop_novel: {
-    title: {
-      ja: "新機動戦記ガンダムW Frozen Teardrop",
-      en: "Mobile Suit Gundam Wing: Frozen Teardrop",
+    {
+      author: "Tomofumi Ogasawara",
+      publisher: "Kadokawa Shoten",
+      magazine: "Gundam Ace",
+      note: "14 volumes 2011-2019. Modern retelling of Wing TV. Per-volume dates approximate.",
     },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Wing",
-    author: "Katsuyuki Sumizawa",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
-    note: "Photo-novel sequel, serialised in Gundam Ace from 2010",
-    episodes: [ep(1, "Serialisation begins", "Serialisation begins", "2010")],
-    releases: [
+  ),
+  wing_frozen_teardrop_novel: det(
+    "新機動戦記ガンダムW Frozen Teardrop",
+    "Mobile Suit Gundam Wing: Frozen Teardrop",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Wing",
+    [ep(1, "Serialisation begins", "Serialisation begins", "2010")],
+    [
       rel(
         "ja",
         "print",
@@ -540,17 +525,18 @@ export const acDetails: Record<string, EntryDetail | undefined> = {
         "2016-07-26",
       ),
     ],
-  },
-  wing_episode_zero_manga: {
-    title: {
-      ja: "新機動戦記ガンダムW Episode Zero",
-      en: "Mobile Suit Gundam Wing: Episode Zero",
+    {
+      author: "Katsuyuki Sumizawa",
+      publisher: "Kadokawa Shoten",
+      magazine: "Gundam Ace",
+      note: "Photo-novel sequel, serialised in Gundam Ace from 2010",
     },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Wing",
-    author: "Akira Kanbe (illustrator) / Katsuyuki Sumizawa (writer)",
-    publisher: "Kadokawa Shoten",
-    note: "Prequel manga showing the Gundam pilots before the series. 1 tankobon (collected 1998)",
-    episodes: [
+  ),
+  wing_episode_zero_manga: det(
+    "新機動戦記ガンダムW Episode Zero",
+    "Mobile Suit Gundam Wing: Episode Zero",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Wing",
+    [
       ep(
         1,
         "Episode Zero (collected edition)",
@@ -558,69 +544,68 @@ export const acDetails: Record<string, EntryDetail | undefined> = {
         "1998",
       ),
     ],
-    releases: [
+    [
       rel("ja", "print", "Gundam Ace / Kadokawa", "1997", "serial", "1998"),
       rel("en", "print", "TokyoPop / Viz (English)", "2004", "serial"),
     ],
-  },
-  wing_blind_target_1998_manga: {
-    title: {
-      ja: "新機動戦記ガンダムW BLIND TARGET",
-      en: "Mobile Suit Gundam Wing: Blind Target",
+    {
+      author: "Akira Kanbe (illustrator) / Katsuyuki Sumizawa (writer)",
+      publisher: "Kadokawa Shoten",
+      note: "Prequel manga showing the Gundam pilots before the series. 1 tankobon (collected 1998)",
     },
-    source: "https://ja.wikipedia.org/wiki/新機動戦記ガンダムW_BLIND_TARGET",
-    author: "Akimiya Yumiko (art), Sumizawa Katsuyuki (story)",
-    publisher: "Kodansha",
-    episodes: [
+  ),
+  wing_blind_target_1998_manga: det(
+    "新機動戦記ガンダムW BLIND TARGET",
+    "Mobile Suit Gundam Wing: Blind Target",
+    "https://ja.wikipedia.org/wiki/新機動戦記ガンダムW_BLIND_TARGET",
+    [
       ep(1, "Volume 1", "Volume 1", "1999"),
       ep(2, "Volume 2", "Volume 2", "1999"),
     ],
-    releases: [rel("ja", "print", "Kodansha", "1998", "serial", "1999")],
-  },
-  wing_battlefield_pacifist_1998_manga: {
-    title: {
-      ja: "新機動戦記ガンダムW BATTLEFIELD OF PACIFIST",
-      en: "Mobile Suit Gundam Wing: Battlefield of Pacifist",
+    [rel("ja", "print", "Kodansha", "1998", "serial", "1999")],
+    {
+      author: "Akimiya Yumiko (art), Sumizawa Katsuyuki (story)",
+      publisher: "Kodansha",
     },
-    source:
-      "https://ja.wikipedia.org/wiki/新機動戦記ガンダムW_BATTLEFIELD_OF_PACIFIST",
-    author: "Ohtagaki Kou (art), Sumizawa Katsuyuki (story)",
-    publisher: "Kodansha",
-    episodes: [ep(1, "Volume 1", "Volume 1", "1998")],
-    releases: [
-      rel("ja", "print", "Kodansha Bom Bom Comics", "1997", "serial", "1998"),
-    ],
-  },
-  wing_frozen_teardrop_manga: {
-    title: {
-      ja: "新機動戦記ガンダムW Frozen Teardrop 花たんぽぽ",
-      en: "New Mobile Report Gundam Wing: Frozen Teardrop — Hanamoyu",
+  ),
+  wing_battlefield_pacifist_1998_manga: det(
+    "新機動戦記ガンダムW BATTLEFIELD OF PACIFIST",
+    "Mobile Suit Gundam Wing: Battlefield of Pacifist",
+    "https://ja.wikipedia.org/wiki/新機動戦記ガンダムW_BATTLEFIELD_OF_PACIFIST",
+    [ep(1, "Volume 1", "Volume 1", "1998")],
+    [rel("ja", "print", "Kodansha Bom Bom Comics", "1997", "serial", "1998")],
+    {
+      author: "Ohtagaki Kou (art), Sumizawa Katsuyuki (story)",
+      publisher: "Kodansha",
     },
-    source:
-      "https://gundam.fandom.com/wiki/New_Victory_Report_Gundam_W:_Frozen_Teardrop",
-    author: "Kurosaki Kabuto (art), Sumizawa Katsuyuki (story)",
-    publisher: "Kadokawa",
-    magazine: "Gundam Ace",
-    note: "Manga adaptation of the Frozen Teardrop novel",
-    episodes: [
+  ),
+  wing_frozen_teardrop_manga: det(
+    "新機動戦記ガンダムW Frozen Teardrop 花たんぽぽ",
+    "New Mobile Report Gundam Wing: Frozen Teardrop — Hanamoyu",
+    "https://gundam.fandom.com/wiki/New_Victory_Report_Gundam_W:_Frozen_Teardrop",
+    [
       ep(1, "Volume 1", "Volume 1", "2017"),
       ep(2, "Volume 2", "Volume 2", "2018"),
       ep(3, "Volume 3", "Volume 3", "2019"),
       ep(4, "Volume 4", "Volume 4", "2020"),
       ep(5, "Volume 5", "Volume 5", "2021"),
     ],
-    releases: [
-      rel("ja", "print", "Kadokawa Gundam Ace", "2016", "serial", "2021"),
-    ],
-  },
-  wing_new_visual_tba: {
-    title: {
-      ja: "新機動戦記ガンダムW (新ビジュアルプロジェクト)",
-      en: "Gundam Wing new visual project",
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2016", "serial", "2021")],
+    {
+      author: "Kurosaki Kabuto (art), Sumizawa Katsuyuki (story)",
+      publisher: "Kadokawa",
+      magazine: "Gundam Ace",
+      note: "Manga adaptation of the Frozen Teardrop novel",
     },
-    source: "https://gundam.fandom.com/wiki/New_Mobile_Report_Gundam_W",
-    note: "Announced at Gundam Wing 30th anniversary event. Format, title, and date TBA.",
-    episodes: [],
-    releases: [],
-  },
+  ),
+  wing_new_visual_tba: det(
+    "新機動戦記ガンダムW (新ビジュアルプロジェクト)",
+    "Gundam Wing new visual project",
+    "https://gundam.fandom.com/wiki/New_Mobile_Report_Gundam_W",
+    [],
+    [],
+    {
+      note: "Announced at Gundam Wing 30th anniversary event. Format, title, and date TBA.",
+    },
+  ),
 };

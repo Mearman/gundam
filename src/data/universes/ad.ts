@@ -1,5 +1,5 @@
 import type { Entry, EntryDetail } from "../types";
-import { entry, ep, rel } from "../types";
+import { entry, det, ep, rel } from "../types";
 
 // Anno Domini
 
@@ -139,11 +139,11 @@ export const adEntries: Entry[] = [
 ];
 
 export const adDetails: Record<string, EntryDetail | undefined> = {
-  gundam00_2007_tv: {
-    title: { ja: "機動戦士ガンダム00", en: "Mobile Suit Gundam 00" },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
-    note: "Season 1: Oct 2007 - Mar 2008 (25 ep); Season 2: Oct 2008 - Mar 2009 (25 ep). Dates approximate weekly schedule.",
-    episodes: [
+  gundam00_2007_tv: det(
+    "機動戦士ガンダム00",
+    "Mobile Suit Gundam 00",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
+    [
       ep(1, "ソレスタルビーイング", "Celestial Being", "2007-10-06", {
         season: 1,
       }),
@@ -233,7 +233,7 @@ export const adDetails: Record<string, EntryDetail | undefined> = {
       ep(49, "BEYOND", "Beyond", "2009-03-15", { season: 2 }),
       ep(50, "再生", "Rebirth", "2009-03-29", { season: 2 }),
     ],
-    releases: [
+    [
       rel("ja", "broadcast", "MBS / TBS", "2007-10-06", "weekly", "2008-03-29"),
       rel(
         "ja",
@@ -254,14 +254,15 @@ export const adDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "streaming", "Crunchyroll", "2024", "simulcast"),
     ],
-  },
-  gundam00_2010_film: {
-    title: {
-      ja: "劇場版 機動戦士ガンダム00 -A wakening of the Trailblazer-",
-      en: "Mobile Suit Gundam 00 The Movie: A Wakening of the Trailblazer",
+    {
+      note: "Season 1: Oct 2007 - Mar 2008 (25 ep); Season 2: Oct 2008 - Mar 2009 (25 ep). Dates approximate weekly schedule.",
     },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
-    episodes: [
+  ),
+  gundam00_2010_film: det(
+    "劇場版 機動戦士ガンダム00 -A wakening of the Trailblazer-",
+    "Mobile Suit Gundam 00 The Movie: A Wakening of the Trailblazer",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
+    [
       ep(
         1,
         "劇場版 機動戦士ガンダム00 -A wakening of the Trailblazer-",
@@ -269,7 +270,7 @@ export const adDetails: Record<string, EntryDetail | undefined> = {
         "2010-09-18",
       ),
     ],
-    releases: [
+    [
       rel("ja", "theatrical", "Theatrical release", "2010-09-18", "theatrical"),
       rel(
         "en",
@@ -280,19 +281,17 @@ export const adDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "streaming", "Crunchyroll", "2024", "simulcast"),
     ],
-  },
-  gundam00_special_edition_2009_ova: {
-    title: {
-      ja: "機動戦士ガンダム00 スペシャルエディション",
-      en: "Mobile Suit Gundam 00 Special Edition",
-    },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
-    episodes: [
+  ),
+  gundam00_special_edition_2009_ova: det(
+    "機動戦士ガンダム00 スペシャルエディション",
+    "Mobile Suit Gundam 00 Special Edition",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
+    [
       ep(1, "ソレスタルビーイング", "Celestial Being", "2009-10-27"),
       ep(2, "エンド・オブ・ワールド", "End of World", "2009-12-22"),
       ep(3, "リターン・オブ・ドライヴ", "Return the World", "2010-02-23"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "home_video",
@@ -303,88 +302,87 @@ export const adDetails: Record<string, EntryDetail | undefined> = {
       ),
       rel("en", "home_video", "Bandai Entertainment", "2011", "box-set"),
     ],
-  },
-  gundam00p_2007_manga: {
-    title: { ja: "機動戦士ガンダム00P", en: "Mobile Suit Gundam 00P" },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
-    author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
-    publisher: "ASCII Media Works",
-    magazine: "Dengeki Hobby Magazine",
-    episodes: [
+  ),
+  gundam00p_2007_manga: det(
+    "機動戦士ガンダム00P",
+    "Mobile Suit Gundam 00P",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
+    [
       ep(1, "Volume 1", "Volume 1", "2008-05"),
       ep(2, "Volume 2", "Volume 2", "2008-10"),
       ep(3, "Volume 3", "Volume 3", "2009-05"),
       ep(4, "Volume 4", "Volume 4", "2009-11"),
       ep(5, "Volume 5", "Volume 5", "2010-03"),
     ],
-    releases: [
-      rel("ja", "print", "Kadokawa Gundam Ace", "2007-11-26", "serial", "2012"),
-    ],
-  },
-  gundam00v_2008_manga: {
-    title: { ja: "機動戦士ガンダム00V", en: "Mobile Suit Gundam 00V" },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
-    author: "Tomohiro Chiba (story), various (art)",
-    publisher: "Hobby Japan",
-    magazine: "Hobby Japan",
-    episodes: [ep(1, "Volume 1", "Volume 1", "2008")],
-    releases: [
-      rel("ja", "print", "Hobby Japan", "2008-12-26", "serial", "2012"),
-    ],
-  },
-  gundam00i_2009_manga: {
-    title: { ja: "機動戦士ガンダム00I", en: "Mobile Suit Gundam 00I" },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
-    author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
-    episodes: [
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2007-11-26", "serial", "2012")],
+    {
+      author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
+      publisher: "ASCII Media Works",
+      magazine: "Dengeki Hobby Magazine",
+    },
+  ),
+  gundam00v_2008_manga: det(
+    "機動戦士ガンダム00V",
+    "Mobile Suit Gundam 00V",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
+    [ep(1, "Volume 1", "Volume 1", "2008")],
+    [rel("ja", "print", "Hobby Japan", "2008-12-26", "serial", "2012")],
+    {
+      author: "Tomohiro Chiba (story), various (art)",
+      publisher: "Hobby Japan",
+      magazine: "Hobby Japan",
+    },
+  ),
+  gundam00i_2009_manga: det(
+    "機動戦士ガンダム00I",
+    "Mobile Suit Gundam 00I",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
+    [
       ep(1, "Volume 1", "Volume 1", "2010-01"),
       ep(2, "Volume 2", "Volume 2", "2010-06"),
       ep(3, "Volume 3", "Volume 3", "2010-09"),
     ],
-    releases: [
-      rel("ja", "print", "Kadokawa Gundam Ace", "2009-11-26", "serial", "2010"),
-    ],
-  },
-  gundam00n_2012_manga: {
-    title: { ja: "機動戦士ガンダム00N", en: "Mobile Suit Gundam 00N" },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
-    author: "Tomohiro Chiba (story)",
-    publisher: "ASCII Media Works",
-    magazine: "Dengeki Hobby Magazine",
-    episodes: [ep(1, "Volume 1", "Volume 1", "2012")],
-    releases: [
-      rel("ja", "print", "Kadokawa Gundam Ace", "2012-08-25", "serial", "2013"),
-    ],
-  },
-  gundam00f_2008_manga: {
-    title: { ja: "機動戦士ガンダム00F", en: "Mobile Suit Gundam 00F" },
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
-    author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
-    episodes: [
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2009-11-26", "serial", "2010")],
+    {
+      author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
+      publisher: "Kadokawa Shoten",
+      magazine: "Gundam Ace",
+    },
+  ),
+  gundam00n_2012_manga: det(
+    "機動戦士ガンダム00N",
+    "Mobile Suit Gundam 00N",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
+    [ep(1, "Volume 1", "Volume 1", "2012")],
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2012-08-25", "serial", "2013")],
+    {
+      author: "Tomohiro Chiba (story)",
+      publisher: "ASCII Media Works",
+      magazine: "Dengeki Hobby Magazine",
+    },
+  ),
+  gundam00f_2008_manga: det(
+    "機動戦士ガンダム00F",
+    "Mobile Suit Gundam 00F",
+    "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
+    [
       ep(1, "Volume 1", "Volume 1", "2008-03"),
       ep(2, "Volume 2", "Volume 2", "2008"),
       ep(3, "Volume 3", "Volume 3", "2009"),
       ep(4, "Volume 4", "Volume 4", "2009-07"),
     ],
-    releases: [
-      rel("ja", "print", "Kadokawa Gundam Ace", "2008-09-26", "serial", "2013"),
-    ],
-  },
-  gundam00_manga: {
-    title: {
-      ja: "機動戦士ガンダム00 (漫画)",
-      en: "Mobile Suit Gundam 00 (manga)",
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2008-09-26", "serial", "2013")],
+    {
+      author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
+      publisher: "Kadokawa Shoten",
+      magazine: "Gundam Ace",
     },
-    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_00_(Manga)",
-    author: "Kouzou Oomori (art), Tomohiro Chiba (story)",
-    publisher: "Kadokawa Shoten",
-    magazine: "Kerokero Ace",
-    note: "6-volume manga adaptation of the TV series",
-    episodes: [
+  ),
+  gundam00_manga: det(
+    "機動戦士ガンダム00 (漫画)",
+    "Mobile Suit Gundam 00 (manga)",
+    "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_00_(Manga)",
+    [
       ep(1, "Volume 1", "Volume 1", "2008-03"),
       ep(2, "Volume 2", "Volume 2", "2008-07"),
       ep(3, "Volume 3", "Volume 3", "2008-11"),
@@ -393,7 +391,7 @@ export const adDetails: Record<string, EntryDetail | undefined> = {
       ep(6, "Volume 6", "Volume 6", "2009-08"),
       ep(7, "Volume 7", "Volume 7", "2010-01"),
     ],
-    releases: [
+    [
       rel(
         "ja",
         "print",
@@ -403,23 +401,27 @@ export const adDetails: Record<string, EntryDetail | undefined> = {
         "2010",
       ),
     ],
-  },
-  gundam00i_2314_2010_manga: {
-    title: {
-      ja: "機動戦士ガンダム00I 2314",
-      en: "Mobile Suit Gundam 00I 2314",
+    {
+      author: "Kouzou Oomori (art), Tomohiro Chiba (story)",
+      publisher: "Kadokawa Shoten",
+      magazine: "Kerokero Ace",
+      note: "6-volume manga adaptation of the TV series",
     },
-    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_00I_2314",
-    author: "Tomofumi Ogasawara",
-    publisher: "Kadokawa",
-    magazine: "Gundam Ace",
-    note: "Sequel to 00I, set in AD 2314 before the movie",
-    episodes: [
+  ),
+  gundam00i_2314_2010_manga: det(
+    "機動戦士ガンダム00I 2314",
+    "Mobile Suit Gundam 00I 2314",
+    "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_00I_2314",
+    [
       ep(1, "Volume 1", "Volume 1", "2012"),
       ep(2, "Volume 2", "Volume 2", "2013"),
     ],
-    releases: [
-      rel("ja", "print", "Kadokawa Gundam Ace", "2011", "serial", "2013"),
-    ],
-  },
+    [rel("ja", "print", "Kadokawa Gundam Ace", "2011", "serial", "2013")],
+    {
+      author: "Tomofumi Ogasawara",
+      publisher: "Kadokawa",
+      magazine: "Gundam Ace",
+      note: "Sequel to 00I, set in AD 2314 before the movie",
+    },
+  ),
 };
