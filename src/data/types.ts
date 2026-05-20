@@ -35,6 +35,14 @@ export interface StackedEntry extends Entry {
   stack: number;
 }
 
+export interface StoryStackedEntry extends Entry {
+  storyStack: number;
+  storyStart: number;
+  storyEnd: number;
+}
+
+export type AxisMode = "release" | "story" | "both";
+
 export type Density = "comfort" | "compact";
 
 export interface Filters {
@@ -42,4 +50,5 @@ export interface Filters {
   audio: string;
   text: string;
   density: Density;
+  axis: AxisMode;
 }
