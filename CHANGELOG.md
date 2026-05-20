@@ -1,3 +1,9 @@
+## [1.4.2](https://github.com/Mearman/gundam/compare/v1.4.1...v1.4.2) (2026-05-20)
+
+### Bug Fixes
+
+* pages-deploy depends on pages-build, not release directly ([0ba1e22](https://github.com/Mearman/gundam/commit/0ba1e22e5a4c53d449a13a95c48f12e489fd1ae1))
+
 ## [1.4.1](https://github.com/Mearman/gundam/compare/v1.4.0...v1.4.1) (2026-05-20)
 
 ### Bug Fixes
