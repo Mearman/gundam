@@ -98,6 +98,7 @@ export const UNIVERSES: Universe[] = [
 export const ENTRIES: Entry[] = [
   // ─── UC ─────────────────────────────────────────────
   {
+    detailId: "msg_1979_tv",
     u: "uc",
     d: "UC 0079",
     t: "Mobile Suit Gundam",
@@ -109,6 +110,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "msg_1981_compilation_films",
     u: "uc",
     d: "UC 0079",
     t: "Mobile Suit Gundam I / II / III",
@@ -120,6 +122,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "zeta_1985_tv",
     u: "uc",
     d: "UC 0087",
     t: "Mobile Suit Zeta Gundam",
@@ -131,6 +134,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "zz_1986_tv",
     u: "uc",
     d: "UC 0088",
     t: "Mobile Suit Gundam ZZ",
@@ -142,6 +146,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "chars_counterattack_1988_film",
     u: "uc",
     d: "UC 0093",
     t: "Char's Counterattack",
@@ -153,6 +158,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "beltorchikas_children_1988_novel",
     u: "uc",
     d: "UC 0093",
     t: "Beltorchika's Children",
@@ -164,6 +170,7 @@ export const ENTRIES: Entry[] = [
     s: "ja",
   },
   {
+    detailId: "zero80_1989_ova",
     u: "uc",
     d: "UC 0079",
     t: "MSG 0080: War in the Pocket",
@@ -175,6 +182,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "zero83_1991_ova",
     u: "uc",
     d: "UC 0083",
     t: "MSG 0083: Stardust Memory",
@@ -186,6 +194,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "f91_1991_film",
     u: "uc",
     d: "UC 0123",
     t: "Mobile Suit Gundam F91",
@@ -197,6 +206,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "victory_1993_tv",
     u: "uc",
     d: "UC 0153",
     t: "Mobile Suit Victory Gundam",
@@ -208,6 +218,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "msteam08_1996_ova",
     u: "uc",
     d: "UC 0079",
     t: "MSG: The 08th MS Team",
@@ -219,6 +230,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "unicorn_2010_ova",
     u: "uc",
     d: "UC 0096",
     t: "Mobile Suit Gundam Unicorn",
@@ -230,6 +242,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "origin_2015_ova",
     u: "uc",
     d: "UC 0068–79",
     t: "Mobile Suit Gundam: The Origin",
@@ -241,6 +254,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "thunderbolt_2015_ona",
     u: "uc",
     d: "UC 0079",
     t: "MSG Thunderbolt",
@@ -252,6 +266,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "twilight_axis_2017_ona",
     u: "uc",
     d: "UC 0096",
     t: "Twilight AXIS",
@@ -263,6 +278,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "narrative_2018_film",
     u: "uc",
     d: "UC 0097",
     t: "Mobile Suit Gundam Narrative",
@@ -274,6 +290,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "hathaway_2021_film",
     u: "uc",
     d: "UC 0105",
     t: "Mobile Suit Gundam Hathaway",
@@ -285,6 +302,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "cucuruz_doan_2022_film",
     u: "uc",
     d: "UC 0079",
     t: "Cucuruz Doan's Island",
@@ -296,6 +314,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "requiem_for_vengeance_2024_ona",
     u: "uc",
     d: "UC 0079",
     t: "MSG: Requiem for Vengeance",
@@ -307,6 +326,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "hathaway_sorcery_2026_film",
     u: "uc",
     d: "UC 0105",
     t: "Hathaway: The Sorcery of Nymph Circe",
@@ -320,6 +340,7 @@ export const ENTRIES: Entry[] = [
 
   // ─── Alt UC ─────────────────────────────────────────
   {
+    detailId: "gquuuuuux_beginning_2025_film",
     u: "uc-alt",
     d: "≈UC 0085",
     t: "Gundam GQuuuuuuX -Beginning-",
@@ -331,6 +352,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "gquuuuuux_2025_tv",
     u: "uc-alt",
     d: "≈UC 0085",
     t: "Mobile Suit Gundam GQuuuuuuX",
@@ -344,6 +366,7 @@ export const ENTRIES: Entry[] = [
 
   // ─── FC ─────────────────────────────────────────────
   {
+    detailId: "g_gundam_1994_tv",
     u: "fc",
     d: "FC 60",
     t: "Mobile Fighter G Gundam",
@@ -355,19 +378,21 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "g_gundam_fight_7th_1996_manga",
     u: "fc",
     d: "FC 60",
-    t: "G Gundam: 7th & 8th MS Stage",
-    n: "side-story OVA shorts; no EN release ever",
-    y1: 1995,
-    y2: 1995,
-    m: "ova",
+    t: "Kidō Butōden Gaiden Gundam Fight 7th",
+    n: "prequel manga by Kitarou Ototoi; young Master Asia in the 7th Fight",
+    y1: 1996,
+    y2: 1996,
+    m: "manga",
     a: "ja",
     s: "ja",
   },
 
   // ─── AC ─────────────────────────────────────────────
   {
+    detailId: "wing_1995_tv",
     u: "ac",
     d: "AC 195",
     t: "New Mobile Report Gundam Wing",
@@ -379,6 +404,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "wing_endlesswaltz_1997_ova",
     u: "ac",
     d: "AC 196",
     t: "Gundam Wing: Endless Waltz",
@@ -390,6 +416,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "wing_endlesswaltz_1998_film",
     u: "ac",
     d: "AC 196",
     t: "Endless Waltz: Special Edition",
@@ -401,6 +428,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "wing_frozen_teardrop_novel",
     u: "ac",
     d: "AC 196+",
     t: "Frozen Teardrop",
@@ -425,6 +453,7 @@ export const ENTRIES: Entry[] = [
 
   // ─── AW ─────────────────────────────────────────────
   {
+    detailId: "x_1996_tv",
     u: "aw",
     d: "AW 0015",
     t: "After War Gundam X",
@@ -438,6 +467,7 @@ export const ENTRIES: Entry[] = [
 
   // ─── CC ─────────────────────────────────────────────
   {
+    detailId: "turn_a_1999_tv",
     u: "cc",
     d: "CC 2345",
     t: "∀ Gundam (Turn A Gundam)",
@@ -449,6 +479,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "turn_a_2002_films",
     u: "cc",
     d: "CC 2345",
     t: "Turn A I: Earth Light",
@@ -460,6 +491,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "turn_a_2002_films",
     u: "cc",
     d: "CC 2345",
     t: "Turn A II: Moonlight Butterfly",
@@ -473,6 +505,7 @@ export const ENTRIES: Entry[] = [
 
   // ─── CE ─────────────────────────────────────────────
   {
+    detailId: "seed_2002_tv",
     u: "ce",
     d: "CE 71",
     t: "Mobile Suit Gundam SEED",
@@ -484,6 +517,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "seed_astray_manga",
     u: "ce",
     d: "CE 71",
     t: "SEED Astray (manga line)",
@@ -495,6 +529,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "seed_destiny_2004_tv",
     u: "ce",
     d: "CE 73",
     t: "Mobile Suit Gundam SEED Destiny",
@@ -506,6 +541,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "seed_stargazer_2006_ona",
     u: "ce",
     d: "CE 73",
     t: "SEED C.E. 73: Stargazer",
@@ -517,6 +553,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "seed_freedom_2024_film",
     u: "ce",
     d: "CE 75",
     t: "Mobile Suit Gundam SEED Freedom",
@@ -530,6 +567,7 @@ export const ENTRIES: Entry[] = [
 
   // ─── AD ─────────────────────────────────────────────
   {
+    detailId: "gundam00_2007_tv",
     u: "ad",
     d: "AD 2307",
     t: "Mobile Suit Gundam 00 (S1)",
@@ -541,6 +579,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "gundam00_2007_tv",
     u: "ad",
     d: "AD 2312",
     t: "Mobile Suit Gundam 00 (S2)",
@@ -552,6 +591,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "gundam00_2010_film",
     u: "ad",
     d: "AD 2314",
     t: "00 Movie: Awakening of the Trailblazer",
@@ -565,6 +605,7 @@ export const ENTRIES: Entry[] = [
 
   // ─── AG ─────────────────────────────────────────────
   {
+    detailId: "age_2011_tv",
     u: "ag",
     d: "AG 101–164",
     t: "Mobile Suit Gundam AGE",
@@ -576,6 +617,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "age_memory_of_eden_2013_ova",
     u: "ag",
     d: "AG 115",
     t: "Gundam AGE: Memory of Eden",
@@ -589,6 +631,7 @@ export const ENTRIES: Entry[] = [
 
   // ─── RC ─────────────────────────────────────────────
   {
+    detailId: "reconguista_2014_tv",
     u: "rc",
     d: "RC 1014",
     t: "Gundam Reconguista in G",
@@ -600,6 +643,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "reconguista_films_2019",
     u: "rc",
     d: "RC 1014",
     t: "Reconguista in G compilation films I–V",
@@ -613,6 +657,7 @@ export const ENTRIES: Entry[] = [
 
   // ─── PD ─────────────────────────────────────────────
   {
+    detailId: "ibo_2015_tv",
     u: "pd",
     d: "PD 323",
     t: "Iron-Blooded Orphans (S1)",
@@ -624,6 +669,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "ibo_2015_tv",
     u: "pd",
     d: "PD 325",
     t: "Iron-Blooded Orphans (S2)",
@@ -635,6 +681,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "ibo_urdrhunt_2022_ona",
     u: "pd",
     d: "PD 322",
     t: "IBO: Urðr-Hunt",
@@ -648,6 +695,7 @@ export const ENTRIES: Entry[] = [
 
   // ─── AS ─────────────────────────────────────────────
   {
+    detailId: "witch_from_mercury_2022_tv",
     u: "as",
     d: "AS 101",
     t: "WFM: Prologue",
@@ -659,6 +707,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "witch_from_mercury_2022_tv",
     u: "as",
     d: "AS 122",
     t: "The Witch from Mercury (S1)",
@@ -670,6 +719,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "witch_from_mercury_2022_tv",
     u: "as",
     d: "AS 122",
     t: "The Witch from Mercury (S2)",
@@ -681,6 +731,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "wfm_vanadis_heart_manga",
     u: "as",
     d: "AS 123+",
     t: "WFM: Vanadis Heart",
@@ -694,6 +745,7 @@ export const ENTRIES: Entry[] = [
 
   // ─── Build ──────────────────────────────────────────
   {
+    detailId: "build_fighters_2013_tv",
     u: "build",
     d: "real",
     t: "Gundam Build Fighters",
@@ -705,6 +757,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "build_fighters_try_2014_tv",
     u: "build",
     d: "real",
     t: "Gundam Build Fighters Try",
@@ -716,6 +769,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "build_fighters_gm_counterattack_2017_ona",
     u: "build",
     d: "real",
     t: "Build Fighters: GM's Counterattack",
@@ -727,6 +781,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "build_divers_2018_tv",
     u: "build",
     d: "real",
     t: "Gundam Build Divers",
@@ -738,6 +793,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "build_divers_rerise_2019_ona",
     u: "build",
     d: "real",
     t: "Build Divers Re:RISE",
@@ -749,6 +805,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "build_real_2021_live",
     u: "build",
     d: "real",
     t: "Gundam Build Real",
@@ -760,6 +817,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "breaker_battlogue_2021_ona",
     u: "build",
     d: "real",
     t: "Gundam Breaker Battlogue",
@@ -771,6 +829,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "build_metaverse_2023_ona",
     u: "build",
     d: "real",
     t: "Gundam Build Metaverse",
@@ -784,6 +843,7 @@ export const ENTRIES: Entry[] = [
 
   // ─── SD ─────────────────────────────────────────────
   {
+    detailId: "sd_gundam_force_2004_tv",
     u: "sd",
     d: "real",
     t: "Superior Defender Gundam Force",
@@ -795,6 +855,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "sd_gundam_sangoku_soketsuden_2019_ona",
     u: "sd",
     d: "real",
     t: "SD Gundam World Sangoku Soketsuden",
@@ -806,6 +867,7 @@ export const ENTRIES: Entry[] = [
     s: "en",
   },
   {
+    detailId: "sd_gundam_world_heroes_2021_ona",
     u: "sd",
     d: "real",
     t: "SD Gundam World Heroes",

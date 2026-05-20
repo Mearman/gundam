@@ -20,6 +20,7 @@ export type AudioLang = "en" | "ja" | "na" | "tba";
 export type TextLang = "en" | "ja" | "tba";
 
 export interface Entry {
+  detailId?: string;
   u: string;
   d: string;
   t: string;
