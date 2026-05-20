@@ -49,7 +49,7 @@ export interface EntryDetail {
   releases: DetailRelease[];
 }
 
-export const ENTRY_DETAILS_COMMENT = `Gundam timeline per-episode/per-volume release data. Keys map to detailId in timeline.ts ENTRIES table. $rels: flat edge list of {from, type, to} relationship triples. Types: adapted_from, compilation_of, reedit_of, alternate_version, sequel_to, prequel_to, side_story_of, spinoff_from, reboot_of. Direction reads as 'from {type} to'. Dates are ISO 8601: ja = Japanese release, en = English/international. Full ISO (YYYY-MM-DD) = verified. Month-only (YYYY-MM) = partial. Year-only (YYYY) = serialization year only. Last reviewed: 2025-05-20. Stats: 186 entries, 1709 episodes, 173 relationships.`;
+export const ENTRY_DETAILS_COMMENT = `Gundam timeline per-episode/per-volume release data. Keys map to detailId in timeline.ts ENTRIES table. $rels: flat edge list of {from, type, to} relationship triples. Types: adapted_from, compilation_of, reedit_of, alternate_version, sequel_to, prequel_to, side_story_of, spinoff_from, reboot_of. Direction reads as 'from {type} to'. Dates are ISO 8601: ja = Japanese release, en = English/international. Full ISO (YYYY-MM-DD) = verified. Month-only (YYYY-MM) = partial. Year-only (YYYY) = serialization year only. Last reviewed: 2025-05-20. Stats: 186 entries, 1709 episodes, 176 relationships.`;
 
 export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
   advance_of_zeta_titans_2012_manga: {
@@ -2847,132 +2847,132 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Episode 1",
+        title: "シャア再び",
         ja: "1992-04-12",
       },
       {
         n: 2,
-        title: "Episode 2",
+        title: "宇宙の呼び声",
         ja: "1992-04-19",
       },
       {
         n: 3,
-        title: "Episode 3",
+        title: "メモリー・クローン",
         ja: "1992-04-26",
       },
       {
         n: 4,
-        title: "Episode 4",
+        title: "ミランダ・ハウ",
         ja: "1992-05-03",
       },
       {
         n: 5,
-        title: "Episode 5",
+        title: "ウルの追跡",
         ja: "1992-05-10",
       },
       {
         n: 6,
-        title: "Episode 6",
+        title: "シャトル強奪",
         ja: "1992-05-17",
       },
       {
         n: 7,
-        title: "Episode 7",
+        title: "マザー・メタトロン",
         ja: "1992-05-24",
       },
       {
         n: 8,
-        title: "Episode 8",
+        title: "ヘラス潜入",
         ja: "1992-05-31",
       },
       {
         n: 9,
-        title: "Episode 9",
+        title: "囚われたアフランシ",
         ja: "1992-06-07",
       },
       {
         n: 10,
-        title: "Episode 10",
+        title: "ゾーリン・ソール",
         ja: "1992-06-14",
       },
       {
         n: 11,
-        title: "Episode 11",
+        title: "ランナウェイ",
         ja: "1992-06-21",
       },
       {
         n: 12,
-        title: "Episode 12",
+        title: "目覚め",
         ja: "1992-06-28",
       },
       {
         n: 13,
-        title: "Episode 13",
+        title: "マハ追撃命令",
         ja: "1992-07-05",
       },
       {
         n: 14,
-        title: "Episode 14",
+        title: "大気圏突入",
         ja: "1992-07-12",
       },
       {
         n: 15,
-        title: "Episode 15",
+        title: "季節風（ミストラル）",
         ja: "1992-07-19",
       },
       {
         n: 16,
-        title: "Episode 16",
+        title: "コンタクト",
         ja: "1992-07-26",
       },
       {
         n: 17,
-        title: "Episode 17",
+        title: "敗北",
         ja: "1992-08-02",
       },
       {
         n: 18,
-        title: "Episode 18",
+        title: "ダーゴルの野望",
         ja: "1992-08-09",
       },
       {
         n: 19,
-        title: "Episode 19",
+        title: "クリシュナの苦悩",
         ja: "1992-08-16",
       },
       {
         n: 20,
-        title: "Episode 20",
+        title: "ヌーボ・パリ",
         ja: "1992-08-23",
       },
       {
         n: 21,
-        title: "Episode 21",
+        title: "戦いの果て",
         ja: "1992-08-30",
       },
       {
         n: 22,
-        title: "Episode 22",
+        title: "ギッズ・ギース",
         ja: "1992-09-06",
       },
       {
         n: 23,
-        title: "Episode 23",
+        title: "ジャン・ウェン・フーの挑戦",
         ja: "1992-09-13",
       },
       {
         n: 24,
-        title: "Episode 24",
+        title: "バイエルンの風",
         ja: "1992-09-20",
       },
       {
         n: 25,
-        title: "Episode 25",
+        title: "エヴァリーの声",
         ja: "1992-09-27",
       },
       {
         n: 26,
-        title: "Episode 26",
+        title: "ペーパー・キャッスル",
         ja: "1992-10-04",
       },
     ],
@@ -3819,7 +3819,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
       },
       {
         n: 5,
-        title: "下巻",
+        title: "Volume 5",
         ja: "2010-03",
       },
     ],
@@ -4606,6 +4606,13 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         start: "2023",
         schedule: "box-set",
       },
+      {
+        region: "en",
+        channel: "theatrical",
+        label: "Australian theatrical (Sugoi Co)",
+        start: "2026-05-09",
+        schedule: "theatrical",
+      },
     ],
   },
   hathaway_chokou_tba_film: {
@@ -4699,12 +4706,11 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     u: "uc",
     type: "film",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Hathaway",
-    note: "Second of planned trilogy; release announced for 2026",
     episodes: [
       {
         n: 1,
         title: "Sorcery of Nymph Circe",
-        ja: "2026",
+        ja: "2026-01-30",
       },
     ],
     releases: [
@@ -4712,7 +4718,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         region: "ja",
         channel: "theatrical",
         label: "Theatrical release",
-        start: "2026",
+        start: "2026-01-30",
         schedule: "theatrical",
       },
     ],
@@ -9076,6 +9082,11 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         en: "2007-06-15",
       },
       {
+        n: 15.5,
+        title: "Special Plus: Destiny (recap)",
+        ja: "2005-01-29",
+      },
+      {
         n: 16,
         title: "Struggle in the Indian Ocean",
         ja: "2005-02-05",
@@ -9284,11 +9295,6 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         title: "The Final Power",
         ja: "2005-10-01",
         en: "2008-03-28",
-      },
-      {
-        n: 15.5,
-        title: "Special Plus: Destiny (recap)",
-        ja: "2005-01-29",
       },
       {
         n: 51,
