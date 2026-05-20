@@ -1,3 +1,15 @@
+## [1.15.1](https://github.com/Mearman/gundam/compare/v1.15.0...v1.15.1) (2026-05-20)
+
+### Bug Fixes
+
+* data accuracy corrections, remove duplicates, fix episode counts ([9a05ec0](https://github.com/Mearman/gundam/commit/9a05ec0a0dbc82b8270323ecb1bdcec65c85c409))
+
+### Refactoring
+
+* descriptive detail fields + epPlain + zero single-char names ([2b16b4e](https://github.com/Mearman/gundam/commit/2b16b4ec304b73d3f1647c7e38026d90e1f90ef6))
+* episode date as { ja, en } object + y1/y2 → yearStart/yearEnd ([651ddce](https://github.com/Mearman/gundam/commit/651ddcebd9a7ff1cd82be06020d268844976554c))
+* rename y1/y2 to yearStart/yearEnd in stacking algorithm ([2ca9504](https://github.com/Mearman/gundam/commit/2ca9504a90767dc5ecdea3b5c5bfb1fb4948a784))
+
 ## [1.15.0](https://github.com/Mearman/gundam/compare/v1.14.2...v1.15.0) (2026-05-20)
 
 ### Features
