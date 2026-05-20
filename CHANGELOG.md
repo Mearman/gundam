@@ -1,3 +1,9 @@
+## [1.1.1](https://github.com/Mearman/gundam/compare/v1.1.0...v1.1.1) (2026-05-20)
+
+### Refactoring
+
+* replace axis toggle with three-position segmented control ([94acbc2](https://github.com/Mearman/gundam/commit/94acbc2c832ac5f779c6d347cf4249d8f8a7be73))
+
 ## [1.1.0](https://github.com/Mearman/gundam/compare/v1.0.0...v1.1.0) (2026-05-20)
 
 ### Features
