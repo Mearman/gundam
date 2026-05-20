@@ -323,7 +323,7 @@ function Tooltip({ entry: e, universe: u, allUniverses, x, y }: TooltipProps) {
           background: u.color,
         }}
       />
-      <div className={s.ttTitle}>{detail?.title ?? e.t}</div>
+      <div className={s.ttTitle}>{detail?.title.en ?? e.t}</div>
       {e.n !== undefined && <div className={s.ttNote}>{e.n}</div>}
       {hasDetailNote && <div className={s.ttNote}>{detail.note}</div>}
       <div className={s.ttGrid}>
@@ -412,7 +412,9 @@ function Tooltip({ entry: e, universe: u, allUniverses, x, y }: TooltipProps) {
                       <span className={s.ttKey}>
                         {RELATION_LABELS[rel.type]}
                       </span>
-                      <span className={s.ttVal}>{target?.title ?? rel.to}</span>
+                      <span className={s.ttVal}>
+                        {target?.title.en ?? rel.to}
+                      </span>
                     </Fragment>
                   );
                 })}
@@ -424,7 +426,7 @@ function Tooltip({ entry: e, universe: u, allUniverses, x, y }: TooltipProps) {
                         {INVERSE_RELATION_LABELS[rel.type]}
                       </span>
                       <span className={s.ttVal}>
-                        {source?.title ?? rel.from}
+                        {source?.title.en ?? rel.from}
                       </span>
                     </Fragment>
                   );
