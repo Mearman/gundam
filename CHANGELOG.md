@@ -1,3 +1,9 @@
+## [1.7.0](https://github.com/Mearman/gundam/compare/v1.6.0...v1.7.0) (2026-05-20)
+
+### Features
+
+* support multi-universe entries with array u field ([8c33fb7](https://github.com/Mearman/gundam/commit/8c33fb7027a0a362da6475be43b073b7042cb2f4))
+
 ## [1.6.0](https://github.com/Mearman/gundam/compare/v1.5.0...v1.6.0) (2026-05-20)
 
 ### Features
