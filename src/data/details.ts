@@ -49,7 +49,7 @@ export interface EntryDetail {
   releases: DetailRelease[];
 }
 
-export const ENTRY_DETAILS_COMMENT = `Detailed per-episode/chapter/volume release data for Gundam entries. Keys are stable IDs mapping into the main ENTRIES table. Dates are ISO 8601. ja = Japanese release; en = English/international release (where different from ja). releases[] contains multi-channel release contexts with schedule field: weekly (broadcast, per-episode dates may exist), simulcast (streaming same-day as ja, en == ja so per-episode en omitted), box-set (home video, no per-episode dates), theatrical (single-date film), serial (print/ongoing publication).`;
+export const ENTRY_DETAILS_COMMENT = `Detailed per-episode/chapter/volume release data for Gundam entries.`;
 
 export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
   advance_of_zeta_titans_2012_manga: {
@@ -3316,7 +3316,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
       },
       {
         n: 25,
-        ja: "2008-03-22",
+        ja: "2008-03-29",
         season: 1,
         title: "Setsuna",
       },
@@ -3466,7 +3466,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
       },
       {
         n: 50,
-        ja: "2009-03-22",
+        ja: "2009-03-29",
         season: 2,
         title: "Rebirth",
       },
@@ -7151,37 +7151,31 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         n: 1,
         title: "Haunted Forest",
         ja: "2024-10-17",
-        en: "2024-10-17",
       },
       {
         n: 2,
         title: "Broken",
         ja: "2024-10-17",
-        en: "2024-10-17",
       },
       {
         n: 3,
         title: "Junkyard",
         ja: "2024-10-17",
-        en: "2024-10-17",
       },
       {
         n: 4,
         title: "Night Caller",
         ja: "2024-10-17",
-        en: "2024-10-17",
       },
       {
         n: 5,
         title: "The River",
         ja: "2024-10-17",
-        en: "2024-10-17",
       },
       {
         n: 6,
         title: "Convoy to Oblivion",
         ja: "2024-10-17",
-        en: "2024-10-17",
       },
     ],
     releases: [
