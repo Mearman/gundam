@@ -1,3 +1,9 @@
+## [1.3.4](https://github.com/Mearman/gundam/compare/v1.3.3...v1.3.4) (2026-05-20)
+
+### Bug Fixes
+
+* allow vertical page scrolling in timeline tracks ([96e9911](https://github.com/Mearman/gundam/commit/96e9911f0a12f01d8c1a7b86e80c83b094d59ec0))
+
 ## [1.3.3](https://github.com/Mearman/gundam/compare/v1.3.2...v1.3.3) (2026-05-20)
 
 ### Chores
