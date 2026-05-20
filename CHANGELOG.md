@@ -1,3 +1,9 @@
+## [1.6.0](https://github.com/Mearman/gundam/compare/v1.5.0...v1.6.0) (2026-05-20)
+
+### Features
+
+* add 123 entries from detail data to timeline ([1ab6698](https://github.com/Mearman/gundam/commit/1ab66986917508bb61b561efef965c699401b26d))
+
 ## [1.5.0](https://github.com/Mearman/gundam/compare/v1.4.5...v1.5.0) (2026-05-20)
 
 ### Features
