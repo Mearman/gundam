@@ -44,6 +44,7 @@ const config: GlobalConfig = {
         },
       },
     ],
+    ["@semantic-release/npm", { npmPublish: false }],
     "@semantic-release/changelog",
     [
       "@semantic-release/git",
