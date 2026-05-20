@@ -1585,7 +1585,7 @@ export const ENTRY_DETAILS = {
       {
         n: 2,
         title: "Middle (中)",
-        ja: "1999-05-26",
+        ja: "1999",
       },
       {
         n: 3,
@@ -3092,17 +3092,17 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "1994-12-20",
+        ja: "1994",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "1995-06-20",
+        ja: "1995",
       },
       {
         n: 3,
         title: "Volume 3",
-        ja: "1995-12-20",
+        ja: "1995",
       },
     ],
     releases: [
@@ -3134,17 +3134,17 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "1995-05-01",
+        ja: "1995",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "1995-11-01",
+        ja: "1995",
       },
       {
         n: 3,
         title: "Volume 3",
-        ja: "1996-05-01",
+        ja: "1996",
       },
     ],
     releases: [
@@ -3627,32 +3627,32 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2003-09-25",
-        en: "2004-06-01",
+        ja: "2003",
+        en: "2004",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "2003-12-25",
-        en: "2004-09-01",
+        ja: "2003",
+        en: "2004",
       },
       {
         n: 3,
         title: "Volume 3",
-        ja: "2004-06-25",
-        en: "2005-01-01",
+        ja: "2004",
+        en: "2005",
       },
       {
         n: 4,
         title: "Volume 4",
-        ja: "2004-12-25",
-        en: "2005-06-01",
+        ja: "2004",
+        en: "2005",
       },
       {
         n: 5,
         title: "Volume 5",
-        ja: "2005-06-25",
-        en: "2006-01-01",
+        ja: "2005",
+        en: "2006",
       },
     ],
     releases: [
@@ -6177,17 +6177,17 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Mobile Suit Gundam I: Awakening",
-        ja: "1979-11-30",
+        ja: "1979",
       },
       {
         n: 2,
         title: "Mobile Suit Gundam II: Escalation",
-        ja: "1980-04-30",
+        ja: "1980",
       },
       {
         n: 3,
         title: "Mobile Suit Gundam III: Confrontation",
-        ja: "1981-09-30",
+        ja: "1981",
       },
     ],
     releases: [
@@ -6228,17 +6228,17 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Hathaway's Flash I",
-        ja: "1989-02-05",
+        ja: "1989",
       },
       {
         n: 2,
         title: "Hathaway's Flash II",
-        ja: "1989-10-05",
+        ja: "1989",
       },
       {
         n: 3,
         title: "Hathaway's Flash III",
-        ja: "1990-04-05",
+        ja: "1990",
       },
     ],
     releases: [
@@ -6264,7 +6264,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Beltorchika's Children",
-        ja: "1988-04-01",
+        ja: "1988-04",
       },
     ],
     releases: [
@@ -6290,57 +6290,57 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1: The Day of the Unicorn",
-        ja: "2007-09-26",
+        ja: "2007",
       },
       {
         n: 2,
         title: "Volume 2: Cosmic Babel",
-        ja: "2007-12-26",
+        ja: "2007",
       },
       {
         n: 3,
         title: "Volume 3: The Red Comet",
-        ja: "2008-03-26",
+        ja: "2008",
       },
       {
         n: 4,
         title: "Volume 4: The Possibility of the Beast",
-        ja: "2008-06-26",
+        ja: "2008",
       },
       {
         n: 5,
         title: "Volume 5: Black Unicorn",
-        ja: "2008-09-26",
+        ja: "2008",
       },
       {
         n: 6,
         title: "Volume 6: A Domain of Reason",
-        ja: "2009-03-26",
+        ja: "2009",
       },
       {
         n: 7,
         title: "Volume 7: Republic of Coronation",
-        ja: "2009-06-26",
+        ja: "2009",
       },
       {
         n: 8,
         title: "Volume 8: Beyond the Rainbow",
-        ja: "2009-09-26",
+        ja: "2009",
       },
       {
         n: 9,
         title: "Volume 9: The Cage of Phoenix",
-        ja: "2009-12-26",
+        ja: "2009",
       },
       {
         n: 10,
         title: "Volume 10: Over the Rainbow",
-        ja: "2010-03-26",
+        ja: "2010",
       },
       {
         n: 11,
         title: "Volume 11: Phoenix Hunting (epilogue collection)",
-        ja: "2014-05-26",
+        ja: "2014",
       },
     ],
     releases: [
@@ -6905,32 +6905,32 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "1995-03-25",
+        ja: "1995",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "1995-08-25",
+        ja: "1995",
       },
       {
         n: 3,
         title: "Volume 3",
-        ja: "1996-01-25",
+        ja: "1996",
       },
       {
         n: 4,
         title: "Volume 4",
-        ja: "1996-06-25",
+        ja: "1996",
       },
       {
         n: 5,
         title: "Volume 5",
-        ja: "1996-11-25",
+        ja: "1996",
       },
       {
         n: 6,
         title: "Volume 6",
-        ja: "1997-04-25",
+        ja: "1997",
       },
     ],
     releases: [
@@ -6956,12 +6956,12 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2003-06-25",
+        ja: "2003",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "2004-02-25",
+        ja: "2004",
       },
     ],
     releases: [
@@ -6987,12 +6987,12 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2006-09-25",
+        ja: "2006",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "2007-04-25",
+        ja: "2007",
       },
     ],
     releases: [
@@ -7019,62 +7019,62 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2012-03-26",
+        ja: "2012",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "2012-10-26",
+        ja: "2012",
       },
       {
         n: 3,
         title: "Volume 3",
-        ja: "2013-05-26",
+        ja: "2013",
       },
       {
         n: 4,
         title: "Volume 4",
-        ja: "2013-12-26",
+        ja: "2013",
       },
       {
         n: 5,
         title: "Volume 5",
-        ja: "2014-06-26",
+        ja: "2014",
       },
       {
         n: 6,
         title: "Volume 6",
-        ja: "2014-12-26",
+        ja: "2014",
       },
       {
         n: 7,
         title: "Volume 7",
-        ja: "2015-06-26",
+        ja: "2015",
       },
       {
         n: 8,
         title: "Volume 8",
-        ja: "2015-12-26",
+        ja: "2015",
       },
       {
         n: 9,
         title: "Volume 9",
-        ja: "2016-03-26",
+        ja: "2016",
       },
       {
         n: 10,
         title: "Volume 10",
-        ja: "2016-09-26",
+        ja: "2016",
       },
       {
         n: 11,
         title: "Volume 11",
-        ja: "2017-03-26",
+        ja: "2017",
       },
       {
         n: 12,
         title: "Volume 12",
-        ja: "2017-09-26",
+        ja: "2017",
       },
     ],
     releases: [
@@ -7101,67 +7101,67 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2017-03-26",
+        ja: "2017",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "2017-09-26",
+        ja: "2017",
       },
       {
         n: 3,
         title: "Volume 3",
-        ja: "2018-03-26",
+        ja: "2018",
       },
       {
         n: 4,
         title: "Volume 4",
-        ja: "2018-09-26",
+        ja: "2018",
       },
       {
         n: 5,
         title: "Volume 5",
-        ja: "2019-03-26",
+        ja: "2019",
       },
       {
         n: 6,
         title: "Volume 6",
-        ja: "2019-09-26",
+        ja: "2019",
       },
       {
         n: 7,
         title: "Volume 7",
-        ja: "2020-03-26",
+        ja: "2020",
       },
       {
         n: 8,
         title: "Volume 8",
-        ja: "2020-09-26",
+        ja: "2020",
       },
       {
         n: 9,
         title: "Volume 9",
-        ja: "2021-03-26",
+        ja: "2021",
       },
       {
         n: 10,
         title: "Volume 10",
-        ja: "2021-09-26",
+        ja: "2021",
       },
       {
         n: 11,
         title: "Volume 11",
-        ja: "2022-03-26",
+        ja: "2022",
       },
       {
         n: 12,
         title: "Volume 12",
-        ja: "2022-09-26",
+        ja: "2022",
       },
       {
         n: 13,
         title: "Volume 13",
-        ja: "2023-03-26",
+        ja: "2023",
       },
     ],
     releases: [
@@ -7187,12 +7187,12 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2021-12-25",
+        ja: "2021",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "2022-09-26",
+        ja: "2022",
       },
     ],
     releases: [
@@ -7218,12 +7218,12 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2023-03-25",
+        ja: "2023",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "2024-01-26",
+        ja: "2024",
       },
     ],
     releases: [
@@ -7249,12 +7249,12 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2025-01-26",
+        ja: "2025",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "2025-09-26",
+        ja: "2025",
       },
     ],
     releases: [
@@ -7280,72 +7280,72 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "1994-07-25",
+        ja: "1994",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "1995-01-25",
+        ja: "1995",
       },
       {
         n: 3,
         title: "Volume 3",
-        ja: "1995-09-25",
+        ja: "1995",
       },
       {
         n: 4,
         title: "Volume 4",
-        ja: "1996-05-25",
+        ja: "1996",
       },
       {
         n: 5,
         title: "Volume 5",
-        ja: "1997-01-25",
+        ja: "1997",
       },
       {
         n: 6,
         title: "Volume 6",
-        ja: "1997-09-25",
+        ja: "1997",
       },
       {
         n: 7,
         title: "Volume 7",
-        ja: "1998-05-25",
+        ja: "1998",
       },
       {
         n: 8,
         title: "Volume 8",
-        ja: "1999-01-25",
+        ja: "1999",
       },
       {
         n: 9,
         title: "Volume 9",
-        ja: "1999-09-25",
+        ja: "1999",
       },
       {
         n: 10,
         title: "Volume 10",
-        ja: "2000-05-25",
+        ja: "2000",
       },
       {
         n: 11,
         title: "Volume 11",
-        ja: "2001-01-25",
+        ja: "2001",
       },
       {
         n: 12,
         title: "Volume 12",
-        ja: "2002-01-25",
+        ja: "2002",
       },
       {
         n: 13,
         title: "Volume 13",
-        ja: "2004-01-25",
+        ja: "2004",
       },
       {
         n: 14,
         title: "Volume 14",
-        ja: "2005-07-25",
+        ja: "2005",
       },
     ],
     releases: [
@@ -7372,12 +7372,12 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2016-07-26",
+        ja: "2016",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "2019-07-26",
+        ja: "2019",
       },
     ],
     releases: [
@@ -7404,92 +7404,92 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "A Fomenting Storm",
-        ja: "2014-02-26",
+        ja: "2014",
       },
       {
         n: 2,
         title: "Torrington Base",
-        ja: "2014-08-26",
+        ja: "2014",
       },
       {
         n: 3,
         title: "Real Combat & Explosive Blasts",
-        ja: "2015-03-26",
+        ja: "2015",
       },
       {
         n: 4,
         title: "Into Battle, Albion",
-        ja: "2015-08-26",
+        ja: "2015",
       },
       {
         n: 5,
         title: "Assault Landing Operation",
-        ja: "2015-12-26",
+        ja: "2015",
       },
       {
         n: 6,
         title: "Lhasa Base",
-        ja: "2016-06-25",
+        ja: "2016",
       },
       {
         n: 7,
         title: "A Declaration of War",
-        ja: "2016-12-26",
+        ja: "2016",
       },
       {
         n: 8,
         title: "Dark Passage",
-        ja: "2017-06-26",
+        ja: "2017",
       },
       {
         n: 9,
         title: "Skies of Chaos",
-        ja: "2017-12-26",
+        ja: "2017",
       },
       {
         n: 10,
         title: "Darkening Skies",
-        ja: "2018-06-26",
+        ja: "2018",
       },
       {
         n: 11,
         title: "Fight With a Cause",
-        ja: "2018-12-26",
+        ja: "2018",
       },
       {
         n: 12,
         title: "Curtain of Betrayal",
-        ja: "2019-06-26",
+        ja: "2019",
       },
       {
         n: 13,
         title: "Those Called Gundam",
-        ja: "2019-12-26",
+        ja: "2019",
       },
       {
         n: 14,
         title: "Orbital Battlefield",
-        ja: "2020-06-26",
+        ja: "2020",
       },
       {
         n: 15,
         title: "Showdown",
-        ja: "2020-12-26",
+        ja: "2020",
       },
       {
         n: 16,
         title: "Abrading Earth",
-        ja: "2021-06-26",
+        ja: "2021",
       },
       {
         n: 17,
         title: "The Immortal 4th Team",
-        ja: "2022-06-26",
+        ja: "2022",
       },
       {
         n: 18,
         title: "The Third Spear",
-        ja: "2023-03-25",
+        ja: "2023",
       },
     ],
     releases: [
@@ -7516,17 +7516,17 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "1997-08-25",
+        ja: "1997",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "1998-06-25",
+        ja: "1998",
       },
       {
         n: 3,
         title: "Volume 3",
-        ja: "1999-03-25",
+        ja: "1999",
       },
     ],
     releases: [
@@ -7553,86 +7553,86 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2011-01-26",
-        en: "2018-10-16",
+        ja: "2011",
+        en: "2018",
       },
       {
         n: 2,
         title: "Volume 2",
-        ja: "2011-08-26",
-        en: "2019-01-15",
+        ja: "2011",
+        en: "2019",
       },
       {
         n: 3,
         title: "Volume 3",
-        ja: "2012-03-26",
-        en: "2019-04-16",
+        ja: "2012",
+        en: "2019",
       },
       {
         n: 4,
         title: "Volume 4",
-        ja: "2012-10-26",
-        en: "2019-07-16",
+        ja: "2012",
+        en: "2019",
       },
       {
         n: 5,
         title: "Volume 5",
-        ja: "2013-05-26",
-        en: "2019-10-15",
+        ja: "2013",
+        en: "2019",
       },
       {
         n: 6,
         title: "Volume 6",
-        ja: "2013-12-26",
-        en: "2020-01-14",
+        ja: "2013",
+        en: "2020",
       },
       {
         n: 7,
         title: "Volume 7",
-        ja: "2014-07-26",
-        en: "2020-04-14",
+        ja: "2014",
+        en: "2020",
       },
       {
         n: 8,
         title: "Volume 8",
-        ja: "2015-02-26",
-        en: "2020-07-14",
+        ja: "2015",
+        en: "2020",
       },
       {
         n: 9,
         title: "Volume 9",
-        ja: "2015-09-26",
-        en: "2020-10-20",
+        ja: "2015",
+        en: "2020",
       },
       {
         n: 10,
         title: "Volume 10",
-        ja: "2016-04-26",
-        en: "2021-01-19",
+        ja: "2016",
+        en: "2021",
       },
       {
         n: 11,
         title: "Volume 11",
-        ja: "2017-01-26",
-        en: "2021-04-20",
+        ja: "2017",
+        en: "2021",
       },
       {
         n: 12,
         title: "Volume 12",
-        ja: "2017-08-26",
-        en: "2021-07-20",
+        ja: "2017",
+        en: "2021",
       },
       {
         n: 13,
         title: "Volume 13",
-        ja: "2018-03-26",
-        en: "2021-10-19",
+        ja: "2018",
+        en: "2021",
       },
       {
         n: 14,
         title: "Volume 14",
-        ja: "2018-10-26",
-        en: "2022-01-18",
+        ja: "2018",
+        en: "2022",
       },
     ],
     releases: [
@@ -7667,7 +7667,7 @@ export const ENTRY_DETAILS = {
       {
         n: "serial-start",
         title: "Serialisation begins",
-        ja: "2010-04-26",
+        ja: "2010",
       },
     ],
     releases: [
@@ -7693,7 +7693,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Episode Zero (collected edition)",
-        ja: "1998-04-01",
+        ja: "1998",
       },
     ],
     releases: [
@@ -9680,22 +9680,22 @@ export const ENTRY_DETAILS = {
       {
         n: "serial-start",
         title: "Astray serialisation begins",
-        ja: "2002-10-26",
+        ja: "2002",
       },
       {
         n: 1,
         title: "Astray Vol 1",
-        ja: "2003-04-25",
+        ja: "2003",
       },
       {
         n: 2,
         title: "Astray Vol 2",
-        ja: "2003-11-25",
+        ja: "2003",
       },
       {
         n: 3,
         title: "Astray Vol 3",
-        ja: "2004-04-25",
+        ja: "2004",
       },
     ],
     releases: [
@@ -9730,7 +9730,7 @@ export const ENTRY_DETAILS = {
       {
         n: "serial-start",
         title: "Serialisation begins",
-        ja: "2023-06-26",
+        ja: "2023",
       },
     ],
     releases: [
@@ -10712,7 +10712,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "1987-10-01",
+        ja: "1987",
       },
     ],
     releases: [
@@ -10735,7 +10735,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "1987-10-01",
+        ja: "1987",
       },
     ],
     releases: [
@@ -10758,7 +10758,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Part 1",
-        ja: "1988-03-25",
+        ja: "1988",
       },
     ],
     releases: [
@@ -10782,7 +10782,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2002-06-25",
+        ja: "2002",
       },
     ],
     releases: [
@@ -10806,7 +10806,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2012-06-25",
+        ja: "2012",
       },
     ],
     releases: [
@@ -10830,7 +10830,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2014-06-25",
+        ja: "2014",
       },
     ],
     releases: [
@@ -10853,7 +10853,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2002-07-25",
+        ja: "2002",
       },
     ],
     releases: [
@@ -10884,7 +10884,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "1997-07-25",
+        ja: "1997",
       },
     ],
     releases: [
@@ -10908,7 +10908,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2002-08-26",
+        ja: "2002",
       },
     ],
     releases: [
@@ -10938,7 +10938,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2004-03-26",
+        ja: "2004",
       },
     ],
     releases: [
@@ -10968,7 +10968,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2004-10-26",
+        ja: "2004",
       },
     ],
     releases: [
@@ -10991,7 +10991,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2003-11-26",
+        ja: "2003",
       },
     ],
     releases: [
@@ -11014,7 +11014,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2006-08-26",
+        ja: "2006",
       },
     ],
     releases: [
@@ -11037,7 +11037,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2010-04-26",
+        ja: "2010",
       },
     ],
     releases: [
@@ -11060,7 +11060,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2007-07-26",
+        ja: "2007",
       },
     ],
     releases: [
@@ -11083,7 +11083,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2012-03-26",
+        ja: "2012",
       },
     ],
     releases: [
@@ -11106,7 +11106,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2007-11-26",
+        ja: "2007",
       },
     ],
     releases: [
@@ -11129,7 +11129,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2008-12-26",
+        ja: "2008",
       },
     ],
     releases: [
@@ -11152,7 +11152,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2009-11-26",
+        ja: "2009",
       },
     ],
     releases: [
@@ -11175,7 +11175,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2012-08-25",
+        ja: "2012",
       },
     ],
     releases: [
@@ -11198,7 +11198,7 @@ export const ENTRY_DETAILS = {
       {
         n: 1,
         title: "Volume 1",
-        ja: "2008-09-26",
+        ja: "2008",
       },
     ],
     releases: [
