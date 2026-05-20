@@ -698,9 +698,15 @@ export function TimelineLanes({
         pendingScrollRef.current = newScrollLeft;
 
         setZoom(newZoom);
-      } else {
+        return;
+      }
+
+      // For non-zoom wheel events, let the browser handle vertical
+      // scrolling natively. Only redirect horizontal-trackpad deltas
+      // to horizontal scroll.
+      if (e.deltaX !== 0) {
         e.preventDefault();
-        el.scrollLeft += e.deltaY;
+        el.scrollLeft += e.deltaX;
       }
     }
 
