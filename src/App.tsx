@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import { UNIVERSES, ENTRIES } from "./data/timeline";
 import { matchesMediaFilter } from "./data/helpers";
+import { toggleAxis } from "./data/story";
 import { FilterBar } from "./components/FilterBar";
 import { Legend } from "./components/Legend";
 import { TimelineLanes } from "./components/TimelineLanes";
@@ -12,6 +13,7 @@ const DEFAULT_FILTERS: Filters = {
   audio: "all",
   text: "all",
   density: "comfort",
+  axis: "release",
 };
 
 function App() {
@@ -30,6 +32,13 @@ function App() {
     const okText = filters.text === "all" || filters.text === e.s;
     return okMedia && okAudio && okText;
   }).length;
+
+  const handleAxisToggle = useCallback((axis: "release" | "story") => {
+    setFilters((prev) => ({
+      ...prev,
+      axis: toggleAxis(prev.axis, axis),
+    }));
+  }, []);
 
   return (
     <>
@@ -66,7 +75,11 @@ function App() {
         </div>
       </header>
 
-      <FilterBar filters={filters} onFilterChange={handleFilterChange} />
+      <FilterBar
+        filters={filters}
+        onFilterChange={handleFilterChange}
+        onAxisToggle={handleAxisToggle}
+      />
       <Legend />
 
       <div className={s.timelineWrap}>

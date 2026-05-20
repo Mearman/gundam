@@ -53,9 +53,19 @@ const FILTER_CONFIGS: FilterConfig[] = [
 interface FilterBarProps {
   filters: Filters;
   onFilterChange: (key: keyof Filters, value: string) => void;
+  onAxisToggle: (axis: "release" | "story") => void;
 }
 
-export function FilterBar({ filters, onFilterChange }: FilterBarProps) {
+export function FilterBar({
+  filters,
+  onFilterChange,
+  onAxisToggle,
+}: FilterBarProps) {
+  const axisActive = (axis: "release" | "story"): boolean =>
+    axis === "release"
+      ? filters.axis === "release" || filters.axis === "both"
+      : filters.axis === "story" || filters.axis === "both";
+
   return (
     <nav className={s.filters}>
       {FILTER_CONFIGS.map((cfg) => (
@@ -84,6 +94,29 @@ export function FilterBar({ filters, onFilterChange }: FilterBarProps) {
           </div>
         </div>
       ))}
+      <div className={s.filterGroup}>
+        <span className={s.filterLabel}>Axis</span>
+        <div className={s.chips}>
+          <button
+            type="button"
+            className={s.chip[axisActive("release") ? "active" : "default"]}
+            onClick={() => {
+              onAxisToggle("release");
+            }}
+          >
+            release year
+          </button>
+          <button
+            type="button"
+            className={s.chip[axisActive("story") ? "active" : "default"]}
+            onClick={() => {
+              onAxisToggle("story");
+            }}
+          >
+            in-universe
+          </button>
+        </div>
+      </div>
     </nav>
   );
 }
