@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useCallback } from "react";
 import type { CSSProperties } from "react";
 import type {
   Entry,
@@ -23,16 +23,24 @@ import {
 } from "../data/story";
 import { YearAxis } from "./YearAxis";
 import { RelationshipOverlay } from "./RelationshipOverlay";
+import type { LaneLayout } from "./RelationshipOverlay";
 import * as s from "../styles/timeline.css";
-
-const START_YEAR = 1979;
-const YEAR_WIDTH = 28;
-const ROW_H = 30;
-const ROW_GAP = 4;
-const LANE_PAD = 10;
-const LABEL_MIN_HEIGHT = 84;
-const STORY_AXIS_H = 28;
-const BOTH_CONNECTOR_H = 36;
+import {
+  BOTH_CONNECTOR_H,
+  END_YEAR,
+  LABEL_MIN_HEIGHT,
+  LANE_PAD,
+  RELEASE_TRACK_WIDTH,
+  ROW_GAP,
+  ROW_H,
+  START_YEAR,
+  STORY_AXIS_H,
+  STORY_AXIS_LABEL_GAP,
+  STORY_TOP_GUTTER,
+  TRACK_CONTENT_WIDTH,
+  TRACK_PAD_LEFT,
+  YEAR_WIDTH,
+} from "./timelineGeometry";
 
 type CustomStyle = CSSProperties & Record<`--${string}`, string>;
 
@@ -274,27 +282,56 @@ function StoryAxis({ range, bounds, universe, topOffset }: StoryAxisProps) {
   const segWidth = bounds.xEnd - bounds.xStart;
   const majorEvery = span <= 5 ? 1 : span <= 15 ? 5 : 10;
 
-  const ticks: { x: number; height: number; cls: string }[] = [];
-  const labels: { x: number; text: string; cls: string }[] = [];
+  const ticks: { key: string; x: number; cls: string }[] = [];
+  const labelCandidates: {
+    key: string;
+    xCenter: number;
+    text: string;
+    cls: string;
+    isRangeEnd: boolean;
+  }[] = [];
 
   for (let y = range.min; y <= range.max; y++) {
-    const isEnd = y === range.min || y === range.max;
-    const isMajor = y % majorEvery === 0 || isEnd;
+    const isRangeEnd = y === range.min || y === range.max;
+    const isMajor = y % majorEvery === 0 || isRangeEnd;
     const is5 = !isMajor && y % 5 === 0;
     const xCenter = bounds.xStart + ((y - range.min) / span) * segWidth;
 
     ticks.push({
+      key: `tick-${universe.id}-${String(y)}`,
       x: xCenter - 0.5,
-      height: isMajor ? 12 : is5 ? 8 : 4,
       cls: isMajor ? s.tickMajor : is5 ? s.tick5 : s.tick1,
     });
 
     if (isMajor || is5 || span <= 5) {
-      labels.push({
-        x: xCenter - 20,
+      labelCandidates.push({
+        key: `label-${universe.id}-${String(y)}`,
+        xCenter,
         text: formatStoryYear(y, universe),
         cls: isMajor ? s.tickMajor : s.tick5,
+        isRangeEnd,
       });
+    }
+  }
+
+  const labels: { key: string; x: number; text: string; cls: string }[] = [];
+  let lastLabelCenter: number | undefined;
+  for (const label of labelCandidates) {
+    const labelX = label.xCenter - STORY_AXIS_LABEL_GAP / 2;
+    if (lastLabelCenter === undefined) {
+      labels.push({ ...label, x: labelX });
+      lastLabelCenter = label.xCenter;
+      continue;
+    }
+    if (label.xCenter - lastLabelCenter >= STORY_AXIS_LABEL_GAP) {
+      labels.push({ ...label, x: labelX });
+      lastLabelCenter = label.xCenter;
+      continue;
+    }
+    if (label.isRangeEnd) {
+      labels.pop();
+      labels.push({ ...label, x: labelX });
+      lastLabelCenter = label.xCenter;
     }
   }
 
@@ -303,16 +340,16 @@ function StoryAxis({ range, bounds, universe, topOffset }: StoryAxisProps) {
       className={s.laneStoryAxis}
       style={{ top: topOffset, height: STORY_AXIS_H }}
     >
-      {ticks.map((t, i) => (
+      {ticks.map((t) => (
         <div
-          key={`t-${String(i)}`}
+          key={t.key}
           className={`${s.laneStoryAxisTick} ${t.cls}`}
           style={{ left: t.x }}
         />
       ))}
-      {labels.map((l, i) => (
+      {labels.map((l) => (
         <div
-          key={`l-${String(i)}`}
+          key={l.key}
           className={`${s.laneStoryAxisYear} ${l.cls}`}
           style={{ left: l.x }}
         >
@@ -341,12 +378,16 @@ function BothConnectors({
   trackContentWidth,
 }: BothConnectorsProps) {
   const range = getStoryRange(universe.id);
-  const bounds = getStorySegmentBounds(universe.id, trackContentWidth, 0);
+  const bounds = getStorySegmentBounds(
+    universe.id,
+    trackContentWidth,
+    TRACK_PAD_LEFT,
+  );
   if (!range || !bounds) return null;
 
   const releasePos = new Map<Entry, { xMid: number; yBottom: number }>();
   for (const e of stackedRelease) {
-    const left = (e.y1 - START_YEAR) * YEAR_WIDTH;
+    const left = TRACK_PAD_LEFT + (e.y1 - START_YEAR) * YEAR_WIDTH;
     const width = Math.max((e.y2 - e.y1 + 1) * YEAR_WIDTH, YEAR_WIDTH);
     const top = LANE_PAD + e.stack * (ROW_H + ROW_GAP);
     releasePos.set(e, { xMid: left + width / 2, yBottom: top + ROW_H });
@@ -400,9 +441,9 @@ function BothConnectors({
         overflow: "visible",
       }}
     >
-      {connectors.map((c, i) => (
+      {connectors.map((c) => (
         <line
-          key={String(i)}
+          key={`${String(c.x1)}-${String(c.y1)}-${String(c.x2)}-${String(c.y2)}`}
           x1={c.x1}
           y1={c.y1}
           x2={c.x2}
@@ -423,7 +464,7 @@ interface StoryEntriesProps {
   universe: Universe;
   filters: Filters;
   trackContentWidth: number;
-  mode: "release" | "story" | "both";
+  mode: AxisMode;
   trackH_R: number;
 }
 
@@ -436,12 +477,18 @@ function StoryEntries({
   trackH_R,
 }: StoryEntriesProps) {
   const range = getStoryRange(universe.id);
-  const bounds = getStorySegmentBounds(universe.id, trackContentWidth, 0);
+  const bounds = getStorySegmentBounds(
+    universe.id,
+    trackContentWidth,
+    TRACK_PAD_LEFT,
+  );
   if (!range || !bounds) return null;
   const span = range.max - range.min || 1;
   const segWidth = bounds.xEnd - bounds.xStart;
   const topOffset =
-    mode === "both" ? LANE_PAD + trackH_R + BOTH_CONNECTOR_H : LANE_PAD;
+    mode === "both"
+      ? LANE_PAD + trackH_R + BOTH_CONNECTOR_H
+      : LANE_PAD + STORY_TOP_GUTTER;
 
   return (
     <>
@@ -502,13 +549,7 @@ export function TimelineLanes({
 }: TimelineLanesProps) {
   const globalMode = filters.axis;
   const showReleaseAxis = globalMode !== "story";
-  const trackContentWidth = (2026 - START_YEAR + 1) * YEAR_WIDTH;
-  const laneRefs = useRef<Map<string, HTMLDivElement>>(new Map());
-  const [overlayReady, setOverlayReady] = useState(false);
-
-  useEffect(() => {
-    setOverlayReady(true);
-  }, [globalMode, filters]);
+  const trackContentWidth = TRACK_CONTENT_WIDTH;
 
   let laneIdx = 0;
 
@@ -542,7 +583,7 @@ export function TimelineLanes({
       } else if (mode === "story") {
         laneHeight = Math.max(
           LABEL_MIN_HEIGHT,
-          trackH_S + STORY_AXIS_H + 2 * LANE_PAD,
+          trackH_S + STORY_AXIS_H + STORY_TOP_GUTTER + 2 * LANE_PAD,
         );
       } else if (isFallback) {
         laneHeight = Math.max(
@@ -564,12 +605,18 @@ export function TimelineLanes({
       const isAlt = laneIdx % 2 === 1;
       laneIdx++;
 
+      const storyTopOffset =
+        mode === "both"
+          ? LANE_PAD + trackH_R + BOTH_CONNECTOR_H
+          : LANE_PAD + STORY_TOP_GUTTER;
+
       return {
         universe: u,
         stackedRelease,
         storyItems,
         trackH_R,
         trackH_S,
+        storyTopOffset,
         laneHeight,
         isAlt,
         hasVisible,
@@ -578,6 +625,19 @@ export function TimelineLanes({
       };
     })
     .filter((lane): lane is NonNullable<typeof lane> => lane !== null);
+
+  const laneLayouts = new Map<string, LaneLayout>();
+  let nextLaneTop = 0;
+  for (const lane of lanes) {
+    if (!lane.hasVisible) continue;
+    laneLayouts.set(lane.universe.id, {
+      top: nextLaneTop,
+      height: lane.laneHeight,
+      trackHS: lane.trackH_S,
+      storyTopOffset: lane.storyTopOffset,
+    });
+    nextLaneTop += lane.laneHeight;
+  }
 
   return (
     <>
@@ -624,7 +684,6 @@ export function TimelineLanes({
                 stackedRelease,
                 storyItems,
                 trackH_R,
-                trackH_S,
                 laneHeight,
                 isAlt,
                 hasVisible,
@@ -644,19 +703,12 @@ export function TimelineLanes({
                     height: laneHeight,
                     "--lane-color": u.color,
                   })}
-                  ref={(el) => {
-                    if (el) {
-                      el.dataset.trackHr = String(trackH_R);
-                      el.dataset.trackHs = String(trackH_S);
-                      el.dataset.mode = mode;
-                      laneRefs.current.set(u.id, el);
-                    }
-                  }}
                 >
                   {/* Release entries */}
                   {(mode === "release" || mode === "both") &&
                     stackedRelease.map((e) => {
-                      const left = (e.y1 - START_YEAR) * YEAR_WIDTH;
+                      const left =
+                        TRACK_PAD_LEFT + (e.y1 - START_YEAR) * YEAR_WIDTH;
                       const width = Math.max(
                         (e.y2 - e.y1 + 1) * YEAR_WIDTH,
                         YEAR_WIDTH,
@@ -691,10 +743,10 @@ export function TimelineLanes({
                   {/* Release-mode fallback axis */}
                   {isFallback && (
                     <StoryAxis
-                      range={{ min: START_YEAR, max: 2026 }}
+                      range={{ min: START_YEAR, max: END_YEAR }}
                       bounds={{
-                        xStart: 0,
-                        xEnd: trackContentWidth,
+                        xStart: TRACK_PAD_LEFT,
+                        xEnd: TRACK_PAD_LEFT + RELEASE_TRACK_WIDTH,
                       }}
                       universe={u}
                       topOffset={LANE_PAD + trackH_R + 2}
@@ -716,13 +768,13 @@ export function TimelineLanes({
             )}
 
             {/* Relationship overlay (story-only mode) */}
-            {overlayReady && globalMode === "story" && (
+            {globalMode === "story" && (
               <RelationshipOverlay
                 universes={universes}
                 trackContentWidth={trackContentWidth}
-                offset={0}
+                offset={TRACK_PAD_LEFT}
                 globalMode={globalMode}
-                laneRefs={laneRefs.current}
+                laneLayouts={laneLayouts}
               />
             )}
           </div>

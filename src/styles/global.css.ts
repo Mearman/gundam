@@ -4,19 +4,19 @@ import {
   createGlobalTheme,
 } from "@vanilla-extract/css";
 
-globalFontFace("BigShouldersDisplay", {
-  src: 'url(https://fonts.gstatic.com/s/bigshouldersdisplay/v22/kC6lj2RDiW3sCtYjSi_FhWe3gKg8OYqnMdHmgntxli7Yl6WCV5I.0.woff2) format("woff2")',
+globalFontFace("Big Shoulders Display", {
+  src: 'url(https://fonts.gstatic.com/s/bigshouldersdisplay/v24/fC1_PZJEZG-e9gHhdI4-NBbfd2ys3SjJCx1czNDuDJAM2w.woff2) format("woff2")',
   fontWeight: "400 900",
   fontDisplay: "swap",
 });
 
-globalFontFace("JetBrainsMono", {
-  src: 'url(https://fonts.gstatic.com/s/jetbrainsmono/v21/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKxjPVmUsaaDhw.0.woff2) format("woff2")',
+globalFontFace("JetBrains Mono", {
+  src: 'url(https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD7OwGtT0rU.woff2) format("woff2")',
   fontWeight: "300 700",
   fontDisplay: "swap",
 });
 
-createGlobalTheme(":root", {
+export const vars = createGlobalTheme(":root", {
   bg: "#0a0b0d",
   surface: "#131518",
   surface2: "#1a1d21",
@@ -34,11 +34,13 @@ createGlobalTheme(":root", {
   startYear: "1979",
   endYear: "2026",
   years: "48",
-  labelW: "200px",
+  pageGutter: "28px",
+  labelW: "216px",
   rowH: "30px",
   rowGap: "4px",
   lanePad: "10px",
-  trackPadLeft: "0px",
+  trackPadLeft: "16px",
+  trackPadRight: "48px",
 });
 
 globalStyle("*", {

@@ -1,16 +1,24 @@
-import type { Universe } from "../data/types";
+import type { AxisMode, Universe } from "../data/types";
+import { vars } from "../styles/global.css";
 import {
   getStoryRange,
   getStorySegmentBounds,
   STORY_SEGMENTS,
 } from "../data/story";
 
+export interface LaneLayout {
+  top: number;
+  height: number;
+  trackHS: number;
+  storyTopOffset: number;
+}
+
 interface RelationshipOverlayProps {
   universes: Universe[];
   trackContentWidth: number;
   offset: number;
-  globalMode: string;
-  laneRefs: Map<string, HTMLDivElement>;
+  globalMode: AxisMode;
+  laneLayouts: Map<string, LaneLayout>;
 }
 
 interface RelLine {
@@ -38,21 +46,18 @@ export function RelationshipOverlay({
   trackContentWidth,
   offset,
   globalMode,
-  laneRefs,
+  laneLayouts,
 }: RelationshipOverlayProps) {
   if (globalMode !== "story") return null;
 
   const usableWidth = trackContentWidth - offset;
 
   function storyBand(uid: string): { top: number; bottom: number } | null {
-    const row = laneRefs.get(uid);
-    if (!row) return null;
-    const rowTop = row.offsetTop;
-    const trackHS = parseFloat(row.dataset.trackHs ?? "0");
-    const lanePad = 10;
+    const layout = laneLayouts.get(uid);
+    if (!layout) return null;
     return {
-      top: rowTop + lanePad,
-      bottom: rowTop + lanePad + trackHS,
+      top: layout.top + layout.storyTopOffset,
+      bottom: layout.top + layout.storyTopOffset + layout.trackHS,
     };
   }
 
@@ -71,8 +76,8 @@ export function RelationshipOverlay({
   const rcBand = storyBand("rc");
 
   let overlayHeight = 0;
-  for (const [, row] of laneRefs) {
-    const bottom = row.offsetTop + row.offsetHeight;
+  for (const [, layout] of laneLayouts) {
+    const bottom = layout.top + layout.height;
     if (bottom > overlayHeight) overlayHeight = bottom;
   }
 
@@ -164,7 +169,7 @@ export function RelationshipOverlay({
 
   // ── Segment headers
   const segmentHeaders = [
-    { ...STORY_SEGMENTS.preBH, color: "var(--text-3)" },
+    { ...STORY_SEGMENTS.preBH, color: vars.text3 },
     { ...STORY_SEGMENTS.cc, color: "#5FD3B5" },
     { ...STORY_SEGMENTS.rc, color: "#7DBE3F" },
   ];
@@ -191,7 +196,7 @@ export function RelationshipOverlay({
             y1={0}
             x2={x}
             y2={overlayHeight}
-            stroke="var(--border-strong)"
+            stroke={vars.borderStrong}
             strokeWidth={1}
             strokeDasharray="2 4"
             opacity={0.5}
@@ -220,9 +225,9 @@ export function RelationshipOverlay({
       })}
 
       {/* Relationship lines */}
-      {lines.map((l, i) => (
+      {lines.map((l) => (
         <line
-          key={String(i)}
+          key={`${String(l.x1)}-${String(l.y1)}-${String(l.x2)}-${String(l.y2)}`}
           x1={l.x1}
           y1={l.y1}
           x2={l.x2}
@@ -235,9 +240,9 @@ export function RelationshipOverlay({
       ))}
 
       {/* Relationship labels */}
-      {labels.map((l, i) => (
+      {labels.map((l) => (
         <text
-          key={String(i)}
+          key={`${l.text}-${String(l.x)}-${String(l.y)}`}
           x={l.x}
           y={l.y}
           fill={l.fill}

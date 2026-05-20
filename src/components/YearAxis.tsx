@@ -1,7 +1,10 @@
 import * as s from "../styles/timeline.css";
-
-const START_YEAR = 1979;
-const END_YEAR = 2026;
+import {
+  END_YEAR,
+  START_YEAR,
+  TRACK_PAD_LEFT,
+  YEAR_WIDTH,
+} from "./timelineGeometry";
 
 function getTickClass(year: number): string {
   if (year % 10 === 0 || year === START_YEAR || year === END_YEAR)
@@ -31,7 +34,8 @@ export function YearAxis() {
     <div className={`${s.axisRow} ${s.tracksAxis}`}>
       <div className={s.axisTrack}>
         {years.map((year) => {
-          const xCenter = (year - START_YEAR) * 28 + 14;
+          const xCenter =
+            TRACK_PAD_LEFT + (year - START_YEAR) * YEAR_WIDTH + YEAR_WIDTH / 2;
           return (
             <div key={year}>
               <div
@@ -41,7 +45,9 @@ export function YearAxis() {
               {shouldShowLabel(year) && (
                 <div
                   className={`${s.axisYear} ${getYearClass(year)}`}
-                  style={{ left: (year - START_YEAR) * 28 }}
+                  style={{
+                    left: TRACK_PAD_LEFT + (year - START_YEAR) * YEAR_WIDTH,
+                  }}
                 >
                   {year}
                 </div>

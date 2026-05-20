@@ -1,8 +1,9 @@
 import { style, styleVariants } from "@vanilla-extract/css";
+import { vars } from "./global.css";
 
 /* ─── Header ──────────────────────────────────────────── */
 export const header = style({
-  borderBottom: "1px solid var(--border)",
+  borderBottom: `1px solid ${vars.border}`,
   padding: "28px 28px 22px",
   background: "linear-gradient(180deg, #101216 0%, #0a0b0d 100%)",
   position: "relative",
@@ -28,7 +29,7 @@ export const headerGrid = style({
 });
 
 export const title = style({
-  fontFamily: "'BigShouldersDisplay', sans-serif",
+  fontFamily: "'Big Shoulders Display', sans-serif",
   fontWeight: 900,
   fontSize: "clamp(48px, 7vw, 84px)",
   lineHeight: 0.85,
@@ -60,7 +61,7 @@ export const headerMeta = style({
 export const metaNum = style({
   color: "#e8e9ec",
   fontSize: 28,
-  fontFamily: "'BigShouldersDisplay', sans-serif",
+  fontFamily: "'Big Shoulders Display', sans-serif",
   fontWeight: 700,
   letterSpacing: 0,
 });
@@ -74,17 +75,17 @@ export const filters = style({
   backdropFilter: "blur(8px)",
   WebkitBackdropFilter: "blur(8px)",
   borderBottom: "1px solid #2a2e34",
-  padding: "12px 28px",
+  padding: `14px ${vars.pageGutter}`,
   display: "flex",
   flexWrap: "wrap",
   alignItems: "center",
-  gap: "14px 24px",
+  gap: "16px 28px",
 });
 
 export const filterGroup = style({
   display: "flex",
   alignItems: "center",
-  gap: 8,
+  gap: 10,
 });
 
 export const filterLabel = style({
@@ -97,7 +98,7 @@ export const filterLabel = style({
 
 export const chips = style({
   display: "flex",
-  gap: 4,
+  gap: 6,
   flexWrap: "wrap",
 });
 
@@ -105,7 +106,7 @@ const chipBase = style({
   background: "transparent",
   color: "#9aa0a8",
   border: "1px solid #2a2e34",
-  padding: "4px 9px",
+  padding: "5px 10px",
   fontFamily: "inherit",
   fontSize: 11,
   fontWeight: 400,
@@ -141,7 +142,7 @@ export const chip = styleVariants({
 
 /* ─── Legend ──────────────────────────────────────────── */
 export const legend = style({
-  padding: "14px 28px",
+  padding: `14px ${vars.pageGutter}`,
   borderBottom: "1px solid #2a2e34",
   display: "flex",
   flexWrap: "wrap",
@@ -181,15 +182,18 @@ export const legendIcon = style({
 export const timelineWrap = style({
   borderBottom: "1px solid #2a2e34",
   background: "#0a0b0d",
+  padding: `0 ${vars.pageGutter}`,
 });
 
 export const timelineGrid = style({
   display: "flex",
   alignItems: "stretch",
+  borderLeft: "1px solid #2a2e34",
+  borderRight: "1px solid #2a2e34",
 });
 
 export const labelsCol = style({
-  width: "var(--labelW)",
+  width: vars.labelW,
   flexShrink: 0,
   borderRight: "1px solid #3a3f47",
   background: "#0a0b0d",
@@ -205,7 +209,7 @@ export const tracksCol = style({
 });
 
 export const tracksInner = style({
-  minWidth: "calc(var(--years) * var(--yearWidth) + 32px)",
+  minWidth: `calc(${vars.trackPadLeft} + ${vars.years} * ${vars.yearWidth} + ${vars.trackPadRight})`,
   position: "relative",
 });
 
@@ -216,7 +220,7 @@ export const axisRow = style({
 });
 
 export const labelsAxis = style({
-  padding: "0 14px",
+  padding: "0 18px",
   display: "flex",
   alignItems: "center",
   color: "#5a6068",
@@ -240,7 +244,7 @@ export const axisTrack = style({
 export const axisYear = style({
   position: "absolute",
   top: 8,
-  width: "var(--yearWidth)",
+  width: vars.yearWidth,
   height: 22,
   display: "flex",
   alignItems: "center",
@@ -286,7 +290,7 @@ export const axisTick1 = style({
 /* ─── Lane rows ─────────────────────────────────────── */
 export const laneLabelRow = style({
   position: "relative",
-  padding: "var(--lanePad) 14px",
+  padding: `${vars.lanePad} 18px ${vars.lanePad} 20px`,
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
@@ -308,7 +312,7 @@ export const laneBar = style({
   position: "absolute",
   left: 0,
   top: 0,
-  width: 3,
+  width: 4,
   height: "100%",
 });
 
@@ -340,7 +344,7 @@ export const laneCount = style({
 
 export const laneTrackRow = style({
   position: "relative",
-  padding: "var(--lanePad) 0",
+  padding: `${vars.lanePad} 0`,
   borderBottom: "1px solid #2a2e34",
   background: "#131518",
   selectors: {
@@ -351,8 +355,8 @@ export const laneTrackRow = style({
       top: 0,
       bottom: 0,
       width: "100%",
-      backgroundImage:
-        "repeating-linear-gradient(90deg, transparent 0, transparent calc(var(--yearWidth) - 1px), rgba(255,255,255,0.025) calc(var(--yearWidth) - 1px), rgba(255,255,255,0.025) var(--yearWidth))",
+      backgroundImage: `repeating-linear-gradient(90deg, transparent 0, transparent calc(${vars.yearWidth} - 1px), rgba(255,255,255,0.025) calc(${vars.yearWidth} - 1px), rgba(255,255,255,0.025) ${vars.yearWidth})`,
+      backgroundPositionX: vars.trackPadLeft,
       pointerEvents: "none",
     },
     "&::after": {
@@ -379,7 +383,7 @@ export const laneTrackRowHidden = style({
 /* ─── Entries ────────────────────────────────────────── */
 export const entry = style({
   position: "absolute",
-  height: "var(--rowH)",
+  height: vars.rowH,
   display: "flex",
   alignItems: "center",
   gap: 4,
@@ -388,7 +392,7 @@ export const entry = style({
   transition:
     "transform 0.12s ease, background 0.12s ease, box-shadow 0.12s ease",
   zIndex: 2,
-  minWidth: "var(--yearWidth)",
+  minWidth: vars.yearWidth,
   overflow: "hidden",
   selectors: {
     "&::before": {
@@ -556,7 +560,7 @@ export const ttVal = style({
 
 /* ─── Footer ──────────────────────────────────────────── */
 export const footer = style({
-  padding: "32px 28px 0",
+  padding: `32px ${vars.pageGutter} 0`,
   color: "#5a6068",
   fontSize: 11,
   lineHeight: 1.7,
@@ -607,7 +611,7 @@ export const tick1 = style({
 export const laneStoryAxisYear = style({
   position: "absolute",
   top: 2,
-  width: 40,
+  width: 44,
   height: 12,
   display: "flex",
   alignItems: "center",
