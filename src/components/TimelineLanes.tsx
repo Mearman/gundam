@@ -265,7 +265,9 @@ function Tooltip({ entry: e, universe: u, allUniverses, x, y }: TooltipProps) {
   top = Math.max(8, top);
 
   const yearText =
-    e.y1 === e.y2 ? String(e.y1) : `${String(e.y1)} – ${String(e.y2)}`;
+    e.yearStart === e.yearEnd
+      ? String(e.yearStart)
+      : `${String(e.yearStart)} – ${String(e.yearEnd)}`;
   const audioLabel: Record<string, string> = {
     en: "English dub officially exists",
     ja: "Japanese audio only",
@@ -561,8 +563,11 @@ function BothConnectors({
 
   const releasePos = new Map<Entry, { xMid: number; yBottom: number }>();
   for (const e of stackedRelease) {
-    const left = TRACK_PAD_LEFT + (e.y1 - START_YEAR) * yearWidth;
-    const width = Math.max((e.y2 - e.y1 + 1) * yearWidth, yearWidth);
+    const left = TRACK_PAD_LEFT + (e.yearStart - START_YEAR) * yearWidth;
+    const width = Math.max(
+      (e.yearEnd - e.yearStart + 1) * yearWidth,
+      yearWidth,
+    );
     const top = LANE_PAD + e.stack * (ROW_H + ROW_GAP);
     releasePos.set(e, { xMid: left + width / 2, yBottom: top + ROW_H });
   }
@@ -1036,15 +1041,16 @@ export function TimelineLanes({
                     {(mode === "release" || mode === "both") &&
                       stackedRelease.map((e) => {
                         const left =
-                          TRACK_PAD_LEFT + (e.y1 - START_YEAR) * geo.yearWidth;
+                          TRACK_PAD_LEFT +
+                          (e.yearStart - START_YEAR) * geo.yearWidth;
                         const width = Math.max(
-                          (e.y2 - e.y1 + 1) * geo.yearWidth,
+                          (e.yearEnd - e.yearStart + 1) * geo.yearWidth,
                           geo.yearWidth,
                         );
                         const top = LANE_PAD + e.stack * (ROW_H + ROW_GAP);
                         return (
                           <TimelineEntry
-                            key={`r-${u.id}-${String(e.y1)}-${e.title}`}
+                            key={`r-${u.id}-${String(e.yearStart)}-${e.title}`}
                             entry={e}
                             universe={u}
                             allUniverses={universes}

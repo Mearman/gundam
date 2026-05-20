@@ -25,8 +25,8 @@ export interface Entry {
   era: string;
   title: string;
   note?: string;
-  y1: number;
-  y2: number;
+  yearStart: number;
+  yearEnd: number;
   media: MediaKind;
   audio: AudioLang;
   subs: TextLang;
@@ -74,8 +74,7 @@ export type ReleaseSchedule =
 export interface DetailEpisode {
   num?: number | string;
   title?: { ja: string | null; en: string | null };
-  dateJa: string;
-  dateEn?: string | null;
+  date: { ja: string; en?: string | null };
   note?: string;
   season?: number;
   course?: number;
@@ -115,8 +114,8 @@ export function entry(
   universe: string | string[],
   era: string,
   title: string,
-  y1: number,
-  y2: number,
+  yearStart: number,
+  yearEnd: number,
   media: MediaKind,
   audio: AudioLang,
   subs: TextLang,
@@ -127,8 +126,8 @@ export function entry(
     universe,
     era,
     title,
-    y1,
-    y2,
+    yearStart,
+    yearEnd,
     media,
     audio,
     subs,
@@ -183,10 +182,10 @@ export function ep(
   const out: DetailEpisode = {
     num,
     title: { ja: jaTitle, en: enTitle },
-    dateJa,
+    date: { ja: dateJa },
   };
   if (extra !== undefined) {
-    if (extra.dateEn !== undefined) out.dateEn = extra.dateEn;
+    if (extra.dateEn !== undefined) out.date.en = extra.dateEn;
     if (extra.season !== undefined) out.season = extra.season;
     if (extra.course !== undefined) out.course = extra.course;
     if (extra.universe !== undefined) out.universe = extra.universe;

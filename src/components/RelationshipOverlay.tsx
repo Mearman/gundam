@@ -86,8 +86,11 @@ function releaseEntryPos(
   yearWidth: number,
   laneTop: number,
 ): { x: number; y: number } {
-  const left = TRACK_PAD_LEFT + (entry.y1 - START_YEAR) * yearWidth;
-  const width = Math.max((entry.y2 - entry.y1 + 1) * yearWidth, yearWidth);
+  const left = TRACK_PAD_LEFT + (entry.yearStart - START_YEAR) * yearWidth;
+  const width = Math.max(
+    (entry.yearEnd - entry.yearStart + 1) * yearWidth,
+    yearWidth,
+  );
   return {
     x: left + width / 2,
     y: laneTop + LANE_PAD + entry.stack * (ROW_H + ROW_GAP) + ROW_H / 2,
