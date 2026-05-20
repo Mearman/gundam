@@ -1,5 +1,5 @@
 import type { Entry, EntryDetail } from "../types";
-import { entry, det, ep, rel } from "../types";
+import { entry, det, ep, epPlain, rel } from "../types";
 
 // After Colony
 
@@ -157,191 +157,191 @@ export const acDetails: Record<string, EntryDetail | undefined> = {
     "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_Wing_episodes",
     [
       ep(1, "少女が見た流星", "The Shooting Star She Saw", "1995-04-07", {
-        en: "2000-03-06",
+        dateEn: "2000-03-06",
       }),
       ep(
         2,
         "死神と呼ばれるG（ガンダム）",
         "The Gundam Deathscythe",
         "1995-04-14",
-        { en: "2000-03-07" },
+        { dateEn: "2000-03-07" },
       ),
       ep(3, "ガンダム5機確認", "Five Gundams Confirmed", "1995-04-21", {
-        en: "2000-03-08",
+        dateEn: "2000-03-08",
       }),
       ep(4, "悪夢のビクトリア", "The Victoria Nightmare", "1995-04-28", {
-        en: "2000-03-09",
+        dateEn: "2000-03-09",
       }),
       ep(5, "リリーナの秘密", "Relena's Secret", "1995-05-05", {
-        en: "2000-03-10",
+        dateEn: "2000-03-10",
       }),
       ep(6, "パーティー・ナイト", "Party Night", "1995-05-12", {
-        en: "2000-03-13",
+        dateEn: "2000-03-13",
       }),
       ep(7, "流血へのシナリオ", "Scenario for Bloodshed", "1995-05-19", {
-        en: "2000-03-14",
+        dateEn: "2000-03-14",
       }),
       ep(8, "トレーズ暗殺", "The Treize Assassination", "1995-05-26", {
-        en: "2000-03-15",
+        dateEn: "2000-03-15",
       }),
       ep(9, "亡国の肖像", "Portrait of a Ruined Country", "1995-06-02", {
-        en: "2000-03-16",
+        dateEn: "2000-03-16",
       }),
       ep(10, "ヒイロ閃光に散る", "Heero, Distracted by Defeat", "1995-06-09", {
-        en: "2000-03-17",
+        dateEn: "2000-03-17",
       }),
       ep(11, "幸福の行方", "The Whereabouts of Happiness", "1995-06-16", {
-        en: "2000-03-20",
+        dateEn: "2000-03-20",
       }),
       ep(12, "迷える戦士たち", "Bewildered Warriors", "1995-06-23", {
-        en: "2000-03-21",
+        dateEn: "2000-03-21",
       }),
       ep(13, "キャスリンの涙", "Catherine's Tears", "1995-06-30", {
-        en: "2000-03-22",
+        dateEn: "2000-03-22",
       }),
       ep(14, "01爆破指令", "The Order to Destroy 01", "1995-07-07", {
-        en: "2000-03-23",
+        dateEn: "2000-03-23",
       }),
       ep(
         15,
         "決戦の場所南極へ",
         "To the Battleground Antarctica",
         "1995-07-14",
-        { en: "2000-03-24" },
+        { dateEn: "2000-03-24" },
       ),
       ep(16, "悲しき決戦", "The Sorrowful Battle", "1995-07-21", {
-        en: "2000-03-27",
+        dateEn: "2000-03-27",
       }),
       ep(17, "裏切りの遠き故郷", "Betrayed by Home, Far Away", "1995-07-28", {
-        en: "2000-03-28",
+        dateEn: "2000-03-28",
       }),
       ep(18, "トールギス破壊", "Tallgeese Destroyed", "1995-08-04", {
-        en: "2000-03-29",
+        dateEn: "2000-03-29",
       }),
       ep(19, "バルジ強襲", "Assault on Barge", "1995-08-11", {
-        en: "2000-03-30",
+        dateEn: "2000-03-30",
       }),
       ep(20, "潜入、月面基地", "The Lunar Base Infiltration", "1995-08-18", {
-        en: "2000-03-31",
+        dateEn: "2000-03-31",
       }),
       ep(21, "悲しみのカトル", "Grief Stricken Quatre", "1995-08-25", {
-        en: "2000-04-03",
+        dateEn: "2000-04-03",
       }),
       ep(22, "独立を巡る戦い", "The Fight for Independence", "1995-08-31", {
-        en: "2000-04-04",
+        dateEn: "2000-04-04",
       }),
       ep(
         23,
         "死神に戻るデュオ",
         "Duo, the God of Death Once Again",
         "1995-09-01",
-        { en: "2000-04-05" },
+        { dateEn: "2000-04-05" },
       ),
       ep(
         24,
         "ゼロと呼ばれたG（ガンダム）",
         "The Gundam They Called Zero",
         "1995-09-08",
-        { en: "2000-04-06" },
+        { dateEn: "2000-04-06" },
       ),
       ep(25, "カトルVSヒイロ", "Quatre VS Heero", "1995-09-22", {
-        en: "2000-04-07",
+        dateEn: "2000-04-07",
       }),
       ep(
         26,
         "燃えつきない流星",
         "The Eternal Flame of the Shooting Stars",
         "1995-09-29",
-        { en: "2000-04-10" },
+        { dateEn: "2000-04-10" },
       ),
       ep(
         27,
         "勝利と敗北の軌跡",
         "The Locus of Victory and Defeat",
         "1995-10-06",
-        { en: "2000-04-11" },
+        { dateEn: "2000-04-11" },
       ),
       ep(28, "すれ違う運命", "Passing Destinies", "1995-10-13", {
-        en: "2000-04-12",
+        dateEn: "2000-04-12",
       }),
       ep(29, "戦場のヒロイン", "The Heroine of the Battlefield", "1995-10-20", {
-        en: "2000-04-13",
+        dateEn: "2000-04-13",
       }),
       ep(30, "リリーナとの再会", "The Reunion with Relena", "1995-10-27", {
-        en: "2000-04-14",
+        dateEn: "2000-04-14",
       }),
       ep(
         31,
         "ガラスの王国（サンクキングダム）",
         "The Glass Kingdom",
         "1995-11-03",
-        { en: "2000-04-17" },
+        { dateEn: "2000-04-17" },
       ),
       ep(32, "死神とゼロの対決", "The God of Death Meets Zero", "1995-11-17", {
-        en: "2000-04-18",
+        dateEn: "2000-04-18",
       }),
       ep(33, "孤独な戦場", "The Lonely Battlefield", "1995-11-24", {
-        en: "2000-04-19",
+        dateEn: "2000-04-19",
       }),
       ep(34, "その名はエピオン", "And Its Name is Epyon", "1995-12-01", {
-        en: "2000-04-20",
+        dateEn: "2000-04-20",
       }),
       ep(35, "ウーフェイ再び", "The Return of Wufei", "1995-12-08", {
-        en: "2000-04-21",
+        dateEn: "2000-04-21",
       }),
       ep(
         36,
         "王国（サンクキングダム）崩壊",
         "Sanc Kingdom's Collapse",
         "1995-12-15",
-        { en: "2000-04-24" },
+        { dateEn: "2000-04-24" },
       ),
       ep(37, "ゼロVSエピオン", "Zero VS Epyon", "1995-12-22", {
-        en: "2000-04-25",
+        dateEn: "2000-04-25",
       }),
       ep(
         38,
         "女王（クイーン）リリーナ誕生",
         "The Birth of Queen Relena",
         "1996-01-12",
-        { en: "2000-04-26" },
+        { dateEn: "2000-04-26" },
       ),
       ep(
         39,
         "トロワ戦場へ帰る",
         "Trowa's Return to the Battlefield",
         "1996-01-19",
-        { en: "2000-04-27" },
+        { dateEn: "2000-04-27" },
       ),
       ep(40, "新たなる指導者", "A New Leader", "1996-01-26", {
-        en: "2000-04-28",
+        dateEn: "2000-04-28",
       }),
       ep(41, "バルジ攻防戦", "Crossfire at Barge", "1996-02-02", {
-        en: "2000-05-01",
+        dateEn: "2000-05-01",
       }),
       ep(42, "リーブラ発進", "Battleship Libra", "1996-02-09", {
-        en: "2000-05-02",
+        dateEn: "2000-05-02",
       }),
       ep(43, "地上を撃つ巨光（オーロラ）", "Target: Earth", "1996-02-16", {
-        en: "2000-05-03",
+        dateEn: "2000-05-03",
       }),
       ep(44, "出撃Gチーム", "Go Forth, Gundam Team", "1996-02-23", {
-        en: "2000-05-04",
+        dateEn: "2000-05-04",
       }),
       ep(45, "決戦の予感", "Signs of the Final Battle", "1996-03-01", {
-        en: "2000-05-05",
+        dateEn: "2000-05-05",
       }),
       ep(46, "ミリアルドの決断", "Milliardo's Decision", "1996-03-08", {
-        en: "2000-05-08",
+        dateEn: "2000-05-08",
       }),
       ep(47, "激突する宇宙", "Collision in Space", "1996-03-15", {
-        en: "2000-05-09",
+        dateEn: "2000-05-09",
       }),
       ep(48, "混迷への出撃", "Takeoff into Confusion", "1996-03-22", {
-        en: "2000-05-10",
+        dateEn: "2000-05-10",
       }),
       ep(49, "最後の勝利者", "The Final Victor", "1996-03-29", {
-        en: "2000-05-11",
+        dateEn: "2000-05-11",
       }),
     ],
     [
@@ -420,12 +420,14 @@ export const acDetails: Record<string, EntryDetail | undefined> = {
     "Gundam Wing: Endless Waltz",
     "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_Wing_episodes",
     [
-      ep(1, "静かなる軌道", "Silent Orbit", "1997-01-25", { en: "2000-11-10" }),
+      ep(1, "静かなる軌道", "Silent Orbit", "1997-01-25", {
+        dateEn: "2000-11-10",
+      }),
       ep(2, "過ぎ去りし流星", "Operation Meteor", "1997-04-25", {
-        en: "2000-11-10",
+        dateEn: "2000-11-10",
       }),
       ep(3, "永遠への回帰", "Return to Forever", "1997-07-25", {
-        en: "2000-11-10",
+        dateEn: "2000-11-10",
       }),
     ],
     [
@@ -458,7 +460,7 @@ export const acDetails: Record<string, EntryDetail | undefined> = {
         "新機動戦記ガンダムW Endless Waltz 特別篇",
         "Endless Waltz Special Edition (compilation film)",
         "1998-08-01",
-        { en: "2002-08-30" },
+        { dateEn: "2002-08-30" },
       ),
     ],
     [
@@ -477,20 +479,20 @@ export const acDetails: Record<string, EntryDetail | undefined> = {
     "Mobile Suit Gundam Wing: Glory of the Losers",
     "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Wing",
     [
-      ep(1, "Volume 1", "Volume 1", "2011-03-23"),
-      ep(2, "Volume 2", "Volume 2", "2011-10-21"),
-      ep(3, "Volume 3", "Volume 3", "2012-06-22"),
-      ep(4, "Volume 4", "Volume 4", "2013-01-23"),
-      ep(5, "Volume 5", "Volume 5", "2013-06-22"),
-      ep(6, "Volume 6", "Volume 6", "2013-11-26"),
-      ep(7, "Volume 7", "Volume 7", "2014-07-26"),
-      ep(8, "Volume 8", "Volume 8", "2014-12-26"),
-      ep(9, "Volume 9", "Volume 9", "2015-06-26"),
-      ep(10, "Volume 10", "Volume 10", "2015-12-26"),
-      ep(11, "Volume 11", "Volume 11", "2016-06-25"),
-      ep(12, "Volume 12", "Volume 12", "2017-01-26"),
-      ep(13, "Volume 13", "Volume 13", "2017-10-26"),
-      ep(14, "Volume 14", "Volume 14", "2018-01-26"),
+      epPlain(1, "2011-03-23"),
+      epPlain(2, "2011-10-21"),
+      epPlain(3, "2012-06-22"),
+      epPlain(4, "2013-01-23"),
+      epPlain(5, "2013-06-22"),
+      epPlain(6, "2013-11-26"),
+      epPlain(7, "2014-07-26"),
+      epPlain(8, "2014-12-26"),
+      epPlain(9, "2015-06-26"),
+      epPlain(10, "2015-12-26"),
+      epPlain(11, "2016-06-25"),
+      epPlain(12, "2017-01-26"),
+      epPlain(13, "2017-10-26"),
+      epPlain(14, "2018-01-26"),
     ],
     [
       rel("ja", "print", "Kadokawa Gundam Ace", "2010-02-26", "serial", "2018"),
@@ -558,10 +560,7 @@ export const acDetails: Record<string, EntryDetail | undefined> = {
     "新機動戦記ガンダムW BLIND TARGET",
     "Mobile Suit Gundam Wing: Blind Target",
     "https://ja.wikipedia.org/wiki/新機動戦記ガンダムW_BLIND_TARGET",
-    [
-      ep(1, "Volume 1", "Volume 1", "1999"),
-      ep(2, "Volume 2", "Volume 2", "1999"),
-    ],
+    [epPlain(1, "1999"), epPlain(2, "1999")],
     [rel("ja", "print", "Kodansha", "1998", "serial", "1999")],
     {
       author: "Akimiya Yumiko (art), Sumizawa Katsuyuki (story)",
@@ -572,7 +571,7 @@ export const acDetails: Record<string, EntryDetail | undefined> = {
     "新機動戦記ガンダムW BATTLEFIELD OF PACIFIST",
     "Mobile Suit Gundam Wing: Battlefield of Pacifist",
     "https://ja.wikipedia.org/wiki/新機動戦記ガンダムW_BATTLEFIELD_OF_PACIFIST",
-    [ep(1, "Volume 1", "Volume 1", "1998")],
+    [epPlain(1, "1998")],
     [rel("ja", "print", "Kodansha Bom Bom Comics", "1997", "serial", "1998")],
     {
       author: "Ohtagaki Kou (art), Sumizawa Katsuyuki (story)",
@@ -584,11 +583,11 @@ export const acDetails: Record<string, EntryDetail | undefined> = {
     "New Mobile Report Gundam Wing: Frozen Teardrop — Hanamoyu",
     "https://gundam.fandom.com/wiki/New_Victory_Report_Gundam_W:_Frozen_Teardrop",
     [
-      ep(1, "Volume 1", "Volume 1", "2017"),
-      ep(2, "Volume 2", "Volume 2", "2018"),
-      ep(3, "Volume 3", "Volume 3", "2019"),
-      ep(4, "Volume 4", "Volume 4", "2020"),
-      ep(5, "Volume 5", "Volume 5", "2021"),
+      epPlain(1, "2017"),
+      epPlain(2, "2018"),
+      epPlain(3, "2019"),
+      epPlain(4, "2020"),
+      epPlain(5, "2021"),
     ],
     [rel("ja", "print", "Kadokawa Gundam Ace", "2016", "serial", "2021")],
     {

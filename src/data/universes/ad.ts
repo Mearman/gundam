@@ -1,5 +1,5 @@
 import type { Entry, EntryDetail } from "../types";
-import { entry, det, ep, rel } from "../types";
+import { entry, det, ep, epPlain, rel } from "../types";
 
 // Anno Domini
 
@@ -308,11 +308,11 @@ export const adDetails: Record<string, EntryDetail | undefined> = {
     "Mobile Suit Gundam 00P",
     "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
     [
-      ep(1, "Volume 1", "Volume 1", "2008-05"),
-      ep(2, "Volume 2", "Volume 2", "2008-10"),
-      ep(3, "Volume 3", "Volume 3", "2009-05"),
-      ep(4, "Volume 4", "Volume 4", "2009-11"),
-      ep(5, "Volume 5", "Volume 5", "2010-03"),
+      epPlain(1, "2008-05"),
+      epPlain(2, "2008-10"),
+      epPlain(3, "2009-05"),
+      epPlain(4, "2009-11"),
+      epPlain(5, "2010-03"),
     ],
     [rel("ja", "print", "Kadokawa Gundam Ace", "2007-11-26", "serial", "2012")],
     {
@@ -325,7 +325,7 @@ export const adDetails: Record<string, EntryDetail | undefined> = {
     "機動戦士ガンダム00V",
     "Mobile Suit Gundam 00V",
     "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
-    [ep(1, "Volume 1", "Volume 1", "2008")],
+    [epPlain(1, "2008")],
     [rel("ja", "print", "Hobby Japan", "2008-12-26", "serial", "2012")],
     {
       author: "Tomohiro Chiba (story), various (art)",
@@ -337,11 +337,7 @@ export const adDetails: Record<string, EntryDetail | undefined> = {
     "機動戦士ガンダム00I",
     "Mobile Suit Gundam 00I",
     "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
-    [
-      ep(1, "Volume 1", "Volume 1", "2010-01"),
-      ep(2, "Volume 2", "Volume 2", "2010-06"),
-      ep(3, "Volume 3", "Volume 3", "2010-09"),
-    ],
+    [epPlain(1, "2010-01"), epPlain(2, "2010-06"), epPlain(3, "2010-09")],
     [rel("ja", "print", "Kadokawa Gundam Ace", "2009-11-26", "serial", "2010")],
     {
       author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
@@ -353,7 +349,7 @@ export const adDetails: Record<string, EntryDetail | undefined> = {
     "機動戦士ガンダム00N",
     "Mobile Suit Gundam 00N",
     "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
-    [ep(1, "Volume 1", "Volume 1", "2012")],
+    [epPlain(1, "2012")],
     [rel("ja", "print", "Kadokawa Gundam Ace", "2012-08-25", "serial", "2013")],
     {
       author: "Tomohiro Chiba (story)",
@@ -366,10 +362,10 @@ export const adDetails: Record<string, EntryDetail | undefined> = {
     "Mobile Suit Gundam 00F",
     "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
     [
-      ep(1, "Volume 1", "Volume 1", "2008-03"),
-      ep(2, "Volume 2", "Volume 2", "2008"),
-      ep(3, "Volume 3", "Volume 3", "2009"),
-      ep(4, "Volume 4", "Volume 4", "2009-07"),
+      epPlain(1, "2008-03"),
+      epPlain(2, "2008"),
+      epPlain(3, "2009"),
+      epPlain(4, "2009-07"),
     ],
     [rel("ja", "print", "Kadokawa Gundam Ace", "2008-09-26", "serial", "2013")],
     {
@@ -383,13 +379,13 @@ export const adDetails: Record<string, EntryDetail | undefined> = {
     "Mobile Suit Gundam 00 (manga)",
     "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_00_(Manga)",
     [
-      ep(1, "Volume 1", "Volume 1", "2008-03"),
-      ep(2, "Volume 2", "Volume 2", "2008-07"),
-      ep(3, "Volume 3", "Volume 3", "2008-11"),
-      ep(4, "Volume 4", "Volume 4", "2009-02"),
-      ep(5, "Volume 5", "Volume 5", "2009-05"),
-      ep(6, "Volume 6", "Volume 6", "2009-08"),
-      ep(7, "Volume 7", "Volume 7", "2010-01"),
+      epPlain(1, "2008-03"),
+      epPlain(2, "2008-07"),
+      epPlain(3, "2008-11"),
+      epPlain(4, "2009-02"),
+      epPlain(5, "2009-05"),
+      epPlain(6, "2009-08"),
+      epPlain(7, "2010-01"),
     ],
     [
       rel(
@@ -412,10 +408,7 @@ export const adDetails: Record<string, EntryDetail | undefined> = {
     "機動戦士ガンダム00I 2314",
     "Mobile Suit Gundam 00I 2314",
     "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_00I_2314",
-    [
-      ep(1, "Volume 1", "Volume 1", "2012"),
-      ep(2, "Volume 2", "Volume 2", "2013"),
-    ],
+    [epPlain(1, "2012"), epPlain(2, "2013")],
     [rel("ja", "print", "Kadokawa Gundam Ace", "2011", "serial", "2013")],
     {
       author: "Tomofumi Ogasawara",

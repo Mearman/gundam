@@ -1,5 +1,5 @@
 import type { Entry, EntryDetail } from "../types";
-import { entry, det, ep, rel } from "../types";
+import { entry, det, ep, epPlain, rel } from "../types";
 
 // Cosmic Era
 
@@ -329,135 +329,151 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
     "Mobile Suit Gundam SEED",
     "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_SEED_episodes",
     [
-      ep(1, "偽りの平和", "False Peace", "2002-10-05", { en: "2004-04-17" }),
+      ep(1, "偽りの平和", "False Peace", "2002-10-05", {
+        dateEn: "2004-04-17",
+      }),
       ep(2, "その名はガンダム", "Its Name: Gundam", "2002-10-12", {
-        en: "2004-04-24",
+        dateEn: "2004-04-24",
       }),
       ep(3, "崩壊の大地", "Collapsing Land", "2002-10-19", {
-        en: "2004-05-01",
+        dateEn: "2004-05-01",
       }),
-      ep(4, "サイレントラン", "Silent Run", "2002-10-26", { en: "2004-05-08" }),
+      ep(4, "サイレントラン", "Silent Run", "2002-10-26", {
+        dateEn: "2004-05-08",
+      }),
       ep(5, "フェイズシフトダウン", "Phase Shift Down", "2002-11-02", {
-        en: "2004-05-15",
+        dateEn: "2004-05-15",
       }),
       ep(6, "消えるガンダム", "The Vanishing Gundam", "2002-11-09", {
-        en: "2004-05-22",
+        dateEn: "2004-05-22",
       }),
       ep(7, "そらの傷跡", "The Scar of Space", "2002-11-16", {
-        en: "2004-05-29",
+        dateEn: "2004-05-29",
       }),
       ep(8, "敵軍の歌姫", "The Songstress of The Enemy Forces", "2002-11-23", {
-        en: "2004-06-05",
+        dateEn: "2004-06-05",
       }),
       ep(9, "消えていく光", "The Fading Light", "2002-11-30", {
-        en: "2004-06-12",
+        dateEn: "2004-06-12",
       }),
-      ep(10, "分かたれた道", "Crossroads", "2002-12-07", { en: "2004-06-19" }),
+      ep(10, "分かたれた道", "Crossroads", "2002-12-07", {
+        dateEn: "2004-06-19",
+      }),
       ep(11, "目覚める刃", "The Awakening Sword", "2002-12-14", {
-        en: "2004-06-26",
+        dateEn: "2004-06-26",
       }),
       ep(12, "フレイの選択", "Flay's Decision", "2002-12-21", {
-        en: "2004-07-03",
+        dateEn: "2004-07-03",
       }),
       ep(13, "そらに降る星", "Stars Falling in Space", "2002-12-28", {
-        en: "2004-07-10",
+        dateEn: "2004-07-10",
       }),
       ep(14, "果てし無き時の中で", "Within Endless Time", "2003-01-04", {
-        en: "2004-07-17",
+        dateEn: "2004-07-17",
       }),
       ep(15, "それぞれの孤独", "The Respective Solitudes", "2003-01-11", {
-        en: "2004-07-24",
+        dateEn: "2004-07-24",
       }),
       ep(16, "燃える砂塵", "Burning Clouds of Sand", "2003-01-18", {
-        en: "2004-07-31",
+        dateEn: "2004-07-31",
       }),
       ep(17, "カガリ再び", "Cagalli Returns", "2003-01-25", {
-        en: "2004-08-07",
+        dateEn: "2004-08-07",
       }),
-      ep(18, "ペイバック", "Payback", "2003-02-01", { en: "2004-08-14" }),
+      ep(18, "ペイバック", "Payback", "2003-02-01", { dateEn: "2004-08-14" }),
       ep(19, "宿敵の牙", "Fangs of the Enemy", "2003-02-08", {
-        en: "2004-08-21",
+        dateEn: "2004-08-21",
       }),
       ep(20, "おだやかな日に", "On a Calm Day", "2003-02-15", {
-        en: "2004-08-28",
+        dateEn: "2004-08-28",
       }),
       ep(21, "砂塵の果て", "Beyond the Clouds of Sand", "2003-02-22", {
-        en: "2004-09-04",
+        dateEn: "2004-09-04",
       }),
       ep(22, "紅に染まる海", "The Sea Dyed Red", "2003-03-01", {
-        en: "2004-09-11",
+        dateEn: "2004-09-11",
       }),
       ep(23, "運命の出会い", "Fateful Encounter", "2003-03-08", {
-        en: "2004-09-18",
+        dateEn: "2004-09-18",
       }),
       ep(24, "二人だけの戦争", "War for Two", "2003-03-15", {
-        en: "2004-10-02",
+        dateEn: "2004-10-02",
       }),
       ep(
         25,
         "平和の国HDリマスターでは「平和の国へ」。",
         "The Land of Peace",
         "2003-03-22",
-        { en: "2004-10-09" },
+        { dateEn: "2004-10-09" },
       ),
-      ep(26, "モーメント", "Moment", "2003-03-29", { en: "2004-10-16" }),
+      ep(26, "モーメント", "Moment", "2003-03-29", { dateEn: "2004-10-16" }),
       ep(27, "果てなきロンド", "Endless Rondo", "2003-04-12", {
-        en: "2004-10-23",
+        dateEn: "2004-10-23",
       }),
-      ep(28, "キラ", "Kira", "2003-04-19", { en: "2004-10-30" }),
+      ep(28, "キラ", "Kira", "2003-04-19", { dateEn: "2004-10-30" }),
       ep(29, "さだめのくさび", "The Turning Point", "2003-04-26", {
-        en: "2004-11-06",
+        dateEn: "2004-11-06",
       }),
       ep(30, "閃光のとき", "Flashing Blades", "2003-05-03", {
-        en: "2004-11-13",
+        dateEn: "2004-11-13",
       }),
       ep(31, "どうこくの空", "Grieving Skies", "2003-05-10", {
-        en: "2004-11-20",
+        dateEn: "2004-11-20",
       }),
       ep(32, "約束の地に", "In the Promised Land", "2003-05-17", {
-        en: "2004-11-27",
+        dateEn: "2004-11-27",
       }),
       ep(33, "闇の胎動", "Gathering Darkness", "2003-05-24", {
-        en: "2004-12-04",
+        dateEn: "2004-12-04",
       }),
       ep(34, "まなざしの先", "Seen and Unseen", "2003-05-31", {
-        en: "2004-12-11",
+        dateEn: "2004-12-11",
       }),
       ep(35, "舞い降りるつるぎ", "The Descending Sword", "2003-06-07", {
-        en: "2004-12-18",
+        dateEn: "2004-12-18",
       }),
       ep(36, "正義の名のもとに", "In the Name of Justice", "2003-06-14", {
-        en: "2005-01-07",
+        dateEn: "2005-01-07",
       }),
       ep(37, "神のいかずち", "Divine Thunder", "2003-06-21", {
-        en: "2005-01-14",
+        dateEn: "2005-01-14",
       }),
-      ep(38, "決意の砲火", "Decisive Fire", "2003-06-28", { en: "2005-01-21" }),
-      ep(39, "アスラン", "Athrun", "2003-07-05", { en: "2005-01-28" }),
+      ep(38, "決意の砲火", "Decisive Fire", "2003-06-28", {
+        dateEn: "2005-01-21",
+      }),
+      ep(39, "アスラン", "Athrun", "2003-07-05", { dateEn: "2005-01-28" }),
       ep(40, "暁のそらへ", "Into the Dawn Skies", "2003-07-12", {
-        en: "2005-02-04",
+        dateEn: "2005-02-04",
       }),
       ep(41, "ゆれる世界", "Trembling World", "2003-07-19", {
-        en: "2005-02-11",
+        dateEn: "2005-02-11",
       }),
-      ep(42, "ラクス出撃", "Lacus Strikes", "2003-07-26", { en: "2005-02-18" }),
+      ep(42, "ラクス出撃", "Lacus Strikes", "2003-07-26", {
+        dateEn: "2005-02-18",
+      }),
       ep(43, "立ちはだかるもの", "What Stands in the Way", "2003-08-02", {
-        en: "2005-02-25",
+        dateEn: "2005-02-25",
       }),
       ep(44, "らせんのかいこう", "Spiral of Encounters", "2003-08-09", {
-        en: "2005-03-04",
+        dateEn: "2005-03-04",
       }),
-      ep(45, "開く扉", "The Opening Door", "2003-08-16", { en: "2005-03-11" }),
+      ep(45, "開く扉", "The Opening Door", "2003-08-16", {
+        dateEn: "2005-03-11",
+      }),
       ep(46, "たましいの場所", "A Place for the Soul", "2003-08-30", {
-        en: "2005-03-18",
+        dateEn: "2005-03-18",
       }),
       ep(47, "悪夢は再び", "The Nightmare Reborn", "2003-09-06", {
-        en: "2005-03-25",
+        dateEn: "2005-03-25",
       }),
-      ep(48, "怒りの日", "Day of Wrath", "2003-09-13", { en: "2005-04-01" }),
-      ep(49, "終末の光", "The Final Light", "2003-09-20", { en: "2005-04-08" }),
+      ep(48, "怒りの日", "Day of Wrath", "2003-09-13", {
+        dateEn: "2005-04-01",
+      }),
+      ep(49, "終末の光", "The Final Light", "2003-09-20", {
+        dateEn: "2005-04-08",
+      }),
       ep(50, "終わらない明日へ", "To a Future that Never Ends", "2003-09-27", {
-        en: "2005-04-15",
+        dateEn: "2005-04-15",
       }),
       ep(
         51,
@@ -522,7 +538,7 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
     "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Freedom",
     [
       ep(1, "機動戦士ガンダムSEED FREEDOM", "SEED Freedom", "2024-01-26", {
-        en: "2024-05-03",
+        dateEn: "2024-05-03",
       }),
     ],
     [
@@ -541,11 +557,11 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
     "Mobile Suit Gundam SEED (manga)",
     "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED",
     [
-      ep(1, "Volume 1", "Volume 1", "2003-03"),
-      ep(2, "Volume 2", "Volume 2", "2003-08"),
-      ep(3, "Volume 3", "Volume 3", "2004-02"),
-      ep(4, "Volume 4", "Volume 4", "2004-07"),
-      ep(5, "Volume 5", "Volume 5", "2005-01"),
+      epPlain(1, "2003-03"),
+      epPlain(2, "2003-08"),
+      epPlain(3, "2004-02"),
+      epPlain(4, "2004-07"),
+      epPlain(5, "2005-01"),
     ],
     [
       rel("ja", "print", "Gundam Ace / Kadokawa", "2003-06-01", "serial"),
@@ -562,123 +578,135 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
     "Mobile Suit Gundam SEED Destiny",
     "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_SEED_Destiny_episodes",
     [
-      ep(1, "怒れる瞳", "Angry Eyes", "2004-10-09", { en: "2007-03-09" }),
+      ep(1, "怒れる瞳", "Angry Eyes", "2004-10-09", { dateEn: "2007-03-09" }),
       ep(2, "戦いを呼ぶもの", "Those Who Call for War", "2004-10-16", {
-        en: "2007-03-16",
+        dateEn: "2007-03-16",
       }),
-      ep(3, "予兆の砲火", "Warning Shots", "2004-10-23", { en: "2007-03-23" }),
+      ep(3, "予兆の砲火", "Warning Shots", "2004-10-23", {
+        dateEn: "2007-03-23",
+      }),
       ep(4, "星屑の戦場", "Stardust Battlefield", "2004-11-06", {
-        en: "2007-03-30",
+        dateEn: "2007-03-30",
       }),
       ep(5, "癒えぬ傷痕", "Scars That Won't Heal", "2004-11-13", {
-        en: "2007-04-06",
+        dateEn: "2007-04-06",
       }),
       ep(6, "世界の終わる時", "The End of the World", "2004-11-20", {
-        en: "2007-04-13",
+        dateEn: "2007-04-13",
       }),
       ep(7, "混迷の大地", "Land of Confusion", "2004-11-27", {
-        en: "2007-04-20",
+        dateEn: "2007-04-20",
       }),
-      ep(8, "ジャンクション", "Junction", "2004-12-04", { en: "2007-04-27" }),
-      ep(9, "驕れる牙", "Bared Fangs", "2004-12-11", { en: "2007-05-04" }),
+      ep(8, "ジャンクション", "Junction", "2004-12-04", {
+        dateEn: "2007-04-27",
+      }),
+      ep(9, "驕れる牙", "Bared Fangs", "2004-12-11", { dateEn: "2007-05-04" }),
       ep(10, "父の呪縛", "A Father's Spell", "2004-12-18", {
-        en: "2007-05-11",
+        dateEn: "2007-05-11",
       }),
-      ep(11, "選びし道", "The Chosen Path", "2004-12-25", { en: "2007-05-18" }),
+      ep(11, "選びし道", "The Chosen Path", "2004-12-25", {
+        dateEn: "2007-05-18",
+      }),
       ep(12, "血に染まる海", "Blood in the Water", "2004-12-25", {
-        en: "2007-05-25",
+        dateEn: "2007-05-25",
       }),
       ep(13, "よみがえる翼", "Resurrected Wings", "2005-01-08", {
-        en: "2007-06-01",
+        dateEn: "2007-06-01",
       }),
       ep(14, "明日への出航", "Flight to Tomorrow", "2005-01-15", {
-        en: "2007-06-08",
+        dateEn: "2007-06-08",
       }),
       ep(15, "戦場への帰還", "Return to the Battlefield", "2005-01-22", {
-        en: "2007-06-15",
+        dateEn: "2007-06-15",
       }),
       ep(15.5, "戦場への帰還", "Special Plus: Destiny (recap)", "2005-01-29"),
       ep(16, "インド洋の死闘", "Struggle in the Indian Ocean", "2005-02-05", {
-        en: "2007-06-29",
+        dateEn: "2007-06-29",
       }),
       ep(17, "戦士の条件", "The Soldier's Life", "2005-02-12", {
-        en: "2007-07-06",
+        dateEn: "2007-07-06",
       }),
       ep(18, "ローエングリンを討て!", "Attack the Lohengrin", "2005-02-19", {
-        en: "2007-07-13",
+        dateEn: "2007-07-13",
       }),
       ep(19, "見えない真実", "The Hidden Truth", "2005-02-26", {
-        en: "2007-07-20",
+        dateEn: "2007-07-20",
       }),
-      ep(20, "PAST", "Past", "2005-03-05", { en: "2007-07-27" }),
+      ep(20, "PAST", "Past", "2005-03-05", { dateEn: "2007-07-27" }),
       ep(21, "さまよう眸（ひとみ）", "Wandering Eyes", "2005-03-12", {
-        en: "2007-08-03",
+        dateEn: "2007-08-03",
       }),
       ep(22, "蒼天の剣", "Sword of the Blue Skies", "2005-03-19", {
-        en: "2007-08-10",
+        dateEn: "2007-08-10",
       }),
       ep(23, "戦火の蔭", "The Shadows of War", "2005-03-26", {
-        en: "2007-08-31",
+        dateEn: "2007-08-31",
       }),
       ep(24, "すれ違う視線", "Differing Views", "2005-04-02", {
-        en: "2007-09-07",
+        dateEn: "2007-09-07",
       }),
       ep(25, "罪の在処（ありか）", "The Place of Sin", "2005-04-09", {
-        en: "2007-09-14",
+        dateEn: "2007-09-14",
       }),
-      ep(26, "約束", "The Promise", "2005-04-16", { en: "2007-09-21" }),
+      ep(26, "約束", "The Promise", "2005-04-16", { dateEn: "2007-09-21" }),
       ep(27, "届かぬ想い", "Unfulfilled Feelings", "2005-04-23", {
-        en: "2007-09-28",
+        dateEn: "2007-09-28",
       }),
       ep(28, "残る命 散る命", "Survivors and Sacrifices", "2005-04-30", {
-        en: "2007-10-05",
+        dateEn: "2007-10-05",
       }),
-      ep(29, "FATES", "Fates", "2005-05-07", { en: "2007-10-12" }),
+      ep(29, "FATES", "Fates", "2005-05-07", { dateEn: "2007-10-12" }),
       ep(30, "刹那の夢", "A Fleeting Dream", "2005-05-14", {
-        en: "2007-10-26",
+        dateEn: "2007-10-26",
       }),
       ep(31, "明けない夜", "The Endless Night", "2005-05-21", {
-        en: "2007-11-02",
+        dateEn: "2007-11-02",
       }),
-      ep(32, "ステラ", "Stella", "2005-05-28", { en: "2007-11-09" }),
+      ep(32, "ステラ", "Stella", "2005-05-28", { dateEn: "2007-11-09" }),
       ep(33, "示される世界", "The World Revealed", "2005-06-04", {
-        en: "2007-11-23",
+        dateEn: "2007-11-23",
       }),
-      ep(34, "悪夢", "Nightmare", "2005-06-11", { en: "2007-11-30" }),
-      ep(35, "混沌の先に", "Eve of Chaos", "2005-06-18", { en: "2007-12-07" }),
+      ep(34, "悪夢", "Nightmare", "2005-06-11", { dateEn: "2007-11-30" }),
+      ep(35, "混沌の先に", "Eve of Chaos", "2005-06-18", {
+        dateEn: "2007-12-07",
+      }),
       ep(36, "アスラン脱走", "Athrun on the Run", "2005-06-25", {
-        en: "2007-12-14",
+        dateEn: "2007-12-14",
       }),
       ep(37, "雷鳴の闇", "Thunder in the Dark", "2005-07-02", {
-        en: "2007-12-21",
+        dateEn: "2007-12-21",
       }),
-      ep(38, "新しき旗", "A New Flag", "2005-07-09", { en: "2007-12-28" }),
+      ep(38, "新しき旗", "A New Flag", "2005-07-09", { dateEn: "2007-12-28" }),
       ep(39, "天空のキラ", "Kira of the Sky", "2005-07-16", {
-        en: "2008-01-04",
+        dateEn: "2008-01-04",
       }),
       ep(40, "黄金の意志", "Legacy of Gold", "2005-07-23", {
-        en: "2008-01-11",
+        dateEn: "2008-01-11",
       }),
-      ep(41, "リフレイン", "Refrain", "2005-07-30", { en: "2008-01-18" }),
+      ep(41, "リフレイン", "Refrain", "2005-07-30", { dateEn: "2008-01-18" }),
       ep(42, "自由と正義と", "Freedom and Justice", "2005-08-06", {
-        en: "2008-01-25",
+        dateEn: "2008-01-25",
       }),
       ep(43, "反撃の声", "A Call for Counterattack", "2005-08-13", {
-        en: "2008-02-01",
+        dateEn: "2008-02-01",
       }),
       ep(44, "二人のラクス", "Lacus Times Two", "2005-08-20", {
-        en: "2008-02-08",
+        dateEn: "2008-02-08",
       }),
       ep(45, "変革の序曲", "Prelude to Revolution", "2005-08-27", {
-        en: "2008-02-15",
+        dateEn: "2008-02-15",
       }),
       ep(46, "真実の歌", "The Song of Truth", "2005-09-03", {
-        en: "2008-02-22",
+        dateEn: "2008-02-22",
       }),
-      ep(47, "ミーア", "Meer", "2005-09-10", { en: "2008-02-29" }),
-      ep(48, "新世界へ", "To a New World", "2005-09-17", { en: "2008-03-07" }),
-      ep(49, "レイ", "Rey", "2005-09-24", { en: "2008-03-21" }),
-      ep(50, "最後の力", "The Final Power", "2005-10-01", { en: "2008-03-28" }),
+      ep(47, "ミーア", "Meer", "2005-09-10", { dateEn: "2008-02-29" }),
+      ep(48, "新世界へ", "To a New World", "2005-09-17", {
+        dateEn: "2008-03-07",
+      }),
+      ep(49, "レイ", "Rey", "2005-09-24", { dateEn: "2008-03-21" }),
+      ep(50, "最後の力", "The Final Power", "2005-10-01", {
+        dateEn: "2008-03-28",
+      }),
       ep(51, "選ばれた未来", "Final Plus: The Chosen Future", "2005-12-25"),
     ],
     [
@@ -714,11 +742,7 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
     "機動戦士ガンダムSEED ASTRAY",
     "Mobile Suit Gundam SEED Astray",
     "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
-    [
-      ep(1, "Volume 1", "Volume 1", "2003-05"),
-      ep(2, "Volume 2", "Volume 2", "2003-09"),
-      ep(3, "Volume 3", "Volume 3", "2004-02"),
-    ],
+    [epPlain(1, "2003-05"), epPlain(2, "2003-09"), epPlain(3, "2004-02")],
     [
       rel(
         "ja",
@@ -802,10 +826,10 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
     "Mobile Suit Gundam SEED Astray R",
     "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
     [
-      ep(1, "Volume 1", "Volume 1", "2003-03"),
-      ep(2, "Volume 2", "Volume 2", "2003-09"),
-      ep(3, "Volume 3", "Volume 3", "2004-02"),
-      ep(4, "Volume 4", "Volume 4", "2004-08"),
+      epPlain(1, "2003-03"),
+      epPlain(2, "2003-09"),
+      epPlain(3, "2004-02"),
+      epPlain(4, "2004-08"),
     ],
     [
       rel("ja", "print", "Kadokawa Shōnen Ace", "2002-10-26", "serial", "2006"),
@@ -822,10 +846,10 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
     "Mobile Suit Gundam SEED Destiny Astray",
     "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
     [
-      ep(1, "Volume 1", "Volume 1", "2005-01"),
-      ep(2, "Volume 2", "Volume 2", "2005-07"),
-      ep(3, "Volume 3", "Volume 3", "2005-11"),
-      ep(4, "Volume 4", "Volume 4", "2006-06"),
+      epPlain(1, "2005-01"),
+      epPlain(2, "2005-07"),
+      epPlain(3, "2005-11"),
+      epPlain(4, "2006-06"),
     ],
     [rel("ja", "print", "Kadokawa Gundam Ace", "2004-05-26", "serial", "2006")],
     {
@@ -838,10 +862,7 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
     "機動戦士ガンダムSEED X ASTRAY",
     "Mobile Suit Gundam SEED X Astray",
     "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
-    [
-      ep(1, "Volume 1", "Volume 1", "2004-05"),
-      ep(2, "Volume 2", "Volume 2", "2004-10"),
-    ],
+    [epPlain(1, "2004-05"), epPlain(2, "2004-10")],
     [rel("ja", "print", "Kadokawa Gundam Ace", "2003-05-26", "serial", "2004")],
     {
       author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
@@ -853,10 +874,7 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
     "機動戦士ガンダムSEED C.E.73 Δ (Delta) ASTRAY",
     "Mobile Suit Gundam SEED C.E.73 Δ (Delta) Astray",
     "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
-    [
-      ep(1, "Volume 1", "Volume 1", "2006"),
-      ep(2, "Volume 2", "Volume 2", "2007"),
-    ],
+    [epPlain(1, "2006"), epPlain(2, "2007")],
     [rel("ja", "print", "Kadokawa Gundam Ace", "2006-05-26", "serial", "2007")],
     {
       author: "Tomohiro Chiba (story), Kazuhiro Okada (art)",
@@ -868,10 +886,7 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
     "機動戦士ガンダムSEED VS ASTRAY",
     "Mobile Suit Gundam SEED VS Astray",
     "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
-    [
-      ep(1, "Volume 1", "Volume 1", "2010-05"),
-      ep(2, "Volume 2", "Volume 2", "2011-01"),
-    ],
+    [epPlain(1, "2010-05"), epPlain(2, "2011-01")],
     [rel("ja", "print", "Kadokawa Gundam Ace", "2010-01-26", "serial", "2012")],
     {
       author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
@@ -883,10 +898,7 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
     "機動戦士ガンダムSEED FRAME ASTRAYS",
     "Mobile Suit Gundam SEED Frame Astrays",
     "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
-    [
-      ep(1, "Volume 1", "Volume 1", "2008-04"),
-      ep(2, "Volume 2", "Volume 2", "2008-11"),
-    ],
+    [epPlain(1, "2008-04"), epPlain(2, "2008-11")],
     [rel("ja", "print", "Hobby Japan", "2007-04-26", "serial", "2008")],
     {
       author: "Tomohiro Chiba (story), Kazuhiro Okada (art)",
@@ -898,10 +910,7 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
     "機動戦士ガンダムSEED DESTINY ASTRAY B",
     "Mobile Suit Gundam SEED Destiny Astray B",
     "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
-    [
-      ep(1, "Volume 1", "Volume 1", "2013-03"),
-      ep(2, "Volume 2", "Volume 2", "2014-05"),
-    ],
+    [epPlain(1, "2013-03"), epPlain(2, "2014-05")],
     [rel("ja", "serial", "Hobby Japan", "2013-03", "serial", "2014-05")],
     {
       author: "Tomohiro Chiba (story), Eiichi Shimizu (art)",
@@ -922,11 +931,11 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
     "Mobile Suit Gundam SEED Destiny: The Edge",
     "https://ja.wikipedia.org/wiki/機動戦士ガンダムSEEDシリーズ_(書籍)",
     [
-      ep(1, "Volume 1", "Volume 1", "2005-04"),
-      ep(2, "Volume 2", "Volume 2", "2005-08"),
-      ep(3, "Volume 3", "Volume 3", "2005-12"),
-      ep(4, "Volume 4", "Volume 4", "2006-06"),
-      ep(5, "Volume 5", "Volume 5", "2006-10"),
+      epPlain(1, "2005-04"),
+      epPlain(2, "2005-08"),
+      epPlain(3, "2005-12"),
+      epPlain(4, "2006-06"),
+      epPlain(5, "2006-10"),
     ],
     [rel("ja", "print", "Kadokawa Gundam Ace", "2005", "serial", "2008")],
     { author: "Tateishi Gichi", publisher: "Kadokawa", magazine: "Gundam Ace" },
@@ -935,10 +944,7 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
     "機動戦士ガンダムSEED DESTINY THE EDGE Desire",
     "Mobile Suit Gundam SEED Destiny: The Edge Desire",
     "https://ja.wikipedia.org/wiki/機動戦士ガンダムSEEDシリーズ_(書籍)",
-    [
-      ep(1, "Volume 1", "Volume 1", "2007-06"),
-      ep(2, "Volume 2", "Volume 2", "2008-02"),
-    ],
+    [epPlain(1, "2007-06"), epPlain(2, "2008-02")],
     [rel("ja", "print", "Kadokawa Gundam Ace", "2008", "serial", "2011")],
     { author: "Tateishi Gichi", publisher: "Kadokawa", magazine: "Gundam Ace" },
   ),
@@ -947,10 +953,10 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
     "Mobile Suit Gundam SEED Destiny (Magazine Z manga)",
     "https://ja.wikipedia.org/wiki/機動戦士ガンダムSEEDシリーズ_(書籍)",
     [
-      ep(1, "Volume 1", "Volume 1", "2005-04"),
-      ep(2, "Volume 2", "Volume 2", "2005-08"),
-      ep(3, "Volume 3", "Volume 3", "2006-06"),
-      ep(4, "Volume 4", "Volume 4", "2006-06"),
+      epPlain(1, "2005-04"),
+      epPlain(2, "2005-08"),
+      epPlain(3, "2006-06"),
+      epPlain(4, "2006-06"),
     ],
     [
       rel(
@@ -972,7 +978,7 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
     "機動戦士ガンダムSEED Re:",
     "Mobile Suit Gundam SEED Re:",
     "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Re:",
-    [ep(1, "Volume 1", "Volume 1", "2025")],
+    [epPlain(1, "2025")],
     [rel("ja", "print", "Kadokawa Gundam Ace", "2024", "serial")],
     {
       author: "Ju Ishiguchi",
@@ -985,7 +991,7 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
     "機動戦士ガンダムSEED FREEDOM (漫画)",
     "Mobile Suit Gundam SEED Freedom (manga)",
     "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Freedom",
-    [ep(1, "Volume 1", "Volume 1", "2025")],
+    [epPlain(1, "2025")],
     [rel("ja", "print", "Kadokawa Gundam Ace", "2024", "serial")],
     {
       author: "Iwase Masashi",
@@ -998,10 +1004,7 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
     "機動戦士ガンダムSEED ECLIPSE",
     "Mobile Suit Gundam SEED Eclipse",
     "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Eclipse",
-    [
-      ep(1, "Volume 1", "Volume 1", "2022-02-26"),
-      ep(2, "Volume 2", "Volume 2", "2023"),
-    ],
+    [epPlain(1, "2022-02-26"), epPlain(2, "2023")],
     [rel("ja", "print", "Kadokawa Shoten", "2021", "serial")],
     {
       author: "Atsushi Soga (art), SOW (story)",
@@ -1014,10 +1017,7 @@ export const ceDetails: Record<string, EntryDetail | undefined> = {
     "機動戦士ガンダムSEED DESTINY ASTRAY R",
     "Mobile Suit Gundam SEED Destiny Astray R",
     "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Destiny_Astray_R",
-    [
-      ep(1, "Volume 1", "Volume 1", "2013-06"),
-      ep(2, "Volume 2", "Volume 2", "2014-05"),
-    ],
+    [epPlain(1, "2013-06"), epPlain(2, "2014-05")],
     [
       rel(
         "ja",

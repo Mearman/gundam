@@ -72,14 +72,14 @@ export type ReleaseSchedule =
   | "weekly";
 
 export interface DetailEpisode {
-  n?: number | string;
+  num?: number | string;
   title?: { ja: string | null; en: string | null };
-  ja: string;
-  en?: string | null;
+  dateJa: string;
+  dateEn?: string | null;
   note?: string;
   season?: number;
-  cours?: number;
-  u?: string | string[];
+  course?: number;
+  universe?: string | string[];
 }
 
 export interface DetailRelease {
@@ -90,7 +90,7 @@ export interface DetailRelease {
   end?: string;
   schedule: ReleaseSchedule;
   note?: string;
-  u?: string | string[];
+  universe?: string | string[];
 }
 
 export interface EntryDetail {
@@ -168,24 +168,28 @@ export function det(
 
 /** Compact episode constructor. */
 export function ep(
-  n: number | string,
+  num: number | string,
   jaTitle: string | null,
   enTitle: string | null,
-  ja: string,
+  dateJa: string,
   extra?: {
-    en?: string;
+    dateEn?: string;
     season?: number;
-    cours?: number;
-    u?: string | string[];
+    course?: number;
+    universe?: string | string[];
     note?: string;
   },
 ): DetailEpisode {
-  const out: DetailEpisode = { n, title: { ja: jaTitle, en: enTitle }, ja };
+  const out: DetailEpisode = {
+    num,
+    title: { ja: jaTitle, en: enTitle },
+    dateJa,
+  };
   if (extra !== undefined) {
-    if (extra.en !== undefined) out.en = extra.en;
+    if (extra.dateEn !== undefined) out.dateEn = extra.dateEn;
     if (extra.season !== undefined) out.season = extra.season;
-    if (extra.cours !== undefined) out.cours = extra.cours;
-    if (extra.u !== undefined) out.u = extra.u;
+    if (extra.course !== undefined) out.course = extra.course;
+    if (extra.universe !== undefined) out.universe = extra.universe;
     if (extra.note !== undefined) out.note = extra.note;
   }
   return out;
@@ -203,4 +207,19 @@ export function rel(
   const out: DetailRelease = { region, channel, label, start, schedule };
   if (end !== undefined) out.end = end;
   return out;
+}
+
+/** Alias for ep() with only episode number and dates (no titles). */
+export function epPlain(
+  num: number | string,
+  dateJa: string,
+  extra?: {
+    dateEn?: string;
+    season?: number;
+    course?: number;
+    universe?: string | string[];
+    note?: string;
+  },
+): DetailEpisode {
+  return ep(num, null, null, dateJa, extra);
 }

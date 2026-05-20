@@ -1,5 +1,5 @@
 import type { Entry, EntryDetail } from "../types";
-import { entry, det, ep, rel } from "../types";
+import { entry, det, ep, epPlain, rel } from "../types";
 
 // Build series
 
@@ -377,57 +377,57 @@ export const buildDetails: Record<string, EntryDetail | undefined> = {
     "https://en.wikipedia.org/wiki/Gundam_Build_Divers_Re:Rise",
     [
       ep(1, "彷徨のコアガンダム", "Wandering Core Gundam", "2019-10-10", {
-        cours: 1,
+        course: 1,
       }),
       ep(2, "知られざるミッション", "Unknown Mission", "2019-10-17", {
-        cours: 1,
+        course: 1,
       }),
-      ep(3, "守るべき場所", "A Place to Protect", "2019-10-24", { cours: 1 }),
-      ep(4, "傷ついた翼", "Wounded Wings", "2019-10-31", { cours: 1 }),
+      ep(3, "守るべき場所", "A Place to Protect", "2019-10-24", { course: 1 }),
+      ep(4, "傷ついた翼", "Wounded Wings", "2019-10-31", { course: 1 }),
       ep(5, "いま、翼ひろげて", "Now Spread Your Wings", "2019-11-07", {
-        cours: 1,
+        course: 1,
       }),
       ep(6, "崖っぷちのヒーロー", "Hero on the Brink", "2019-11-14", {
-        cours: 1,
+        course: 1,
       }),
-      ep(7, "傷だらけの栄冠", "Battered Crown", "2019-11-21", { cours: 1 }),
-      ep(8, "使命と幻影", "Duty and Illusion", "2019-11-28", { cours: 1 }),
-      ep(9, "隔絶の淵から", "Abyss of Isolation", "2019-12-05", { cours: 1 }),
+      ep(7, "傷だらけの栄冠", "Battered Crown", "2019-11-21", { course: 1 }),
+      ep(8, "使命と幻影", "Duty and Illusion", "2019-11-28", { course: 1 }),
+      ep(9, "隔絶の淵から", "Abyss of Isolation", "2019-12-05", { course: 1 }),
       ep(10, "そこにある息吹", "The Ones Who Breathe There", "2019-12-12", {
-        cours: 1,
+        course: 1,
       }),
-      ep(11, "ラストミッション", "Last Mission", "2019-12-19", { cours: 1 }),
-      ep(12, "震える世界", "The Shuddering World", "2019-12-26", { cours: 1 }),
+      ep(11, "ラストミッション", "Last Mission", "2019-12-19", { course: 1 }),
+      ep(12, "震える世界", "The Shuddering World", "2019-12-26", { course: 1 }),
       ep(13, "このそらのどこかで", "Somewhere in This Universe", "2020-01-02", {
-        cours: 1,
+        course: 1,
       }),
       ep(14, "めぐりあい、そして", "Encounters, and Then...", "2020-04-09", {
-        cours: 2,
+        course: 2,
       }),
-      ep(15, "ミッション、再び", "Mission, Again", "2020-04-16", { cours: 2 }),
+      ep(15, "ミッション、再び", "Mission, Again", "2020-04-16", { course: 2 }),
       ep(16, "天空の大地へ", "To the Heavenly Land", "2020-04-23", {
-        cours: 2,
+        course: 2,
       }),
       ep(17, "聖獣クアドルン", "The Sacred Beast Cuadorn", "2020-04-30", {
-        cours: 2,
+        course: 2,
       }),
-      ep(18, "完璧な狙撃者", "Perfect Sniper", "2020-05-07", { cours: 2 }),
+      ep(18, "完璧な狙撃者", "Perfect Sniper", "2020-05-07", { course: 2 }),
       ep(19, "君がいなければ", "If It Weren't for You", "2020-05-14", {
-        cours: 2,
+        course: 2,
       }),
-      ep(20, "託された願い", "A Wish Entrusted", "2020-05-21", { cours: 2 }),
+      ep(20, "託された願い", "A Wish Entrusted", "2020-05-21", { course: 2 }),
       ep(21, "もういちど飛ぶために", "To Fly Once More", "2020-05-28", {
-        cours: 2,
+        course: 2,
       }),
       ep(22, "刻限のゼルトザーム", "Seltsam's Deadline", "2020-06-04", {
-        cours: 2,
+        course: 2,
       }),
-      ep(23, "選択のとき", "Moment of Choice", "2020-06-11", { cours: 2 }),
-      ep(24, "ビルドダイバーズ", "Build Divers", "2020-06-18", { cours: 2 }),
+      ep(23, "選択のとき", "Moment of Choice", "2020-06-11", { course: 2 }),
+      ep(24, "ビルドダイバーズ", "Build Divers", "2020-06-18", { course: 2 }),
       ep(25, "僕が描くあしたへ", "To the Tomorrow I Envision", "2020-06-25", {
-        cours: 2,
+        course: 2,
       }),
-      ep(26, "Re:RISE", "Re:Rise", "2020-07-02", { cours: 2 }),
+      ep(26, "Re:RISE", "Re:Rise", "2020-07-02", { course: 2 }),
     ],
     [
       rel(
@@ -476,7 +476,7 @@ export const buildDetails: Record<string, EntryDetail | undefined> = {
     "Gundam Build Real",
     "https://en.wikipedia.org/wiki/Gundam_Build_Real",
     [
-      ep(1, "再会", "Reunion", "2021-03-29", { en: "2021-08-26" }),
+      ep(1, "再会", "Reunion", "2021-03-29", { dateEn: "2021-08-26" }),
       ep(2, "宝の持ち腐れ", "Wasted Treasure", "2021-04-26"),
       ep(3, "チームに空いた穴", "The Hole in the Team", "2021-05-31"),
       ep(4, "それぞれの過去", "Respective Pasts", "2021-06-28"),
@@ -587,10 +587,10 @@ export const buildDetails: Record<string, EntryDetail | undefined> = {
     "Gundam EXA",
     "https://ja.wikipedia.org/wiki/ガンダムEXA",
     [
-      ep(1, "Volume 1", "Volume 1", "2011-11-26"),
-      ep(2, "Volume 2", "Volume 2", "2012-03-26"),
-      ep(3, "Volume 3", "Volume 3", "2012-08-23"),
-      ep(4, "Volume 4", "Volume 4", "2013-01-24"),
+      epPlain(1, "2011-11-26"),
+      epPlain(2, "2012-03-26"),
+      epPlain(3, "2012-08-23"),
+      epPlain(4, "2013-01-24"),
     ],
     [rel("ja", "print", "Kadokawa Gundam Ace", "2011", "serial", "2013")],
     {
@@ -605,10 +605,10 @@ export const buildDetails: Record<string, EntryDetail | undefined> = {
     "Gundam EXA VS",
     "https://ja.wikipedia.org/wiki/ガンダムEXA",
     [
-      ep(1, "Volume 1", "Volume 1", "2014-06"),
-      ep(2, "Volume 2", "Volume 2", "2014-11"),
-      ep(3, "Volume 3", "Volume 3", "2015-06"),
-      ep(4, "Volume 4", "Volume 4", "2016-01"),
+      epPlain(1, "2014-06"),
+      epPlain(2, "2014-11"),
+      epPlain(3, "2015-06"),
+      epPlain(4, "2016-01"),
     ],
     [rel("ja", "print", "Kadokawa Gundam Ace", "2014", "serial", "2016")],
     {
@@ -622,10 +622,7 @@ export const buildDetails: Record<string, EntryDetail | undefined> = {
     "ガンダムビルドダイバーズ BREAK",
     "Gundam Build Divers BREAK",
     "https://ja.wikipedia.org/wiki/ガンダムビルドダイバーズ",
-    [
-      ep(1, "Volume 1", "Volume 1", "2018-12-26"),
-      ep(2, "Volume 2", "Volume 2", "2019-09-26"),
-    ],
+    [epPlain(1, "2018-12-26"), epPlain(2, "2019-09-26")],
     [rel("ja", "print", "Kadokawa Gundam Ace", "2018", "serial", "2019")],
     {
       author: "Shiitake Gensui (art), Kansai Ryouji (scenario)",
@@ -638,9 +635,9 @@ export const buildDetails: Record<string, EntryDetail | undefined> = {
     "Gundam Build Diver RISE",
     "https://ja.wikipedia.org/wiki/ガンダムビルドダイバーズRe:RISE",
     [
-      ep(1, "Volume 1", "Volume 1", "2020-03-26"),
-      ep(2, "Volume 2", "Volume 2", "2020-08-26"),
-      ep(3, "Volume 3", "Volume 3", "2021-02-26"),
+      epPlain(1, "2020-03-26"),
+      epPlain(2, "2020-08-26"),
+      epPlain(3, "2021-02-26"),
     ],
     [rel("ja", "print", "Kadokawa Gundam Ace", "2019", "serial", "2021")],
     {
