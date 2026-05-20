@@ -574,3 +574,46 @@ export const footerTitle = style({
   fontSize: 10,
   marginBottom: 8,
 });
+
+/* ─── Story axis (per-lane) ─────────────────────────── */
+export const laneStoryAxis = style({
+  position: "absolute",
+  left: 0,
+  right: 0,
+  pointerEvents: "none",
+});
+
+export const laneStoryAxisTick = style({
+  position: "absolute",
+  bottom: 0,
+  width: 1,
+});
+
+export const tickMajor = style({
+  height: 12,
+  background: "#5a6068",
+});
+
+export const tick5 = style({
+  height: 8,
+  background: "#3a3f47",
+});
+
+export const tick1 = style({
+  height: 4,
+  background: "#2a2e34",
+});
+
+export const laneStoryAxisYear = style({
+  position: "absolute",
+  top: 2,
+  width: 40,
+  height: 12,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  fontFamily: "'JetBrains Mono', monospace",
+  fontSize: 9,
+  lineHeight: 1,
+  letterSpacing: 0,
+});
