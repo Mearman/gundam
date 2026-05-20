@@ -1,3 +1,9 @@
+## [1.4.4](https://github.com/Mearman/gundam/compare/v1.4.3...v1.4.4) (2026-05-20)
+
+### Bug Fixes
+
+* add semantic-release npm plugin to bump package.json version ([b421338](https://github.com/Mearman/gundam/commit/b421338c504b0bf866973989763fbb332b1f3bd5))
+
 ## [1.4.3](https://github.com/Mearman/gundam/compare/v1.4.2...v1.4.3) (2026-05-20)
 
 ### Bug Fixes
