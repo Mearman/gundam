@@ -1,3 +1,9 @@
+## [1.3.2](https://github.com/Mearman/gundam/compare/v1.3.1...v1.3.2) (2026-05-20)
+
+### Chores
+
+* allow manual workflow dispatch on CI ([6c22152](https://github.com/Mearman/gundam/commit/6c221526be8f2d8ae8e2e4b509c03e9e4e199b4c))
+
 ## [1.3.1](https://github.com/Mearman/gundam/compare/v1.3.0...v1.3.1) (2026-05-20)
 
 ### Chores
