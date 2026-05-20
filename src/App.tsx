@@ -104,6 +104,15 @@ function App() {
         <em>Beltorchika&apos;s Children</em>, <em>Frozen Teardrop</em>) and
         <em>Kidō Butōden Gaiden Gundam Fight 7th</em> have no official English
         release at all.
+        <div className={s.footerVersion}>
+          <a
+            href={`https://github.com/Mearman/gundam/releases/tag/v${__APP_VERSION__}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            v{__APP_VERSION__}
+          </a>
+        </div>
       </footer>
     </>
   );

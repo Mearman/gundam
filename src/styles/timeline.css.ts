@@ -1,4 +1,4 @@
-import { style, styleVariants } from "@vanilla-extract/css";
+import { style, styleVariants, globalStyle } from "@vanilla-extract/css";
 import { vars } from "./global.css";
 
 /* ─── Header ──────────────────────────────────────────── */
@@ -597,6 +597,23 @@ export const footerTitle = style({
   letterSpacing: "0.15em",
   fontSize: 10,
   marginBottom: 8,
+});
+
+export const footerVersion = style({
+  color: "#5a6068",
+  fontSize: 10,
+  marginTop: 20,
+});
+
+globalStyle(`.${footerVersion} a`, {
+  color: "#9aa0a8",
+  textDecoration: "none",
+  borderBottom: "1px solid #3a3f47",
+});
+
+globalStyle(`.${footerVersion} a:hover`, {
+  color: "#e8e9ec",
+  borderColor: "#9aa0a8",
 });
 
 /* ─── Story axis (per-lane) ─────────────────────────── */
