@@ -1,4 +1,4 @@
-import type { Entry, StoryStackedEntry, Universe, AxisMode } from "./types";
+import type { Entry, StoryStackedEntry, Universe } from "./types";
 import { ENTRIES, UNIVERSES } from "./timeline";
 
 // ── In-universe date parsing ────────────────────────────
@@ -200,17 +200,4 @@ export function formatStoryYear(year: number, universe: Universe): string {
     return String(year).padStart(4, "0");
   }
   return String(year);
-}
-
-export function toggleAxis(
-  current: AxisMode,
-  axis: "release" | "story",
-): AxisMode {
-  const hasR = current === "release" || current === "both";
-  const hasS = current === "story" || current === "both";
-  const nR = axis === "release" ? !hasR : hasR;
-  const nS = axis === "story" ? !hasS : hasS;
-  if (!nR && !nS) return current;
-  if (nR && nS) return "both";
-  return nR ? "release" : "story";
 }

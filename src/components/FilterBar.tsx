@@ -1,4 +1,4 @@
-import type { Filters } from "../data/types";
+import type { Filters, AxisMode } from "../data/types";
 import * as s from "../styles/timeline.css";
 
 interface FilterConfig {
@@ -53,18 +53,19 @@ const FILTER_CONFIGS: FilterConfig[] = [
 interface FilterBarProps {
   filters: Filters;
   onFilterChange: (key: keyof Filters, value: string) => void;
-  onAxisToggle: (axis: "release" | "story") => void;
+  onAxisChange: (mode: AxisMode) => void;
 }
 
 export function FilterBar({
   filters,
   onFilterChange,
-  onAxisToggle,
+  onAxisChange,
 }: FilterBarProps) {
-  const axisActive = (axis: "release" | "story"): boolean =>
-    axis === "release"
-      ? filters.axis === "release" || filters.axis === "both"
-      : filters.axis === "story" || filters.axis === "both";
+  const AXIS_OPTIONS: { value: AxisMode; label: string }[] = [
+    { value: "release", label: "release year" },
+    { value: "story", label: "in-universe" },
+    { value: "both", label: "both" },
+  ];
 
   return (
     <nav className={s.filters}>
@@ -97,24 +98,20 @@ export function FilterBar({
       <div className={s.filterGroup}>
         <span className={s.filterLabel}>Axis</span>
         <div className={s.chips}>
-          <button
-            type="button"
-            className={s.chip[axisActive("release") ? "active" : "default"]}
-            onClick={() => {
-              onAxisToggle("release");
-            }}
-          >
-            release year
-          </button>
-          <button
-            type="button"
-            className={s.chip[axisActive("story") ? "active" : "default"]}
-            onClick={() => {
-              onAxisToggle("story");
-            }}
-          >
-            in-universe
-          </button>
+          {AXIS_OPTIONS.map((opt) => (
+            <button
+              key={opt.value}
+              type="button"
+              className={
+                s.chip[filters.axis === opt.value ? "active" : "default"]
+              }
+              onClick={() => {
+                onAxisChange(opt.value);
+              }}
+            >
+              {opt.label}
+            </button>
+          ))}
         </div>
       </div>
     </nav>

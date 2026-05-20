@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import { UNIVERSES, ENTRIES } from "./data/timeline";
 import { matchesMediaFilter } from "./data/helpers";
-import { toggleAxis } from "./data/story";
+import type { AxisMode } from "./data/types";
 import { FilterBar } from "./components/FilterBar";
 import { Legend } from "./components/Legend";
 import { TimelineLanes } from "./components/TimelineLanes";
@@ -33,10 +33,10 @@ function App() {
     return okMedia && okAudio && okText;
   }).length;
 
-  const handleAxisToggle = useCallback((axis: "release" | "story") => {
+  const handleAxisChange = useCallback((mode: AxisMode) => {
     setFilters((prev) => ({
       ...prev,
-      axis: toggleAxis(prev.axis, axis),
+      axis: mode,
     }));
   }, []);
 
@@ -78,7 +78,7 @@ function App() {
       <FilterBar
         filters={filters}
         onFilterChange={handleFilterChange}
-        onAxisToggle={handleAxisToggle}
+        onAxisChange={handleAxisChange}
       />
       <Legend />
 
