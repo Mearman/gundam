@@ -299,7 +299,7 @@ function Tooltip({ entry: e, universe: u, x, y }: TooltipProps) {
         }}
       />
       <div className={s.ttTitle}>{detail?.title ?? e.t}</div>
-      <div className={s.ttNote}>{e.n}</div>
+      {e.n !== undefined && <div className={s.ttNote}>{e.n}</div>}
       {hasDetailNote && <div className={s.ttNote}>{detail.note}</div>}
       <div className={s.ttGrid}>
         <span className={s.ttKey}>Universe</span>

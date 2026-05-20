@@ -24,7 +24,7 @@ export interface Entry {
   u: string;
   d: string;
   t: string;
-  n: string;
+  n?: string;
   y1: number;
   y2: number;
   m: MediaKind;
