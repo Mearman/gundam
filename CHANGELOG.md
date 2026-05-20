@@ -1,3 +1,9 @@
+## [1.3.0](https://github.com/Mearman/gundam/compare/v1.2.3...v1.3.0) (2026-05-20)
+
+### Features
+
+* add panning and zooming to the timeline ([09389b2](https://github.com/Mearman/gundam/commit/09389b2ed041babb4c9957e858c4215ee723d6a9))
+
 ## [1.2.3](https://github.com/Mearman/gundam/compare/v1.2.2...v1.2.3) (2026-05-20)
 
 ### Chores
