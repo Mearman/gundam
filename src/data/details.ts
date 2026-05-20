@@ -16,7 +16,7 @@ export type ReleaseSchedule =
 
 export interface DetailEpisode {
   n?: number | string;
-  title?: string;
+  title?: { ja: string | null; en: string | null };
   ja: string;
   en?: string | null;
   note?: string;
@@ -37,7 +37,7 @@ export interface DetailRelease {
 }
 
 export interface EntryDetail {
-  title: string;
+  title: { ja: string; en: string };
   u: string | string[];
   type: DetailMediaType;
   source: string;
@@ -53,18 +53,18 @@ export const ENTRY_DETAILS_COMMENT = `Gundam timeline per-episode/per-volume rel
 
 export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
   advance_of_zeta_titans_2012_manga: {
-    title: "Advance of Zeta: Under the Banner of the Titans",
+    title: {
+      ja: "ADVANCE OF Ζ ティターンズの旗のもとに",
+      en: "Advance of Zeta: Under the Banner of the Titans",
+    },
     u: "uc",
     type: "manga",
     source:
       "https://en.wikipedia.org/wiki/Advance_of_Zeta:_In_the_Wings_of_Time",
-    episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2012",
-      },
-    ],
+    author: "Toshihiro Ishigami",
+    publisher: "Dengeki Hobby Magazine (ASCII Media Works)",
+    magazine: "Dengeki Hobby Magazine",
+    episodes: [{ n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2012" }],
     releases: [
       {
         region: "ja",
@@ -75,23 +75,20 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         schedule: "serial",
       },
     ],
-    author: "Toshihiro Ishigami",
-    publisher: "Dengeki Hobby Magazine (ASCII Media Works)",
-    magazine: "Dengeki Hobby Magazine",
   },
   advance_of_zeta_traitor_2014_manga: {
-    title: "Advance of Zeta: The Traitor to Destiny",
+    title: {
+      ja: "ADVANCE OF Ζ 刻に抗う者",
+      en: "Advance of Zeta: The Traitor to Destiny",
+    },
     u: "uc",
     type: "manga",
     source:
       "https://en.wikipedia.org/wiki/Advance_of_Zeta:_In_the_Wings_of_Time",
-    episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2014",
-      },
-    ],
+    author: "Toshihiro Ishigami",
+    publisher: "Dengeki Hobby Magazine (ASCII Media Works)",
+    magazine: "Dengeki Hobby Magazine",
+    episodes: [{ n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2014" }],
     releases: [
       {
         region: "ja",
@@ -102,23 +99,20 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         schedule: "serial",
       },
     ],
-    author: "Toshihiro Ishigami",
-    publisher: "Dengeki Hobby Magazine (ASCII Media Works)",
-    magazine: "Dengeki Hobby Magazine",
   },
   advance_of_zeta_wings_2002_manga: {
-    title: "Advance of Zeta: In the Wings of Time",
+    title: {
+      ja: "ADVANCE OF Ζ ティターンズの旗のもとに",
+      en: "Advance of Zeta: In the Wings of Time",
+    },
     u: "uc",
     type: "manga",
     source:
       "https://en.wikipedia.org/wiki/Advance_of_Zeta:_In_the_Wings_of_Time",
-    episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2002",
-      },
-    ],
+    author: "Kenji Mizuhara",
+    publisher: "Dengeki Hobby Magazine (ASCII Media Works)",
+    magazine: "Dengeki Hobby Magazine",
+    episodes: [{ n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2002" }],
     releases: [
       {
         region: "ja",
@@ -129,12 +123,9 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         schedule: "serial",
       },
     ],
-    author: "Kenji Mizuhara",
-    publisher: "Dengeki Hobby Magazine (ASCII Media Works)",
-    magazine: "Dengeki Hobby Magazine",
   },
   age_2011_tv: {
-    title: "Mobile Suit Gundam AGE",
+    title: { ja: "機動戦士ガンダムAGE", en: "Mobile Suit Gundam AGE" },
     u: "ag",
     type: "tv",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_AGE",
@@ -142,248 +133,250 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
+        title: { ja: "救世主ガンダム", en: "Saviour Gundam" },
         ja: "2011-10-09",
-        title: "Saviour Gundam",
       },
       {
         n: 2,
+        title: { ja: "AGEの力", en: "The Power of AGE" },
         ja: "2011-10-16",
-        title: "The Power of AGE",
       },
       {
         n: 3,
+        title: { ja: "ゆがむコロニー", en: "Shattered Colony" },
         ja: "2011-10-23",
-        title: "Shattered Colony",
       },
-      {
-        n: 4,
-        ja: "2011-10-30",
-        title: "White Wolf",
-      },
-      {
-        n: 5,
-        ja: "2011-11-06",
-        title: "Demon Boy",
-      },
+      { n: 4, title: { ja: "白い狼", en: "White Wolf" }, ja: "2011-10-30" },
+      { n: 5, title: { ja: "魔少年", en: "Demon Boy" }, ja: "2011-11-06" },
       {
         n: 6,
+        title: {
+          ja: "ファーデーンの光と影",
+          en: "Light and Shadow in Fardain",
+        },
         ja: "2011-11-13",
-        title: "Light and Shadow in Fardain",
       },
       {
         n: 7,
+        title: { ja: "進化するガンダム", en: "Gundam Evolves" },
         ja: "2011-11-20",
-        title: "Gundam Evolves",
       },
       {
         n: 8,
+        title: { ja: "決死の共同戦線", en: "Do or Die on the Common Front" },
         ja: "2011-11-27",
-        title: "Do or Die on the Common Front",
       },
       {
         n: 9,
+        title: { ja: "秘密のモビルスーツ", en: "Secret Mobile Suit" },
         ja: "2011-12-04",
-        title: "Secret Mobile Suit",
       },
-      {
-        n: 10,
-        ja: "2011-12-11",
-        title: "D-Day",
-      },
+      { n: 10, title: { ja: "激戦の日", en: "D-Day" }, ja: "2011-12-11" },
       {
         n: 11,
+        title: { ja: "ミンスリーの再会", en: "Reunion at Minsry" },
         ja: "2011-12-18",
-        title: "Reunion at Minsry",
       },
       {
         n: 12,
+        title: { ja: "反逆者たちの船出", en: "Course for Counterattack" },
         ja: "2011-12-25",
-        title: "Course for Counterattack",
       },
       {
         n: 13,
+        title: { ja: "宇宙要塞アンバット", en: "Space Fortress Ambat" },
         ja: "2012-01-01",
-        title: "Space Fortress Ambat",
       },
       {
         n: 14,
+        title: { ja: "悲しみの閃光", en: "Flash of Sorrow" },
         ja: "2012-01-08",
-        title: "Flash of Sorrow",
       },
       {
         n: 15,
+        title: { ja: "その涙、宇宙に落ちて", en: "Those Tears Fall In Space" },
         ja: "2012-01-15",
-        title: "Those Tears Fall In Space",
       },
       {
         n: 16,
+        title: { ja: "馬小屋のガンダム", en: "The Gundam in the Stable" },
         ja: "2012-01-22",
-        title: "The Gundam in the Stable",
       },
       {
         n: 17,
+        title: {
+          ja: "友情と恋とモビルスーツ",
+          en: "Friendship and Love and Mobile Suits",
+        },
         ja: "2012-01-29",
-        title: "Friendship and Love and Mobile Suits",
       },
       {
         n: 18,
+        title: { ja: "卒業式の戦闘", en: "Battle at Graduation Ceremony" },
         ja: "2012-02-05",
-        title: "Battle at Graduation Ceremony",
       },
       {
         n: 19,
+        title: { ja: "アセムの旅立ち", en: "Asemu Sets Off" },
         ja: "2012-02-12",
-        title: "Asemu Sets Off",
       },
       {
         n: 20,
+        title: { ja: "赤いモビルスーツ", en: "The Red Mobile Suit" },
         ja: "2012-02-19",
-        title: "The Red Mobile Suit",
       },
       {
         n: 21,
+        title: { ja: "立ちはだかる幻影", en: "Looming Illusion" },
         ja: "2012-02-26",
-        title: "Looming Illusion",
       },
       {
         n: 22,
+        title: {
+          ja: "ビッグリング絶対防衛線",
+          en: "Big Ring Absolute Line of Defense",
+        },
         ja: "2012-03-04",
-        title: "Big Ring Absolute Line of Defense",
       },
       {
         n: 23,
+        title: { ja: "疑惑のコロニー", en: "Suspicious Colony" },
         ja: "2012-03-11",
-        title: "Suspicious Colony",
       },
       {
         n: 24,
+        title: { ja: "Xラウンダー", en: "X-Rounder" },
         ja: "2012-03-18",
-        title: "X-Rounder",
       },
       {
         n: 25,
+        title: { ja: "恐怖のミューセル", en: "The Terrifying Mu-szell" },
         ja: "2012-03-25",
-        title: "The Terrifying Mu-szell",
       },
       {
         n: 26,
+        title: { ja: "地球 それはエデン", en: "Earth, This is Eden" },
         ja: "2012-04-01",
-        title: "Earth, This is Eden",
       },
       {
         n: 27,
+        title: { ja: "赤い夕陽を見た", en: "I Saw a Red Sunset" },
         ja: "2012-04-08",
-        title: "I Saw a Red Sunset",
       },
       {
         n: 28,
+        title: { ja: "地球圏の動乱", en: "Upheaval in the Earth Sphere" },
         ja: "2012-04-15",
-        title: "Upheaval in the Earth Sphere",
       },
       {
         n: 29,
+        title: { ja: "じいちゃんのガンダム", en: "Grandpa's Gundam" },
         ja: "2012-04-22",
-        title: "Grandpa's Gundam",
       },
       {
         n: 30,
+        title: { ja: "戦場になる街", en: "The City Became a Battlefield" },
         ja: "2012-04-29",
-        title: "The City Became a Battlefield",
       },
       {
         n: 31,
+        title: {
+          ja: "戦慄 砂漠の亡霊",
+          en: "Tremble in Fear - Ghosts of the Desert",
+        },
         ja: "2012-05-06",
-        title: "Tremble in Fear - Ghosts of the Desert",
       },
-      {
-        n: 32,
-        ja: "2012-05-13",
-        title: "The Traitor",
-      },
+      { n: 32, title: { ja: "裏切り者", en: "The Traitor" }, ja: "2012-05-13" },
       {
         n: 33,
+        title: { ja: "大地に吠える", en: "Howl to the Earth" },
         ja: "2012-05-20",
-        title: "Howl to the Earth",
       },
       {
         n: 34,
+        title: { ja: "宇宙海賊ビシディアン", en: "Space Pirates Bisidian" },
         ja: "2012-05-27",
-        title: "Space Pirates Bisidian",
       },
       {
         n: 35,
+        title: { ja: "呪われし秘宝", en: "The Cursed Treasure" },
         ja: "2012-06-03",
-        title: "The Cursed Treasure",
       },
       {
         n: 36,
+        title: { ja: "奪われるガンダム", en: "Stolen Gundam" },
         ja: "2012-06-10",
-        title: "Stolen Gundam",
       },
       {
         n: 37,
+        title: { ja: "ヴェイガンの世界", en: "The Vagan's World" },
         ja: "2012-06-17",
-        title: "The Vagan's World",
       },
       {
         n: 38,
+        title: { ja: "逃亡者キオ", en: "Fugitive Kio" },
         ja: "2012-06-24",
-        title: "Fugitive Kio",
       },
       {
         n: 39,
+        title: { ja: "新世界の扉", en: "The Door to the New World" },
         ja: "2012-07-01",
-        title: "The Door to the New World",
       },
       {
         n: 40,
+        title: {
+          ja: "キオの決意 ガンダムと共に",
+          en: "Kio's Decision: Together with the Gundam",
+        },
         ja: "2012-07-08",
-        title: "Kio's Decision: Together with the Gundam",
       },
       {
         n: 41,
+        title: { ja: "華麗なフラム", en: "Magnificent Fram" },
         ja: "2012-07-15",
-        title: "Magnificent Fram",
       },
       {
         n: 42,
+        title: { ja: "ジラード・スプリガン", en: "Girard Spriggan" },
         ja: "2012-07-22",
-        title: "Girard Spriggan",
       },
       {
         n: 43,
+        title: { ja: "壮絶 トリプルガンダム", en: "Splendid! Triple Gundam" },
         ja: "2012-07-29",
-        title: "Splendid! Triple Gundam",
       },
       {
         n: 44,
+        title: { ja: "別れゆく道", en: "Diverging Paths" },
         ja: "2012-08-05",
-        title: "Diverging Paths",
       },
       {
         n: 45,
+        title: { ja: "破壊者シド", en: "Sid the Destroyer" },
         ja: "2012-08-12",
-        title: "Sid the Destroyer",
       },
       {
         n: 46,
+        title: { ja: "宇宙要塞ラ・グラミス", en: "Space Fortress La Gramis" },
         ja: "2012-08-19",
-        title: "Space Fortress La Gramis",
       },
       {
         n: 47,
+        title: {
+          ja: "青い星 散りゆく命",
+          en: "Life Scattered on the Blue Planet",
+        },
         ja: "2012-08-26",
-        title: "Life Scattered on the Blue Planet",
       },
       {
         n: 48,
+        title: { ja: "絶望の煌めき", en: "The Glitter of Despair" },
         ja: "2012-09-02",
-        title: "The Glitter of Despair",
       },
       {
         n: 49,
+        title: { ja: "長き旅の終わり", en: "End of a Long Journey" },
         ja: "2012-09-09",
-        title: "End of a Long Journey",
       },
     ],
     releases: [
@@ -412,7 +405,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   age_memory_of_eden_2013_ova: {
-    title: "Mobile Suit Gundam AGE: Memory of Eden",
+    title: {
+      ja: "機動戦士ガンダムAGE MEMORY OF EDEN",
+      en: "Mobile Suit Gundam AGE: Memory of Eden",
+    },
     u: "ag",
     type: "ova",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_AGE",
@@ -420,12 +416,12 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Memory of Eden Part 1",
+        title: { ja: "救世主ガンダム", en: "Memory of Eden Part 1" },
         ja: "2013-07-26",
       },
       {
         n: 2,
-        title: "Memory of Eden Part 2",
+        title: { ja: "AGEの力", en: "Memory of Eden Part 2" },
         ja: "2013-07-26",
       },
     ],
@@ -447,30 +443,21 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   age_novel_2012: {
-    title: "Mobile Suit Gundam AGE (novel)",
+    title: {
+      ja: "機動戦士ガンダムAGE (小説)",
+      en: "Mobile Suit Gundam AGE (novel)",
+    },
     u: "ag",
     type: "novel",
+    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_AGE",
     author: "Akihiro Yamada",
     publisher: "Shueisha",
     magazine: "Super Dash Bunko",
-    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_AGE",
     note: "Novelization of the AGE TV series",
     episodes: [
-      {
-        n: 1,
-        title: "Stand Up",
-        ja: "2012-02",
-      },
-      {
-        n: 2,
-        title: "Awaken",
-        ja: "2012-04",
-      },
-      {
-        n: 3,
-        title: "Second Age",
-        ja: "2012-06",
-      },
+      { n: 1, title: { ja: "Stand Up", en: "Stand Up" }, ja: "2012-02" },
+      { n: 2, title: { ja: "Awaken", en: "Awaken" }, ja: "2012-04" },
+      { n: 3, title: { ja: "Second Age", en: "Second Age" }, ja: "2012-06" },
     ],
     releases: [
       {
@@ -484,7 +471,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   battlefield_record_2009_ova: {
-    title: "Mobile Suit Gundam: Battlefield Record Avant-Title",
+    title: {
+      ja: "機動戦士ガンダム戦記 アバンタイトル",
+      en: "Mobile Suit Gundam: Battlefield Record Avant-Title",
+    },
     u: "uc",
     type: "ova",
     source:
@@ -492,7 +482,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Avant-Title",
+        title: { ja: "機動戦士ガンダム戦記 アバンタイトル", en: "Avant-Title" },
         ja: "2009-09-17",
       },
     ],
@@ -507,17 +497,20 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   beltorchikas_children_1988_novel: {
-    title: "Mobile Suit Gundam: Beltorchika's Children",
+    title: {
+      ja: "機動戦士ガンダム 逆襲のシャア ベルトーチカ・チルドレン",
+      en: "Mobile Suit Gundam: Beltorchika's Children",
+    },
     u: "uc",
     type: "novel",
+    source: "https://en.wikipedia.org/wiki/Beltorchika%27s_Children",
     author: "Yoshiyuki Tomino",
     publisher: "Kadokawa Shoten",
-    source: "https://en.wikipedia.org/wiki/Beltorchika%27s_Children",
     note: "Alternate novelisation of Char's Counterattack featuring Beltorchika Irma rather than Quess Paraya.",
     episodes: [
       {
         n: 1,
-        title: "Beltorchika's Children",
+        title: { ja: "Beltorchika's Children", en: "Beltorchika's Children" },
         ja: "1988-02-20",
       },
     ],
@@ -532,18 +525,18 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   blue_destiny_1997_manga: {
-    title: "Mobile Suit Gundam: Blue Destiny",
+    title: {
+      ja: "機動戦士ガンダム外伝 THE BLUE DESTINY",
+      en: "Mobile Suit Gundam: Blue Destiny",
+    },
     u: "uc",
     type: "manga",
     source:
       "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_The_Blue_Destiny",
-    episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "1997",
-      },
-    ],
+    author: "Ryoji Sekinishi",
+    publisher: "Bandai Entertainment",
+    magazine: "Comic BomBom",
+    episodes: [{ n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "1997" }],
     releases: [
       {
         region: "ja",
@@ -554,12 +547,12 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         schedule: "serial",
       },
     ],
-    author: "Ryoji Sekinishi",
-    publisher: "Bandai Entertainment",
-    magazine: "Comic BomBom",
   },
   breaker_battlogue_2021_ona: {
-    title: "Gundam Breaker Battlogue",
+    title: {
+      ja: "ガンダムブレイカーバトローグ",
+      en: "Gundam Breaker Battlogue",
+    },
     u: "build",
     type: "ona",
     source:
@@ -568,17 +561,17 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Breaker Battlogue 1",
+        title: { ja: "Breaker Battlogue 1", en: "Breaker Battlogue 1" },
         ja: "2021-10-19",
       },
       {
         n: 2,
-        title: "Breaker Battlogue 2",
+        title: { ja: "Breaker Battlogue 2", en: "Breaker Battlogue 2" },
         ja: "2021-11-16",
       },
       {
         n: 3,
-        title: "Breaker Battlogue 3",
+        title: { ja: "Breaker Battlogue 3", en: "Breaker Battlogue 3" },
         ja: "2021-12-14",
       },
     ],
@@ -600,7 +593,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   build_divers_2018_tv: {
-    title: "Gundam Build Divers",
+    title: { ja: "ガンダムビルドダイバーズ", en: "Gundam Build Divers" },
     u: "build",
     type: "tv",
     source: "https://en.wikipedia.org/wiki/Gundam_Build_Divers",
@@ -608,133 +601,97 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 0,
-        title: "Gundam Build Divers: Prologue",
+        title: { ja: "プロローグ", en: "Gundam Build Divers: Prologue" },
         ja: "2018-02-02",
       },
       {
         n: 1,
+        title: { ja: "Welcome to GBN", en: "Welcome to GBN" },
         ja: "2018-04-03",
-        title: "Welcome to GBN",
       },
       {
         n: 2,
+        title: { ja: "百鬼オーガ", en: "Chaotic Ogre" },
         ja: "2018-04-10",
-        title: "Chaotic Ogre",
       },
-      {
-        n: 3,
-        ja: "2018-04-17",
-        title: "The Protector",
-      },
+      { n: 3, title: { ja: "守る者", en: "The Protector" }, ja: "2018-04-17" },
       {
         n: 4,
+        title: { ja: "霊山の虎狼", en: "Tigerwolf of the Sacred Mountain" },
         ja: "2018-04-24",
-        title: "Tigerwolf of the Sacred Mountain",
       },
       {
         n: 5,
+        title: { ja: "聖地・ペリシア", en: "Holy Land of Perisia" },
         ja: "2018-05-01",
-        title: "Holy Land of Perisia",
       },
       {
         n: 6,
+        title: { ja: "過去と未来", en: "Past and Future" },
         ja: "2018-05-08",
-        title: "Past and Future",
       },
       {
         n: 7,
+        title: { ja: "フォース戦", en: "Force Battle" },
         ja: "2018-05-15",
-        title: "Force Battle",
       },
-      {
-        n: 8,
-        ja: "2018-05-22",
-        title: "Festival!",
-      },
+      { n: 8, title: { ja: "フェス！", en: "Festival!" }, ja: "2018-05-22" },
       {
         n: 9,
+        title: { ja: "オーガ再び", en: "Return of the Ogre" },
         ja: "2018-05-29",
-        title: "Return of the Ogre",
       },
       {
         n: 10,
+        title: { ja: "有志連合", en: "Coalition of Volunteers" },
         ja: "2018-06-05",
-        title: "Coalition of Volunteers",
       },
       {
         n: 11,
+        title: { ja: "アヤメの涙", en: "Ayame's Tears" },
         ja: "2018-06-12",
-        title: "Ayame's Tears",
       },
-      {
-        n: 12,
-        ja: "2018-06-19",
-        title: "Shining Wings",
-      },
-      {
-        n: 13,
-        ja: "2018-06-26",
-        title: "Duel",
-      },
-      {
-        n: 14,
-        ja: "2018-07-03",
-        title: "A New Power",
-      },
+      { n: 12, title: { ja: "光る翼", en: "Shining Wings" }, ja: "2018-06-19" },
+      { n: 13, title: { ja: "デュエル-決闘-", en: "Duel" }, ja: "2018-06-26" },
+      { n: 14, title: { ja: "新しい力", en: "A New Power" }, ja: "2018-07-03" },
       {
         n: 15,
+        title: { ja: "ロータス・チャレンジ", en: "Lotus Challenge" },
         ja: "2018-07-10",
-        title: "Lotus Challenge",
       },
       {
         n: 16,
+        title: { ja: "再会、友よ", en: "Friends Reunited" },
         ja: "2018-07-17",
-        title: "Friends Reunited",
       },
-      {
-        n: 17,
-        ja: "2018-07-24",
-        title: "Joint Front",
-      },
+      { n: 17, title: { ja: "共同戦線", en: "Joint Front" }, ja: "2018-07-24" },
       {
         n: 18,
+        title: { ja: "男の意地", en: "A Man's Will" },
         ja: "2018-07-31",
-        title: "A Man's Will",
       },
       {
         n: 19,
+        title: { ja: "ナデシコアスロン", en: "Nadeshiko-athlon" },
         ja: "2018-08-07",
-        title: "Nadeshiko-athlon",
       },
-      {
-        n: 20,
-        ja: "2018-08-14",
-        title: "The Truth",
-      },
+      { n: 20, title: { ja: "真実", en: "The Truth" }, ja: "2018-08-14" },
       {
         n: 21,
+        title: { ja: "君の想い", en: "Your Feelings" },
         ja: "2018-08-21",
-        title: "Your Feelings",
       },
-      {
-        n: 22,
-        ja: "2018-08-28",
-        title: "Devoted Heart",
-      },
+      { n: 22, title: { ja: "誓う心", en: "Devoted Heart" }, ja: "2018-08-28" },
       {
         n: 23,
+        title: { ja: "宿命の二人", en: "The Fateful Two" },
         ja: "2018-09-04",
-        title: "The Fateful Two",
       },
-      {
-        n: 24,
-        ja: "2018-09-11",
-        title: "Decisive Battle",
-      },
+      { n: 24, title: { ja: "決戦", en: "Decisive Battle" }, ja: "2018-09-11" },
       {
         n: 25,
+        title: { ja: "新しい世界", en: "A New World" },
         ja: "2018-09-18",
-        title: "A New World",
       },
     ],
     releases: [
@@ -763,14 +720,17 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   build_divers_battlogue_2020_ona: {
-    title: "Gundam Build Divers: Battlogue",
+    title: {
+      ja: "ガンダムビルドダイバーズ バトローグ",
+      en: "Gundam Build Divers: Battlogue",
+    },
     u: "build",
     type: "ona",
     source: "https://en.wikipedia.org/wiki/Gundam_Build_Divers_Re:Rise",
     episodes: [
       {
         n: 1,
-        title: "Battlogue",
+        title: { ja: "ガンダムビルドダイバーズ バトローグ", en: "Battlogue" },
         ja: "2020-11-13",
       },
     ],
@@ -792,24 +752,19 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   build_divers_manga: {
-    title: "Gundam Build Divers BREAK",
+    title: {
+      ja: "ガンダムビルドダイバーズ BREAK",
+      en: "Gundam Build Divers BREAK",
+    },
     u: "build",
     type: "manga",
+    source: "https://ja.wikipedia.org/wiki/ガンダムビルドダイバーズ",
     author: "Shiitake Gensui (art), Kansai Ryouji (scenario)",
     publisher: "Kadokawa",
     magazine: "Gundam Ace",
-    source: "https://ja.wikipedia.org/wiki/ガンダムビルドダイバーズ",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2018-12-26",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2019-09-26",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2018-12-26" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2019-09-26" },
     ],
     releases: [
       {
@@ -823,7 +778,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   build_divers_rerise_2019_ona: {
-    title: "Gundam Build Divers Re:RISE",
+    title: {
+      ja: "ガンダムビルドダイバーズRe:RISE",
+      en: "Gundam Build Divers Re:RISE",
+    },
     u: "build",
     type: "ona",
     source: "https://en.wikipedia.org/wiki/Gundam_Build_Divers_Re:Rise",
@@ -831,159 +789,159 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        cours: 1,
+        title: { ja: "彷徨のコアガンダム", en: "Wandering Core Gundam" },
         ja: "2019-10-10",
-        title: "Wandering Core Gundam",
+        cours: 1,
       },
       {
         n: 2,
-        cours: 1,
+        title: { ja: "知られざるミッション", en: "Unknown Mission" },
         ja: "2019-10-17",
-        title: "Unknown Mission",
+        cours: 1,
       },
       {
         n: 3,
-        cours: 1,
+        title: { ja: "守るべき場所", en: "A Place to Protect" },
         ja: "2019-10-24",
-        title: "A Place to Protect",
+        cours: 1,
       },
       {
         n: 4,
-        cours: 1,
+        title: { ja: "傷ついた翼", en: "Wounded Wings" },
         ja: "2019-10-31",
-        title: "Wounded Wings",
+        cours: 1,
       },
       {
         n: 5,
-        cours: 1,
+        title: { ja: "いま、翼ひろげて", en: "Now Spread Your Wings" },
         ja: "2019-11-07",
-        title: "Now Spread Your Wings",
+        cours: 1,
       },
       {
         n: 6,
-        cours: 1,
+        title: { ja: "崖っぷちのヒーロー", en: "Hero on the Brink" },
         ja: "2019-11-14",
-        title: "Hero on the Brink",
+        cours: 1,
       },
       {
         n: 7,
-        cours: 1,
+        title: { ja: "傷だらけの栄冠", en: "Battered Crown" },
         ja: "2019-11-21",
-        title: "Battered Crown",
+        cours: 1,
       },
       {
         n: 8,
-        cours: 1,
+        title: { ja: "使命と幻影", en: "Duty and Illusion" },
         ja: "2019-11-28",
-        title: "Duty and Illusion",
+        cours: 1,
       },
       {
         n: 9,
-        cours: 1,
+        title: { ja: "隔絶の淵から", en: "Abyss of Isolation" },
         ja: "2019-12-05",
-        title: "Abyss of Isolation",
+        cours: 1,
       },
       {
         n: 10,
-        cours: 1,
+        title: { ja: "そこにある息吹", en: "The Ones Who Breathe There" },
         ja: "2019-12-12",
-        title: "The Ones Who Breathe There",
+        cours: 1,
       },
       {
         n: 11,
-        cours: 1,
+        title: { ja: "ラストミッション", en: "Last Mission" },
         ja: "2019-12-19",
-        title: "Last Mission",
+        cours: 1,
       },
       {
         n: 12,
-        cours: 1,
+        title: { ja: "震える世界", en: "The Shuddering World" },
         ja: "2019-12-26",
-        title: "The Shuddering World",
+        cours: 1,
       },
       {
         n: 13,
-        cours: 1,
+        title: { ja: "このそらのどこかで", en: "Somewhere in This Universe" },
         ja: "2020-01-02",
-        title: "Somewhere in This Universe",
+        cours: 1,
       },
       {
         n: 14,
-        cours: 2,
+        title: { ja: "めぐりあい、そして", en: "Encounters, and Then..." },
         ja: "2020-04-09",
-        title: "Encounters, and Then...",
+        cours: 2,
       },
       {
         n: 15,
-        cours: 2,
+        title: { ja: "ミッション、再び", en: "Mission, Again" },
         ja: "2020-04-16",
-        title: "Mission, Again",
+        cours: 2,
       },
       {
         n: 16,
-        cours: 2,
+        title: { ja: "天空の大地へ", en: "To the Heavenly Land" },
         ja: "2020-04-23",
-        title: "To the Heavenly Land",
+        cours: 2,
       },
       {
         n: 17,
-        cours: 2,
+        title: { ja: "聖獣クアドルン", en: "The Sacred Beast Cuadorn" },
         ja: "2020-04-30",
-        title: "The Sacred Beast Cuadorn",
+        cours: 2,
       },
       {
         n: 18,
-        cours: 2,
+        title: { ja: "完璧な狙撃者", en: "Perfect Sniper" },
         ja: "2020-05-07",
-        title: "Perfect Sniper",
+        cours: 2,
       },
       {
         n: 19,
-        cours: 2,
+        title: { ja: "君がいなければ", en: "If It Weren't for You" },
         ja: "2020-05-14",
-        title: "If It Weren't for You",
+        cours: 2,
       },
       {
         n: 20,
-        cours: 2,
+        title: { ja: "託された願い", en: "A Wish Entrusted" },
         ja: "2020-05-21",
-        title: "A Wish Entrusted",
+        cours: 2,
       },
       {
         n: 21,
-        cours: 2,
+        title: { ja: "もういちど飛ぶために", en: "To Fly Once More" },
         ja: "2020-05-28",
-        title: "To Fly Once More",
+        cours: 2,
       },
       {
         n: 22,
-        cours: 2,
+        title: { ja: "刻限のゼルトザーム", en: "Seltsam's Deadline" },
         ja: "2020-06-04",
-        title: "Seltsam's Deadline",
+        cours: 2,
       },
       {
         n: 23,
-        cours: 2,
+        title: { ja: "選択のとき", en: "Moment of Choice" },
         ja: "2020-06-11",
-        title: "Moment of Choice",
+        cours: 2,
       },
       {
         n: 24,
-        cours: 2,
+        title: { ja: "ビルドダイバーズ", en: "Build Divers" },
         ja: "2020-06-18",
-        title: "Build Divers",
+        cours: 2,
       },
       {
         n: 25,
-        cours: 2,
+        title: { ja: "僕が描くあしたへ", en: "To the Tomorrow I Envision" },
         ja: "2020-06-25",
-        title: "To the Tomorrow I Envision",
+        cours: 2,
       },
       {
         n: 26,
-        cours: 2,
+        title: { ja: "Re:RISE", en: "Re:Rise" },
         ja: "2020-07-02",
-        title: "Re:Rise",
+        cours: 2,
       },
     ],
     releases: [
@@ -1005,29 +963,20 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   build_divers_rerise_manga: {
-    title: "Gundam Build Diver RISE",
+    title: {
+      ja: "ガンダムビルドダイバーズ Re:RISE",
+      en: "Gundam Build Diver RISE",
+    },
     u: "build",
     type: "manga",
+    source: "https://ja.wikipedia.org/wiki/ガンダムビルドダイバーズRe:RISE",
     author: "Shiitake Gensui (art), Kansai Ryouji (scenario)",
     publisher: "Kadokawa",
     magazine: "Gundam Ace",
-    source: "https://ja.wikipedia.org/wiki/ガンダムビルドダイバーズRe:RISE",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2020-03-26",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2020-08-26",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2021-02-26",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2020-03-26" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2020-08-26" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2021-02-26" },
     ],
     releases: [
       {
@@ -1041,7 +990,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   build_fighters_2013_tv: {
-    title: "Gundam Build Fighters",
+    title: { ja: "ガンダムビルドファイターズ", en: "Gundam Build Fighters" },
     u: "build",
     type: "tv",
     source:
@@ -1049,129 +998,128 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Sei and Reiji",
+        title: { ja: "セイとレイジ", en: "Sei and Reiji" },
         ja: "2013-10-07",
       },
       {
         n: 2,
-        title: "The Crimson Comet",
+        title: { ja: "紅の彗星", en: "The Crimson Comet" },
         ja: "2013-10-14",
       },
       {
         n: 3,
-        title: "Full Package",
+        title: { ja: "フルパッケージ", en: "Full Package" },
         ja: "2013-10-21",
       },
       {
         n: 4,
-        title: "Gunpla Idol Kirara",
+        title: { ja: "ガンプラアイドル キララ☆", en: "Gunpla Idol Kirara" },
         ja: "2013-10-28",
       },
       {
         n: 5,
-        title: "The Strongest Builder",
+        title: { ja: "最強ビルダー", en: "The Strongest Builder" },
         ja: "2013-11-04",
       },
       {
         n: 6,
-        title: "A Reason to Battle",
+        title: { ja: "戦うわけ", en: "A Reason to Battle" },
         ja: "2013-11-11",
       },
       {
         n: 7,
-        title: "World-Level Ability",
+        title: { ja: "世界の実力", en: "World-Level Ability" },
         ja: "2013-11-18",
       },
       {
         n: 8,
-        title: "Encounters of Fighters",
+        title: { ja: "あい戦士たち", en: "Encounters of Fighters" },
         ja: "2013-11-25",
       },
       {
         n: 9,
-        title: "Wings of Imagination",
+        title: { ja: "想像の翼", en: "Wings of Imagination" },
         ja: "2013-12-02",
       },
       {
         n: 10,
-        title: "The World Tournament Begins",
+        title: { ja: "開幕！世界大会", en: "The World Tournament Begins" },
         ja: "2013-12-09",
       },
       {
         n: 11,
-        title: "Battle Royal",
+        title: { ja: "ロワイヤル", en: "Battle Royal" },
         ja: "2013-12-16",
       },
       {
         n: 12,
-        title: "Discharge",
+        title: { ja: "ディスチャージ", en: "Discharge" },
         ja: "2013-12-23",
       },
       {
         n: 13,
-        title: "Battle Weapon",
+        title: { ja: "バトルウェポン", en: "Battle Weapon" },
         ja: "2014-01-06",
       },
       {
         n: 14,
-        title: "Codename: C",
+        title: { ja: "コードネームC", en: "Codename: C" },
         ja: "2014-01-13",
       },
       {
         n: 15,
-        title: "Fighter's Radiance",
+        title: { ja: "ファイターのかがやき", en: "Fighter's Radiance" },
         ja: "2014-01-20",
       },
       {
         n: 16,
-        title: "Dad, We Meet Again?",
+        title: { ja: "再会、父よ？", en: "Dad, We Meet Again?" },
         ja: "2014-01-27",
       },
       {
         n: 17,
-        title: "Model of the Heart",
+        title: { ja: "心の形", en: "Model of the Heart" },
         ja: "2014-02-03",
       },
       {
         n: 18,
-        title: "Bloodhounds",
+        title: { ja: "ブラッド・ハウンド", en: "Bloodhounds" },
         ja: "2014-02-10",
       },
       {
         n: 19,
-        title: "Astray's Blade",
+        title: { ja: "アストレイの刃", en: "Astray's Blade" },
         ja: "2014-02-17",
       },
       {
         n: 20,
-        title: "Aila's Betrayal",
+        title: { ja: "裏切りのアイラ", en: "Aila's Betrayal" },
         ja: "2014-02-24",
       },
       {
         n: 21,
-        title: "Amid the Glittering Particles",
+        title: {
+          ja: "きらめく粒子の中で",
+          en: "Amid the Glittering Particles",
+        },
         ja: "2014-03-03",
       },
       {
         n: 22,
-        title: "Meijin vs. Meijin",
+        title: { ja: "名人VS名人", en: "Meijin vs. Meijin" },
         ja: "2014-03-10",
       },
       {
         n: 23,
-        title: "Gunpla Eve",
+        title: { ja: "ガンプラ・イブ", en: "Gunpla Eve" },
         ja: "2014-03-17",
       },
       {
         n: 24,
-        title: "Dark Matter",
+        title: { ja: "ダークマター", en: "Dark Matter" },
         ja: "2014-03-24",
       },
-      {
-        n: 25,
-        title: "Promise",
-        ja: "2014-03-31",
-      },
+      { n: 25, title: { ja: "約束", en: "Promise" }, ja: "2014-03-31" },
     ],
     releases: [
       {
@@ -1199,7 +1147,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   build_fighters_battlogue_2017_ona: {
-    title: "Gundam Build Fighters: Battlogue",
+    title: {
+      ja: "ガンダムビルドファイターズ バトローグ",
+      en: "Gundam Build Fighters: Battlogue",
+    },
     u: "build",
     type: "ona",
     source:
@@ -1207,27 +1158,29 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "AI Battlogue",
+        title: { ja: "AI Battlogue", en: "AI Battlogue" },
         ja: "2017-08-04",
       },
       {
         n: 2,
-        title: "Smash the Enemy's Secret Factory!",
+        title: {
+          ja: "Smash the Enemy's Secret Factory!",
+          en: "Smash the Enemy's Secret Factory!",
+        },
         ja: "2017-09-08",
       },
       {
         n: 3,
-        title: "The Adventures of Fumina and Gyanko",
+        title: {
+          ja: "The Adventures of Fumina and Gyanko",
+          en: "The Adventures of Fumina and Gyanko",
+        },
         ja: "2017-10-06",
       },
-      {
-        n: 4,
-        title: "Our War",
-        ja: "2017-11-03",
-      },
+      { n: 4, title: { ja: "Our War", en: "Our War" }, ja: "2017-11-03" },
       {
         n: 5,
-        title: "Gunpla is the Greatest!",
+        title: { ja: "Gunpla is the Greatest!", en: "Gunpla is the Greatest!" },
         ja: "2017-12-08",
       },
     ],
@@ -1250,14 +1203,20 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   build_fighters_gm_counterattack_2017_ona: {
-    title: "Gundam Build Fighters: GM's Counterattack",
+    title: {
+      ja: "ガンダムビルドファイターズ GMの逆襲",
+      en: "Gundam Build Fighters: GM's Counterattack",
+    },
     u: "build",
     type: "ona",
     source: "https://en.wikipedia.org/wiki/Gundam_Build_Fighters",
     episodes: [
       {
         n: 1,
-        title: "GM's Counterattack",
+        title: {
+          ja: "ガンダムビルドファイターズ GMの逆襲",
+          en: "GM's Counterattack",
+        },
         ja: "2017-08-25",
       },
     ],
@@ -1279,7 +1238,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   build_fighters_try_2014_tv: {
-    title: "Gundam Build Fighters Try",
+    title: {
+      ja: "ガンダムビルドファイターズトライ",
+      en: "Gundam Build Fighters Try",
+    },
     u: "build",
     type: "tv",
     source:
@@ -1287,132 +1249,133 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "The Boy Who Calls the Wind",
+        title: { ja: "風を呼ぶ少年", en: "The Boy Who Calls the Wind" },
         ja: "2014-10-08",
       },
       {
         n: 2,
-        title: "Team Up, Try Fighters!",
+        title: {
+          ja: "結成！トライ・ファイターズ",
+          en: "Team Up, Try Fighters!",
+        },
         ja: "2014-10-15",
       },
       {
         n: 3,
-        title: "Her Name Is Gyanko",
+        title: { ja: "その名はギャン子", en: "Her Name Is Gyanko" },
         ja: "2014-10-22",
       },
-      {
-        n: 4,
-        title: "G-Muse",
-        ja: "2014-10-29",
-      },
+      { n: 4, title: { ja: "Gミューズ", en: "G-Muse" }, ja: "2014-10-29" },
       {
         n: 5,
-        title: "Dream and Challenge in Your Heart",
+        title: {
+          ja: "憧れと挑戦を胸に",
+          en: "Dream and Challenge in Your Heart",
+        },
         ja: "2014-11-05",
       },
       {
         n: 6,
-        title: "Ruler of the Battlefield",
+        title: { ja: "戦場の支配者", en: "Ruler of the Battlefield" },
         ja: "2014-11-12",
       },
       {
         n: 7,
-        title: "Straight-Assembly Shimon",
+        title: { ja: "素組みのシモン", en: "Straight-Assembly Shimon" },
         ja: "2014-11-19",
       },
       {
         n: 8,
-        title: "Upon This Shield",
+        title: { ja: "この盾に誓って", en: "Upon This Shield" },
         ja: "2014-11-26",
       },
       {
         n: 9,
-        title: "Showdown at Solomon",
+        title: { ja: "決戦のソロモン", en: "Showdown at Solomon" },
         ja: "2014-12-03",
       },
       {
         n: 10,
-        title: "Gunpla Collection",
+        title: { ja: "ガン☆コレ", en: "Gunpla Collection" },
         ja: "2014-12-10",
       },
       {
         n: 11,
-        title: "Nielsen Labs",
+        title: { ja: "ニールセン・ラボ", en: "Nielsen Labs" },
         ja: "2014-12-17",
       },
       {
         n: 12,
-        title: "To Fly to the Future",
+        title: { ja: "未来へ羽ばたくために", en: "To Fly to the Future" },
         ja: "2014-12-24",
       },
       {
         n: 13,
-        title: "Beyond the Knuckle",
+        title: { ja: "ビヨンド・ザ・ナックル", en: "Beyond the Knuckle" },
         ja: "2015-01-07",
       },
       {
         n: 14,
-        title: "Worthy Rivals",
+        title: { ja: "好敵手たち", en: "Worthy Rivals" },
         ja: "2015-01-14",
       },
       {
         n: 15,
-        title: "Reborn Try Fighters!",
+        title: { ja: "新生！トライ・ファイターズ", en: "Reborn Try Fighters!" },
         ja: "2015-01-21",
       },
       {
         n: 16,
-        title: "Magnificent Shia",
+        title: { ja: "華麗なるシア", en: "Magnificent Shia" },
         ja: "2015-01-28",
       },
       {
         n: 17,
-        title: "Haunted Castle Trap",
+        title: { ja: "亡霊城の罠", en: "Haunted Castle Trap" },
         ja: "2015-02-04",
       },
       {
         n: 18,
-        title: "Snibal-Drago-Gira",
+        title: { ja: "スナイバル・ドラゴ・ギラ", en: "Snibal-Drago-Gira" },
         ja: "2015-02-11",
       },
       {
         n: 19,
-        title: "Fateful Reunion",
+        title: { ja: "運命の再会", en: "Fateful Reunion" },
         ja: "2015-02-18",
       },
       {
         n: 20,
-        title: "Unbreakable Heart",
+        title: { ja: "折れない心", en: "Unbreakable Heart" },
         ja: "2015-02-25",
       },
-      {
-        n: 21,
-        title: "Blue Wings",
-        ja: "2015-03-04",
-      },
+      { n: 21, title: { ja: "蒼き翼", en: "Blue Wings" }, ja: "2015-03-04" },
       {
         n: 22,
-        title: "Follow Your Heart",
+        title: { ja: "心のままに", en: "Follow Your Heart" },
         ja: "2015-03-11",
       },
       {
         n: 23,
-        title: "Build Fighter",
+        title: { ja: "ビルド・ファイター", en: "Build Fighter" },
         ja: "2015-03-18",
       },
       {
         n: 24,
-        title: "Final Burst",
+        title: { ja: "ファイナル・バースト", en: "Final Burst" },
         ja: "2015-03-25",
       },
       {
         n: 25,
-        title: "Our Gunpla",
+        title: { ja: "僕たちのガンプラ", en: "Our Gunpla" },
         ja: "2015-04-01",
       },
       {
         n: "SP",
-        title: "Gundam Build Fighters Try Island Wars",
+        title: {
+          ja: "ガンダムビルドファイターズトライ アイランド・ウォーズ",
+          en: "Gundam Build Fighters Try Island Wars",
+        },
         ja: "2016-08-21",
       },
     ],
@@ -1442,14 +1405,20 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   build_fighters_try_island_wars_2016_ova: {
-    title: "Gundam Build Fighters Try: Island Wars",
+    title: {
+      ja: "ガンダムビルドファイターズトライ アイランド・ウォーズ",
+      en: "Gundam Build Fighters Try: Island Wars",
+    },
     u: "build",
     type: "ova",
     source: "https://en.wikipedia.org/wiki/Gundam_Build_Fighters_Try",
     episodes: [
       {
         n: 1,
-        title: "Island Wars",
+        title: {
+          ja: "ガンダムビルドファイターズトライ アイランド・ウォーズ",
+          en: "Island Wars",
+        },
         ja: "2016-08-21",
       },
     ],
@@ -1471,27 +1440,15 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   build_metaverse_2023_ona: {
-    title: "Gundam Build Metaverse",
+    title: { ja: "ガンダムビルドメタバース", en: "Gundam Build Metaverse" },
     u: "build",
     type: "ona",
     source: "https://en.wikipedia.org/wiki/Gundam_Build_Metaverse",
     note: "3-episode 10th anniversary mini-series streamed on Gundam Channel YouTube",
     episodes: [
-      {
-        n: 1,
-        title: "BUILD",
-        ja: "2023-10-06",
-      },
-      {
-        n: 2,
-        title: "RERISE",
-        ja: "2023-10-20",
-      },
-      {
-        n: 3,
-        title: "TRY&FIGHT",
-        ja: "2023-10-20",
-      },
+      { n: 1, title: { ja: "DIVE", en: "Dive" }, ja: "2023-10-06" },
+      { n: 2, title: { ja: "RERISE", en: "Re:Rise" }, ja: "2023-10-20" },
+      { n: 3, title: { ja: "TRY&FIGHT", en: "TRY&FIGHT" }, ja: "2023-10-20" },
     ],
     releases: [
       {
@@ -1511,7 +1468,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   build_real_2021_live: {
-    title: "Gundam Build Real",
+    title: { ja: "ガンダムビルドリアル", en: "Gundam Build Real" },
     u: "build",
     type: "live-action",
     source: "https://en.wikipedia.org/wiki/Gundam_Build_Real",
@@ -1519,33 +1476,36 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Reunion",
+        title: { ja: "再会", en: "Reunion" },
         ja: "2021-03-29",
         en: "2021-08-26",
       },
       {
         n: 2,
-        title: "Wasted Treasure",
+        title: { ja: "宝の持ち腐れ", en: "Wasted Treasure" },
         ja: "2021-04-26",
       },
       {
         n: 3,
-        title: "The Hole in the Team",
+        title: { ja: "チームに空いた穴", en: "The Hole in the Team" },
         ja: "2021-05-31",
       },
       {
         n: 4,
-        title: "Respective Pasts",
+        title: { ja: "それぞれの過去", en: "Respective Pasts" },
         ja: "2021-06-28",
       },
       {
         n: 5,
-        title: "The Tokai Regional Tournament Begins",
+        title: {
+          ja: "東海地区大会開幕",
+          en: "The Tokai Regional Tournament Begins",
+        },
         ja: "2021-07-12",
       },
       {
         n: 6,
-        title: "Gunpla is Freedom",
+        title: { ja: "ガンプラは自由だ", en: "Gunpla is Freedom" },
         ja: "2021-07-19",
       },
     ],
@@ -1577,85 +1537,32 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   cda_2002_manga: {
-    title: "Mobile Suit Gundam C.D.A.: Portraits of Young Comet",
+    title: {
+      ja: "機動戦士ガンダム C.D.A. 若き彗星の肖像",
+      en: "Mobile Suit Gundam C.D.A.: Portraits of Young Comet",
+    },
     u: "uc",
     type: "manga",
+    source:
+      "https://ja.wikipedia.org/wiki/機動戦士ガンダム_C.D.A._若き彗星の肖像",
     author: "Hiroyuki Kitazume",
     publisher: "Kadokawa",
     magazine: "Gundam Ace",
-    source:
-      "https://ja.wikipedia.org/wiki/機動戦士ガンダム_C.D.A._若き彗星の肖像",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2002-11-22",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2003-11-25",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2004-07-26",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "2004-12-25",
-      },
-      {
-        n: 5,
-        title: "Volume 5",
-        ja: "2005-05-26",
-      },
-      {
-        n: 6,
-        title: "Volume 6",
-        ja: "2005-10-26",
-      },
-      {
-        n: 7,
-        title: "Volume 7",
-        ja: "2006-03-25",
-      },
-      {
-        n: 8,
-        title: "Volume 8",
-        ja: "2006-08-26",
-      },
-      {
-        n: 9,
-        title: "Volume 9",
-        ja: "2007-07-26",
-      },
-      {
-        n: 10,
-        title: "Volume 10",
-        ja: "2007-12-26",
-      },
-      {
-        n: 11,
-        title: "Volume 11",
-        ja: "2008-07-26",
-      },
-      {
-        n: 12,
-        title: "Volume 12",
-        ja: "2008-11-26",
-      },
-      {
-        n: 13,
-        title: "Volume 13",
-        ja: "2009-05-26",
-      },
-      {
-        n: 14,
-        title: "Volume 14",
-        ja: "2010-03-26",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2002-11-22" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2003-11-25" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2004-07-26" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2004-12-25" },
+      { n: 5, title: { ja: "Volume 5", en: "Volume 5" }, ja: "2005-05-26" },
+      { n: 6, title: { ja: "Volume 6", en: "Volume 6" }, ja: "2005-10-26" },
+      { n: 7, title: { ja: "Volume 7", en: "Volume 7" }, ja: "2006-03-25" },
+      { n: 8, title: { ja: "Volume 8", en: "Volume 8" }, ja: "2006-08-26" },
+      { n: 9, title: { ja: "Volume 9", en: "Volume 9" }, ja: "2007-07-26" },
+      { n: 10, title: { ja: "Volume 10", en: "Volume 10" }, ja: "2007-12-26" },
+      { n: 11, title: { ja: "Volume 11", en: "Volume 11" }, ja: "2008-07-26" },
+      { n: 12, title: { ja: "Volume 12", en: "Volume 12" }, ja: "2008-11-26" },
+      { n: 13, title: { ja: "Volume 13", en: "Volume 13" }, ja: "2009-05-26" },
+      { n: 14, title: { ja: "Volume 14", en: "Volume 14" }, ja: "2010-03-26" },
     ],
     releases: [
       {
@@ -1669,7 +1576,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   chars_counterattack_1988_film: {
-    title: "Mobile Suit Gundam: Char's Counterattack",
+    title: {
+      ja: "機動戦士ガンダム 逆襲のシャア",
+      en: "Mobile Suit Gundam: Char's Counterattack",
+    },
     u: "uc",
     type: "film",
     source:
@@ -1677,7 +1587,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Char's Counterattack",
+        title: {
+          ja: "機動戦士ガンダム 逆襲のシャア",
+          en: "Char's Counterattack",
+        },
         ja: "1988-03-12",
       },
     ],
@@ -1713,45 +1626,24 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   crossbone_1994_manga: {
-    title: "Mobile Suit Crossbone Gundam",
+    title: {
+      ja: "機動戦士クロスボーン・ガンダム",
+      en: "Mobile Suit Crossbone Gundam",
+    },
     u: "uc",
     type: "manga",
+    source: "https://en.wikipedia.org/wiki/Crossbone_Gundam",
     author: "Yuichi Hasegawa (story: Yoshiyuki Tomino)",
     publisher: "Kadokawa Shoten",
     magazine: "Shōnen Ace",
-    source: "https://en.wikipedia.org/wiki/Crossbone_Gundam",
     note: "Original series 1994-1997; 6 volumes. Setting: UC 0133 (10 years after F91).",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "1995-03-10",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "1995-08-07",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "1996-03-06",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "1996-08-08",
-      },
-      {
-        n: 5,
-        title: "Volume 5",
-        ja: "1997-02-07",
-      },
-      {
-        n: 6,
-        title: "Volume 6",
-        ja: "1997-06-05",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "1995-03-10" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "1995-08-07" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "1996-03-06" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "1996-08-08" },
+      { n: 5, title: { ja: "Volume 5", en: "Volume 5" }, ja: "1997-02-07" },
+      { n: 6, title: { ja: "Volume 6", en: "Volume 6" }, ja: "1997-06-05" },
     ],
     releases: [
       {
@@ -1765,80 +1657,28 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   crossbone_dust_2016_manga: {
-    title: "Crossbone Gundam: Dust",
+    title: { ja: "クロスボーン・ガンダム DUST", en: "Crossbone Gundam: Dust" },
     u: "uc",
     type: "manga",
+    source: "https://en.wikipedia.org/wiki/Crossbone_Gundam",
     author: "Yuichi Hasegawa",
     publisher: "Kadokawa Shoten",
     magazine: "Gundam Ace",
-    source: "https://en.wikipedia.org/wiki/Crossbone_Gundam",
     note: "13 volumes; setting UC 0169. Per-volume dates approximate.",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2016-12-26",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2017-04-24",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2017-08-26",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "2018-02-10",
-      },
-      {
-        n: 5,
-        title: "Volume 5",
-        ja: "2018-06-26",
-      },
-      {
-        n: 6,
-        title: "Volume 6",
-        ja: "2018-10-26",
-      },
-      {
-        n: 7,
-        title: "Volume 7",
-        ja: "2019-01-26",
-      },
-      {
-        n: 8,
-        title: "Volume 8",
-        ja: "2019-06-24",
-      },
-      {
-        n: 9,
-        title: "Volume 9",
-        ja: "2019-10-25",
-      },
-      {
-        n: 10,
-        title: "Volume 10",
-        ja: "2020-01-24",
-      },
-      {
-        n: 11,
-        title: "Volume 11",
-        ja: "2020-06-25",
-      },
-      {
-        n: 12,
-        title: "Volume 12",
-        ja: "2020-11-25",
-      },
-      {
-        n: 13,
-        title: "Volume 13",
-        ja: "2021-03-26",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2016-12-26" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2017-04-24" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2017-08-26" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2018-02-10" },
+      { n: 5, title: { ja: "Volume 5", en: "Volume 5" }, ja: "2018-06-26" },
+      { n: 6, title: { ja: "Volume 6", en: "Volume 6" }, ja: "2018-10-26" },
+      { n: 7, title: { ja: "Volume 7", en: "Volume 7" }, ja: "2019-01-26" },
+      { n: 8, title: { ja: "Volume 8", en: "Volume 8" }, ja: "2019-06-24" },
+      { n: 9, title: { ja: "Volume 9", en: "Volume 9" }, ja: "2019-10-25" },
+      { n: 10, title: { ja: "Volume 10", en: "Volume 10" }, ja: "2020-01-24" },
+      { n: 11, title: { ja: "Volume 11", en: "Volume 11" }, ja: "2020-06-25" },
+      { n: 12, title: { ja: "Volume 12", en: "Volume 12" }, ja: "2020-11-25" },
+      { n: 13, title: { ja: "Volume 13", en: "Volume 13" }, ja: "2021-03-26" },
     ],
     releases: [
       {
@@ -1852,75 +1692,30 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   crossbone_ghost_2011_manga: {
-    title: "Crossbone Gundam: Ghost",
+    title: {
+      ja: "機動戦士クロスボーン・ガンダム ゴースト",
+      en: "Crossbone Gundam: Ghost",
+    },
     u: "uc",
     type: "manga",
+    source: "https://en.wikipedia.org/wiki/Crossbone_Gundam",
     author: "Yuichi Hasegawa",
     publisher: "Kadokawa Shoten",
     magazine: "Gundam Ace",
-    source: "https://en.wikipedia.org/wiki/Crossbone_Gundam",
     note: "12 volumes; setting UC 0153 (concurrent with V Gundam). Per-volume dates approximate.",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2012-05-26",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2012-08-25",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2013-02-22",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "2013-06-24",
-      },
-      {
-        n: 5,
-        title: "Volume 5",
-        ja: "2013-10-24",
-      },
-      {
-        n: 6,
-        title: "Volume 6",
-        ja: "2014-03-26",
-      },
-      {
-        n: 7,
-        title: "Volume 7",
-        ja: "2014-09-24",
-      },
-      {
-        n: 8,
-        title: "Volume 8",
-        ja: "2015-01-22",
-      },
-      {
-        n: 9,
-        title: "Volume 9",
-        ja: "2015-04-25",
-      },
-      {
-        n: 10,
-        title: "Volume 10",
-        ja: "2015-08-26",
-      },
-      {
-        n: 11,
-        title: "Volume 11",
-        ja: "2015-12-26",
-      },
-      {
-        n: 12,
-        title: "Volume 12",
-        ja: "2016-05-25",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2012-05-26" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2012-08-25" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2013-02-22" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2013-06-24" },
+      { n: 5, title: { ja: "Volume 5", en: "Volume 5" }, ja: "2013-10-24" },
+      { n: 6, title: { ja: "Volume 6", en: "Volume 6" }, ja: "2014-03-26" },
+      { n: 7, title: { ja: "Volume 7", en: "Volume 7" }, ja: "2014-09-24" },
+      { n: 8, title: { ja: "Volume 8", en: "Volume 8" }, ja: "2015-01-22" },
+      { n: 9, title: { ja: "Volume 9", en: "Volume 9" }, ja: "2015-04-25" },
+      { n: 10, title: { ja: "Volume 10", en: "Volume 10" }, ja: "2015-08-26" },
+      { n: 11, title: { ja: "Volume 11", en: "Volume 11" }, ja: "2015-12-26" },
+      { n: 12, title: { ja: "Volume 12", en: "Volume 12" }, ja: "2016-05-25" },
     ],
     releases: [
       {
@@ -1934,24 +1729,19 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   crossbone_lovepiece_2022_manga: {
-    title: "Crossbone Gundam: Love & Piece",
+    title: {
+      ja: "クロスボーン・ガンダム Love & Piece",
+      en: "Crossbone Gundam: Love & Piece",
+    },
     u: "uc",
     type: "manga",
+    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Crossbone_Gundam",
     author: "Yuichi Hasegawa",
     publisher: "Kadokawa Shoten",
     magazine: "Gundam Ace",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Crossbone_Gundam",
     episodes: [
-      {
-        title: "Volume 1",
-        ja: "2023-06-26",
-        n: 1,
-      },
-      {
-        title: "Volume 2",
-        ja: "2024-01-26",
-        n: 2,
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2023-06-26" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2024-01-26" },
     ],
     releases: [
       {
@@ -1964,25 +1754,20 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   crossbone_seeraeuber_2024_manga: {
-    title: "Crossbone Gundam: Seeräuber",
+    title: {
+      ja: "クロスボーン・ガンダム ゼーライバー",
+      en: "Crossbone Gundam: Seeräuber",
+    },
     u: "uc",
     type: "manga",
+    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Crossbone_Gundam",
     author: "Yuichi Hasegawa",
     publisher: "Kadokawa Shoten",
     magazine: "Gundam Ace",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Crossbone_Gundam",
     note: "Ongoing as of 2026",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2024-10-25",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2025",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2024-10-25" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2025" },
     ],
     releases: [
       {
@@ -1995,19 +1780,18 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   crossbone_skullheart_2002_manga: {
-    title: "Crossbone Gundam: Skull Heart",
+    title: {
+      ja: "機動戦士クロスボーン・ガンダム スカルハート",
+      en: "Crossbone Gundam: Skull Heart",
+    },
     u: "uc",
     type: "manga",
+    source: "https://en.wikipedia.org/wiki/Crossbone_Gundam",
     author: "Yuichi Hasegawa",
     publisher: "Kadokawa Shoten",
     magazine: "Gundam Ace",
-    source: "https://en.wikipedia.org/wiki/Crossbone_Gundam",
     episodes: [
-      {
-        title: "Volume 1",
-        ja: "2005-01-26",
-        n: 1,
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2005-01-26" },
     ],
     releases: [
       {
@@ -2021,29 +1805,20 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   crossbone_steelseven_2006_manga: {
-    title: "Crossbone Gundam: The Steel Seven",
+    title: {
+      ja: "機動戦士クロスボーン・ガンダム 鋼鉄の7人",
+      en: "Crossbone Gundam: The Steel Seven",
+    },
     u: "uc",
     type: "manga",
+    source: "https://en.wikipedia.org/wiki/Crossbone_Gundam",
     author: "Yuichi Hasegawa",
     publisher: "Kadokawa Shoten",
     magazine: "Gundam Ace",
-    source: "https://en.wikipedia.org/wiki/Crossbone_Gundam",
     episodes: [
-      {
-        title: "Volume 1",
-        ja: "2006-12-26",
-        n: 1,
-      },
-      {
-        title: "Volume 2",
-        ja: "2007-05-26",
-        n: 2,
-      },
-      {
-        title: "Volume 3",
-        ja: "2007-12-26",
-        n: 3,
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2006-12-26" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2007-05-26" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2007-12-26" },
     ],
     releases: [
       {
@@ -2057,24 +1832,19 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   crossbone_x11_2021_manga: {
-    title: "Crossbone Gundam: X-11",
+    title: {
+      ja: "機動戦士クロスボーン・ガンダム X-11",
+      en: "Crossbone Gundam: X-11",
+    },
     u: "uc",
     type: "manga",
+    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Crossbone_Gundam",
     author: "Yuichi Hasegawa",
     publisher: "Kadokawa Shoten",
     magazine: "Gundam Ace",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Crossbone_Gundam",
     episodes: [
-      {
-        title: "Volume 1",
-        ja: "2022-02-25",
-        n: 1,
-      },
-      {
-        title: "Volume 2",
-        ja: "2022-09-26",
-        n: 2,
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2022-02-25" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2022-09-26" },
     ],
     releases: [
       {
@@ -2088,24 +1858,19 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   crossbone_zeroiber_2024_manga: {
-    title: "Crossbone Gundam: Zeroiber",
+    title: {
+      ja: "クロスボーン・ガンダム ゼロイバー",
+      en: "Crossbone Gundam: Zeroiber",
+    },
     u: "uc",
     type: "manga",
+    source: "https://ja.wikipedia.org/wiki/機動戦士クロスボーン・ガンダム",
     author: "Hasegawa Yuichi",
     publisher: "Kadokawa",
     magazine: "Gundam Ace",
-    source: "https://ja.wikipedia.org/wiki/機動戦士クロスボーン・ガンダム",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2025-06-26",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2025-12-26",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2025-06-26" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2025-12-26" },
     ],
     releases: [
       {
@@ -2118,7 +1883,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   cucuruz_doan_2022_film: {
-    title: "Mobile Suit Gundam: Cucuruz Doan's Island",
+    title: {
+      ja: "機動戦士ガンダム ククルス・ドアンの島",
+      en: "Mobile Suit Gundam: Cucuruz Doan's Island",
+    },
     u: "uc",
     type: "film",
     source:
@@ -2126,7 +1894,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Cucuruz Doan's Island",
+        title: {
+          ja: "機動戦士ガンダム ククルス・ドアンの島",
+          en: "Cucuruz Doan's Island",
+        },
         ja: "2022-06-03",
       },
     ],
@@ -2155,19 +1926,18 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   developers_2004_manga: {
-    title: "Developers: Mobile Suit Gundam Before the One Year War",
+    title: {
+      ja: "Developers 機動戦士ガンダム Before One Year War",
+      en: "Developers: Mobile Suit Gundam Before the One Year War",
+    },
     u: "uc",
     type: "manga",
-    author: "Kazuhisa Kondo",
-    publisher: "Media Works",
     source:
       "https://ja.wikipedia.org/wiki/Developers_機動戦士ガンダム_Before_One_Year_War",
+    author: "Kazuhisa Kondo",
+    publisher: "Media Works",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2003-11-26",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2003-11-26" },
     ],
     releases: [
       {
@@ -2181,71 +1951,29 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   ecole_du_ciel_2002_manga: {
-    title: "Mobile Suit Gundam: Ecole du Ciel",
+    title: {
+      ja: "機動戦士ガンダム エコール・デュ・シエル",
+      en: "Mobile Suit Gundam: Ecole du Ciel",
+    },
     u: "uc",
     type: "manga",
     source: "https://en.wikipedia.org/wiki/Ecole_du_Ciel",
+    author: "Kenichi Nakahara (art), Haruhiko Mikimoto (character design)",
+    publisher: "Kadokawa Shoten",
+    magazine: "Gundam Ace",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2002-11-26",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2003-08-01",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2004-03-26",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "2004-07-26",
-      },
-      {
-        n: 5,
-        title: "Volume 5",
-        ja: "2004-12-25",
-      },
-      {
-        n: 6,
-        title: "Volume 6",
-        ja: "2005-05-26",
-      },
-      {
-        n: 7,
-        title: "Volume 7",
-        ja: "2005-10-26",
-      },
-      {
-        n: 8,
-        title: "Volume 8",
-        ja: "2006-03-25",
-      },
-      {
-        n: 9,
-        title: "Volume 9",
-        ja: "2006-10-26",
-      },
-      {
-        n: 10,
-        title: "Volume 10",
-        ja: "2007-08-25",
-      },
-      {
-        n: 11,
-        title: "Volume 11",
-        ja: "2008-06-26",
-      },
-      {
-        n: 12,
-        title: "Volume 12",
-        ja: "2011-03-26",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2002-11-26" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2003-08-01" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2004-03-26" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2004-07-26" },
+      { n: 5, title: { ja: "Volume 5", en: "Volume 5" }, ja: "2004-12-25" },
+      { n: 6, title: { ja: "Volume 6", en: "Volume 6" }, ja: "2005-05-26" },
+      { n: 7, title: { ja: "Volume 7", en: "Volume 7" }, ja: "2005-10-26" },
+      { n: 8, title: { ja: "Volume 8", en: "Volume 8" }, ja: "2006-03-25" },
+      { n: 9, title: { ja: "Volume 9", en: "Volume 9" }, ja: "2006-10-26" },
+      { n: 10, title: { ja: "Volume 10", en: "Volume 10" }, ja: "2007-08-25" },
+      { n: 11, title: { ja: "Volume 11", en: "Volume 11" }, ja: "2008-06-26" },
+      { n: 12, title: { ja: "Volume 12", en: "Volume 12" }, ja: "2011-03-26" },
     ],
     releases: [
       {
@@ -2264,19 +1992,16 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         schedule: "serial",
       },
     ],
-    author: "Kenichi Nakahara (art), Haruhiko Mikimoto (character design)",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
   },
   f91_1991_film: {
-    title: "Mobile Suit Gundam F91",
+    title: { ja: "機動戦士ガンダムF91", en: "Mobile Suit Gundam F91" },
     u: "uc",
     type: "film",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_F91",
     episodes: [
       {
         n: 1,
-        title: "Gundam F91",
+        title: { ja: "機動戦士ガンダムF91", en: "Gundam F91" },
         ja: "1991-03-16",
       },
     ],
@@ -2312,30 +2037,18 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   for_the_barrel_2000_novel: {
-    title: "FOR THE BARREL",
+    title: { ja: "FOR THE BARREL", en: "FOR THE BARREL" },
     u: "uc-alt",
     type: "novel",
+    source: "https://gundam.fandom.com/wiki/For_the_Barrel",
     author: "Gichi Otsuka",
     publisher: "Kadokawa",
     magazine: "NewType",
-    source: "https://gundam.fandom.com/wiki/For_the_Barrel",
     note: "Abstract reimagining of the original Gundam in alternate UC; serialized Aug 2000 – Jun 2002",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2000",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2001",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2002",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2000" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2001" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2002" },
     ],
     releases: [
       {
@@ -2349,29 +2062,20 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   g_gundam_1994_manga: {
-    title: "Mobile Fighter G Gundam (manga)",
+    title: {
+      ja: "機動武闘伝Gガンダム (漫画)",
+      en: "Mobile Fighter G Gundam (manga)",
+    },
     u: "fc",
     type: "manga",
+    source: "https://en.wikipedia.org/wiki/Mobile_Fighter_G_Gundam",
     author: "Kōichi Tokita",
     publisher: "Kodansha",
     magazine: "Comic BonBon",
-    source: "https://en.wikipedia.org/wiki/Mobile_Fighter_G_Gundam",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2005-09",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2005-10",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2005-11",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2005-09" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2005-10" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2005-11" },
     ],
     releases: [
       {
@@ -2392,7 +2096,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   g_gundam_1994_tv: {
-    title: "Mobile Fighter G Gundam",
+    title: { ja: "機動武闘伝Gガンダム", en: "Mobile Fighter G Gundam" },
     u: "fc",
     type: "tv",
     source:
@@ -2400,295 +2104,442 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Gundam Fight Begins! The Gundam That Fell to Earth",
+        title: {
+          ja: "ファイト開始! 地球に落ちたガンダム",
+          en: "Gundam Fight Begins! The Gundam That Fell to Earth",
+        },
         ja: "1994-04-22",
         en: "2002-08-05",
       },
       {
         n: 2,
-        title: "Roar of the Winning Punch",
+        title: {
+          ja: "唸れ! 夢を摑んだ必殺パンチ",
+          en: "Roar of the Winning Punch",
+        },
         ja: "1994-04-29",
         en: "2002-08-06",
       },
       {
         n: 3,
-        title: "Beat the Dragon Gundam",
+        title: {
+          ja: "倒せ! 魔神ドラゴンガンダム",
+          en: "Beat the Dragon Gundam",
+        },
         ja: "1994-05-06",
         en: "2002-08-07",
       },
       {
         n: 4,
-        title: "Challenge! The Red Rose Knight!",
+        title: {
+          ja: "いざ勝負! 真紅のバラの貴公子",
+          en: "Challenge! The Red Rose Knight!",
+        },
         ja: "1994-05-13",
         en: "2002-08-08",
       },
       {
         n: 5,
-        title: "Great Escape! A Captive Gundam Fighter",
+        title: {
+          ja: "大脱走! 囚われのガンダムファイター",
+          en: "Great Escape! A Captive Gundam Fighter",
+        },
         ja: "1994-05-20",
         en: "2002-08-12",
       },
       {
         n: 6,
-        title: "Fight, Domon! Earth is the Ring",
+        title: {
+          ja: "闘えドモン! 地球がリングだ",
+          en: "Fight, Domon! Earth is the Ring",
+        },
         ja: "1994-05-27",
         en: "2002-08-13",
       },
       {
         n: 7,
-        title: "Prepare to Fight! Desperate Fugitive",
+        title: {
+          ja: "来るなら来い! 必死の逃亡者",
+          en: "Prepare to Fight! Desperate Fugitive",
+        },
         ja: "1994-06-03",
         en: "2002-08-14",
       },
       {
         n: 8,
-        title: "Old Grudge: Revenge of the Space Police",
+        title: {
+          ja: "仇は討つ! 復讐の宇宙刑事",
+          en: "Old Grudge: Revenge of the Space Police",
+        },
         ja: "1994-06-10",
         en: "2002-08-15",
       },
       {
         n: 9,
-        title: "Powerful Enemy! Chapman's Heroic Challenge",
+        title: {
+          ja: "強敵! 英雄チャップマンの挑戦",
+          en: "Powerful Enemy! Chapman's Heroic Challenge",
+        },
         ja: "1994-06-17",
         en: "2002-08-19",
       },
       {
         n: 10,
-        title: "Terror! The Phantom Fighter Appears",
+        title: {
+          ja: "恐怖! 亡霊ファイター出現",
+          en: "Terror! The Phantom Fighter Appears",
+        },
         ja: "1994-06-24",
         en: "2002-08-20",
       },
       {
         n: 11,
-        title: "Reunion in Falling Rain",
+        title: {
+          ja: "雨の再会…フォーリング・レイン",
+          en: "Reunion in Falling Rain",
+        },
         ja: "1994-07-01",
         en: "2002-08-21",
       },
       {
         n: 12,
-        title: "He's The Undefeated of the East! Master Asia Appears",
+        title: {
+          ja: "その名は東方不敗! マスター・アジア見参",
+          en: "He's The Undefeated of the East! Master Asia Appears",
+        },
         ja: "1994-07-08",
         en: "2002-08-22",
       },
       {
         n: 13,
-        title: "Big Trouble! Domon vs. Big 5",
+        title: {
+          ja: "大ピンチ! 敵は5大ガンダム",
+          en: "Big Trouble! Domon vs. Big 5",
+        },
         ja: "1994-07-15",
         en: "2002-08-26",
       },
       {
         n: 14,
-        title: "Shocking! Shining Finger Defeated!",
+        title: {
+          ja: "衝撃! シャイニング・フィンガー敗れたり",
+          en: "Shocking! Shining Finger Defeated!",
+        },
         ja: "1994-07-22",
         en: "2002-08-27",
       },
       {
         n: 15,
-        title: "Warrior's Crest! Goodbye, Shuffle Alliance",
+        title: {
+          ja: "戦士の称号! さらばシャッフル同盟",
+          en: "Warrior's Crest! Goodbye, Shuffle Alliance",
+        },
         ja: "1994-07-29",
         en: "2002-08-28",
       },
       {
         n: 16,
-        title: "Ultimate Power and Evil! Rise of the Devil Gundam",
+        title: {
+          ja: "最強最悪! デビルガンダム現わる",
+          en: "Ultimate Power and Evil! Rise of the Devil Gundam",
+        },
         ja: "1994-08-05",
         en: "2002-08-29",
       },
       {
         n: 17,
-        title: "Challenge! Mysterious Masked Fighter",
+        title: {
+          ja: "対決! 謎の覆面ファイター",
+          en: "Challenge! Mysterious Masked Fighter",
+        },
         ja: "1994-08-12",
         en: "2002-09-02",
       },
       {
         n: 18,
-        title: "Steal the Secret! Scheme of the Beautiful Warriors",
+        title: {
+          ja: "必殺技を盗め! 美女軍団の大作戦",
+          en: "Steal the Secret! Scheme of the Beautiful Warriors",
+        },
         ja: "1994-08-19",
         en: "2002-09-03",
       },
       {
         n: 19,
-        title: "Fierce Battle! Dragon Gundam vs. Bolt Gundam",
+        title: {
+          ja: "激闘! ドラゴンガンダム対ボルトガンダム",
+          en: "Fierce Battle! Dragon Gundam vs. Bolt Gundam",
+        },
         ja: "1994-08-26",
         en: "2002-09-04",
       },
       {
         n: 20,
-        title: "George, Beat the Nightmare!",
+        title: {
+          ja: "ジョルジュよ、悪夢を打ち砕け!",
+          en: "George, Beat the Nightmare!",
+        },
         ja: "1994-09-02",
         en: "2002-09-05",
       },
       {
         n: 21,
-        title: "The Final Battle Approaches! Only 3 Days Away",
+        title: {
+          ja: "決勝迫る! タイムリミット3日前",
+          en: "The Final Battle Approaches! Only 3 Days Away",
+        },
         ja: "1994-09-09",
         en: "2002-09-09",
       },
       {
         n: 22,
-        title: "Breakthrough! Warriors Strong Ties",
+        title: {
+          ja: "戦士の絆! デビル包囲網を突破せよ",
+          en: "Breakthrough! Warriors Strong Ties",
+        },
         ja: "1994-09-16",
         en: "2002-09-10",
       },
       {
         n: 23,
-        title: "Destined Battle! Domon vs. Devil Gundam",
+        title: {
+          ja: "宿命の闘い! ドモン対デビルガンダム",
+          en: "Destined Battle! Domon vs. Devil Gundam",
+        },
         ja: "1994-09-23",
         en: "2002-09-11",
       },
       {
         n: 24,
-        title: "Bright New Star! The Birth of the God Gundam",
+        title: {
+          ja: "新たなる輝き! ゴッドガンダム誕生",
+          en: "Bright New Star! The Birth of the God Gundam",
+        },
         ja: "1994-09-30",
         en: "2002-09-12",
       },
       {
         n: 25,
-        title: "All Fighters Gathered! The Final Battles Begin",
+        title: {
+          ja: "決勝開幕! ガンダムファイター大集合",
+          en: "All Fighters Gathered! The Final Battles Begin",
+        },
         ja: "1994-10-07",
         en: "2002-09-16",
       },
       {
         n: 26,
-        title: "A New Weapon! Erupting God Finger",
+        title: {
+          ja: "新必殺技! 爆熱ゴッド・フィンガー!!",
+          en: "A New Weapon! Erupting God Finger",
+        },
         ja: "1994-10-14",
         en: "2002-09-17",
       },
       {
         n: 27,
-        title: "Hang on Domon! Triumph of the Restored Faith",
+        title: {
+          ja: "頑張れドモン! 友に捧げた大勝利",
+          en: "Hang on Domon! Triumph of the Restored Faith",
+        },
         ja: "1994-10-21",
         en: "2002-09-18",
       },
       {
         n: 28,
-        title: "Domon Targeted! The Assassin's Staff",
+        title: {
+          ja: "狙われたドモン! 殺し屋ファイターの必殺剣",
+          en: "Domon Targeted! The Assassin's Staff",
+        },
         ja: "1994-10-28",
         en: "2002-09-19",
       },
       {
         n: 29,
-        title: "Running Away! Sai Saici In Love",
+        title: {
+          ja: "試合放棄!? 恋にドキドキ、サイ・サイシー",
+          en: "Running Away! Sai Saici In Love",
+        },
         ja: "1994-11-04",
         en: "2002-09-23",
       },
       {
         n: 30,
-        title: "Beautiful Fighter! Dangerous Allenby",
+        title: {
+          ja: "美少女ファイター! デンジャラス・アレンビー",
+          en: "Beautiful Fighter! Dangerous Allenby",
+        },
         ja: "1994-11-11",
         en: "2002-09-24",
       },
       {
         n: 31,
-        title: "Dazzling Power of the Clown! Get Mad, Gundam Maxter",
+        title: {
+          ja: "ピエロの幻惑! 怒れガンダムマックスター",
+          en: "Dazzling Power of the Clown! Get Mad, Gundam Maxter",
+        },
         ja: "1994-11-18",
         en: "2002-09-25",
       },
       {
         n: 32,
-        title: "Dangerous Trap! Neros Gundam Strikes Back",
+        title: {
+          ja: "危険な罠! ネロスガンダムの大逆襲",
+          en: "Dangerous Trap! Neros Gundam Strikes Back",
+        },
         ja: "1994-11-25",
         en: "2002-09-26",
       },
       {
         n: 33,
-        title: "Emissary of Darkness! Chapman Rises Again",
+        title: {
+          ja: "地獄からの使者! チャップマン復活",
+          en: "Emissary of Darkness! Chapman Rises Again",
+        },
         ja: "1994-12-02",
         en: "2002-09-27",
       },
       {
         n: 34,
-        title: "Stand Up Domon! Raging Tag Team Match",
+        title: {
+          ja: "立てドモン! 嵐を呼ぶタッグマッチ",
+          en: "Stand Up Domon! Raging Tag Team Match",
+        },
         ja: "1994-12-09",
         en: "2002-09-30",
       },
       {
         n: 35,
-        title: "Showdown! Bursting Machinegun Punch",
+        title: {
+          ja: "決着の時! 豪熱マシンガンパンチ",
+          en: "Showdown! Bursting Machinegun Punch",
+        },
         ja: "1994-12-16",
         en: "2002-10-01",
       },
       {
         n: 36,
-        title: "A Knights' Pride! Gundam Rose Stolen",
+        title: {
+          ja: "騎士の誇り! 奪われたガンダムローズ",
+          en: "A Knights' Pride! Gundam Rose Stolen",
+        },
         ja: "1994-12-23",
         en: "2002-10-02",
       },
       {
         n: 37,
-        title: "Sai Saici's New Attack! Blazing Dragon Gundam",
+        title: {
+          ja: "真・流星胡蝶剣! 燃えよドラゴンガンダム",
+          en: "Sai Saici's New Attack! Blazing Dragon Gundam",
+        },
         ja: "1995-01-06",
         en: "2002-10-03",
       },
       {
         n: 38,
-        title: "Domon vs. Argo! Charging Bolt Gundam",
+        title: {
+          ja: "ドモン対アルゴ! 突撃ボルトガンダム",
+          en: "Domon vs. Argo! Charging Bolt Gundam",
+        },
         ja: "1995-01-13",
         en: "2002-10-04",
       },
       {
         n: 39,
-        title: "The Ultimate Attack! Duel With Master Asia",
+        title: {
+          ja: "石破天驚拳! 決闘マスター・アジア",
+          en: "The Ultimate Attack! Duel With Master Asia",
+        },
         ja: "1995-01-20",
         en: "2002-10-07",
       },
       {
         n: 40,
-        title: "The Ruthless Fight! Schwarz's Last Match",
+        title: {
+          ja: "非情のデスマッチ! シュバルツ最終決戦",
+          en: "The Ruthless Fight! Schwarz's Last Match",
+        },
         ja: "1995-01-27",
         en: "2002-10-08",
       },
       {
         n: 41,
-        title: "Battle Royal Begins! Devil Gundam Revived",
+        title: {
+          ja: "バトルロイヤル開始! 復活のデビルガンダム",
+          en: "Battle Royal Begins! Devil Gundam Revived",
+        },
         ja: "1995-02-03",
         en: "2002-10-09",
       },
       {
         n: 42,
-        title: "Assault of the Four Evil Kings! Gundam Heaven's Sword",
+        title: {
+          ja: "強襲四天王! ガンダムヘブンズソード",
+          en: "Assault of the Four Evil Kings! Gundam Heaven's Sword",
+        },
         ja: "1995-02-10",
         en: "2002-10-10",
       },
       {
         n: 43,
-        title: "Royal Counterattack! Ambush of the Grand Gundam",
+        title: {
+          ja: "獅王争覇! グランドガンダム迎撃作戦",
+          en: "Royal Counterattack! Ambush of the Grand Gundam",
+        },
         ja: "1995-02-17",
         en: "2002-10-11",
       },
       {
         n: 44,
-        title: "Schwarz Rests in Grace! Domon's Tearful Attack",
+        title: {
+          ja: "シュバルツ散る! ドモン涙の必殺拳",
+          en: "Schwarz Rests in Grace! Domon's Tearful Attack",
+        },
         ja: "1995-02-24",
         en: "2002-10-14",
       },
       {
         n: 45,
-        title: "Farewell Master: Master Asia's Last Breath",
+        title: {
+          ja: "さらば師匠! マスター・アジア、暁に死す",
+          en: "Farewell Master: Master Asia's Last Breath",
+        },
         ja: "1995-03-03",
         en: "2002-10-14",
       },
       {
         n: 46,
-        title: "Rain's Crisis: Return of the Devil Gundam",
+        title: {
+          ja: "レインの危機! デビルガンダムふたたび",
+          en: "Rain's Crisis: Return of the Devil Gundam",
+        },
         ja: "1995-03-10",
         en: "2002-10-15",
       },
       {
         n: 47,
-        title: "Devil Colony Activated: Attack of the Shuffle Alliance",
+        title: {
+          ja: "デビルコロニー始動! 大進撃シャッフル同盟",
+          en: "Devil Colony Activated: Attack of the Shuffle Alliance",
+        },
         ja: "1995-03-17",
         en: "2002-10-15",
       },
       {
         n: 48,
-        title: "Earth's S.O.S.: Rescue Gundam Federation",
+        title: {
+          ja: "地球SOS! 出撃ガンダム連合!!",
+          en: "Earth's S.O.S.: Rescue Gundam Federation",
+        },
         ja: "1995-03-24",
         en: "2002-10-16",
       },
       {
         n: 49,
-        title: "God Gundam's Great Triumph: A Hopeful Future; Ready, Go!",
+        title: {
+          ja: "ガンダム大勝利! 希望の未来へレディ・ゴーッ!!",
+          en: "God Gundam's Great Triumph: A Hopeful Future; Ready, Go!",
+        },
         ja: "1995-03-31",
         en: "2002-10-16",
       },
@@ -2733,28 +2584,19 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   g_gundam_1995_novel: {
-    title: "Mobile Fighter G Gundam (novelization)",
+    title: {
+      ja: "機動武闘伝Gガンダム (小説版)",
+      en: "Mobile Fighter G Gundam (novelization)",
+    },
     u: "fc",
     type: "novel",
+    source: "https://en.wikipedia.org/wiki/Mobile_Fighter_G_Gundam",
     author: "Yoshitake Suzuki",
     publisher: "Kadokawa Shoten / Sneaker Bunko",
-    source: "https://en.wikipedia.org/wiki/Mobile_Fighter_G_Gundam",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "1995",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "1995",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "1996",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "1995" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "1995" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "1996" },
     ],
     releases: [
       {
@@ -2767,16 +2609,18 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   g_gundam_fight_7th_1996_manga: {
-    title: "Kidō Butōden Gaiden Gundam Fight 7th",
+    title: {
+      ja: "機動武闘伝外伝 Gundam Fight 7th",
+      en: "Kidō Butōden Gaiden Gundam Fight 7th",
+    },
     u: "fc",
     type: "manga",
     source: "https://en.wikipedia.org/wiki/G_Gundam",
+    author: "Kōichi Tokita",
+    publisher: "Kodansha",
+    magazine: "Comic BonBon",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "1997-01-08",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "1997-01-08" },
     ],
     releases: [
       {
@@ -2788,41 +2632,21 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         schedule: "serial",
       },
     ],
-    author: "Kōichi Tokita",
-    publisher: "Kodansha",
-    magazine: "Comic BonBon",
   },
   gaia_gear_1987_novel: {
-    title: "Gaia Gear",
+    title: { ja: "ガイア・ギア", en: "Gaia Gear" },
     u: "uc",
     type: "novel",
     source: "https://en.wikipedia.org/wiki/Gaia_Gear_(novel)",
+    author: "Yoshiyuki Tomino",
+    publisher: "Kadokawa Shoten",
+    magazine: "Newtype",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "1988-09-01",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "1989-09-01",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "1990-09-01",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "1992-02-01",
-      },
-      {
-        n: 5,
-        title: "Volume 5",
-        ja: "1992-04-01",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "1988-09-01" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "1989-09-01" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "1990-09-01" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "1992-02-01" },
+      { n: 5, title: { ja: "Volume 5", en: "Volume 5" }, ja: "1992-04-01" },
     ],
     releases: [
       {
@@ -2834,145 +2658,50 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         schedule: "serial",
       },
     ],
-    author: "Yoshiyuki Tomino",
-    publisher: "Kadokawa Shoten",
-    magazine: "Newtype",
   },
   gaia_gear_1992_radio: {
-    title: "Gaia Gear (radio drama)",
+    title: { ja: "ガイア・ギア", en: "Gaia Gear (radio drama)" },
     u: "uc",
     type: "ona",
     source: "https://ja.wikipedia.org/wiki/ガイア・ギア",
     note: "26-episode radio drama adaptation broadcast on Bunka Housou",
     episodes: [
-      {
-        n: 1,
-        title: "シャア再び",
-        ja: "1992-04-12",
-      },
-      {
-        n: 2,
-        title: "宇宙の呼び声",
-        ja: "1992-04-19",
-      },
-      {
-        n: 3,
-        title: "メモリー・クローン",
-        ja: "1992-04-26",
-      },
-      {
-        n: 4,
-        title: "ミランダ・ハウ",
-        ja: "1992-05-03",
-      },
-      {
-        n: 5,
-        title: "ウルの追跡",
-        ja: "1992-05-10",
-      },
-      {
-        n: 6,
-        title: "シャトル強奪",
-        ja: "1992-05-17",
-      },
-      {
-        n: 7,
-        title: "マザー・メタトロン",
-        ja: "1992-05-24",
-      },
-      {
-        n: 8,
-        title: "ヘラス潜入",
-        ja: "1992-05-31",
-      },
-      {
-        n: 9,
-        title: "囚われたアフランシ",
-        ja: "1992-06-07",
-      },
-      {
-        n: 10,
-        title: "ゾーリン・ソール",
-        ja: "1992-06-14",
-      },
-      {
-        n: 11,
-        title: "ランナウェイ",
-        ja: "1992-06-21",
-      },
-      {
-        n: 12,
-        title: "目覚め",
-        ja: "1992-06-28",
-      },
-      {
-        n: 13,
-        title: "マハ追撃命令",
-        ja: "1992-07-05",
-      },
-      {
-        n: 14,
-        title: "大気圏突入",
-        ja: "1992-07-12",
-      },
+      { n: 1, title: { ja: "シャア再び", en: null }, ja: "1992-04-12" },
+      { n: 2, title: { ja: "宇宙の呼び声", en: null }, ja: "1992-04-19" },
+      { n: 3, title: { ja: "メモリー・クローン", en: null }, ja: "1992-04-26" },
+      { n: 4, title: { ja: "ミランダ・ハウ", en: null }, ja: "1992-05-03" },
+      { n: 5, title: { ja: "ウルの追跡", en: null }, ja: "1992-05-10" },
+      { n: 6, title: { ja: "シャトル強奪", en: null }, ja: "1992-05-17" },
+      { n: 7, title: { ja: "マザー・メタトロン", en: null }, ja: "1992-05-24" },
+      { n: 8, title: { ja: "ヘラス潜入", en: null }, ja: "1992-05-31" },
+      { n: 9, title: { ja: "囚われたアフランシ", en: null }, ja: "1992-06-07" },
+      { n: 10, title: { ja: "ゾーリン・ソール", en: null }, ja: "1992-06-14" },
+      { n: 11, title: { ja: "ランナウェイ", en: null }, ja: "1992-06-21" },
+      { n: 12, title: { ja: "目覚め", en: null }, ja: "1992-06-28" },
+      { n: 13, title: { ja: "マハ追撃命令", en: null }, ja: "1992-07-05" },
+      { n: 14, title: { ja: "大気圏突入", en: null }, ja: "1992-07-12" },
       {
         n: 15,
-        title: "季節風（ミストラル）",
+        title: { ja: "季節風（ミストラル）", en: null },
         ja: "1992-07-19",
       },
-      {
-        n: 16,
-        title: "コンタクト",
-        ja: "1992-07-26",
-      },
-      {
-        n: 17,
-        title: "敗北",
-        ja: "1992-08-02",
-      },
-      {
-        n: 18,
-        title: "ダーゴルの野望",
-        ja: "1992-08-09",
-      },
-      {
-        n: 19,
-        title: "クリシュナの苦悩",
-        ja: "1992-08-16",
-      },
-      {
-        n: 20,
-        title: "ヌーボ・パリ",
-        ja: "1992-08-23",
-      },
-      {
-        n: 21,
-        title: "戦いの果て",
-        ja: "1992-08-30",
-      },
-      {
-        n: 22,
-        title: "ギッズ・ギース",
-        ja: "1992-09-06",
-      },
+      { n: 16, title: { ja: "コンタクト", en: null }, ja: "1992-07-26" },
+      { n: 17, title: { ja: "敗北", en: null }, ja: "1992-08-02" },
+      { n: 18, title: { ja: "ダーゴルの野望", en: null }, ja: "1992-08-09" },
+      { n: 19, title: { ja: "クリシュナの苦悩", en: null }, ja: "1992-08-16" },
+      { n: 20, title: { ja: "ヌーボ・パリ", en: null }, ja: "1992-08-23" },
+      { n: 21, title: { ja: "戦いの果て", en: null }, ja: "1992-08-30" },
+      { n: 22, title: { ja: "ギッズ・ギース", en: null }, ja: "1992-09-06" },
       {
         n: 23,
-        title: "ジャン・ウェン・フーの挑戦",
+        title: { ja: "ジャン・ウェン・フーの挑戦", en: null },
         ja: "1992-09-13",
       },
-      {
-        n: 24,
-        title: "バイエルンの風",
-        ja: "1992-09-20",
-      },
-      {
-        n: 25,
-        title: "エヴァリーの声",
-        ja: "1992-09-27",
-      },
+      { n: 24, title: { ja: "バイエルンの風", en: null }, ja: "1992-09-20" },
+      { n: 25, title: { ja: "エヴァリーの声", en: null }, ja: "1992-09-27" },
       {
         n: 26,
-        title: "ペーパー・キャッスル",
+        title: { ja: "ペーパー・キャッスル", en: null },
         ja: "1992-10-04",
       },
     ],
@@ -2996,7 +2725,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   gquuuuuux_2025_tv: {
-    title: "Mobile Suit Gundam GQuuuuuuX",
+    title: {
+      ja: "機動戦士Gundam GQuuuuuuX",
+      en: "Mobile Suit Gundam GQuuuuuuX",
+    },
     u: "uc-alt",
     type: "tv",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_GQuuuuuuX",
@@ -3004,63 +2736,69 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
+        title: { ja: "赤いガンダム", en: "The Red Gundam" },
         ja: "2025-04-09",
-        title: "The Red Gundam",
       },
       {
         n: 2,
+        title: { ja: "白いガンダム", en: "The White Gundam" },
         ja: "2025-04-16",
-        title: "The White Gundam",
       },
       {
         n: 3,
+        title: { ja: "クランバトルのマチュ", en: "Machu in Clan Battle" },
         ja: "2025-04-23",
-        title: "Machu in Clan Battle",
       },
       {
         n: 4,
+        title: { ja: "魔女の戦争", en: "The Witch's War" },
         ja: "2025-04-30",
-        title: "The Witch's War",
       },
       {
         n: 5,
+        title: {
+          ja: "ニャアンはキラキラを知らない",
+          en: "Nyaan Doesn't Know About Kira-Kira",
+        },
         ja: "2025-05-07",
-        title: "Nyaan Doesn't Know About Kira-Kira",
       },
       {
         n: 6,
+        title: {
+          ja: "キシリア暗殺計画",
+          en: "The Plot to Assassinate Kycilia",
+        },
         ja: "2025-05-14",
-        title: "The Plot to Assassinate Kycilia",
       },
       {
         n: 7,
+        title: { ja: "マチュのリベリオン", en: "Machu's Rebellion" },
         ja: "2025-05-21",
-        title: "Machu's Rebellion",
       },
       {
         n: 8,
+        title: { ja: "月に墜（堕）ちる。}}", en: "Falling on the Moon" },
         ja: "2025-05-28",
-        title: "Falling on the Moon",
       },
       {
         n: 9,
+        title: { ja: "シャロンの薔薇", en: "The Rose of Sharon" },
         ja: "2025-06-04",
-        title: "The Rose of Sharon",
       },
       {
         n: 10,
+        title: { ja: "イオマグヌッソ封鎖", en: "Yomagn'tho Blockade" },
         ja: "2025-06-11",
-        title: "Yomagn'tho Blockade",
       },
       {
         n: 11,
+        title: { ja: "アルファ殺したち", en: "Alphacide" },
         ja: "2025-06-18",
-        title: "Alphacide",
       },
       {
         n: 12,
+        title: { ja: "だから僕は…", en: "That's Why I..." },
         ja: "2025-06-25",
-        title: "That's Why I...",
       },
     ],
     releases: [
@@ -3088,14 +2826,17 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   gquuuuuux_beginning_2025_film: {
-    title: "Mobile Suit Gundam GQuuuuuuX: Beginning",
+    title: {
+      ja: "機動戦士Gundam GQuuuuuuX Beginning",
+      en: "Mobile Suit Gundam GQuuuuuuX: Beginning",
+    },
     u: "uc-alt",
     type: "film",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_GQuuuuuuX",
     episodes: [
       {
         n: 1,
-        title: "Beginning",
+        title: { ja: "機動戦士Gundam GQuuuuuuX Beginning", en: "Beginning" },
         ja: "2025-01-17",
       },
     ],
@@ -3117,14 +2858,17 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   green_divers_2001_film: {
-    title: "Gundam New Experience: Green Divers",
+    title: {
+      ja: "ガンダム新体験 グリーンダイバーズ",
+      en: "Gundam New Experience: Green Divers",
+    },
     u: "uc",
     type: "film",
     source: "https://ja.wikipedia.org/wiki/ガンダム新体験_グリーンダイバーズ",
     episodes: [
       {
         n: 1,
-        title: "Green Divers",
+        title: { ja: "ガンダム新体験 グリーンダイバーズ", en: "Green Divers" },
         ja: "2001-08-10",
       },
     ],
@@ -3140,16 +2884,12 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   gsaviour_2000_film: {
-    title: "G-Saviour",
+    title: { ja: "G-SAVIOUR", en: "G-Saviour" },
     u: "uc",
     type: "film",
     source: "https://en.wikipedia.org/wiki/G-Saviour",
     episodes: [
-      {
-        n: 1,
-        title: "G-Saviour",
-        ja: "2000-12-29",
-      },
+      { n: 1, title: { ja: "G-SAVIOUR", en: "G-Saviour" }, ja: "2000-12-29" },
     ],
     releases: [
       {
@@ -3169,7 +2909,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   gundam00_2007_tv: {
-    title: "Mobile Suit Gundam 00",
+    title: { ja: "機動戦士ガンダム00", en: "Mobile Suit Gundam 00" },
     u: "ad",
     type: "tv",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
@@ -3177,303 +2917,298 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
+        title: { ja: "ソレスタルビーイング", en: "Celestial Being" },
         ja: "2007-10-06",
         season: 1,
-        title: "Celestial Being",
       },
       {
         n: 2,
+        title: { ja: "ガンダムマイスター", en: "Gundam Meisters" },
         ja: "2007-10-13",
         season: 1,
-        title: "Gundam Meisters",
       },
       {
         n: 3,
+        title: { ja: "変わる世界", en: "The Changing World" },
         ja: "2007-10-20",
         season: 1,
-        title: "The Changing World",
       },
       {
         n: 4,
+        title: { ja: "対外折衝", en: "International Negotiation" },
         ja: "2007-10-27",
         season: 1,
-        title: "International Negotiation",
       },
       {
         n: 5,
+        title: { ja: "限界離脱領域", en: "Escape Limit Zone" },
         ja: "2007-11-03",
         season: 1,
-        title: "Escape Limit Zone",
       },
       {
         n: 6,
+        title: { ja: "セブンソード", en: "Seven Swords" },
         ja: "2007-11-10",
         season: 1,
-        title: "Seven Swords",
       },
       {
         n: 7,
+        title: { ja: "報われぬ魂", en: "Unrewarded Souls" },
         ja: "2007-11-17",
         season: 1,
-        title: "Unrewarded Souls",
       },
       {
         n: 8,
+        title: { ja: "無差別報復", en: "Indiscriminate Retaliation" },
         ja: "2007-11-24",
         season: 1,
-        title: "Indiscriminate Retaliation",
       },
       {
         n: 9,
+        title: { ja: "大国の威信", en: "The Honor of a Great Power" },
         ja: "2007-12-01",
         season: 1,
-        title: "The Honor of a Great Power",
       },
       {
         n: 10,
+        title: { ja: "ガンダム鹵獲作戦", en: "Operation Gundam Capture" },
         ja: "2007-12-08",
         season: 1,
-        title: "Operation Gundam Capture",
       },
       {
         n: 11,
+        title: { ja: "アレルヤ", en: "Allelujah" },
         ja: "2007-12-15",
         season: 1,
-        title: "Allelujah",
       },
       {
         n: 12,
+        title: { ja: "教義の果てに", en: "To the Limits of Holy Teachings" },
         ja: "2007-12-22",
         season: 1,
-        title: "To the Limits of Holy Teachings",
       },
       {
         n: 13,
+        title: { ja: "聖者の帰還", en: "Return of the Saint" },
         ja: "2007-12-29",
         season: 1,
-        title: "Return of the Saint",
       },
       {
         n: 14,
+        title: { ja: "決意の朝", en: "Dawn of Determination" },
         ja: "2008-01-05",
         season: 1,
-        title: "Dawn of Determination",
       },
       {
         n: 15,
+        title: { ja: "折れた翼", en: "Broken Wings" },
         ja: "2008-01-12",
         season: 1,
-        title: "Broken Wings",
       },
       {
         n: 16,
+        title: { ja: "トリニティ", en: "Trinity" },
         ja: "2008-01-19",
         season: 1,
-        title: "Trinity",
       },
       {
         n: 17,
+        title: { ja: "スローネ強襲", en: "Assault of the Thrones" },
         ja: "2008-01-26",
         season: 1,
-        title: "Assault of the Thrones",
       },
       {
         n: 18,
+        title: { ja: "悪意の矛先", en: "The Aim of Evil Intents" },
         ja: "2008-02-02",
         season: 1,
-        title: "The Aim of Evil Intents",
       },
-      {
-        n: 19,
-        ja: "2008-02-09",
-        season: 1,
-        title: "Bonds",
-      },
+      { n: 19, title: { ja: "絆", en: "Bonds" }, ja: "2008-02-09", season: 1 },
       {
         n: 20,
+        title: { ja: "変革の刃", en: "Blade of Reformation" },
         ja: "2008-02-16",
         season: 1,
-        title: "Blade of Reformation",
       },
       {
         n: 21,
+        title: { ja: "滅びの道", en: "Path of Destruction" },
         ja: "2008-02-23",
         season: 1,
-        title: "Path of Destruction",
       },
       {
         n: 22,
+        title: { ja: "トランザム", en: "Trans-Am" },
         ja: "2008-03-01",
         season: 1,
-        title: "Trans-Am",
       },
       {
         n: 23,
+        title: { ja: "世界を止めて", en: "Stop the World" },
         ja: "2008-03-08",
         season: 1,
-        title: "Stop the World",
       },
       {
         n: 24,
+        title: { ja: "終わりなき詩", en: "Endless Poem" },
         ja: "2008-03-15",
         season: 1,
-        title: "Endless Poem",
       },
       {
         n: 25,
+        title: { ja: "刹那", en: "Setsuna" },
         ja: "2008-03-29",
         season: 1,
-        title: "Setsuna",
       },
       {
         n: 26,
+        title: { ja: "天使再臨", en: "The Angels' Second Advent" },
         ja: "2008-10-05",
         season: 2,
-        title: "The Angels' Second Advent",
       },
       {
         n: 27,
+        title: { ja: "ツインドライヴ", en: "Twin Drive" },
         ja: "2008-10-12",
         season: 2,
-        title: "Twin Drive",
       },
       {
         n: 28,
+        title: { ja: "アレルヤ奪還作戦", en: "Allelujah Rescue Operation" },
         ja: "2008-10-19",
         season: 2,
-        title: "Allelujah Rescue Operation",
       },
       {
         n: 29,
+        title: { ja: "戦う理由", en: "A Reason to Fight" },
         ja: "2008-10-26",
         season: 2,
-        title: "A Reason to Fight",
       },
       {
         n: 30,
+        title: { ja: "故国燃ゆ", en: "Homeland Burning" },
         ja: "2008-11-02",
         season: 2,
-        title: "Homeland Burning",
       },
       {
         n: 31,
+        title: { ja: "傷痕", en: "Scars" },
         ja: "2008-11-09",
         season: 2,
-        title: "Scars",
       },
       {
         n: 32,
+        title: { ja: "再会と離別と", en: "Reunion and Separation" },
         ja: "2008-11-16",
         season: 2,
-        title: "Reunion and Separation",
       },
       {
         n: 33,
+        title: { ja: "無垢なる歪み", en: "Twistedness of Innocence" },
         ja: "2008-11-23",
         season: 2,
-        title: "Twistedness of Innocence",
       },
       {
         n: 34,
+        title: { ja: "拭えぬ過去", en: "The Indelible Past" },
         ja: "2008-11-30",
         season: 2,
-        title: "The Indelible Past",
       },
       {
         n: 35,
+        title: { ja: "天の光", en: "Light of Heaven" },
         ja: "2008-12-07",
         season: 2,
-        title: "Light of Heaven",
       },
       {
         n: 36,
+        title: { ja: "ダブルオーの声", en: "00's Voice" },
         ja: "2008-12-14",
         season: 2,
-        title: "00's Voice",
       },
       {
         n: 37,
+        title: { ja: "宇宙で待ってる", en: "Wait for Me in Space" },
         ja: "2008-12-21",
         season: 2,
-        title: "Wait for Me in Space",
       },
       {
         n: 38,
+        title: { ja: "メメントモリ攻略戦", en: "Assault on Memento Mori" },
         ja: "2008-12-28",
         season: 2,
-        title: "Assault on Memento Mori",
       },
       {
         n: 39,
+        title: { ja: "歌が聴こえる", en: "I Can Hear a Song" },
         ja: "2009-01-04",
         season: 2,
-        title: "I Can Hear a Song",
       },
       {
         n: 40,
+        title: { ja: "反抗の凱歌", en: "Victory Song of the Resistance" },
         ja: "2009-01-11",
         season: 2,
-        title: "Victory Song of the Resistance",
       },
       {
         n: 41,
+        title: { ja: "悲劇への序章", en: "Prelude to Tragedy" },
         ja: "2009-01-18",
         season: 2,
-        title: "Prelude to Tragedy",
       },
       {
         n: 42,
+        title: { ja: "散りゆく光の中で", en: "Within the Scattering Light" },
         ja: "2009-01-25",
         season: 2,
-        title: "Within the Scattering Light",
       },
       {
         n: 43,
+        title: { ja: "交錯する想い", en: "Entangled Yearnings" },
         ja: "2009-02-01",
         season: 2,
-        title: "Entangled Yearnings",
       },
       {
         n: 44,
+        title: { ja: "イノベイターの影", en: "Shadow of the Innovators" },
         ja: "2009-02-08",
         season: 2,
-        title: "Shadow of the Innovators",
       },
       {
         n: 45,
+        title: { ja: "アニュー・リターン", en: "Anew Returns" },
         ja: "2009-02-15",
         season: 2,
-        title: "Anew Returns",
       },
       {
         n: 46,
+        title: { ja: "革新の扉", en: "The Door of Change" },
         ja: "2009-02-22",
         season: 2,
-        title: "The Door of Change",
       },
       {
         n: 47,
+        title: { ja: "未来のために", en: "For the Future" },
         ja: "2009-03-01",
         season: 2,
-        title: "For the Future",
       },
       {
         n: 48,
+        title: { ja: "命の華", en: "Flower of Life" },
         ja: "2009-03-08",
         season: 2,
-        title: "Flower of Life",
       },
       {
         n: 49,
+        title: { ja: "BEYOND", en: "Beyond" },
         ja: "2009-03-15",
         season: 2,
-        title: "Beyond",
       },
       {
         n: 50,
+        title: { ja: "再生", en: "Rebirth" },
         ja: "2009-03-29",
         season: 2,
-        title: "Rebirth",
       },
     ],
     releases: [
@@ -3524,14 +3259,20 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   gundam00_2010_film: {
-    title: "Mobile Suit Gundam 00 The Movie: A Wakening of the Trailblazer",
+    title: {
+      ja: "劇場版 機動戦士ガンダム00 -A wakening of the Trailblazer-",
+      en: "Mobile Suit Gundam 00 The Movie: A Wakening of the Trailblazer",
+    },
     u: "ad",
     type: "film",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
     episodes: [
       {
         n: 1,
-        title: "Awakening of the Trailblazer",
+        title: {
+          ja: "劇場版 機動戦士ガンダム00 -A wakening of the Trailblazer-",
+          en: "Awakening of the Trailblazer",
+        },
         ja: "2010-09-18",
       },
     ],
@@ -3560,50 +3301,25 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   gundam00_manga: {
-    title: "Mobile Suit Gundam 00 (manga)",
+    title: {
+      ja: "機動戦士ガンダム00 (漫画)",
+      en: "Mobile Suit Gundam 00 (manga)",
+    },
     u: "ad",
     type: "manga",
+    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_00_(Manga)",
     author: "Kouzou Oomori (art), Tomohiro Chiba (story)",
     publisher: "Kadokawa Shoten",
     magazine: "Kerokero Ace",
-    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_00_(Manga)",
     note: "6-volume manga adaptation of the TV series",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2008-03",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2008-07",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2008-11",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "2009-02",
-      },
-      {
-        n: 5,
-        title: "Volume 5",
-        ja: "2009-05",
-      },
-      {
-        n: 6,
-        title: "Volume 6",
-        ja: "2009-08",
-      },
-      {
-        n: 7,
-        title: "Volume 7",
-        ja: "2010-01",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2008-03" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2008-07" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2008-11" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2009-02" },
+      { n: 5, title: { ja: "Volume 5", en: "Volume 5" }, ja: "2009-05" },
+      { n: 6, title: { ja: "Volume 6", en: "Volume 6" }, ja: "2009-08" },
+      { n: 7, title: { ja: "Volume 7", en: "Volume 7" }, ja: "2010-01" },
     ],
     releases: [
       {
@@ -3617,24 +3333,27 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   gundam00_special_edition_2009_ova: {
-    title: "Mobile Suit Gundam 00 Special Edition",
+    title: {
+      ja: "機動戦士ガンダム00 スペシャルエディション",
+      en: "Mobile Suit Gundam 00 Special Edition",
+    },
     u: "ad",
     type: "ova",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
     episodes: [
       {
         n: 1,
-        title: "Celestial Being",
+        title: { ja: "ソレスタルビーイング", en: "Celestial Being" },
         ja: "2009-10-27",
       },
       {
         n: 2,
-        title: "End of World",
+        title: { ja: "エンド・オブ・ワールド", en: "End of World" },
         ja: "2009-12-22",
       },
       {
         n: 3,
-        title: "Return the World",
+        title: { ja: "リターン・オブ・ドライヴ", en: "Return the World" },
         ja: "2010-02-23",
       },
     ],
@@ -3657,31 +3376,18 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   gundam00f_2008_manga: {
-    title: "Mobile Suit Gundam 00F",
+    title: { ja: "機動戦士ガンダム00F", en: "Mobile Suit Gundam 00F" },
     u: "ad",
     type: "manga",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
+    author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
+    publisher: "Kadokawa Shoten",
+    magazine: "Gundam Ace",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2008-03",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2008",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2009",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "2009-07",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2008-03" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2008" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2009" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2009-07" },
     ],
     releases: [
       {
@@ -3693,31 +3399,19 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         schedule: "serial",
       },
     ],
-    author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
   },
   gundam00i_2009_manga: {
-    title: "Mobile Suit Gundam 00I",
+    title: { ja: "機動戦士ガンダム00I", en: "Mobile Suit Gundam 00I" },
     u: "ad",
     type: "manga",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
+    author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
+    publisher: "Kadokawa Shoten",
+    magazine: "Gundam Ace",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2010-01",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2010-06",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2010-09",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2010-01" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2010-06" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2010-09" },
     ],
     releases: [
       {
@@ -3729,30 +3423,22 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         schedule: "serial",
       },
     ],
-    author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
   },
   gundam00i_2314_2010_manga: {
-    title: "Mobile Suit Gundam 00I 2314",
+    title: {
+      ja: "機動戦士ガンダム00I 2314",
+      en: "Mobile Suit Gundam 00I 2314",
+    },
     u: "ad",
     type: "manga",
+    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_00I_2314",
     author: "Tomofumi Ogasawara",
     publisher: "Kadokawa",
     magazine: "Gundam Ace",
-    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_00I_2314",
     note: "Sequel to 00I, set in AD 2314 before the movie",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2012",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2013",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2012" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2013" },
     ],
     releases: [
       {
@@ -3766,17 +3452,14 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   gundam00n_2012_manga: {
-    title: "Mobile Suit Gundam 00N",
+    title: { ja: "機動戦士ガンダム00N", en: "Mobile Suit Gundam 00N" },
     u: "ad",
     type: "manga",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
-    episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2012",
-      },
-    ],
+    author: "Tomohiro Chiba (story)",
+    publisher: "ASCII Media Works",
+    magazine: "Dengeki Hobby Magazine",
+    episodes: [{ n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2012" }],
     releases: [
       {
         region: "ja",
@@ -3787,41 +3470,21 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         schedule: "serial",
       },
     ],
-    author: "Tomohiro Chiba (story)",
-    publisher: "ASCII Media Works",
-    magazine: "Dengeki Hobby Magazine",
   },
   gundam00p_2007_manga: {
-    title: "Mobile Suit Gundam 00P",
+    title: { ja: "機動戦士ガンダム00P", en: "Mobile Suit Gundam 00P" },
     u: "ad",
     type: "manga",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
+    author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
+    publisher: "ASCII Media Works",
+    magazine: "Dengeki Hobby Magazine",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2008-05",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2008-10",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2009-05",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "2009-11",
-      },
-      {
-        n: 5,
-        title: "Volume 5",
-        ja: "2010-03",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2008-05" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2008-10" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2009-05" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2009-11" },
+      { n: 5, title: { ja: "Volume 5", en: "Volume 5" }, ja: "2010-03" },
     ],
     releases: [
       {
@@ -3833,22 +3496,16 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         schedule: "serial",
       },
     ],
-    author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
-    publisher: "ASCII Media Works",
-    magazine: "Dengeki Hobby Magazine",
   },
   gundam00v_2008_manga: {
-    title: "Mobile Suit Gundam 00V",
+    title: { ja: "機動戦士ガンダム00V", en: "Mobile Suit Gundam 00V" },
     u: "ad",
     type: "manga",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_00",
-    episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2008",
-      },
-    ],
+    author: "Tomohiro Chiba (story), various (art)",
+    publisher: "Hobby Japan",
+    magazine: "Hobby Japan",
+    episodes: [{ n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2008" }],
     releases: [
       {
         region: "ja",
@@ -3859,103 +3516,109 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         schedule: "serial",
       },
     ],
-    author: "Tomohiro Chiba (story), various (art)",
-    publisher: "Hobby Japan",
-    magazine: "Hobby Japan",
   },
   gundam_evolve_2001_ova: {
-    title: "Gundam Evolve",
-    u: ["uc", "fc", "ce", "ac", "sd"],
+    title: { ja: "GUNDAM EVOLVE", en: "Gundam Evolve" },
+    u: "mixed",
     type: "ova",
     source: "https://en.wikipedia.org/wiki/Gundam_Evolve",
     episodes: [
       {
         n: 1,
-        title: "RX-78-2 Gundam",
+        title: { ja: "RX-78-2 Gundam", en: "RX-78-2 Gundam" },
         ja: "2001-10-26",
         u: "uc",
       },
       {
         n: 2,
-        title: "RX-178 Gundam Mk-II",
+        title: { ja: "RX-178 Gundam Mk-II", en: "RX-178 Gundam Mk-II" },
         ja: "2002-03-26",
         u: "uc",
       },
       {
         n: 3,
-        title: "GF13-017NJII God Gundam",
+        title: { ja: "GF13-017NJII God Gundam", en: "GF13-017NJII God Gundam" },
         ja: "2002-09-26",
         u: "fc",
       },
       {
         n: 4,
-        title: "RX-78 GP03 Dendrobium",
+        title: { ja: "RX-78 GP03 Dendrobium", en: "RX-78 GP03 Dendrobium" },
         ja: "2003-03-26",
         u: "uc",
       },
       {
         n: 5,
-        title: "RX-93 ν Gundam",
+        title: { ja: "RX-93 ν Gundam", en: "RX-93 ν Gundam" },
         ja: "2003-06-09",
         u: "uc",
       },
       {
         n: 6,
-        title: "YMF-X000A Dreadnought Gundam",
+        title: {
+          ja: "YMF-X000A Dreadnought Gundam",
+          en: "YMF-X000A Dreadnought Gundam",
+        },
         ja: "2004-11-26",
         u: "ce",
       },
       {
         n: 7,
-        title: "XXXG-00W0 Wing Gundam Zero",
+        title: {
+          ja: "XXXG-00W0 Wing Gundam Zero",
+          en: "XXXG-00W0 Wing Gundam Zero",
+        },
         ja: "2005-03-26",
         u: "ac",
       },
       {
         n: 8,
-        title: "GAT-X105 Strike Gundam",
+        title: { ja: "GAT-X105 Strike Gundam", en: "GAT-X105 Strike Gundam" },
         ja: "2005-09-26",
         u: "ce",
       },
       {
         n: 9,
-        title: "MSZ-006 Zeta Gundam",
+        title: { ja: "MSZ-006 Zeta Gundam", en: "MSZ-006 Zeta Gundam" },
         ja: "2006-03-26",
         u: "uc",
       },
       {
         n: 10,
-        title: "MSZ-010 ZZ Gundam",
+        title: { ja: "MSZ-010 ZZ Gundam", en: "MSZ-010 ZZ Gundam" },
         ja: "2006-10-27",
         u: "uc",
       },
       {
         n: 11,
-        title: "RB-79 Ball",
+        title: { ja: "RB-79 Ball", en: "RB-79 Ball" },
         ja: "2006-10-27",
         u: "uc",
       },
       {
         n: 12,
-        title: "RMS-099 Rick Dias",
+        title: { ja: "RMS-099 Rick Dias", en: "RMS-099 Rick Dias" },
         ja: "2006-10-27",
         u: "uc",
       },
       {
         n: 13,
-        title: "RMS-108 Marasai",
+        title: { ja: "RMS-108 Marasai", en: "RMS-108 Marasai" },
         ja: "2006-10-27",
         u: "uc",
       },
       {
         n: 14,
-        title: "Rekka Musha Gundam",
+        title: { ja: "Rekka Musha Gundam", en: "Rekka Musha Gundam" },
         ja: "2007-01-26",
         u: "sd",
       },
       {
         n: 15,
-        title: "The Newtype: Challia Bull",
+        title: {
+          ja: "The Newtype: Challia Bull",
+          en: "The Newtype: Challia Bull",
+        },
         ja: "2007-01-26",
         u: "uc",
       },
@@ -3992,35 +3655,19 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   gundam_exa_2011_manga: {
-    title: "Gundam EXA",
+    title: { ja: "ガンダムEXA", en: "Gundam EXA" },
     u: "build",
     type: "manga",
+    source: "https://ja.wikipedia.org/wiki/ガンダムEXA",
     author:
       "Tokita Koichi (art), Tomino Yoshiyuki / Yatate Hajime (original concept)",
     publisher: "Kadokawa",
     magazine: "Gundam Ace",
-    source: "https://ja.wikipedia.org/wiki/ガンダムEXA",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2011-11-26",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2012-03-26",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2012-08-23",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "2013-01-24",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2011-11-26" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2012-03-26" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2012-08-23" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2013-01-24" },
     ],
     releases: [
       {
@@ -4034,35 +3681,19 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   gundam_exa_vs_2014_manga: {
-    title: "Gundam EXA VS",
+    title: { ja: "ガンダムEXA VS", en: "Gundam EXA VS" },
     u: "build",
     type: "manga",
+    source: "https://ja.wikipedia.org/wiki/ガンダムEXA",
     author:
       "Tokita Koichi (art), Tomino Yoshiyuki / Yatate Hajime (original concept)",
     publisher: "Kadokawa",
     magazine: "Gundam Ace",
-    source: "https://ja.wikipedia.org/wiki/ガンダムEXA",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2014-06",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2014-11",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2015-06",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "2016-01",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2014-06" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2014-11" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2015-06" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2016-01" },
     ],
     releases: [
       {
@@ -4076,7 +3707,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   gundam_g40_2020_ona: {
-    title: "Mobile Suit Gundam G40",
+    title: { ja: "機動戦士ガンダムG40", en: "Mobile Suit Gundam G40" },
     u: "uc",
     type: "ona",
     source:
@@ -4084,7 +3715,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "G40",
+        title: { ja: "機動戦士ガンダムG40", en: "G40" },
         ja: "2020-01-21",
       },
     ],
@@ -4106,7 +3737,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   gundam_legendary_tba: {
-    title: "Gundam (Legendary Pictures live-action)",
+    title: {
+      ja: "GUNDAM (Netflix)",
+      en: "Gundam (Legendary Pictures live-action)",
+    },
     u: "uc",
     type: "live-action",
     source: "https://en.wikipedia.org/wiki/Gundam_(film)",
@@ -4115,7 +3749,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     releases: [],
   },
   gundam_perfect_mission_2009_ova: {
-    title: "GUNDAM PERFECT MISSION",
+    title: { ja: "GUNDAM PERFECT MISSION", en: "GUNDAM PERFECT MISSION" },
     u: "uc",
     type: "ova",
     source: "https://ja.wikipedia.org/wiki/GUNDAM_PERFECT_MISSION",
@@ -4123,7 +3757,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "GUNDAM PERFECT MISSION",
+        title: { ja: "GUNDAM PERFECT MISSION", en: "GUNDAM PERFECT MISSION" },
         ja: "2009",
       },
     ],
@@ -4138,74 +3772,73 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   gundam_san_2014_tv: {
-    title: "Mobile Suit Gundam-san",
+    title: { ja: "機動戦士ガンダムさん", en: "Mobile Suit Gundam-san" },
     u: "uc",
     type: "tv",
     source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam-san",
     episodes: [
       {
         n: 1,
-        title: "He Likes the Red One",
+        title: { ja: "赤いのが好き", en: "He Likes the Red One" },
         ja: "2014-07-06",
       },
       {
         n: 2,
-        title: "Amuro Going Through Puberty",
+        title: { ja: "思春期のアムロさん", en: "Amuro Going Through Puberty" },
         ja: "2014-07-13",
       },
       {
         n: 3,
-        title: "The Melancholy of Haro-man",
+        title: { ja: "ハロ男の憂鬱", en: "The Melancholy of Haro-man" },
         ja: "2014-07-20",
       },
-      {
-        n: 4,
-        title: "How They Met",
-        ja: "2014-07-27",
-      },
+      { n: 4, title: { ja: "出会い", en: "How They Met" }, ja: "2014-07-27" },
       {
         n: 5,
-        title: "The Red Comet Chick's Menace",
+        title: { ja: "彗星ヒヨコの脅威", en: "The Red Comet Chick's Menace" },
         ja: "2014-08-03",
       },
       {
         n: 6,
-        title: "Dr. Sayla's Consultation Room",
+        title: {
+          ja: "女医セイラのお悩み相談室",
+          en: "Dr. Sayla's Consultation Room",
+        },
         ja: "2014-08-10",
       },
       {
         n: 7,
-        title: "I Like Those Who Have Fallen",
+        title: { ja: "散った人が好き", en: "I Like Those Who Have Fallen" },
         ja: "2014-08-17",
       },
       {
         n: 8,
-        title: "Daydreaming Amuro",
+        title: { ja: "妄想のアムロさん", en: "Daydreaming Amuro" },
         ja: "2014-08-24",
       },
       {
         n: 9,
-        title: "Showdown of Destiny",
+        title: { ja: "宿命の対決", en: "Showdown of Destiny" },
         ja: "2014-08-31",
       },
       {
         n: 10,
-        title: "Lalah Moving Out",
+        title: { ja: "ララァ出撃", en: "Lalah Moving Out" },
         ja: "2014-09-07",
       },
       {
         n: 11,
-        title: "A Mobile Suit's Feelings",
+        title: { ja: "モビルスーツの気持ち", en: "A Mobile Suit's Feelings" },
         ja: "2014-09-14",
       },
       {
         n: 12,
-        title: "Kycilia-tan, Age 14",
+        title: { ja: "キシリアたん14歳", en: "Kycilia-tan, Age 14" },
         ja: "2014-09-21",
       },
       {
         n: 13,
-        title: "He Likes People with Moles",
+        title: { ja: "ホクロの人が好き", en: "He Likes People with Moles" },
         ja: "2014-09-28",
       },
     ],
@@ -4228,130 +3861,38 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   gundam_san_manga: {
-    title: "Mobile Suit Gundam-san (manga)",
+    title: { ja: "機動戦士ガンダムさん", en: "Mobile Suit Gundam-san (manga)" },
     u: "uc",
     type: "manga",
+    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムさん",
     author: "Hideki Ohwada",
     publisher: "Kadokawa",
     magazine: "Gundam Ace",
-    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムさん",
     note: "4koma parody manga with sub-stories (队长のザクさん, 宇宙岛のガルマくん, ガンダム创世 etc.)",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2005-08-26",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2006-12-26",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2007-12-26",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "2009-01-26",
-      },
-      {
-        n: 5,
-        title: "Volume 5",
-        ja: "2009-10-24",
-      },
-      {
-        n: 6,
-        title: "Volume 6",
-        ja: "2010-08-26",
-      },
-      {
-        n: 7,
-        title: "Volume 7",
-        ja: "2011-03-26",
-      },
-      {
-        n: 8,
-        title: "Volume 8",
-        ja: "2011-12-26",
-      },
-      {
-        n: 9,
-        title: "Volume 9",
-        ja: "2012-12-26",
-      },
-      {
-        n: 10,
-        title: "Volume 10",
-        ja: "2013-09-26",
-      },
-      {
-        n: 11,
-        title: "Volume 11",
-        ja: "2014-03-26",
-      },
-      {
-        n: 12,
-        title: "Volume 12",
-        ja: "2014-10-25",
-      },
-      {
-        n: 13,
-        title: "Volume 13",
-        ja: "2015-07-25",
-      },
-      {
-        n: 14,
-        title: "Volume 14",
-        ja: "2016-04-26",
-      },
-      {
-        n: 15,
-        title: "Volume 15",
-        ja: "2017-04-26",
-      },
-      {
-        n: 16,
-        title: "Volume 16",
-        ja: "2018-04-26",
-      },
-      {
-        n: 17,
-        title: "Volume 17",
-        ja: "2019-05-25",
-      },
-      {
-        n: 18,
-        title: "Volume 18",
-        ja: "2020-04-25",
-      },
-      {
-        n: 19,
-        title: "Volume 19",
-        ja: "2021-07-26",
-      },
-      {
-        n: 20,
-        title: "Volume 20",
-        ja: "2022-09-26",
-      },
-      {
-        n: 21,
-        title: "Volume 21",
-        ja: "2023-08-25",
-      },
-      {
-        n: 22,
-        title: "Volume 22",
-        ja: "2024-10-25",
-      },
-      {
-        n: 23,
-        title: "Volume 23",
-        ja: "2026-01-23",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2005-08-26" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2006-12-26" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2007-12-26" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2009-01-26" },
+      { n: 5, title: { ja: "Volume 5", en: "Volume 5" }, ja: "2009-10-24" },
+      { n: 6, title: { ja: "Volume 6", en: "Volume 6" }, ja: "2010-08-26" },
+      { n: 7, title: { ja: "Volume 7", en: "Volume 7" }, ja: "2011-03-26" },
+      { n: 8, title: { ja: "Volume 8", en: "Volume 8" }, ja: "2011-12-26" },
+      { n: 9, title: { ja: "Volume 9", en: "Volume 9" }, ja: "2012-12-26" },
+      { n: 10, title: { ja: "Volume 10", en: "Volume 10" }, ja: "2013-09-26" },
+      { n: 11, title: { ja: "Volume 11", en: "Volume 11" }, ja: "2014-03-26" },
+      { n: 12, title: { ja: "Volume 12", en: "Volume 12" }, ja: "2014-10-25" },
+      { n: 13, title: { ja: "Volume 13", en: "Volume 13" }, ja: "2015-07-25" },
+      { n: 14, title: { ja: "Volume 14", en: "Volume 14" }, ja: "2016-04-26" },
+      { n: 15, title: { ja: "Volume 15", en: "Volume 15" }, ja: "2017-04-26" },
+      { n: 16, title: { ja: "Volume 16", en: "Volume 16" }, ja: "2018-04-26" },
+      { n: 17, title: { ja: "Volume 17", en: "Volume 17" }, ja: "2019-05-25" },
+      { n: 18, title: { ja: "Volume 18", en: "Volume 18" }, ja: "2020-04-25" },
+      { n: 19, title: { ja: "Volume 19", en: "Volume 19" }, ja: "2021-07-26" },
+      { n: 20, title: { ja: "Volume 20", en: "Volume 20" }, ja: "2022-09-26" },
+      { n: 21, title: { ja: "Volume 21", en: "Volume 21" }, ja: "2023-08-25" },
+      { n: 22, title: { ja: "Volume 22", en: "Volume 22" }, ja: "2024-10-25" },
+      { n: 23, title: { ja: "Volume 23", en: "Volume 23" }, ja: "2026-01-23" },
     ],
     releases: [
       {
@@ -4365,7 +3906,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   gunpla_builders_beginning_g_2010_ova: {
-    title: "Model Suit Gunpla Builders Beginning G",
+    title: {
+      ja: "模型戦士ガンプラビルダーズ ビギニングG",
+      en: "Model Suit Gunpla Builders Beginning G",
+    },
     u: "build",
     type: "ova",
     source:
@@ -4373,17 +3917,23 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Part A: Beginning Gundam",
+        title: {
+          ja: "パーツA 「ビギニングガンダム」",
+          en: "Parts A: Beginning Gundam",
+        },
         ja: "2010-08-15",
       },
       {
         n: 2,
-        title: "Part B: Forever Gundam",
+        title: {
+          ja: "パーツB 「フォーエバーガンダム」",
+          en: "Parts B: Forever Gundam",
+        },
         ja: "2010-10-31",
       },
       {
         n: 3,
-        title: "Part C: Beginning 30",
+        title: { ja: "パーツC 「ビギニング30」", en: "Parts C: Beginning 30" },
         ja: "2010-12-19",
       },
     ],
@@ -4405,7 +3955,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   gunpla_kun_2022_tv: {
-    title: "Gunpla-Kun",
+    title: { ja: "ガンプラくん", en: "Gunpla-Kun" },
     u: "sd",
     type: "ona",
     source: "https://ja.wikipedia.org/wiki/ガンプラくん",
@@ -4413,137 +3963,137 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "ガンプラくん、子供部屋に立つ！！",
+        title: { ja: "ガンプラくん、子供部屋に立つ！！", en: null },
         ja: "2021-08-19",
       },
       {
         n: 2,
-        title: "ガンプラくん、道具を準備せよ",
+        title: { ja: "ガンプラくん、道具を準備せよ", en: null },
         ja: "2021-08-19",
       },
       {
         n: 3,
-        title: "ガンプラくん、用語にこだわる！",
+        title: { ja: "ガンプラくん、用語にこだわる！", en: null },
         ja: "2021-08-19",
       },
       {
         n: 4,
-        title: "ガンプラくん、ガンダムを語る！",
+        title: { ja: "ガンプラくん、ガンダムを語る！", en: null },
         ja: "2021-08-19",
       },
       {
         n: 5,
-        title: "ガンプラくん、オレが主役！",
+        title: { ja: "ガンプラくん、オレが主役！", en: null },
         ja: "2021-08-19",
       },
       {
         n: 6,
-        title: "ガンプラくん、宿題をする！",
+        title: { ja: "ガンプラくん、宿題をする！", en: null },
         ja: "2021-08-19",
       },
       {
         n: 7,
-        title: "シャアザクくん、登場！！",
+        title: { ja: "シャアザクくん、登場！！", en: null },
         ja: "2021-08-19",
       },
       {
         n: 8,
-        title: "ガンプラくん、パーツを捜索する",
+        title: { ja: "ガンプラくん、パーツを捜索する", en: null },
         ja: "2021-08-19",
       },
       {
         n: 9,
-        title: "ガンプラくん、散る？",
+        title: { ja: "ガンプラくん、散る？", en: null },
         ja: "2021-08-19",
       },
       {
         n: 10,
-        title: "ガンプラくん、任務完了！！",
+        title: { ja: "ガンプラくん、任務完了！！", en: null },
         ja: "2021-08-19",
       },
       {
         n: 11,
-        title: "ガンプラくん、新人現る！！",
+        title: { ja: "ガンプラくん、新人現る！！", en: null },
         ja: "2022-09-29",
       },
       {
         n: 12,
-        title: "ガンプラくん、名前を呼ぼう！",
+        title: { ja: "ガンプラくん、名前を呼ぼう！", en: null },
         ja: "2022-10-13",
       },
       {
         n: 13,
-        title: "ガンプラくん、物申す！",
+        title: { ja: "ガンプラくん、物申す！", en: null },
         ja: "2022-10-27",
       },
       {
         n: 14,
-        title: "ガンプラくん、長所を探そう！",
+        title: { ja: "ガンプラくん、長所を探そう！", en: null },
         ja: "2022-11-10",
       },
       {
         n: 15,
-        title: "ガンプラくん、ガンプラを教える！",
+        title: { ja: "ガンプラくん、ガンプラを教える！", en: null },
         ja: "2022-11-24",
       },
       {
         n: 16,
-        title: "ザクプラくんに相談しよう！",
+        title: { ja: "ザクプラくんに相談しよう！", en: null },
         ja: "2022-12-08",
       },
       {
         n: 17,
-        title: "ガンプラくん、用語にこだわる！",
+        title: { ja: "ガンプラくん、用語にこだわる！", en: null },
         ja: "2022-12-22",
       },
       {
         n: 18,
-        title: "νガンプラくんに相談しよう！",
+        title: { ja: "νガンプラくんに相談しよう！", en: null },
         ja: "2023-01-12",
       },
       {
         n: 19,
-        title: "エアプラくん、失敗する?!",
+        title: { ja: "エアプラくん、失敗する?!", en: null },
         ja: "2023-01-26",
       },
       {
         n: 20,
-        title: "シャアザクくんに相談しよう！",
+        title: { ja: "シャアザクくんに相談しよう！", en: null },
         ja: "2023-02-09",
       },
       {
         n: 21,
-        title: "エアプラくん、卒業試験に臨む！",
+        title: { ja: "エアプラくん、卒業試験に臨む！", en: null },
         ja: "2023-02-23",
       },
       {
         n: 22,
-        title: "エアプラくん、卒業おめでとう！！",
+        title: { ja: "エアプラくん、卒業おめでとう！！", en: null },
         ja: "2023-03-09",
       },
       {
         n: "SP1",
-        title: "ガンプラくん、ついにガンプラ商品化！",
+        title: { ja: "ガンプラくん、ついにガンプラ商品化！", en: null },
         ja: "2023-04-28",
       },
       {
         n: "SP2",
-        title: "『ガンダムビルドメタバース』特別編",
+        title: { ja: "『ガンダムビルドメタバース』特別編", en: null },
         ja: "2023-10-20",
       },
       {
         n: "G1",
-        title: "ガンプラくん劇場",
+        title: { ja: "ガンプラくん劇場", en: null },
         ja: "2024-12-02",
       },
       {
         n: "G2",
-        title: "ガンプラくん劇場 哀・戦士編",
+        title: { ja: "ガンプラくん劇場 哀・戦士編", en: null },
         ja: "2024-12-02",
       },
       {
         n: "G3",
-        title: "ガンプラくん劇場 めぐりあい宇宙編",
+        title: { ja: "ガンプラくん劇場 めぐりあい宇宙編", en: null },
         ja: "2024-12-02",
       },
     ],
@@ -4573,14 +4123,17 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   hathaway_2021_film: {
-    title: "Mobile Suit Gundam: Hathaway",
+    title: {
+      ja: "機動戦士ガンダム 閃光のハサウェイ",
+      en: "Mobile Suit Gundam: Hathaway",
+    },
     u: "uc",
     type: "film",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Hathaway",
     episodes: [
       {
         n: 1,
-        title: "Hathaway",
+        title: { ja: "機動戦士ガンダム 閃光のハサウェイ", en: "Hathaway" },
         ja: "2021-06-11",
       },
     ],
@@ -4616,7 +4169,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   hathaway_chokou_tba_film: {
-    title: "Mobile Suit Gundam: Hathaway — Chōkō no Matsu (working title)",
+    title: {
+      ja: "機動戦士ガンダム 閃光のハサウェイ 長呪の松",
+      en: "Mobile Suit Gundam: Hathaway — Chōkō no Matsu (working title)",
+    },
     u: "uc",
     type: "film",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Hathaway",
@@ -4625,27 +4181,30 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     releases: [],
   },
   hathaway_flash_1989_novel: {
-    title: "Mobile Suit Gundam: Hathaway's Flash (novel trilogy)",
+    title: {
+      ja: "機動戦士ガンダム 閃光のハサウェイ",
+      en: "Mobile Suit Gundam: Hathaway's Flash (novel trilogy)",
+    },
     u: "uc",
     type: "novel",
-    author: "Yoshiyuki Tomino",
-    publisher: "Kadokawa Shoten",
     source:
       "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Hathaway%27s_Flash",
+    author: "Yoshiyuki Tomino",
+    publisher: "Kadokawa Shoten",
     episodes: [
       {
         n: 1,
-        title: "Hathaway's Flash I",
+        title: { ja: "Hathaway's Flash I", en: "Hathaway's Flash I" },
         ja: "1989-02-13",
       },
       {
         n: 2,
-        title: "Hathaway's Flash II",
+        title: { ja: "Hathaway's Flash II", en: "Hathaway's Flash II" },
         ja: "1990-03-01",
       },
       {
         n: 3,
-        title: "Hathaway's Flash III",
+        title: { ja: "Hathaway's Flash III", en: "Hathaway's Flash III" },
         ja: "1990-04-11",
       },
     ],
@@ -4661,34 +4220,21 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   hathaway_manga_2020_manga: {
-    title: "Mobile Suit Gundam: Hathaway's Flash (manga)",
+    title: {
+      ja: "機動戦士ガンダム 閃光のハサウェイ (漫画)",
+      en: "Mobile Suit Gundam: Hathaway's Flash (manga)",
+    },
     u: "uc",
     type: "manga",
+    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダム_閃光のハサウェイ",
     author: "Sabishi Uroaki",
     publisher: "Kadokawa",
     magazine: "Gundam Ace",
-    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダム_閃光のハサウェイ",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2021-05-10",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2022-03-26",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2022-11-26",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "2023-09-26",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2021-05-10" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2022-03-26" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2022-11-26" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2023-09-26" },
     ],
     releases: [
       {
@@ -4702,14 +4248,20 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   hathaway_sorcery_2026_film: {
-    title: "Mobile Suit Gundam: Hathaway — Sorcery of Nymph Circe",
+    title: {
+      ja: "機動戦士ガンダム 閃光のハサウェイ キルケーの魔女",
+      en: "Mobile Suit Gundam: Hathaway — Sorcery of Nymph Circe",
+    },
     u: "uc",
     type: "film",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Hathaway",
     episodes: [
       {
         n: 1,
-        title: "Sorcery of Nymph Circe",
+        title: {
+          ja: "機動戦士ガンダム 閃光のハサウェイ キルケーの魔女",
+          en: "Sorcery of Nymph Circe",
+        },
         ja: "2026-01-30",
       },
     ],
@@ -4724,16 +4276,18 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   high_streamer_1987_novel: {
-    title: "Mobile Suit Gundam: High Streamer",
+    title: {
+      ja: "機動戦士ガンダム 逆襲のシャア ハイ・ストリーマー",
+      en: "Mobile Suit Gundam: High Streamer",
+    },
     u: "uc",
     type: "novel",
     source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_High_Streamer",
+    author: "Yoshiyuki Tomino",
+    publisher: "De Agostini Japan",
+    magazine: "Gundam Ace",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "1987-12",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "1987-12" },
     ],
     releases: [
       {
@@ -4745,12 +4299,12 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         schedule: "serial",
       },
     ],
-    author: "Yoshiyuki Tomino",
-    publisher: "De Agostini Japan",
-    magazine: "Gundam Ace",
   },
   ibo_2015_tv: {
-    title: "Mobile Suit Gundam: Iron-Blooded Orphans",
+    title: {
+      ja: "機動戦士ガンダム 鉄血のオルフェンズ",
+      en: "Mobile Suit Gundam: Iron-Blooded Orphans",
+    },
     u: "pd",
     type: "tv",
     source:
@@ -4759,303 +4313,301 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        season: 1,
+        title: { ja: "鉄と血と", en: "Iron and Blood..." },
         ja: "2015-10-04",
-        title: "Iron and Blood...",
+        season: 1,
       },
       {
         n: 2,
-        season: 1,
+        title: { ja: "バルバトス", en: "Barbatos" },
         ja: "2015-10-11",
-        title: "Barbatos",
+        season: 1,
       },
       {
         n: 3,
-        season: 1,
+        title: { ja: "散華", en: "Glorious Demise" },
         ja: "2015-10-18",
-        title: "Glorious Demise",
+        season: 1,
       },
       {
         n: 4,
-        season: 1,
+        title: { ja: "命の値段", en: "The Price of Life" },
         ja: "2015-10-25",
-        title: "The Price of Life",
+        season: 1,
       },
       {
         n: 5,
-        season: 1,
+        title: { ja: "赤い空の向こう", en: "Beyond the Red Sky" },
         ja: "2015-11-01",
-        title: "Beyond the Red Sky",
+        season: 1,
       },
       {
         n: 6,
-        season: 1,
+        title: { ja: "彼等について", en: "As For Them" },
         ja: "2015-11-08",
-        title: "As For Them",
+        season: 1,
       },
       {
         n: 7,
-        season: 1,
+        title: { ja: "いさなとり", en: "Whaling" },
         ja: "2015-11-15",
-        title: "Whaling",
+        season: 1,
       },
       {
         n: 8,
-        season: 1,
+        title: { ja: "寄り添うかたち", en: "The Form of Closeness" },
         ja: "2015-11-22",
-        title: "The Form of Closeness",
+        season: 1,
       },
       {
         n: 9,
-        season: 1,
+        title: { ja: "盃", en: "Sakazuki" },
         ja: "2015-11-29",
-        title: "Sakazuki",
+        season: 1,
       },
       {
         n: 10,
-        season: 1,
+        title: { ja: "明日からの手紙", en: "A Letter from Tomorrow" },
         ja: "2015-12-06",
-        title: "A Letter from Tomorrow",
+        season: 1,
       },
       {
         n: 11,
-        season: 1,
+        title: { ja: "ヒューマン・デブリ", en: "Human Debris" },
         ja: "2015-12-13",
-        title: "Human Debris",
+        season: 1,
       },
       {
         n: 12,
-        season: 1,
+        title: { ja: "暗礁", en: "The Shoals" },
         ja: "2015-12-20",
-        title: "The Shoals",
+        season: 1,
       },
       {
         n: 13,
-        season: 1,
+        title: { ja: "葬送", en: "Funeral Rites" },
         ja: "2015-12-27",
-        title: "Funeral Rites",
+        season: 1,
       },
       {
         n: 14,
-        season: 1,
+        title: { ja: "希望を運ぶ船", en: "The Vessel of Hope" },
         ja: "2016-01-03",
-        title: "The Vessel of Hope",
+        season: 1,
       },
       {
         n: 15,
-        season: 1,
+        title: { ja: "足跡のゆくえ", en: "The Trail of Footprints" },
         ja: "2016-01-10",
-        title: "The Trail of Footprints",
+        season: 1,
       },
       {
         n: 16,
-        season: 1,
+        title: { ja: "フミタン・アドモス", en: "Fumitan Admoss" },
         ja: "2016-01-17",
-        title: "Fumitan Admoss",
+        season: 1,
       },
       {
         n: 17,
-        season: 1,
+        title: { ja: "クーデリアの決意", en: "Kudelia's Decision" },
         ja: "2016-01-24",
-        title: "Kudelia's Decision",
-      },
-      {
-        n: 18,
         season: 1,
-        ja: "2016-01-31",
-        title: "Voice",
       },
+      { n: 18, title: { ja: "声", en: "Voice" }, ja: "2016-01-31", season: 1 },
       {
         n: 19,
-        season: 1,
+        title: { ja: "願いの重力", en: "The Gravity of Wishes" },
         ja: "2016-02-07",
-        title: "The Gravity of Wishes",
+        season: 1,
       },
       {
         n: 20,
-        season: 1,
+        title: { ja: "相棒", en: "Brother" },
         ja: "2016-02-14",
-        title: "Brother",
+        season: 1,
       },
       {
         n: 21,
-        season: 1,
+        title: { ja: "還るべき場所へ", en: "To the Place of Return" },
         ja: "2016-02-21",
-        title: "To the Place of Return",
+        season: 1,
       },
       {
         n: 22,
-        season: 1,
+        title: { ja: "まだ還れない", en: "Not Yet Home" },
         ja: "2016-02-28",
-        title: "Not Yet Home",
+        season: 1,
       },
       {
         n: 23,
-        season: 1,
+        title: { ja: "最後の嘘", en: "The Final Lie" },
         ja: "2016-03-06",
-        title: "The Final Lie",
+        season: 1,
       },
       {
         n: 24,
-        season: 1,
+        title: { ja: "未来の報酬", en: "A Future Reward" },
         ja: "2016-03-13",
-        title: "A Future Reward",
+        season: 1,
       },
       {
         n: 25,
-        season: 1,
+        title: { ja: "鉄華団", en: "Tekkadan" },
         ja: "2016-03-20",
-        title: "Tekkadan",
+        season: 1,
       },
       {
         n: 26,
-        season: 2,
+        title: { ja: "新しい血", en: "New Blood" },
         ja: "2016-10-02",
-        title: "New Blood",
+        season: 2,
       },
       {
         n: 27,
-        season: 2,
+        title: { ja: "嫉心の渦中で", en: "In the Midst of Jealousy" },
         ja: "2016-10-09",
-        title: "In the Midst of Jealousy",
+        season: 2,
       },
       {
         n: 28,
-        season: 2,
+        title: { ja: "夜明け前の戦い", en: "Battle Before Dawn" },
         ja: "2016-10-16",
-        title: "Battle Before Dawn",
+        season: 2,
       },
       {
         n: 29,
-        season: 2,
+        title: { ja: "出世の引き金", en: "The Trigger of Success" },
         ja: "2016-10-23",
-        title: "The Trigger of Success",
+        season: 2,
       },
       {
         n: 30,
-        season: 2,
+        title: {
+          ja: "アーブラウ防衛軍発足式典",
+          en: "Inauguration of the Arbrau Defense Forces",
+        },
         ja: "2016-10-30",
-        title: "Inauguration of the Arbrau Defense Forces",
+        season: 2,
       },
       {
         n: 31,
-        season: 2,
+        title: { ja: "無音の戦争", en: "Silent War" },
         ja: "2016-11-06",
-        title: "Silent War",
+        season: 2,
       },
       {
         n: 32,
-        season: 2,
+        title: { ja: "友よ", en: "My Friend" },
         ja: "2016-11-13",
-        title: "My Friend",
+        season: 2,
       },
       {
         n: 33,
-        season: 2,
+        title: { ja: "火星の王", en: "Sovereign of Mars" },
         ja: "2016-11-20",
-        title: "Sovereign of Mars",
+        season: 2,
       },
       {
         n: 34,
-        season: 2,
+        title: { ja: "ヴィダール立つ", en: "Vidar Rising" },
         ja: "2016-11-27",
-        title: "Vidar Rising",
+        season: 2,
       },
       {
         n: 35,
-        season: 2,
+        title: { ja: "目覚めし厄祭", en: "Awakening Calamity" },
         ja: "2016-12-04",
-        title: "Awakening Calamity",
+        season: 2,
       },
       {
         n: 36,
-        season: 2,
+        title: { ja: "穢れた翼", en: "Stained Wings" },
         ja: "2016-12-11",
-        title: "Stained Wings",
+        season: 2,
       },
       {
         n: 37,
-        season: 2,
+        title: { ja: "クリュセ防衛戦", en: "Battle for Chryse" },
         ja: "2016-12-18",
-        title: "Battle for Chryse",
+        season: 2,
       },
       {
         n: 38,
-        season: 2,
+        title: { ja: "天使を狩る者", en: "Hunter of Angels" },
         ja: "2016-12-25",
-        title: "Hunter of Angels",
+        season: 2,
       },
       {
         n: 39,
-        season: 2,
+        title: { ja: "助言", en: "Counsel" },
         ja: "2017-01-01",
-        title: "Counsel",
+        season: 2,
       },
       {
         n: 40,
-        season: 2,
+        title: { ja: "燃ゆる太陽に照らされて", en: "Lit by a Blazing Sun" },
         ja: "2017-01-08",
-        title: "Lit by a Blazing Sun",
+        season: 2,
       },
       {
         n: 41,
-        season: 2,
+        title: { ja: "人として当たり前の", en: "Natural for a Human" },
         ja: "2017-01-15",
-        title: "Natural for a Human",
+        season: 2,
       },
       {
         n: 42,
-        season: 2,
+        title: { ja: "落とし前", en: "Settlement" },
         ja: "2017-01-22",
-        title: "Settlement",
+        season: 2,
       },
       {
         n: 43,
-        season: 2,
+        title: { ja: "たどりついた真意", en: "Revealed Intentions" },
         ja: "2017-01-29",
-        title: "Revealed Intentions",
+        season: 2,
       },
       {
         n: 44,
-        season: 2,
+        title: { ja: "魂を手にした男", en: "The Man Who Holds the Soul" },
         ja: "2017-02-05",
-        title: "The Man Who Holds the Soul",
+        season: 2,
       },
       {
         n: 45,
-        season: 2,
+        title: { ja: "これが最後なら", en: "If This Is the End" },
         ja: "2017-02-12",
-        title: "If This Is the End",
+        season: 2,
       },
       {
         n: 46,
-        season: 2,
+        title: { ja: "誰が為", en: "For Whom?" },
         ja: "2017-02-19",
-        title: "For Whom?",
+        season: 2,
       },
       {
         n: 47,
-        season: 2,
+        title: { ja: "生け贄", en: "Scapegoat" },
         ja: "2017-02-26",
-        title: "Scapegoat",
+        season: 2,
       },
       {
         n: 48,
-        season: 2,
+        title: { ja: "約束", en: "Promise" },
         ja: "2017-03-05",
-        title: "Promise",
+        season: 2,
       },
       {
         n: 49,
-        season: 2,
+        title: { ja: "マクギリス・ファリド", en: "McGillis Fareed" },
         ja: "2017-03-12",
-        title: "McGillis Fareed",
+        season: 2,
       },
       {
         n: 50,
-        season: 2,
+        title: { ja: "彼等の居場所", en: "Their Place" },
         ja: "2017-03-19",
-        title: "Their Place",
+        season: 2,
       },
     ],
     releases: [
@@ -5091,26 +4643,21 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   ibo_gekkou_2016_manga: {
-    title: "Mobile Suit Gundam: Iron-Blooded Orphans — Gekkou",
+    title: {
+      ja: "機動士ガンダム 鉄血のオルフェンズ 弐",
+      en: "Mobile Suit Gundam: Iron-Blooded Orphans — Gekkou",
+    },
     u: "pd",
     type: "manga",
+    source:
+      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Iron-Blooded_Orphans",
     author: "Kazuhiro Ochi",
     publisher: "Kadokawa",
     magazine: "Gundam Ace",
-    source:
-      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Iron-Blooded_Orphans",
     note: "IBO manga adaptation by Kazuhiro Ochi, 2 volumes",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2016",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2017",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2016" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2017" },
     ],
     releases: [
       {
@@ -5124,7 +4671,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   ibo_makan_tba_film: {
-    title: "Mobile Suit Gundam: Iron-Blooded Orphans — Makan no Kusabi",
+    title: {
+      ja: "機動戦士ガンダム 鉄血のオルフェンズ 魔剣の楔",
+      en: "Mobile Suit Gundam: Iron-Blooded Orphans — Makan no Kusabi",
+    },
     u: "pd",
     type: "film",
     source:
@@ -5134,35 +4684,22 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     releases: [],
   },
   ibo_steel_moon_2016_manga: {
-    title: "Mobile Suit Gundam: Iron-Blooded Orphans — Steel Moon (Getsuei)",
+    title: {
+      ja: "機動戦士ガンダム 鉄血のオルフェンズ 月鋼",
+      en: "Mobile Suit Gundam: Iron-Blooded Orphans — Steel Moon (Getsuei)",
+    },
     u: "pd",
     type: "manga",
+    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダム_鉄血のオルフェンズ",
     author: "Hajime Kamoshida (story), Kenji Tachibana (art)",
     publisher: "Kadokawa",
     magazine: "Monthly Shounen Sirius",
-    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダム_鉄血のオルフェンズ",
     note: "Side story manga set on Mars alongside the main TV series. 4 volumes (全4巻)",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2016-10-26",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2017-03-25",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2017-10-26",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "2018-05-25",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2016-10-26" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2017-03-25" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2017-10-26" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2018-05-25" },
     ],
     releases: [
       {
@@ -5176,71 +4713,62 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   ibo_urdrhunt_2022_ona: {
-    title: "Mobile Suit Gundam: Iron-Blooded Orphans — Urdr-Hunt",
+    title: {
+      ja: "機動戦士ガンダム 鉄血のオルフェンズ Urðr-Hunt",
+      en: "Mobile Suit Gundam: Iron-Blooded Orphans — Urðr-Hunt",
+    },
     u: "pd",
     type: "ona",
     source:
       "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Iron-Blooded_Orphans",
     note: "Mobile game tie-in 12-episode ONA serialized in-app starting Oct 2022",
     episodes: [
-      {
-        n: 1,
-        title: "Radonitsa",
-        ja: "2022-11-15",
-      },
+      { n: 1, title: { ja: "端白星", en: "Radonitsa" }, ja: "2022-11-15" },
       {
         n: 2,
-        title: "The Girl Who Dances with the Sea",
+        title: { ja: "出航", en: "The Girl Who Dances with the Sea" },
         ja: "2022-11-15",
       },
-      {
-        n: 3,
-        title: "The Urdr-Hunt",
-        ja: "2022-11-15",
-      },
+      { n: 3, title: { ja: "598", en: "The Urðr-Hunt" }, ja: "2022-11-15" },
       {
         n: 4,
-        title: "Blue Rose",
+        title: { ja: "裏切りの回廊", en: "Blue Rose" },
         ja: "2022-11-15",
       },
       {
         n: 5,
-        title: "The Wings of Afam",
+        title: { ja: "リングの持ち主", en: "The Wings of Afam" },
         ja: "2022-11-15",
       },
       {
         n: 6,
-        title: "Wild Horse",
+        title: { ja: "予期せぬ出会い", en: "Wild Horse" },
         ja: "2022-11-15",
       },
       {
         n: 7,
-        title: "Reaper of the Battlefield",
+        title: { ja: "金星の価値", en: "Reaper of the Battlefield" },
         ja: "2022-11-15",
       },
       {
         n: 8,
-        title: "Day of the Little Challenger",
+        title: { ja: "兄弟船", en: "Day of the Little Challenger" },
         ja: "2022-11-15",
       },
       {
         n: 9,
-        title: "Venus's Ghost",
+        title: { ja: "角笛と華の影", en: "Venus's Ghost" },
         ja: "2022-11-15",
       },
-      {
-        n: 10,
-        title: "Iron Flower",
-        ja: "2022-11-15",
-      },
+      { n: 10, title: { ja: "家族と絆", en: "Iron Flower" }, ja: "2022-11-15" },
       {
         n: 11,
-        title: "The Last Hunt",
+        title: { ja: "伸ばした手の彼方", en: "The Last Hunt" },
         ja: "2022-11-15",
       },
       {
         n: 12,
-        title: "To the Place We Call Home",
+        title: { ja: "紫電のソラ", en: "To the Place We Call Home" },
         ja: "2022-11-15",
       },
     ],
@@ -5255,8 +4783,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   ibo_urdrhunt_movie_2025_film: {
-    title:
-      "Mobile Suit Gundam: Iron-Blooded Orphans Urðr-Hunt – Path of the Little Challenger",
+    title: {
+      ja: "機動戦士ガンダム鉄血のオルフェンズ Urðr-Hunt – Path of the Little Challenger",
+      en: "Mobile Suit Gundam: Iron-Blooded Orphans Urðr-Hunt – Path of the Little Challenger",
+    },
     u: "pd",
     type: "film",
     source:
@@ -5264,7 +4794,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Path of the Little Challenger",
+        title: {
+          ja: "機動戦士ガンダム鉄血のオルフェンズ Urðr-Hunt – Path of the Little Challenger",
+          en: "Path of the Little Challenger",
+        },
         ja: "2025-05-30",
       },
     ],
@@ -5286,145 +4819,44 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   johnny_ridden_2010_manga: {
-    title: "Mobile Suit Gundam MSV-R: Return of Johnny Ridden",
+    title: {
+      ja: "機動戦士ガンダム MSV-R ジョニー・ライデンの帰還",
+      en: "Mobile Suit Gundam MSV-R: Return of Johnny Ridden",
+    },
     u: "uc",
     type: "manga",
+    source:
+      "https://ja.wikipedia.org/wiki/機動戦士ガンダム_MSV-R_ジョニー・ライデンの帰還",
     author: "Ark Performance",
     publisher: "Kadokawa",
     magazine: "Gundam Ace",
-    source:
-      "https://ja.wikipedia.org/wiki/機動戦士ガンダム_MSV-R_ジョニー・ライデンの帰還",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2010-12-25",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2011-04-26",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2011-10-26",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "2012-03-26",
-      },
-      {
-        n: 5,
-        title: "Volume 5",
-        ja: "2012-09-26",
-      },
-      {
-        n: 6,
-        title: "Volume 6",
-        ja: "2013-03-26",
-      },
-      {
-        n: 7,
-        title: "Volume 7",
-        ja: "2013-09-26",
-      },
-      {
-        n: 8,
-        title: "Volume 8",
-        ja: "2014-03-24",
-      },
-      {
-        n: 9,
-        title: "Volume 9",
-        ja: "2014-09-26",
-      },
-      {
-        n: 10,
-        title: "Volume 10",
-        ja: "2015-03-26",
-      },
-      {
-        n: 11,
-        title: "Volume 11",
-        ja: "2015-09-26",
-      },
-      {
-        n: 12,
-        title: "Volume 12",
-        ja: "2016-03-26",
-      },
-      {
-        n: 13,
-        title: "Volume 13",
-        ja: "2016-11-26",
-      },
-      {
-        n: 14,
-        title: "Volume 14",
-        ja: "2017-04-04",
-      },
-      {
-        n: 15,
-        title: "Volume 15",
-        ja: "2017-09-25",
-      },
-      {
-        n: 16,
-        title: "Volume 16",
-        ja: "2018-03-26",
-      },
-      {
-        n: 17,
-        title: "Volume 17",
-        ja: "2018-10-26",
-      },
-      {
-        n: 18,
-        title: "Volume 18",
-        ja: "2019-03-26",
-      },
-      {
-        n: 19,
-        title: "Volume 19",
-        ja: "2019-09-21",
-      },
-      {
-        n: 20,
-        title: "Volume 20",
-        ja: "2020-03-26",
-      },
-      {
-        n: 21,
-        title: "Volume 21",
-        ja: "2021-01-26",
-      },
-      {
-        n: 22,
-        title: "Volume 22",
-        ja: "2021-09-25",
-      },
-      {
-        n: 23,
-        title: "Volume 23",
-        ja: "2022-03-26",
-      },
-      {
-        n: 24,
-        title: "Volume 24",
-        ja: "2022-09-26",
-      },
-      {
-        n: 25,
-        title: "Volume 25",
-        ja: "2023-03-25",
-      },
-      {
-        n: 26,
-        title: "Volume 26",
-        ja: "2023-09-26",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2010-12-25" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2011-04-26" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2011-10-26" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2012-03-26" },
+      { n: 5, title: { ja: "Volume 5", en: "Volume 5" }, ja: "2012-09-26" },
+      { n: 6, title: { ja: "Volume 6", en: "Volume 6" }, ja: "2013-03-26" },
+      { n: 7, title: { ja: "Volume 7", en: "Volume 7" }, ja: "2013-09-26" },
+      { n: 8, title: { ja: "Volume 8", en: "Volume 8" }, ja: "2014-03-24" },
+      { n: 9, title: { ja: "Volume 9", en: "Volume 9" }, ja: "2014-09-26" },
+      { n: 10, title: { ja: "Volume 10", en: "Volume 10" }, ja: "2015-03-26" },
+      { n: 11, title: { ja: "Volume 11", en: "Volume 11" }, ja: "2015-09-26" },
+      { n: 12, title: { ja: "Volume 12", en: "Volume 12" }, ja: "2016-03-26" },
+      { n: 13, title: { ja: "Volume 13", en: "Volume 13" }, ja: "2016-11-26" },
+      { n: 14, title: { ja: "Volume 14", en: "Volume 14" }, ja: "2017-04-04" },
+      { n: 15, title: { ja: "Volume 15", en: "Volume 15" }, ja: "2017-09-25" },
+      { n: 16, title: { ja: "Volume 16", en: "Volume 16" }, ja: "2018-03-26" },
+      { n: 17, title: { ja: "Volume 17", en: "Volume 17" }, ja: "2018-10-26" },
+      { n: 18, title: { ja: "Volume 18", en: "Volume 18" }, ja: "2019-03-26" },
+      { n: 19, title: { ja: "Volume 19", en: "Volume 19" }, ja: "2019-09-21" },
+      { n: 20, title: { ja: "Volume 20", en: "Volume 20" }, ja: "2020-03-26" },
+      { n: 21, title: { ja: "Volume 21", en: "Volume 21" }, ja: "2021-01-26" },
+      { n: 22, title: { ja: "Volume 22", en: "Volume 22" }, ja: "2021-09-25" },
+      { n: 23, title: { ja: "Volume 23", en: "Volume 23" }, ja: "2022-03-26" },
+      { n: 24, title: { ja: "Volume 24", en: "Volume 24" }, ja: "2022-09-26" },
+      { n: 25, title: { ja: "Volume 25", en: "Volume 25" }, ja: "2023-03-25" },
+      { n: 26, title: { ja: "Volume 26", en: "Volume 26" }, ja: "2023-09-26" },
     ],
     releases: [
       {
@@ -5438,18 +4870,18 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   lost_war_chronicles_2002_manga: {
-    title: "Mobile Suit Gundam: Lost War Chronicles",
+    title: {
+      ja: "機動戦士ガンダム戦記 Lost War Chronicles",
+      en: "Mobile Suit Gundam: Lost War Chronicles",
+    },
     u: "uc",
     type: "manga",
     source:
       "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Lost_War_Chronicles",
-    episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2002",
-      },
-    ],
+    author: "Toshihiro Kawamoto, Hiroshi Ōsaka",
+    publisher: "Bandai",
+    magazine: "Gundam Ace",
+    episodes: [{ n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2002" }],
     releases: [
       {
         region: "ja",
@@ -5467,31 +4899,23 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         schedule: "serial",
       },
     ],
-    author: "Toshihiro Kawamoto, Hiroshi Ōsaka",
-    publisher: "Bandai",
-    magazine: "Gundam Ace",
   },
   mayfly_2001_manga: {
-    title: "Mobile Suit Gundam 0083: Mayfly of Space",
+    title: {
+      ja: "機動戦士ガンダム0083 宇宙の蜉蝣",
+      en: "Mobile Suit Gundam 0083: Mayfly of Space",
+    },
     u: "uc",
     type: "manga",
+    source:
+      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_0083:_Mayfly_of_Space",
     author: "Hiroshi Nakanishi",
     publisher: "Media Works",
     magazine: "Dengeki Daioh",
-    source:
-      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_0083:_Mayfly_of_Space",
     note: "Cima Garahau side story set during 0083",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2001",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2002",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2001" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2002" },
     ],
     releases: [
       {
@@ -5505,7 +4929,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   mission_to_the_rise_1998_film: {
-    title: "GUNDAM Mission to the Rise",
+    title: {
+      ja: "GUNDAM Mission to the Rise",
+      en: "GUNDAM Mission to the Rise",
+    },
     u: "uc-alt",
     type: "film",
     source: "https://ja.wikipedia.org/wiki/GUNDAM_Mission_to_the_Rise",
@@ -5513,7 +4940,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Mission to the Rise",
+        title: { ja: "GUNDAM Mission to the Rise", en: "Mission to the Rise" },
         ja: "1998-08-01",
       },
     ],
@@ -5528,89 +4955,29 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   moon_gundam_2017_manga: {
-    title: "Mobile Suit Moon Gundam",
+    title: { ja: "機動戦士ムーンガンダム", en: "Mobile Suit Moon Gundam" },
     u: "uc",
     type: "manga",
+    source: "https://ja.wikipedia.org/wiki/機動戦士ムーンガンダム",
     author: "Fukui Harutoki (story), Tamura Kouji (art)",
     publisher: "Kadokawa",
     magazine: "Gundam Ace",
-    source: "https://ja.wikipedia.org/wiki/機動戦士ムーンガンダム",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2018-09-26",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2018-09-26",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2019-03-26",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "2019-10-26",
-      },
-      {
-        n: 5,
-        title: "Volume 5",
-        ja: "2020-03-26",
-      },
-      {
-        n: 6,
-        title: "Volume 6",
-        ja: "2020-10-26",
-      },
-      {
-        n: 7,
-        title: "Volume 7",
-        ja: "2021-03-26",
-      },
-      {
-        n: 8,
-        title: "Volume 8",
-        ja: "2021-10-26",
-      },
-      {
-        n: 9,
-        title: "Volume 9",
-        ja: "2022-03-26",
-      },
-      {
-        n: 10,
-        title: "Volume 10",
-        ja: "2022-10-25",
-      },
-      {
-        n: 11,
-        title: "Volume 11",
-        ja: "2023-03-25",
-      },
-      {
-        n: 12,
-        title: "Volume 12",
-        ja: "2023-12-26",
-      },
-      {
-        n: 13,
-        title: "Volume 13",
-        ja: "2024-07-25",
-      },
-      {
-        n: 14,
-        title: "Volume 14",
-        ja: "2025-04-25",
-      },
-      {
-        n: 15,
-        title: "Volume 15",
-        ja: "2025-11-26",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2018-09-26" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2018-09-26" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2019-03-26" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2019-10-26" },
+      { n: 5, title: { ja: "Volume 5", en: "Volume 5" }, ja: "2020-03-26" },
+      { n: 6, title: { ja: "Volume 6", en: "Volume 6" }, ja: "2020-10-26" },
+      { n: 7, title: { ja: "Volume 7", en: "Volume 7" }, ja: "2021-03-26" },
+      { n: 8, title: { ja: "Volume 8", en: "Volume 8" }, ja: "2021-10-26" },
+      { n: 9, title: { ja: "Volume 9", en: "Volume 9" }, ja: "2022-03-26" },
+      { n: 10, title: { ja: "Volume 10", en: "Volume 10" }, ja: "2022-10-25" },
+      { n: 11, title: { ja: "Volume 11", en: "Volume 11" }, ja: "2023-03-25" },
+      { n: 12, title: { ja: "Volume 12", en: "Volume 12" }, ja: "2023-12-26" },
+      { n: 13, title: { ja: "Volume 13", en: "Volume 13" }, ja: "2024-07-25" },
+      { n: 14, title: { ja: "Volume 14", en: "Volume 14" }, ja: "2025-04-25" },
+      { n: 15, title: { ja: "Volume 15", en: "Volume 15" }, ja: "2025-11-26" },
     ],
     releases: [
       {
@@ -5623,75 +4990,30 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   msg_0079_kondo_manga: {
-    title: "Mobile Suit Gundam 0079 (Kazuhisa Kondo)",
+    title: {
+      ja: "機動戦士ガンダム0079",
+      en: "Mobile Suit Gundam 0079 (Kazuhisa Kondo)",
+    },
     u: "uc",
     type: "manga",
+    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam",
     author: "Kazuhisa Kondo",
     publisher: "MediaWorks",
     magazine: "Cyber Comics → Dengeki Daioh",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam",
     note: "12 volumes 1992-2005, long-running retelling. Per-volume dates approximate.",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "1994-10-13",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "1995-02-23",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "1995-09-27",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "1996-04-05",
-      },
-      {
-        n: 5,
-        title: "Volume 5",
-        ja: "1997-09-27",
-      },
-      {
-        n: 6,
-        title: "Volume 6",
-        ja: "1998-12-16",
-      },
-      {
-        n: 7,
-        title: "Volume 7",
-        ja: "2000-03-27",
-      },
-      {
-        n: 8,
-        title: "Volume 8",
-        ja: "2001-06-01",
-      },
-      {
-        n: 9,
-        title: "Volume 9",
-        ja: "2002-07-27",
-      },
-      {
-        n: 10,
-        title: "Volume 10",
-        ja: "2003-09-27",
-      },
-      {
-        n: 11,
-        title: "Volume 11",
-        ja: "2004-11-27",
-      },
-      {
-        n: 12,
-        title: "Volume 12",
-        ja: "2005-11-26",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "1994-10-13" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "1995-02-23" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "1995-09-27" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "1996-04-05" },
+      { n: 5, title: { ja: "Volume 5", en: "Volume 5" }, ja: "1997-09-27" },
+      { n: 6, title: { ja: "Volume 6", en: "Volume 6" }, ja: "1998-12-16" },
+      { n: 7, title: { ja: "Volume 7", en: "Volume 7" }, ja: "2000-03-27" },
+      { n: 8, title: { ja: "Volume 8", en: "Volume 8" }, ja: "2001-06-01" },
+      { n: 9, title: { ja: "Volume 9", en: "Volume 9" }, ja: "2002-07-27" },
+      { n: 10, title: { ja: "Volume 10", en: "Volume 10" }, ja: "2003-09-27" },
+      { n: 11, title: { ja: "Volume 11", en: "Volume 11" }, ja: "2004-11-27" },
+      { n: 12, title: { ja: "Volume 12", en: "Volume 12" }, ja: "2005-11-26" },
     ],
     releases: [
       {
@@ -5705,267 +5027,275 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   msg_1979_tv: {
-    title: "Mobile Suit Gundam",
+    title: { ja: "機動戦士ガンダム", en: "Mobile Suit Gundam" },
     u: "uc",
     type: "tv",
     source: "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_episodes",
     episodes: [
       {
         n: 1,
-        title: "Gundam Rising",
+        title: { ja: "ガンダム大地に立つ!!", en: "Gundam Rising" },
         ja: "1979-04-07",
         en: "2001-07-23",
       },
       {
         n: 2,
-        title: "Destroy Gundam!",
+        title: { ja: "ガンダム破壊命令", en: "Destroy Gundam!" },
         ja: "1979-04-14",
         en: "2001-07-24",
       },
       {
         n: 3,
-        title: "Vote to Attack",
+        title: { ja: "敵の補給艦を叩け!", en: "Vote to Attack" },
         ja: "1979-04-21",
         en: "2001-07-25",
       },
       {
         n: 4,
-        title: "Escape From Luna II",
+        title: { ja: "ルナツー脱出作戦", en: "Escape From Luna II" },
         ja: "1979-04-28",
         en: "2001-07-26",
       },
       {
         n: 5,
-        title: "Re-Entry to Earth",
+        title: { ja: "大気圏突入", en: "Re-Entry to Earth" },
         ja: "1979-05-05",
         en: "2001-07-27",
       },
       {
         n: 6,
-        title: "Garma Strikes",
+        title: { ja: "ガルマ出撃す", en: "Garma Strikes" },
         ja: "1979-05-12",
         en: "2001-07-30",
       },
       {
         n: 7,
-        title: "The Core Fighter's Escape",
+        title: {
+          ja: "コアファイター脱出せよ",
+          en: "The Core Fighter's Escape",
+        },
         ja: "1979-05-18",
         en: "2001-07-31",
       },
       {
         n: 8,
-        title: "Winds of War",
+        title: { ja: "戦場は荒野", en: "Winds of War" },
         ja: "1979-05-26",
         en: "2001-08-01",
       },
       {
         n: 9,
-        title: "Fly, Gundam!",
+        title: { ja: "翔べ! ガンダム", en: "Fly, Gundam!" },
         ja: "1979-06-02",
         en: "2001-08-02",
       },
       {
         n: 10,
-        title: "Garma's Fate",
+        title: { ja: "ガルマ 散る", en: "Garma's Fate" },
         ja: "1979-06-09",
         en: "2001-08-03",
       },
       {
         n: 11,
-        title: "Icelina — Love's Remains",
+        title: { ja: "イセリナ、恋のあと", en: "Icelina — Love's Remains" },
         ja: "1979-06-16",
         en: "2001-08-06",
       },
       {
         n: 12,
-        title: "The Threat of Zeon",
+        title: { ja: "ジオンの脅威", en: "The Threat of Zeon" },
         ja: "1979-06-23",
         en: "2001-08-07",
       },
       {
         n: 13,
-        title: "Coming Home",
+        title: { ja: "再会、母よ…", en: "Coming Home" },
         ja: "1979-06-30",
         en: "2001-08-08",
       },
       {
         n: 14,
-        title: "Time, Be Still",
+        title: { ja: "時間よ、とまれ", en: "Time, Be Still" },
         ja: "1979-07-06",
         en: "2001-08-09",
       },
       {
         n: 15,
-        title: "Cucuruz Doan's Island",
+        title: { ja: "ククルス・ドアンの島", en: "Cucuruz Doan's Island" },
         ja: "1979-07-14",
-        en: null,
         note: "Never aired in English at Tomino's request",
       },
       {
         n: 16,
-        title: "Sayla's Agony",
+        title: { ja: "セイラ出撃", en: "Sayla's Agony" },
         ja: "1979-07-21",
         en: "2001-08-10",
       },
       {
         n: 17,
-        title: "Amuro Deserts",
+        title: { ja: "アムロ脱走", en: "Amuro Deserts" },
         ja: "1979-07-28",
         en: "2001-08-13",
       },
       {
         n: 18,
-        title: "Zeon's Secret Mine",
+        title: { ja: "灼熱のアッザム・リーダー", en: "Zeon's Secret Mine" },
         ja: "1979-08-04",
         en: "2001-08-14",
       },
       {
         n: 19,
-        title: "Ramba Ral's Attack",
+        title: { ja: "ランバ・ラル特攻!", en: "Ramba Ral's Attack" },
         ja: "1979-08-11",
         en: "2001-08-15",
       },
       {
         n: 20,
-        title: "Hand-to-Hand Combat",
+        title: { ja: "死闘! ホワイト・ベース", en: "Hand-to-Hand Combat" },
         ja: "1979-08-18",
         en: "2001-08-16",
       },
       {
         n: 21,
-        title: "Sorrow and Hatred",
+        title: { ja: "激闘は憎しみ深く", en: "Sorrow and Hatred" },
         ja: "1979-08-25",
         en: "2001-08-17",
       },
       {
         n: 22,
-        title: "The Trap of M'Quve",
+        title: { ja: "マ・クベ包囲網を破れ!", en: "The Trap of M'Quve" },
         ja: "1979-09-01",
         en: "2001-08-20",
       },
       {
         n: 23,
-        title: "Matilda's Rescue",
+        title: { ja: "マチルダ救出作戦", en: "Matilda's Rescue" },
         ja: "1979-09-08",
         en: "2001-08-21",
       },
       {
         n: 24,
-        title: "Black Tri-Star",
+        title: { ja: "迫撃! トリプル・ドム", en: "Black Tri-Star" },
         ja: "1979-09-15",
         en: "2001-08-22",
       },
       {
         n: 25,
-        title: "The Battle of Odessa",
+        title: { ja: "オデッサの激戦", en: "The Battle of Odessa" },
         ja: "1979-09-22",
         en: "2001-08-23",
       },
       {
         n: 26,
-        title: "Char Returns",
+        title: { ja: "復活のシャア", en: "Char Returns" },
         ja: "1979-09-29",
         en: "2001-08-24",
       },
       {
         n: 27,
-        title: "A Spy on Board",
+        title: { ja: "女スパイ潜入!", en: "A Spy on Board" },
         ja: "1979-10-06",
         en: "2001-08-27",
       },
       {
         n: 28,
-        title: "Across the Atlantic Ocean",
+        title: { ja: "大西洋、血に染めて", en: "Across the Atlantic Ocean" },
         ja: "1979-10-13",
         en: "2001-08-28",
       },
       {
         n: 29,
-        title: "Tragedy in Jaburo",
+        title: { ja: "ジャブローに散る!", en: "Tragedy in Jaburo" },
         ja: "1979-10-20",
         en: "2001-08-29",
       },
       {
         n: 30,
-        title: "A Wish of War Orphans",
+        title: { ja: "小さな防衛線", en: "A Wish of War Orphans" },
         ja: "1979-10-27",
         en: "2001-08-30",
       },
       {
         n: 31,
-        title: "A Decoy in Space",
+        title: { ja: "ザンジバル、追撃!", en: "A Decoy in Space" },
         ja: "1979-11-03",
         en: "2001-08-31",
       },
       {
         n: 32,
-        title: "Breakthrough",
+        title: { ja: "強行突破作戦", en: "Breakthrough" },
         ja: "1979-11-10",
         en: "2001-09-03",
       },
       {
         n: 33,
-        title: "Farewell in Side Six",
+        title: { ja: "コンスコン強襲", en: "Farewell in Side Six" },
         ja: "1979-11-17",
         en: "2001-09-04",
       },
       {
         n: 34,
-        title: "A Fateful Encounter",
+        title: { ja: "宿命の出会い", en: "A Fateful Encounter" },
         ja: "1979-11-24",
         en: "2001-09-05",
       },
       {
         n: 35,
-        title: "The Glory of Solomon",
+        title: { ja: "ソロモン攻略戦", en: "The Glory of Solomon" },
         ja: "1979-12-01",
         en: "2001-09-06",
       },
       {
         n: 36,
-        title: "Big-Zam's Last Stand",
+        title: { ja: "恐怖! 機動ビグ・ザム", en: "Big-Zam's Last Stand" },
         ja: "1979-12-08",
         en: "2001-09-07",
       },
       {
         n: 37,
-        title: "The Duel in Texas",
+        title: { ja: "テキサスの攻防", en: "The Duel in Texas" },
         ja: "1979-12-15",
         en: "2001-09-10",
       },
       {
         n: 38,
-        title: "Char and Sayla",
+        title: { ja: "再会、シャアとセイラ", en: "Char and Sayla" },
         ja: "1979-12-22",
         en: "2002-04-09",
       },
       {
         n: 39,
-        title: "The Newtype: Challia Bull",
+        title: {
+          ja: "ニュータイプ、 シャリア・ブル",
+          en: "The Newtype: Challia Bull",
+        },
         ja: "1979-12-29",
         en: "2001-09-12",
       },
       {
         n: 40,
-        title: "Lalah's Dilemma",
+        title: { ja: "エルメスのララァ", en: "Lalah's Dilemma" },
         ja: "1980-01-05",
         en: "2002-06-02",
       },
       {
         n: 41,
-        title: "A Cosmic Glow",
+        title: { ja: "光る宇宙", en: "A Cosmic Glow" },
         ja: "1980-01-12",
         en: "2002-06-02",
       },
       {
         n: 42,
-        title: "Space Fortress: A Baoa Qu",
+        title: {
+          ja: "宇宙要塞ア・バオア・クー",
+          en: "Space Fortress: A Baoa Qu",
+        },
         ja: "1980-01-19",
         en: "2002-06-02",
       },
       {
         n: 43,
-        title: "Escape",
+        title: { ja: "脱出", en: "Escape" },
         ja: "1980-01-26",
         en: "2001-12-31",
         note: "Aired on Toonami's 'New Year's Evil' special",
@@ -6012,7 +5342,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   msg_1981_compilation_films: {
-    title: "Mobile Suit Gundam I / II / III (compilation trilogy)",
+    title: {
+      ja: "機動戦士ガンダム (劇場版)",
+      en: "Mobile Suit Gundam I / II / III (compilation trilogy)",
+    },
     u: "uc",
     type: "film",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_(film)",
@@ -6020,17 +5353,23 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Mobile Suit Gundam I",
+        title: { ja: "機動戦士ガンダム", en: "Mobile Suit Gundam I" },
         ja: "1981-03-14",
       },
       {
         n: 2,
-        title: "Mobile Suit Gundam II: Soldiers of Sorrow",
+        title: {
+          ja: "機動戦士ガンダムII 哀・戦士編",
+          en: "Mobile Suit Gundam II: Soldiers of Sorrow",
+        },
         ja: "1981-07-11",
       },
       {
         n: 3,
-        title: "Mobile Suit Gundam III: Encounters in Space",
+        title: {
+          ja: "機動戦士ガンダムIII めぐりあい宇宙編",
+          en: "Mobile Suit Gundam III: Encounters in Space",
+        },
         ja: "1982-03-13",
       },
     ],
@@ -6067,25 +5406,20 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   msg_okazaki_manga: {
-    title: "Mobile Suit Gundam (Yū Okazaki)",
+    title: {
+      ja: "機動戦士ガンダム (岡崎剛之)",
+      en: "Mobile Suit Gundam (Yū Okazaki)",
+    },
     u: "uc",
     type: "manga",
+    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam",
     author: "Yū Okazaki",
     publisher: "Akita Shoten",
     magazine: "Boken-Oh",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam",
     note: "First MSG manga adaptation, contemporaneous with original anime broadcast",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "1982-04-10",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "1982-05-30",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "1982-04-10" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "1982-05-30" },
     ],
     releases: [
       {
@@ -6099,29 +5433,20 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   msg_tomino_novel_trilogy: {
-    title: "Mobile Suit Gundam (Tomino novelization trilogy)",
+    title: {
+      ja: "機動戦士ガンダム (小説版)",
+      en: "Mobile Suit Gundam (Tomino novelization trilogy)",
+    },
     u: "uc",
     type: "novel",
+    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam",
     author: "Yoshiyuki Tomino",
     publisher: "Sora Shobo (later Kadokawa)",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam",
     note: "Original novelisation, divergent from anime ending (Amuro dies). Major source for later UC works.",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "1987-10",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "1987-11",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "1987-11",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "1987-10" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "1987-11" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "1987-11" },
     ],
     releases: [
       {
@@ -6150,7 +5475,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   msigloo2_gravity_front_2008_ova: {
-    title: "Mobile Suit Gundam MS IGLOO 2: Gravity Front",
+    title: {
+      ja: "機動戦士ガンダム MS IGLOO 2 重力戦線",
+      en: "Mobile Suit Gundam MS IGLOO 2: Gravity Front",
+    },
     u: "uc",
     type: "ova",
     source:
@@ -6158,17 +5486,23 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Shoot That Down!",
+        title: { ja: "Shoot That Down!", en: "Shoot That Down!" },
         ja: "2008-10-24",
       },
       {
         n: 2,
-        title: "King of the Battlefield, the Monster",
+        title: {
+          ja: "King of the Battlefield, the Monster",
+          en: "King of the Battlefield, the Monster",
+        },
         ja: "2009-01-23",
       },
       {
         n: 3,
-        title: "The Rest Are the Tears of Soldiers",
+        title: {
+          ja: "The Rest Are the Tears of Soldiers",
+          en: "The Rest Are the Tears of Soldiers",
+        },
         ja: "2009-06-26",
       },
     ],
@@ -6191,7 +5525,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   msigloo_apocalypse_2006_ova: {
-    title: "Mobile Suit Gundam MS IGLOO: Apocalypse 0079",
+    title: {
+      ja: "機動戦士ガンダム MS IGLOO -黙示録0079-",
+      en: "Mobile Suit Gundam MS IGLOO: Apocalypse 0079",
+    },
     u: "uc",
     type: "ova",
     source:
@@ -6199,17 +5536,17 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "A Fleeting Rainbow",
+        title: { ja: "あの死神を撃て！", en: "A Fleeting Rainbow" },
         ja: "2006-04-26",
       },
       {
         n: 2,
-        title: "The Boundless Gulf of Fire",
+        title: { ja: "陸の王者、前へ！", en: "The Boundless Gulf of Fire" },
         ja: "2006-10-25",
       },
       {
         n: 3,
-        title: "Spirits Returning to the Sky",
+        title: { ja: "オデッサ、鉄の嵐！", en: "Spirits Returning to the Sky" },
         ja: "2007-08-24",
       },
     ],
@@ -6232,7 +5569,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   msigloo_hidden_2004_ova: {
-    title: "Mobile Suit Gundam MS IGLOO: The Hidden One Year War",
+    title: {
+      ja: "機動戦士ガンダム MS IGLOO -1年戦争全記録-",
+      en: "Mobile Suit Gundam MS IGLOO: The Hidden One Year War",
+    },
     u: "uc",
     type: "ova",
     source:
@@ -6240,17 +5580,23 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "The Vanished Lieutenant",
+        title: { ja: "あの死神を撃て！", en: "The Vanished Lieutenant" },
         ja: "2004-07-27",
       },
       {
         n: 2,
-        title: "The Howl That Became the Screams of Success",
+        title: {
+          ja: "陸の王者、前へ！",
+          en: "The Howl That Became the Screams of Success",
+        },
         ja: "2004-11-26",
       },
       {
         n: 3,
-        title: "The Rainbow Valleys of Infinity",
+        title: {
+          ja: "オデッサ、鉄の嵐！",
+          en: "The Rainbow Valleys of Infinity",
+        },
         ja: "2005-04-22",
       },
     ],
@@ -6273,7 +5619,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   msteam08_1996_ova: {
-    title: "Mobile Suit Gundam: The 08th MS Team",
+    title: {
+      ja: "機動戦士ガンダム 第08MS小隊",
+      en: "Mobile Suit Gundam: The 08th MS Team",
+    },
     u: "uc",
     type: "ova",
     source:
@@ -6281,62 +5630,63 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "War for Two",
+        title: { ja: "二人だけの戦争", en: "War for Two" },
         ja: "1996-01-25",
       },
       {
         n: 2,
-        title: "Gundams in the Jungle",
+        title: { ja: "密林のガンダム", en: "Gundams in the Jungle" },
         ja: "1996-01-25",
       },
       {
         n: 3,
-        title: "The Time Limit on Trust",
+        title: {
+          ja: "信頼への限界時間（タイムリミット）",
+          en: "The Time Limit on Trust",
+        },
         ja: "1996-03-25",
       },
       {
         n: 4,
-        title: "The Demon Overhead",
+        title: { ja: "頭上の悪魔", en: "The Demon Overhead" },
         ja: "1996-10-25",
       },
       {
         n: 5,
-        title: "The Broken Order to Stand By",
+        title: { ja: "破られた待機命令", en: "The Broken Order to Stand By" },
         ja: "1996-11-25",
       },
       {
         n: 6,
-        title: "Battle Line on the Burning Sand",
+        title: { ja: "熱砂戦線", en: "Battle Line on the Burning Sand" },
         ja: "1996-12-18",
       },
-      {
-        n: 7,
-        title: "Reunion",
-        ja: "1997-10-25",
-      },
+      { n: 7, title: { ja: "再会", en: "Reunion" }, ja: "1997-10-25" },
       {
         n: 8,
-        title: "Duty and Ideals",
+        title: { ja: "軍務と理想", en: "Duty and Ideals" },
         ja: "1997-12-18",
       },
-      {
-        n: 9,
-        title: "Front Line",
-        ja: "1998-02-25",
-      },
+      { n: 9, title: { ja: "最前線", en: "Front Line" }, ja: "1998-02-25" },
       {
         n: 10,
-        title: "The Shuddering Mountain, Part I",
+        title: {
+          ja: "震える山（前編）",
+          en: "The Shuddering Mountain, Part I",
+        },
         ja: "1998-07-25",
       },
       {
         n: 11,
-        title: "The Shuddering Mountain, Part II",
+        title: {
+          ja: "震える山（後編）",
+          en: "The Shuddering Mountain, Part II",
+        },
         ja: "1999-04-25",
       },
       {
         n: 12,
-        title: "Last Resort (epilogue)",
+        title: { ja: "ラスト・リゾート", en: "Last Resort" },
         ja: "1999-07-25",
       },
     ],
@@ -6380,29 +5730,24 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   msteam08_1999_novel: {
-    title: "Mobile Suit Gundam: The 08th MS Team (novelization)",
+    title: {
+      ja: "機動戦士ガンダム 第08MS小隊 (小説版)",
+      en: "Mobile Suit Gundam: The 08th MS Team (novelization)",
+    },
     u: "uc",
     type: "novel",
-    author: "Ichirō Ōkouchi",
-    publisher: "Kadokawa Sneaker Bunko",
     source:
       "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_08th_MS_Team",
+    author: "Ichirō Ōkouchi",
+    publisher: "Kadokawa Sneaker Bunko",
     episodes: [
-      {
-        n: 1,
-        title: "Upper (上)",
-        ja: "1999-04-27",
-      },
+      { n: 1, title: { ja: "Upper (上)", en: "Upper (上)" }, ja: "1999-04-27" },
       {
         n: 2,
-        title: "Middle (中)",
+        title: { ja: "Middle (中)", en: "Middle (中)" },
         ja: "1999-06-29",
       },
-      {
-        n: 3,
-        title: "Lower (下)",
-        ja: "1999-12",
-      },
+      { n: 3, title: { ja: "Lower (下)", en: "Lower (下)" }, ja: "1999-12" },
     ],
     releases: [
       {
@@ -6415,7 +5760,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   msteam08_3d_2013_special: {
-    title: "Mobile Suit Gundam: The 08th MS Team: Battle in Three Dimensions",
+    title: {
+      ja: "機動戦士ガンダム 第08MS小隊 三次元との戦い",
+      en: "Mobile Suit Gundam: The 08th MS Team: Battle in Three Dimensions",
+    },
     u: "uc",
     type: "ova",
     source:
@@ -6423,7 +5771,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Battle in Three Dimensions",
+        title: {
+          ja: "機動戦士ガンダム 第08MS小隊 三次元との戦い",
+          en: "Battle in Three Dimensions",
+        },
         ja: "2013-02-22",
       },
     ],
@@ -6445,30 +5796,21 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   msteam08_manga: {
-    title: "Mobile Suit Gundam 08th MS Team: U.C.0079+α",
+    title: {
+      ja: "機動戦士ガンダム 第08MS小隊 U.C.0079+α",
+      en: "Mobile Suit Gundam 08th MS Team: U.C.0079+α",
+    },
     u: "uc",
     type: "manga",
+    source:
+      "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_08th_MS_Team",
     author: "Umanosuke Iida",
     publisher: "Kadokawa Shoten",
     magazine: "Gundam Ace",
-    source:
-      "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_08th_MS_Team",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "1997",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "1998",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "1999",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "1997" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "1998" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "1999" },
     ],
     releases: [
       {
@@ -6482,7 +5824,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   msteam08_millers_report_1998_film: {
-    title: "Mobile Suit Gundam: The 08th MS Team — Miller's Report",
+    title: {
+      ja: "機動戦士ガンダム 第08MS小隊 ミラーズ・リポート",
+      en: "Mobile Suit Gundam: The 08th MS Team — Miller's Report",
+    },
     u: "uc",
     type: "film",
     source:
@@ -6490,7 +5835,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Miller's Report",
+        title: {
+          ja: "機動戦士ガンダム 第08MS小隊 ミラーズ・リポート",
+          en: "Miller's Report",
+        },
         ja: "1998-08-01",
         note: "Theatrical compilation film",
       },
@@ -6513,14 +5861,14 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   narrative_2018_film: {
-    title: "Mobile Suit Gundam Narrative",
+    title: { ja: "機動戦士ガンダムNT", en: "Mobile Suit Gundam Narrative" },
     u: "uc",
     type: "film",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Narrative",
     episodes: [
       {
         n: 1,
-        title: "Gundam Narrative",
+        title: { ja: "機動戦士ガンダムNT", en: "Gundam Narrative" },
         ja: "2018-11-30",
       },
     ],
@@ -6549,18 +5897,17 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   narrative_2018_novel: {
-    title: "Mobile Suit Gundam Narrative (novel)",
+    title: {
+      ja: "機動戦士ガンダムNT (小説)",
+      en: "Mobile Suit Gundam Narrative (novel)",
+    },
     u: "uc",
     type: "novel",
+    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムNT",
     author: "Kurokawa Hiroyuki",
     publisher: "Kadokawa",
-    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムNT",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2018-11-21",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2018-11-21" },
     ],
     releases: [
       {
@@ -6573,133 +5920,144 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   origin_2001_manga: {
-    title: "Mobile Suit Gundam: The Origin (manga)",
+    title: {
+      ja: "機動戦士ガンダム THE ORIGIN",
+      en: "Mobile Suit Gundam: The Origin (manga)",
+    },
     u: "uc",
     type: "manga",
+    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_Origin",
     author: "Yoshikazu Yasuhiko",
     publisher: "Kadokawa Shoten",
     magazine: "Gundam Ace",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_Origin",
     note: "24 tankōbon volumes 2002-2015 (serialised 25 June 2001 - 25 June 2011). Per-volume dates approximate where exact tankobon dates not in available sources.",
     episodes: [
-      {
-        n: 1,
-        title: "Activation",
-        ja: "2002-06-01",
-      },
+      { n: 1, title: { ja: "Activation", en: "Activation" }, ja: "2002-06-01" },
       {
         n: 2,
-        title: "Fierce Battle",
+        title: { ja: "Fierce Battle", en: "Fierce Battle" },
         ja: "2002-07-26",
       },
       {
         n: 3,
-        title: "Garma (Part 1)",
+        title: { ja: "Garma (Part 1)", en: "Garma (Part 1)" },
         ja: "2002-11-26",
       },
       {
         n: 4,
-        title: "Garma (Part 2)",
+        title: { ja: "Garma (Part 2)", en: "Garma (Part 2)" },
         ja: "2003-03-20",
       },
       {
         n: 5,
-        title: "Ramba Ral (Part 1)",
+        title: { ja: "Ramba Ral (Part 1)", en: "Ramba Ral (Part 1)" },
         ja: "2003-07-25",
       },
       {
         n: 6,
-        title: "Ramba Ral (Part 2)",
+        title: { ja: "Ramba Ral (Part 2)", en: "Ramba Ral (Part 2)" },
         ja: "2004-03-26",
       },
       {
         n: 7,
-        title: "Jaburo (Part 1)",
+        title: { ja: "Jaburo (Part 1)", en: "Jaburo (Part 1)" },
         ja: "2004-07-26",
       },
       {
         n: 8,
-        title: "Jaburo (Part 2)",
+        title: { ja: "Jaburo (Part 2)", en: "Jaburo (Part 2)" },
         ja: "2004-11-26",
       },
       {
         n: 9,
-        title: "Char & Sayla (Part 1)",
+        title: { ja: "Char & Sayla (Part 1)", en: "Char & Sayla (Part 1)" },
         ja: "2005-04-26",
       },
       {
         n: 10,
-        title: "Char & Sayla (Part 2)",
+        title: { ja: "Char & Sayla (Part 2)", en: "Char & Sayla (Part 2)" },
         ja: "2005-08-26",
       },
       {
         n: 11,
-        title: "Opening Fire (Part 1)",
+        title: { ja: "Opening Fire (Part 1)", en: "Opening Fire (Part 1)" },
         ja: "2005-12-26",
       },
       {
         n: 12,
-        title: "Opening Fire (Part 2)",
+        title: { ja: "Opening Fire (Part 2)", en: "Opening Fire (Part 2)" },
         ja: "2006-04-26",
       },
       {
         n: 13,
-        title: "Battle of Loum (Part 1)",
+        title: { ja: "Battle of Loum (Part 1)", en: "Battle of Loum (Part 1)" },
         ja: "2006-07-26",
       },
       {
         n: 14,
-        title: "Battle of Loum (Part 2)",
+        title: { ja: "Battle of Loum (Part 2)", en: "Battle of Loum (Part 2)" },
         ja: "2006-12-26",
       },
       {
         n: 15,
-        title: "Operation Odessa (Part 1)",
+        title: {
+          ja: "Operation Odessa (Part 1)",
+          en: "Operation Odessa (Part 1)",
+        },
         ja: "2007-05-26",
       },
       {
         n: 16,
-        title: "Operation Odessa (Part 2)",
+        title: {
+          ja: "Operation Odessa (Part 2)",
+          en: "Operation Odessa (Part 2)",
+        },
         ja: "2007-11-26",
       },
       {
         n: 17,
-        title: "Lalah (Part 1)",
+        title: { ja: "Lalah (Part 1)", en: "Lalah (Part 1)" },
         ja: "2008-06-26",
       },
       {
         n: 18,
-        title: "Lalah (Part 2)",
+        title: { ja: "Lalah (Part 2)", en: "Lalah (Part 2)" },
         ja: "2008-12-26",
       },
       {
         n: 19,
-        title: "Solomon (Part 1)",
+        title: { ja: "Solomon (Part 1)", en: "Solomon (Part 1)" },
         ja: "2009-06-26",
       },
       {
         n: 20,
-        title: "Solomon (Part 2)",
+        title: { ja: "Solomon (Part 2)", en: "Solomon (Part 2)" },
         ja: "2010-01-26",
       },
       {
         n: 21,
-        title: "Shining Universe (Part 1)",
+        title: {
+          ja: "Shining Universe (Part 1)",
+          en: "Shining Universe (Part 1)",
+        },
         ja: "2010-07-26",
       },
       {
         n: 22,
-        title: "Shining Universe (Part 2)",
+        title: {
+          ja: "Shining Universe (Part 2)",
+          en: "Shining Universe (Part 2)",
+        },
         ja: "2011-02-26",
       },
       {
         n: 23,
-        title: "Encounters in Space",
+        title: { ja: "Encounters in Space", en: "Encounters in Space" },
         ja: "2011-11-26",
       },
       {
         n: 24,
-        title: "Special Edition",
+        title: { ja: "Special Edition", en: "Special Edition" },
         ja: "2015-02-26",
       },
     ],
@@ -6723,39 +6081,42 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   origin_2015_ova: {
-    title: "Mobile Suit Gundam: The Origin",
+    title: {
+      ja: "機動戦士ガンダム THE ORIGIN",
+      en: "Mobile Suit Gundam: The Origin",
+    },
     u: "uc",
     type: "ova",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_Origin",
     episodes: [
       {
         n: 1,
-        title: "Blue-Eyed Casval (青い瞳のキャスバル)",
+        title: { ja: "青い瞳のキャスバル", en: "Blue-Eyed Casval" },
         ja: "2015-02-28",
       },
       {
         n: 2,
-        title: "Artesia's Sorrow (哀しみのアルテイシア)",
+        title: { ja: "哀しみのアルテイシア", en: "Artesia's Sorrow" },
         ja: "2015-10-31",
       },
       {
         n: 3,
-        title: "Dawn of Rebellion (暁の蜂起)",
+        title: { ja: "暁の蜂起", en: "Dawn of Rebellion" },
         ja: "2016-05-21",
       },
       {
         n: 4,
-        title: "Eve of Destiny (運命の前夜)",
+        title: { ja: "運命の前夜", en: "Eve of Destiny" },
         ja: "2016-11-19",
       },
       {
         n: 5,
-        title: "Clash at Loum (激突 ルウム会戦)",
+        title: { ja: "激突 ルウム会戦", en: "Clash at Loum" },
         ja: "2017-09-02",
       },
       {
         n: 6,
-        title: "Rise of the Red Comet (誕生 赤い彗星)",
+        title: { ja: "誕生 赤い彗星", en: "Rise of the Red Comet" },
         ja: "2018-05-05",
       },
     ],
@@ -6785,7 +6146,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   origin_advent_2019_tv: {
-    title: "Mobile Suit Gundam: The Origin — Advent of the Red Comet",
+    title: {
+      ja: "機動戦士ガンダム THE ORIGIN 前夜 赤い彗星",
+      en: "Mobile Suit Gundam: The Origin — Advent of the Red Comet",
+    },
     u: "uc",
     type: "tv",
     source:
@@ -6793,79 +6157,82 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Child of Zeon",
+        title: { ja: "ジオンの子", en: "Child of Zeon" },
         ja: "2019-04-29",
         en: "2019-07-07",
       },
       {
         n: 2,
-        title: "A Promise with Mother",
+        title: { ja: "母との約束", en: "A Promise with Mother" },
         ja: "2019-05-06",
         en: "2019-07-14",
       },
       {
         n: 3,
-        title: "Édouard and Sayla",
+        title: { ja: "エドワウとセイラ", en: "Édouard and Sayla" },
         ja: "2019-05-13",
         en: "2019-07-21",
       },
       {
         n: 4,
-        title: "Goodbye, Artesia",
+        title: { ja: "さよならアルテイシア", en: "Goodbye, Artesia" },
         ja: "2019-05-20",
         en: "2019-07-28",
       },
       {
         n: 5,
-        title: "Char and Garma",
+        title: { ja: "シャアとガルマ", en: "Char and Garma" },
         ja: "2019-05-27",
         en: "2019-08-04",
       },
       {
         n: 6,
-        title: "Garma Rises",
+        title: { ja: "ガルマ立つ", en: "Garma Rises" },
         ja: "2019-06-03",
         en: "2019-08-11",
       },
       {
         n: 7,
-        title: "Meeting Lalah",
+        title: { ja: "ララァとの出会い", en: "Meeting Lalah" },
         ja: "2019-06-10",
         en: "2019-08-18",
       },
       {
         n: 8,
-        title: "The Principality Of Zeon Declares Its Independence",
+        title: {
+          ja: "ジオン公国独立",
+          en: "The Principality Of Zeon Declares Its Independence",
+        },
         ja: "2019-06-17",
         en: "2019-08-25",
       },
       {
         n: 9,
-        title: "Dropping the Colony",
+        title: { ja: "コロニー落とし", en: "Dropping the Colony" },
         ja: "2019-06-24",
         en: "2019-09-01",
       },
       {
         n: 10,
-        title: "A Red Mobile Suit",
+        title: { ja: "赤いモビルスーツ", en: "A Red Mobile Suit" },
         ja: "2019-07-01",
         en: "2019-09-08",
       },
       {
         n: 11,
-        title: "The Battle of Loum",
+        title: { ja: "ルウム会戦", en: "The Battle of Loum" },
         ja: "2019-07-15",
         en: "2019-09-15",
       },
       {
         n: 12,
-        title: "Char, The Red Comet",
+        title: { ja: "赤い彗星のシャア", en: "Char, The Red Comet" },
         ja: "2019-07-22",
         en: "2019-09-22",
       },
       {
         n: 13,
-        title: "The One Year War",
+        title: { ja: "一年戦争", en: "The One Year War" },
         ja: "2019-08-12",
         en: "2019-10-05",
       },
@@ -6896,7 +6263,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   origin_movie_edition_2024_film: {
-    title: "Mobile Suit Gundam: The Origin (Movie Edition)",
+    title: {
+      ja: "機動戦士ガンダム THE ORIGIN (劇場版)",
+      en: "Mobile Suit Gundam: The Origin (Movie Edition)",
+    },
     u: "uc",
     type: "film",
     source: "https://ja.wikipedia.org/wiki/機動戦士ガンダム_THE_ORIGIN",
@@ -6904,17 +6274,17 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Chapter 1: Shaa Seira-hen",
+        title: { ja: "蒼い瞳のキャスバル", en: "Chapter 1: Shaa Seira-hen" },
         ja: "2024",
       },
       {
         n: 2,
-        title: "Chapter 2: Kaisen-hen",
+        title: { ja: "哀しみのアルテイシア", en: "Chapter 2: Kaisen-hen" },
         ja: "2024",
       },
       {
         n: 3,
-        title: "Chapter 3: Roum-hen",
+        title: { ja: "暁の蜂起", en: "Chapter 3: Roum-hen" },
         ja: "2024",
       },
     ],
@@ -6929,41 +6299,44 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   origin_msd_doan_2016_manga: {
-    title: "Mobile Suit Gundam: The Origin MSD — Cucuruz Doan's Island",
+    title: {
+      ja: "機動戦士ガンダム THE ORIGIN MSD ククルス・ドアンの島",
+      en: "Mobile Suit Gundam: The Origin MSD — Cucuruz Doan's Island",
+    },
     u: "uc",
     type: "manga",
+    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_Origin",
     author: "Junji Ono",
     publisher: "Kadokawa Shoten",
     magazine: "Gundam Ace",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_Origin",
     episodes: [
       {
         n: 1,
-        title: "Volume 1",
+        title: { ja: "Volume 1", en: "Volume 1" },
         ja: "2017-02-25",
         en: "2024-10-01",
       },
       {
         n: 2,
-        title: "Volume 2",
+        title: { ja: "Volume 2", en: "Volume 2" },
         ja: "2017-10-26",
         en: "2024-12-03",
       },
       {
         n: 3,
-        title: "Volume 3",
+        title: { ja: "Volume 3", en: "Volume 3" },
         ja: "2018-03-26",
         en: "2025-02-04",
       },
       {
         n: 4,
-        title: "Volume 4",
+        title: { ja: "Volume 4", en: "Volume 4" },
         ja: "2018-11-26",
         en: "2025-04-01",
       },
       {
         n: 5,
-        title: "Volume 5",
+        title: { ja: "Volume 5", en: "Volume 5" },
         ja: "2019-08-26",
         en: "2025-06-03",
       },
@@ -6988,31 +6361,22 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   re010_2022_manga: {
-    title: "Mobile Suit Gundam 0083: Re:010",
+    title: {
+      ja: "機動戦士ガンダム0083 Re:010",
+      en: "Mobile Suit Gundam 0083: Re:010",
+    },
     u: "uc",
     type: "manga",
+    source:
+      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_0083:_Stardust_Memory_(Manga)",
     author: "Tsukasa Kotobuki",
     publisher: "Kadokawa",
     magazine: "Gundam Ace",
-    source:
-      "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_0083:_Stardust_Memory_(Manga)",
     note: "2022 manga retelling of 0083 Stardust Memory",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2023",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2024",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2024",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2023" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2024" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2024" },
     ],
     releases: [
       {
@@ -7025,7 +6389,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   reconguista_2014_tv: {
-    title: "Gundam Reconguista in G",
+    title: { ja: "ガンダム Gのレコンギスタ", en: "Gundam Reconguista in G" },
     u: "rc",
     type: "tv",
     source: "https://en.wikipedia.org/wiki/Gundam_Reconguista_in_G",
@@ -7033,133 +6397,148 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
+        title: { ja: "謎のモビルスーツ", en: "The Mysterious Mobile Suit" },
         ja: "2014-10-02",
-        title: "The Mysterious Mobile Suit",
       },
       {
         n: 2,
+        title: { ja: "G-セルフ起動!", en: "G-Self, Start Up!" },
         ja: "2014-10-09",
-        title: "G-Self, Start Up!",
       },
       {
         n: 3,
+        title: { ja: "旅客機の秘密", en: "The Pressure of Montero" },
         ja: "2014-10-16",
-        title: "The Pressure of Montero",
       },
       {
         n: 4,
+        title: { ja: "海賊との遭遇", en: "Wild Dance of the Catsith" },
         ja: "2014-10-23",
-        title: "Wild Dance of the Catsith",
       },
       {
         n: 5,
+        title: { ja: "ジット団の宝", en: "The Enemy is the Capital Army" },
         ja: "2014-10-30",
-        title: "The Enemy is the Capital Army",
       },
       {
         n: 6,
+        title: { ja: "ドーニャの社", en: "Dellensen, A Fearsome Foe" },
         ja: "2014-11-06",
-        title: "Dellensen, A Fearsome Foe",
       },
       {
         n: 7,
+        title: {
+          ja: "マスク部隊の強襲",
+          en: "The Mask Corps's Fierce Assault",
+        },
         ja: "2014-11-13",
-        title: "The Mask Corps's Fierce Assault",
       },
       {
         n: 8,
+        title: { ja: "海上の邂逅", en: "Father, Mother and Mask" },
         ja: "2014-11-20",
-        title: "Father, Mother and Mask",
       },
       {
         n: 9,
+        title: { ja: "メガファウナ南へ", en: "The Megafauna Heads South" },
         ja: "2014-11-27",
-        title: "The Megafauna Heads South",
       },
       {
         n: 10,
+        title: {
+          ja: "キャピタル・アーミーの収集",
+          en: "Escape From Territory",
+        },
         ja: "2014-12-04",
-        title: "Escape From Territory",
       },
       {
         n: 11,
+        title: { ja: "宇宙海賊の遺産", en: "Entering the Space War" },
         ja: "2014-12-11",
-        title: "Entering the Space War",
       },
       {
         n: 12,
+        title: { ja: "キャピタル・タワーを護れ", en: "Capital Tower Occupied" },
         ja: "2014-12-18",
-        title: "Capital Tower Occupied",
       },
       {
         n: 13,
+        title: {
+          ja: "月曜の ロックポック",
+          en: "Those Who Came from the Moon",
+        },
         ja: "2014-12-25",
-        title: "Those Who Came from the Moon",
       },
       {
         n: 14,
+        title: { ja: "母と娘とマスクと", en: "Space and Mobile Suit Battles" },
         ja: "2015-01-01",
-        title: "Space and Mobile Suit Battles",
       },
       {
         n: 15,
+        title: { ja: "昇降機のふもとで", en: "Fly Forth! To Towasanga" },
         ja: "2015-01-08",
-        title: "Fly Forth! To Towasanga",
       },
       {
         n: 16,
+        title: { ja: "ベルリの戦争", en: "Bellri's War" },
         ja: "2015-01-15",
-        title: "Bellri's War",
       },
       {
         n: 17,
+        title: { ja: "アメリアの降下", en: "Aida's Decision" },
         ja: "2015-01-22",
-        title: "Aida's Decision",
       },
       {
         n: 18,
+        title: { ja: "月の裏側から", en: "Ride the Crescent Moon" },
         ja: "2015-01-29",
-        title: "Ride the Crescent Moon",
       },
       {
         n: 19,
+        title: {
+          ja: "ビーナス・グローブ・バラッド",
+          en: "The Venus Globe Gang",
+        },
         ja: "2015-02-05",
-        title: "The Venus Globe Gang",
       },
       {
         n: 20,
+        title: { ja: "光る海、光る大空", en: "Space Inside a Frame" },
         ja: "2015-02-12",
-        title: "Space Inside a Frame",
       },
       {
         n: 21,
+        title: {
+          ja: "タブーを越えたクン・スーン",
+          en: "The Weight of the Sea",
+        },
         ja: "2015-02-19",
-        title: "The Weight of the Sea",
       },
       {
         n: 22,
+        title: { ja: "地球圏ギアナ高地", en: "Reunions in the Earth Sphere" },
         ja: "2015-02-26",
-        title: "Reunions in the Earth Sphere",
       },
       {
         n: 23,
+        title: { ja: "クレッセント・シップ", en: "The Sound of a Newtype" },
         ja: "2015-03-05",
-        title: "The Sound of a Newtype",
       },
       {
         n: 24,
+        title: { ja: "スパイアクション", en: "Space Kaleidoscope" },
         ja: "2015-03-12",
-        title: "Space Kaleidoscope",
       },
       {
         n: 25,
+        title: { ja: "濁った表情のクリシェ", en: "Crossing the Line of Death" },
         ja: "2015-03-19",
-        title: "Crossing the Line of Death",
       },
       {
         n: 26,
+        title: { ja: "愛の力", en: "Rising on Earth" },
         ja: "2015-03-26",
-        title: "Rising on Earth",
       },
     ],
     releases: [
@@ -7188,34 +6567,40 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   reconguista_films_2019: {
-    title: "Gundam Reconguista in G (compilation films)",
+    title: {
+      ja: "ガンダム Gのレコンギスタ (劇場版)",
+      en: "Gundam Reconguista in G (compilation films)",
+    },
     u: "rc",
     type: "film",
     source: "https://en.wikipedia.org/wiki/Gundam_Reconguista_in_G",
     episodes: [
       {
         n: 1,
-        title: "Go! Core Fighter",
+        title: { ja: "行け！コア・ファイター", en: "Go! Core Fighter" },
         ja: "2019-11-29",
       },
       {
         n: 2,
-        title: "Bellri's Fierce Charge",
+        title: { ja: "ベルリの進撃", en: "Bellri's Fierce Charge" },
         ja: "2020-02-21",
       },
       {
         n: 3,
-        title: "Legacy from Space",
+        title: { ja: "宇宙からの遺産", en: "Legacy from Space" },
         ja: "2021-07-22",
       },
       {
         n: 4,
-        title: "Love That Cries Out in Battle",
+        title: {
+          ja: "愛が天を満たすとき",
+          en: "Love That Cries Out in Battle",
+        },
         ja: "2021-12-24",
       },
       {
         n: 5,
-        title: "Beyond the Crystallized World",
+        title: { ja: "螺旋の向こう", en: "Beyond the Crystallized World" },
         ja: "2022-08-05",
       },
     ],
@@ -7231,7 +6616,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   requiem_for_vengeance_2024_ona: {
-    title: "Mobile Suit Gundam: Requiem for Vengeance",
+    title: {
+      ja: "機動戦士ガンダム REQUIEM FOR VENGEANCE",
+      en: "Mobile Suit Gundam: Requiem for Vengeance",
+    },
     u: "uc",
     type: "ona",
     source:
@@ -7240,32 +6628,20 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Haunted Forest",
+        title: { ja: "Haunted Forest", en: "Haunted Forest" },
         ja: "2024-10-17",
       },
-      {
-        n: 2,
-        title: "Broken",
-        ja: "2024-10-17",
-      },
-      {
-        n: 3,
-        title: "Junkyard",
-        ja: "2024-10-17",
-      },
+      { n: 2, title: { ja: "Broken", en: "Broken" }, ja: "2024-10-17" },
+      { n: 3, title: { ja: "Junkyard", en: "Junkyard" }, ja: "2024-10-17" },
       {
         n: 4,
-        title: "Night Caller",
+        title: { ja: "Night Caller", en: "Night Caller" },
         ja: "2024-10-17",
       },
-      {
-        n: 5,
-        title: "The River",
-        ja: "2024-10-17",
-      },
+      { n: 5, title: { ja: "The River", en: "The River" }, ja: "2024-10-17" },
       {
         n: 6,
-        title: "Convoy to Oblivion",
+        title: { ja: "Convoy to Oblivion", en: "Convoy to Oblivion" },
         ja: "2024-10-17",
       },
     ],
@@ -7287,21 +6663,18 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   reseed_2024_manga: {
-    title: "Mobile Suit Gundam SEED Re:",
+    title: {
+      ja: "機動戦士ガンダムSEED Re:",
+      en: "Mobile Suit Gundam SEED Re:",
+    },
     u: "ce",
     type: "manga",
+    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Re:",
     author: "Ju Ishiguchi",
     publisher: "Kadokawa",
     magazine: "Gundam Ace",
-    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Re:",
     note: "2024 manga retelling of the original SEED",
-    episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2025",
-      },
-    ],
+    episodes: [{ n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2025" }],
     releases: [
       {
         region: "ja",
@@ -7313,7 +6686,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   ring_of_gundam_2009_film: {
-    title: "Ring of Gundam",
+    title: { ja: "リング・オブ・ガンダム", en: "Ring of Gundam" },
     u: "uc-alt",
     type: "film",
     source: "https://ja.wikipedia.org/wiki/リング・オブ・ガンダム",
@@ -7321,7 +6694,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Ring of Gundam",
+        title: { ja: "リング・オブ・ガンダム", en: "Ring of Gundam" },
         ja: "2009-08-21",
       },
     ],
@@ -7344,37 +6717,52 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   sd_gundam_1988_ova: {
-    title: "Mobile Suit SD Gundam (OVA series)",
+    title: {
+      ja: "機動戦士SDガンダム",
+      en: "Mobile Suit SD Gundam (OVA series)",
+    },
     u: "sd",
     type: "ova",
     source: "https://ja.wikipedia.org/wiki/機動戦士SDガンダム",
     episodes: [
       {
         n: 1,
-        title: "MK-I: Gekitou-hen / Kyuujitsu-hen / Kessen-hen",
+        title: {
+          ja: "MK-I: Gekitou-hen / Kyuujitsu-hen / Kessen-hen",
+          en: "MK-I: Gekitou-hen / Kyuujitsu-hen / Kessen-hen",
+        },
         ja: "1988-05-25",
       },
       {
         n: 2,
-        title:
-          "MK-II: Korogaru Colony Jiken / Ganso Gundam Meibamen-shuu / Gandan Densetsu",
+        title: {
+          ja: "MK-II: Korogaru Colony Jiken / Ganso Gundam Meibamen-shuu / Gandan Densetsu",
+          en: "MK-II: Korogaru Colony Jiken / Ganso Gundam Meibamen-shuu / Gandan Densetsu",
+        },
         ja: "1989-06-25",
       },
       {
         n: 3,
-        title:
-          "MK-III: Uchuu no Shinpi Daisakusen + SD Sengokuden (4 chapters)",
+        title: {
+          ja: "MK-III: Uchuu no Shinpi Daisakusen + SD Sengokuden (4 chapters)",
+          en: "MK-III: Uchuu no Shinpi Daisakusen + SD Sengokuden (4 chapters)",
+        },
         ja: "1990-03-25",
       },
       {
         n: 4,
-        title: "MK-IV: Yume no Maron-sha + SD Gundam Mou Race",
+        title: {
+          ja: "MK-IV: Yume no Maron-sha + SD Gundam Mou Race",
+          en: "MK-IV: Yume no Maron-sha + SD Gundam Mou Race",
+        },
         ja: "1990-09-25",
       },
       {
         n: 5,
-        title:
-          "MK-V: Hakobiya Ri-Gazi no Kiseki + SD Sengokuden + SD Gundam Souseiki",
+        title: {
+          ja: "MK-V: Hakobiya Ri-Gazi no Kiseki + SD Sengokuden + SD Gundam Souseiki",
+          en: "MK-V: Hakobiya Ri-Gazi no Kiseki + SD Sengokuden + SD Gundam Souseiki",
+        },
         ja: "1990-10-25",
       },
     ],
@@ -7390,272 +6778,208 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   sd_gundam_force_2004_tv: {
-    title: "Superior Defender Gundam Force",
+    title: { ja: "SDガンダムフォース", en: "Superior Defender Gundam Force" },
     u: "sd",
     type: "tv",
     source: "https://en.wikipedia.org/wiki/Superior_Defender_Gundam_Force",
     note: "First aired in US on Cartoon Network Sep 12 2004; in Japan Jan 22 2005 - Jan 27 2006 (52 ep total, weekly Saturday on TV Asahi)",
     episodes: [
-      {
-        n: 1,
-        title: "その名はキャプテン",
-        ja: "2004-01-07",
-      },
+      { n: 1, title: { ja: "その名はキャプテン", en: null }, ja: "2004-01-07" },
       {
         n: 2,
-        title: "輝け！ソウルドライブ",
+        title: { ja: "輝け！ソウルドライブ", en: null },
         ja: "2004-01-14",
       },
-      {
-        n: 3,
-        title: "天駆ける騎士 ゼロ",
-        ja: "2004-01-21",
-      },
+      { n: 3, title: { ja: "天駆ける騎士 ゼロ", en: null }, ja: "2004-01-21" },
       {
         n: 4,
-        title: "敵のムサイ艦を叩け！",
+        title: { ja: "敵のムサイ艦を叩け！", en: null },
         ja: "2004-01-28",
       },
       {
         n: 5,
-        title: "結成！ガンダムフォース",
+        title: { ja: "結成！ガンダムフォース", en: null },
         ja: "2004-02-04",
       },
       {
         n: 6,
-        title: "炎の武者、ネオトピアを征く",
+        title: { ja: "炎の武者、ネオトピアを征く", en: null },
         ja: "2004-02-11",
       },
       {
         n: 7,
-        title: "激走！ガンバイカー！",
+        title: { ja: "激走！ガンバイカー！", en: null },
         ja: "2004-02-18",
       },
       {
         n: 8,
-        title: "姫とケーキと翼の騎士",
+        title: { ja: "姫とケーキと翼の騎士", en: null },
         ja: "2004-02-25",
       },
-      {
-        n: 9,
-        title: "爆熱丸奮闘記",
-        ja: "2004-03-03",
-      },
+      { n: 9, title: { ja: "爆熱丸奮闘記", en: null }, ja: "2004-03-03" },
       {
         n: 10,
-        title: "必殺！トリプルアタック！",
+        title: { ja: "必殺！トリプルアタック！", en: null },
         ja: "2004-03-10",
       },
       {
         n: 11,
-        title: "迷宮のラクロア・前編",
+        title: { ja: "迷宮のラクロア・前編", en: null },
         ja: "2004-03-17",
       },
       {
         n: 12,
-        title: "迷宮のラクロア・中編",
+        title: { ja: "迷宮のラクロア・中編", en: null },
         ja: "2004-03-24",
       },
       {
         n: 13,
-        title: "迷宮のラクロア・後編",
+        title: { ja: "迷宮のラクロア・後編", en: null },
         ja: "2004-03-31",
       },
       {
         n: 14,
-        title: "ガンダムフォースの秘密にせまれ",
+        title: { ja: "ガンダムフォースの秘密にせまれ", en: null },
         ja: "2004-04-07",
       },
       {
         n: 15,
-        title: "音速の翼　ガンイーグル！",
+        title: { ja: "音速の翼　ガンイーグル！", en: null },
         ja: "2004-04-14",
       },
       {
         n: 16,
-        title: "深海の覇者　ガンダイバー！",
+        title: { ja: "深海の覇者　ガンダイバー！", en: null },
         ja: "2004-04-21",
       },
       {
         n: 17,
-        title: "新たな刺客、その名は阿修羅丸",
+        title: { ja: "新たな刺客、その名は阿修羅丸", en: null },
         ja: "2004-04-28",
       },
       {
         n: 18,
-        title: "S.D.G.基地　危機一髪！",
+        title: { ja: "S.D.G.基地　危機一髪！", en: null },
         ja: "2004-05-05",
       },
       {
         n: 19,
-        title: "決闘！爆熱丸対阿修羅丸",
+        title: { ja: "決闘！爆熱丸対阿修羅丸", en: null },
         ja: "2004-05-12",
       },
-      {
-        n: 20,
-        title: "フェンの災難",
-        ja: "2004-05-19",
-      },
+      { n: 20, title: { ja: "フェンの災難", en: null }, ja: "2004-05-19" },
       {
         n: 21,
-        title: "覚醒！フェザードラゴン",
+        title: { ja: "覚醒！フェザードラゴン", en: null },
         ja: "2004-05-26",
       },
-      {
-        n: 22,
-        title: "ビグ・ザム強襲",
-        ja: "2004-06-02",
-      },
+      { n: 22, title: { ja: "ビグ・ザム強襲", en: null }, ja: "2004-06-02" },
       {
         n: 23,
-        title: "発動！キャプテンシステム",
+        title: { ja: "発動！キャプテンシステム", en: null },
         ja: "2004-06-09",
       },
       {
         n: 24,
-        title: "ピンチ！ソウルドライブ強奪",
+        title: { ja: "ピンチ！ソウルドライブ強奪", en: null },
         ja: "2004-06-16",
       },
       {
         n: 25,
-        title: "ネオトピア最大の危機",
+        title: { ja: "ネオトピア最大の危機", en: null },
         ja: "2004-06-23",
       },
       {
         n: 26,
-        title: "決戦！コマンダー対キャプテン",
+        title: { ja: "決戦！コマンダー対キャプテン", en: null },
         ja: "2004-06-30",
       },
       {
         n: 27,
-        title: "突入！ダークアクシズ",
+        title: { ja: "突入！ダークアクシズ", en: null },
         ja: "2004-07-07",
       },
-      {
-        n: 28,
-        title: "三つの道",
-        ja: "2004-07-14",
-      },
+      { n: 28, title: { ja: "三つの道", en: null }, ja: "2004-07-14" },
       {
         n: 29,
-        title: "必殺技封印！？ミノフス境海の脅威",
+        title: { ja: "必殺技封印！？ミノフス境海の脅威", en: null },
         ja: "2004-07-21",
       },
       {
         n: 30,
-        title: "復活！俺たちが主役だ！？",
+        title: { ja: "復活！俺たちが主役だ！？", en: null },
         ja: "2004-07-28",
       },
-      {
-        n: 31,
-        title: "魔剣エピオン",
-        ja: "2004-08-04",
-      },
-      {
-        n: 32,
-        title: "エピオン強襲！",
-        ja: "2004-08-11",
-      },
+      { n: 31, title: { ja: "魔剣エピオン", en: null }, ja: "2004-08-04" },
+      { n: 32, title: { ja: "エピオン強襲！", en: null }, ja: "2004-08-11" },
       {
         n: 33,
-        title: "奪還！呪われしラクロア姫",
+        title: { ja: "奪還！呪われしラクロア姫", en: null },
         ja: "2004-08-18",
       },
       {
         n: 34,
-        title: "黒き衣のラクロア姫",
+        title: { ja: "黒き衣のラクロア姫", en: null },
         ja: "2004-08-25",
       },
       {
         n: 35,
-        title: "天下一等！元気丸〜っ！の巻",
+        title: { ja: "天下一等！元気丸〜っ！の巻", en: null },
         ja: "2004-09-01",
       },
       {
         n: 36,
-        title: "おにぎりと英智の園",
+        title: { ja: "おにぎりと英智の園", en: null },
         ja: "2004-09-08",
       },
       {
         n: 37,
-        title: "激突！闇のデスサイズ",
+        title: { ja: "激突！闇のデスサイズ", en: null },
         ja: "2004-09-15",
       },
-      {
-        n: 38,
-        title: "リリ姫、復活！",
-        ja: "2004-09-22",
-      },
-      {
-        n: 39,
-        title: "ガーベラの呼び声",
-        ja: "2004-09-29",
-      },
-      {
-        n: 40,
-        title: "騎馬王丸、襲来！",
-        ja: "2004-10-06",
-      },
+      { n: 38, title: { ja: "リリ姫、復活！", en: null }, ja: "2004-09-22" },
+      { n: 39, title: { ja: "ガーベラの呼び声", en: null }, ja: "2004-09-29" },
+      { n: 40, title: { ja: "騎馬王丸、襲来！", en: null }, ja: "2004-10-06" },
       {
         n: 41,
-        title: "囚われたシュウトとリリ",
+        title: { ja: "囚われたシュウトとリリ", en: null },
         ja: "2004-10-13",
       },
-      {
-        n: 42,
-        title: "戦乱の天宮",
-        ja: "2004-10-20",
-      },
+      { n: 42, title: { ja: "戦乱の天宮", en: null }, ja: "2004-10-20" },
       {
         n: 43,
-        title: "究極の一手！騎馬王丸対シュウト",
+        title: { ja: "究極の一手！騎馬王丸対シュウト", en: null },
         ja: "2004-10-27",
       },
-      {
-        n: 44,
-        title: "爆心丸、炎上！！",
-        ja: "2004-11-03",
-      },
+      { n: 44, title: { ja: "爆心丸、炎上！！", en: null }, ja: "2004-11-03" },
       {
         n: 45,
-        title: "ガンダムフォース集合！！",
+        title: { ja: "ガンダムフォース集合！！", en: null },
         ja: "2004-11-10",
       },
-      {
-        n: 46,
-        title: "虚武羅丸の涙",
-        ja: "2004-11-17",
-      },
-      {
-        n: 47,
-        title: "起動！武者大神将",
-        ja: "2004-11-24",
-      },
+      { n: 46, title: { ja: "虚武羅丸の涙", en: null }, ja: "2004-11-17" },
+      { n: 47, title: { ja: "起動！武者大神将", en: null }, ja: "2004-11-24" },
       {
         n: 48,
-        title: "炎の天地城、元気丸の叫び！",
+        title: { ja: "炎の天地城、元気丸の叫び！", en: null },
         ja: "2004-12-01",
       },
       {
         n: 49,
-        title: "破滅への序曲、ガーベラの正体",
+        title: { ja: "破滅への序曲、ガーベラの正体", en: null },
         ja: "2004-12-08",
       },
       {
         n: 50,
-        title: "世界消失！？ジェネラルの脅威",
+        title: { ja: "世界消失！？ジェネラルの脅威", en: null },
         ja: "2004-12-15",
       },
       {
         n: 51,
-        title: "大決戦！ジェネラルVSみんな",
+        title: { ja: "大決戦！ジェネラルVSみんな", en: null },
         ja: "2004-12-22",
       },
-      {
-        n: 52,
-        title: "帰り道",
-        ja: "2004-12-29",
-      },
+      { n: 52, title: { ja: "帰り道", en: null }, ja: "2004-12-29" },
     ],
     releases: [
       {
@@ -7677,7 +7001,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   sd_gundam_force_hakai_2004_film: {
-    title: "SD Gundam Force: Hakai Taishougun Arawaru!! Zako?",
+    title: {
+      ja: "SDガンダムフォース 破壊大将軍あらわる!! ザコ?",
+      en: "SD Gundam Force: Hakai Taishougun Arawaru!! Zako?",
+    },
     u: "sd",
     type: "film",
     source: "https://ja.wikipedia.org/wiki/SDガンダムフォース",
@@ -7685,7 +7012,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Hakai Taishougun Arawaru!! Zako?",
+        title: {
+          ja: "SDガンダムフォース 破壊大将軍あらわる!! ザコ?",
+          en: "Hakai Taishougun Arawaru!! Zako?",
+        },
         ja: "2004",
       },
     ],
@@ -7700,7 +7030,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   sd_gundam_gyakushuu_1989_film: {
-    title: "Mobile Suit SD Gundam no Gyakushuu",
+    title: {
+      ja: "機動戦士SDガンダムの逆襲",
+      en: "Mobile Suit SD Gundam no Gyakushuu",
+    },
     u: "sd",
     type: "film",
     source: "https://ja.wikipedia.org/wiki/機動戦士SDガンダム",
@@ -7708,12 +7041,18 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Arashi wo Yobu Gakuensai (Storming School Festival)",
+        title: {
+          ja: "嵐を呼ぶ学園祭",
+          en: "Arashi wo Yobu Gakuensai (Storming School Festival)",
+        },
         ja: "1988-05-25",
       },
       {
         n: 2,
-        title: "SD Sengokuden Bakuchuu Oujou no Shou",
+        title: {
+          ja: "SD戦国伝 暴終丸の章",
+          en: "SD Sengokuden Bakuchuu Oujou no Shou",
+        },
         ja: "1989-07-15",
       },
     ],
@@ -7729,7 +7068,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   sd_gundam_kinkyuu_1991_film: {
-    title: "Musha Kishi Command SD Gundam Kinkyuu Shutsugeki",
+    title: {
+      ja: "武者騎士コマンドSDガンダム緊急出撃",
+      en: "Musha Kishi Command SD Gundam Kinkyuu Shutsugeki",
+    },
     u: "sd",
     type: "film",
     source:
@@ -7738,7 +7080,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Musha Kishi Command SD Gundam Kinkyuu Shutsugeki",
+        title: {
+          ja: "武者騎士コマンドSDガンダム緊急出撃",
+          en: "Musha Kishi Command SD Gundam Kinkyuu Shutsugeki",
+        },
         ja: "1991-03-16",
       },
     ],
@@ -7760,7 +7105,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   sd_gundam_matsuri_1993_film: {
-    title: "SD Gundam Matsuri",
+    title: { ja: "SDガンダムまつり", en: "SD Gundam Matsuri" },
     u: "sd",
     type: "film",
     source: "https://ja.wikipedia.org/wiki/機動戦士SDガンダム",
@@ -7768,17 +7113,26 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "SD Command Senki Gundam Force SUPER G-ARMS",
+        title: {
+          ja: "SDコマンド戦記ガンダムフォース SUPER G-ARMS",
+          en: "SD Command Senki Gundam Force SUPER G-ARMS",
+        },
         ja: "1993-03-13",
       },
       {
         n: 2,
-        title: "SD Sengokuden Tenkataiheiben",
+        title: {
+          ja: "SD戦国伝 天下泰平編",
+          en: "SD Sengokuden Tenkataiheiben",
+        },
         ja: "1993-03-13",
       },
       {
         n: 3,
-        title: "SD Gundam Gaiden Seikibutsu Monogatari (chapters 1-2)",
+        title: {
+          ja: "SDガンダム外伝 聖機兵物語",
+          en: "SD Gundam Gaiden Seikibutsu Monogatari (chapters 1-2)",
+        },
         ja: "1993-03-13",
       },
     ],
@@ -7793,61 +7147,48 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   sd_gundam_sangoku_soketsuden_2019_ona: {
-    title: "SD Gundam World Sangoku Soketsuden",
+    title: {
+      ja: "SDガンダムワールド 三国創傑伝",
+      en: "SD Gundam World Sangoku Soketsuden",
+    },
     u: "sd",
     type: "ona",
     source: "https://en.wikipedia.org/wiki/SD_Gundam_World_Sangoku_Soketsuden",
     episodes: [
       {
         n: 1,
+        title: { ja: "Dragon's Watch", en: "Dragon's Watch" },
         ja: "2019-07-26",
-        title: "Dragon's Watch",
       },
       {
         n: 2,
+        title: { ja: "Feel A Future", en: "Feel A Future" },
         ja: "2019-08-23",
-        title: "Feel A Future",
       },
-      {
-        n: 3,
-        ja: "2019-09-29",
-        title: "Blue Wing",
-      },
-      {
-        n: 4,
-        ja: "2019-10-25",
-        title: "Red Tiger",
-      },
+      { n: 3, title: { ja: "Blue Wing", en: "Blue Wing" }, ja: "2019-09-29" },
+      { n: 4, title: { ja: "Red Tiger", en: "Red Tiger" }, ja: "2019-10-25" },
       {
         n: 5,
+        title: { ja: "Three Spirits", en: "Three Spirits" },
         ja: "2019-11-22",
-        title: "Three Spirits",
       },
       {
         n: 6,
+        title: { ja: "Magma Power", en: "Magma Power" },
         ja: "2019-12-27",
-        title: "Magma Power",
       },
       {
         n: 7,
+        title: { ja: "Yellow Pandemic", en: "Yellow Pandemic" },
         ja: "2020-01-24",
-        title: "Yellow Pandemic",
       },
       {
         n: 8,
+        title: { ja: "BUG Eclipse", en: "BUG Eclipse" },
         ja: "2021-03-18",
-        title: "BUG Eclipse",
       },
-      {
-        n: 9,
-        ja: "2021-03-25",
-        title: "Libra",
-      },
-      {
-        n: 10,
-        ja: "2021-03-25",
-        title: "Try Alive",
-      },
+      { n: 9, title: { ja: "Libra", en: "Libra" }, ja: "2021-03-25" },
+      { n: 10, title: { ja: "Try Alive", en: "Try Alive" }, ja: "2021-03-25" },
     ],
     releases: [
       {
@@ -7868,7 +7209,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   sd_gundam_sangokuden_2010_tv: {
-    title: "SD Gundam Sangokuden Brave Battle Warriors",
+    title: {
+      ja: "BB戦士三国伝",
+      en: "SD Gundam Sangokuden Brave Battle Warriors",
+    },
     u: "sd",
     type: "tv",
     source:
@@ -7877,258 +7221,250 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
+        title: { ja: "英雄登場", en: "Birth of a Hero" },
         ja: "2010-04-03",
-        title: "Birth of a Hero",
       },
-      {
-        n: 2,
-        ja: "2010-04-10",
-        title: "Encounter",
-      },
+      { n: 2, title: { ja: "出会い", en: "Encounter" }, ja: "2010-04-10" },
       {
         n: 3,
+        title: { ja: "民のために", en: "For the People" },
         ja: "2010-04-17",
-        title: "For the People",
       },
-      {
-        n: 4,
-        ja: "2010-04-24",
-        title: "Assassin",
-      },
+      { n: 4, title: { ja: "暗殺者", en: "Assassin" }, ja: "2010-04-24" },
       {
         n: 5,
+        title: { ja: "群雄集結", en: "The Heroes Gather" },
         ja: "2010-05-01",
-        title: "The Heroes Gather",
       },
       {
         n: 6,
+        title: { ja: "目標は虎牢関", en: "Capture the Koroukan" },
         ja: "2010-05-08",
-        title: "Capture the Koroukan",
       },
       {
         n: 7,
+        title: { ja: "激突! 曹操対呂布", en: "Clash! Sousou vs Ryofu" },
         ja: "2010-05-15",
-        title: "Clash! Sousou vs Ryofu",
       },
       {
         n: 8,
+        title: {
+          ja: "たぎれ! 戦慄の暴将",
+          en: "The Fearsome Generals Battle!",
+        },
         ja: "2010-05-22",
-        title: "The Fearsome Generals Battle!",
       },
       {
         n: 9,
+        title: { ja: "炎上! 光の都", en: "In Flames! Capital of Light" },
         ja: "2010-05-29",
-        title: "In Flames! Capital of Light",
       },
-      {
-        n: 10,
-        ja: "2010-06-05",
-        title: "Sonken Dies",
-      },
+      { n: 10, title: { ja: "孫堅死す", en: "Sonken Dies" }, ja: "2010-06-05" },
       {
         n: 11,
+        title: { ja: "趙雲推参!", en: "Chou-un Joins!" },
         ja: "2010-06-12",
-        title: "Chou-un Joins!",
       },
       {
         n: 12,
+        title: { ja: "決戦前夜", en: "On the Eve of the Final Battle" },
         ja: "2010-06-19",
-        title: "On the Eve of the Final Battle",
       },
       {
         n: 13,
+        title: { ja: "発現! 天玉鎧", en: "It Descends! The Tengyokugai" },
         ja: "2010-06-26",
-        title: "It Descends! The Tengyokugai",
       },
       {
         n: 14,
+        title: { ja: "劉備出立", en: "Ryuubi Departs" },
         ja: "2010-07-03",
-        title: "Ryuubi Departs",
       },
       {
         n: 15,
+        title: { ja: "強き者と弱き者", en: "Rulers and Subjects" },
         ja: "2010-07-10",
-        title: "Rulers and Subjects",
       },
       {
         n: 16,
+        title: { ja: "戦慄の幻影", en: "Mirage of Terror" },
         ja: "2010-07-17",
-        title: "Mirage of Terror",
       },
-      {
-        n: 17,
-        ja: "2010-07-24",
-        title: "New Home",
-      },
+      { n: 17, title: { ja: "新天地", en: "New Home" }, ja: "2010-07-24" },
       {
         n: 18,
+        title: { ja: "江東の小覇王", en: "Little Conqueror of Koutou" },
         ja: "2010-07-31",
-        title: "Little Conqueror of Koutou",
       },
       {
         n: 19,
+        title: { ja: "皇帝宣言", en: "Emperor Declared" },
         ja: "2010-08-07",
-        title: "Emperor Declared",
       },
       {
         n: 20,
+        title: { ja: "徐州陥落", en: "Joshuu Falls" },
         ja: "2010-08-14",
-        title: "Joshuu Falls",
       },
       {
         n: 21,
+        title: { ja: "劉備の選択", en: "Decision of Ryuubi" },
         ja: "2010-08-21",
-        title: "Decision of Ryuubi",
       },
       {
         n: 22,
+        title: { ja: "裏切りの城", en: "Castle of Betrayal" },
         ja: "2010-08-28",
-        title: "Castle of Betrayal",
       },
       {
         n: 23,
+        title: { ja: "天と地", en: "Heaven and Earth" },
         ja: "2010-09-04",
-        title: "Heaven and Earth",
       },
       {
         n: 24,
+        title: { ja: "小覇王の挑戦", en: "Challenge of the Little Conqueror" },
         ja: "2010-09-11",
-        title: "Challenge of the Little Conqueror",
       },
       {
         n: 25,
+        title: { ja: "さらば! 孫策", en: "Farewell! Sonsaku" },
         ja: "2010-09-18",
-        title: "Farewell! Sonsaku",
       },
       {
         n: 26,
+        title: { ja: "真（まこと）の勇気", en: "Courage of Truth" },
         ja: "2010-09-25",
-        title: "Courage of Truth",
       },
       {
         n: 27,
+        title: { ja: "暴れん坊見参!", en: "Ahoy, Ye Chaotic Corsairs!" },
         ja: "2010-10-02",
-        title: "Ahoy, Ye Chaotic Corsairs!",
       },
       {
         n: 28,
+        title: { ja: "江東の碧眼児", en: "Blue-eyed Children of Koutou" },
         ja: "2010-10-09",
-        title: "Blue-eyed Children of Koutou",
       },
       {
         n: 29,
+        title: { ja: "劉備の帰還（総集編1）", en: "Feedback of Ryuubi" },
         ja: "2010-10-16",
-        title: "Feedback of Ryuubi",
       },
       {
         n: 30,
+        title: { ja: "再会、幽州（総集編2）", en: "Reunion, Yuushu" },
         ja: "2010-10-23",
-        title: "Reunion, Yuushu",
       },
       {
         n: 31,
+        title: { ja: "激闘白馬陣", en: "Fierce Fighting Hakuba Jin" },
         ja: "2010-10-30",
-        title: "Fierce Fighting Hakuba Jin",
       },
       {
         n: 32,
+        title: { ja: "関羽咆哮!", en: "Kan-u Roars!" },
         ja: "2010-11-06",
-        title: "Kan-u Roars!",
       },
       {
         n: 33,
+        title: { ja: "冀州百万軍", en: "Kishuu's Million Troops" },
         ja: "2010-11-13",
-        title: "Kishuu's Million Troops",
       },
       {
         n: 34,
+        title: { ja: "黄昏、易京楼", en: "Sunset, Ekikyourou" },
         ja: "2010-11-20",
-        title: "Sunset, Ekikyourou",
       },
       {
         n: 35,
+        title: { ja: "全軍官渡へ", en: "All Troops to Kanto" },
         ja: "2010-11-27",
-        title: "All Troops to Kanto",
       },
       {
         n: 36,
+        title: { ja: "官渡の戦い", en: "Battle of Kanto" },
         ja: "2010-12-04",
-        title: "Battle of Kanto",
       },
-      {
-        n: 37,
-        ja: "2010-12-11",
-        title: "Farewell",
-      },
+      { n: 37, title: { ja: "決別", en: "Farewell" }, ja: "2010-12-11" },
       {
         n: 38,
+        title: { ja: "天に選ばれし覇者", en: "Champion Chosen by the Heavens" },
         ja: "2010-12-18",
-        title: "Champion Chosen by the Heavens",
       },
       {
         n: 39,
+        title: { ja: "天に挑んだ修羅", en: "Shura Challenges the Heavens" },
         ja: "2010-12-25",
-        title: "Shura Challenges the Heavens",
       },
       {
         n: 40,
+        title: { ja: "千里を越えた絆", en: "Bonds Beyond a Thousand Miles" },
         ja: "2011-01-01",
-        title: "Bonds Beyond a Thousand Miles",
       },
       {
         n: 41,
+        title: {
+          ja: "伏竜、天を翔ける",
+          en: "Fukuryuu, Soaring to the Heavens",
+        },
         ja: "2011-01-08",
-        title: "Fukuryuu, Soaring to the Heavens",
       },
       {
         n: 42,
+        title: {
+          ja: "受け継いだ勇気（総集編3）",
+          en: "Inheriting the Courage",
+        },
         ja: "2011-01-15",
-        title: "Inheriting the Courage",
       },
       {
         n: 43,
+        title: { ja: "天下三分の計", en: "Stratagem of 3-Way Division" },
         ja: "2011-01-22",
-        title: "Stratagem of 3-Way Division",
       },
       {
         n: 44,
+        title: { ja: "龍帝剣、墜つ", en: "Ryuuteiken, Fallen One" },
         ja: "2011-01-29",
-        title: "Ryuuteiken, Fallen One",
       },
       {
         n: 45,
+        title: { ja: "激震! 長坂橋", en: "Shocking! Chouhankyou" },
         ja: "2011-02-05",
-        title: "Shocking! Chouhankyou",
       },
       {
         n: 46,
+        title: { ja: "孫権立つ", en: "Sonken Stands" },
         ja: "2011-02-12",
-        title: "Sonken Stands",
       },
       {
         n: 47,
+        title: {
+          ja: "天雷火砲",
+          en: "Tenraikahou (Fire Cannon of Thunder Strike)",
+        },
         ja: "2011-02-19",
-        title: "Tenraikahou (Fire Cannon of Thunder Strike)",
       },
       {
         n: 48,
+        title: { ja: "赤壁大決戦", en: "Battle of Red Cliffs" },
         ja: "2011-02-26",
-        title: "Battle of Red Cliffs",
       },
       {
         n: 49,
+        title: { ja: "長江燃ゆ", en: "Choukou Burns" },
         ja: "2011-03-05",
-        title: "Choukou Burns",
       },
       {
         n: 50,
+        title: { ja: "龍の輝き", en: "Radiance of the Dragon" },
         ja: "2011-03-12",
-        title: "Radiance of the Dragon",
       },
       {
         n: 51,
+        title: { ja: "三国の志", en: "Legacy of the Three Kingdoms" },
         ja: "2011-03-19",
-        title: "Legacy of the Three Kingdoms",
       },
     ],
     releases: [
@@ -8143,7 +7479,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   sd_gundam_world_heroes_2021_ona: {
-    title: "SD Gundam World Heroes",
+    title: {
+      ja: "SDガンダムワールド ヒーローズ",
+      en: "SD Gundam World Heroes",
+    },
     u: "sd",
     type: "ona",
     source: "https://en.wikipedia.org/wiki/SD_Gundam_World_Heroes",
@@ -8151,123 +7490,129 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
+        title: { ja: "落ちてきた運命", en: "Falling Destiny" },
         ja: "2021-04-08",
-        title: "Falling Destiny",
       },
       {
         n: 2,
+        title: { ja: "正義を呼ぶ声", en: "A Voice That Calls for Justice" },
         ja: "2021-04-15",
-        title: "A Voice That Calls for Justice",
       },
       {
         n: 3,
+        title: { ja: "もうひとりの悟空", en: "Another Wukong" },
         ja: "2021-04-22",
-        title: "Another Wukong",
       },
       {
         n: 4,
+        title: { ja: "大海原を越えて", en: "Across the Wilderness of the Sea" },
         ja: "2021-04-29",
-        title: "Across the Wilderness of the Sea",
       },
       {
         n: 5,
+        title: { ja: "怨念の海底宮殿", en: "The Underwater Palace Of Enmity" },
         ja: "2021-05-06",
-        title: "The Underwater Palace Of Enmity",
       },
       {
         n: 6,
+        title: { ja: "魔王再臨", en: "The Demon King Has Come" },
         ja: "2021-05-13",
-        title: "The Demon King Has Come",
       },
       {
         n: 7,
+        title: { ja: "裏切りの桔梗", en: "Traitor's Bellflower" },
         ja: "2021-05-20",
-        title: "Traitor's Bellflower",
       },
       {
         n: 8,
+        title: { ja: "第三の悟空", en: "A Third Wukong" },
         ja: "2021-05-27",
-        title: "A Third Wukong",
       },
       {
         n: 9,
+        title: {
+          ja: "敵か?味方か?怪盗X",
+          en: "A Friend? A Foe? Phantom Thief X",
+        },
         ja: "2021-06-03",
-        title: "A Friend? A Foe? Phantom Thief X",
       },
       {
         n: 10,
+        title: { ja: "忍び込め！夜の博物館", en: "Sneak In! The Night Museum" },
         ja: "2021-06-10",
-        title: "Sneak In! The Night Museum",
       },
       {
         n: 11,
+        title: { ja: "月はそこにある", en: "The Moon is There" },
         ja: "2021-06-17",
-        title: "The Moon is There",
       },
       {
         n: 12,
+        title: { ja: "悟空の使命", en: "Wukong's Mission" },
         ja: "2021-06-24",
-        title: "Wukong's Mission",
       },
       {
         n: 13,
+        title: {
+          ja: "若き龍との出会い",
+          en: "Encounter with the Young Dragon",
+        },
         ja: "2021-07-01",
-        title: "Encounter with the Young Dragon",
       },
       {
         n: 14,
+        title: { ja: "紫黒の謀略", en: "Shikoku's Stratagem" },
         ja: "2021-07-08",
-        title: "Shikoku's Stratagem",
       },
       {
         n: 15,
+        title: { ja: "歪められた正義", en: "Twisted Justice" },
         ja: "2021-07-15",
-        title: "Twisted Justice",
       },
       {
         n: 16,
+        title: { ja: "悔恨の日々", en: "Days of Regret" },
         ja: "2021-07-22",
-        title: "Days of Regret",
       },
       {
         n: 17,
+        title: { ja: "騎士の矜持", en: "A Knight's Honor" },
         ja: "2021-07-29",
-        title: "A Knight's Honor",
       },
       {
         n: 18,
+        title: { ja: "誇り高き刀鍛冶", en: "Proud Swordsmith" },
         ja: "2021-08-05",
-        title: "Proud Swordsmith",
       },
       {
         n: 19,
+        title: { ja: "悟空の記憶", en: "Wukong's Memories" },
         ja: "2021-08-12",
-        title: "Wukong's Memories",
       },
       {
         n: 20,
+        title: { ja: "魔王、再び", en: "Return of the Demon King" },
         ja: "2021-08-19",
-        title: "Return of the Demon King",
       },
       {
         n: 21,
+        title: { ja: "愛のカタチ", en: "The Shape of Love" },
         ja: "2021-08-26",
-        title: "The Shape of Love",
       },
       {
         n: 22,
+        title: { ja: "窮奇、襲来", en: "Qiongqi Attacks" },
         ja: "2021-09-02",
-        title: "Qiongqi Attacks",
       },
       {
         n: 23,
+        title: { ja: "悟空の正体", en: "The Truth of Wukong" },
         ja: "2021-09-09",
-        title: "The Truth of Wukong",
       },
       {
         n: 24,
+        title: { ja: "選んだ未来", en: "Chosen Future" },
         ja: "2021-09-16",
-        title: "Chosen Future",
       },
     ],
     releases: [
@@ -8289,7 +7634,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   sd_gundam_world_sangoku_special_2020_ova: {
-    title: "SD Gundam World Sangoku Soketsuden: Brave Battle Warriors",
+    title: {
+      ja: "SDガンダムワールド三国創傑伝",
+      en: "SD Gundam World Sangoku Soketsuden: Brave Battle Warriors",
+    },
     u: "sd",
     type: "ova",
     source: "https://gundam.fandom.com/wiki/SD_Gundam_World_Sangoku_Soketsuden",
@@ -8297,7 +7645,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Brave Battle Warriors Special",
+        title: {
+          ja: "SDガンダムワールド三国創傑伝",
+          en: "Brave Battle Warriors Special",
+        },
         ja: "2020",
       },
     ],
@@ -8312,7 +7663,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   sd_sangokuden_2010_film: {
-    title: "Chō Denei-ban SD Gundam Sangokuden Brave Battle Warriors",
+    title: {
+      ja: "超電影版SDガンダム三国伝 Brave Battle Warriors",
+      en: "Chō Denei-ban SD Gundam Sangokuden Brave Battle Warriors",
+    },
     u: "sd",
     type: "film",
     source:
@@ -8320,7 +7674,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Chō Denei-ban",
+        title: {
+          ja: "超電影版SDガンダム三国伝 Brave Battle Warriors",
+          en: "Chō Denei-ban",
+        },
         ja: "2010-02-27",
       },
     ],
@@ -8335,7 +7692,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   seed_2002_tv: {
-    title: "Mobile Suit Gundam SEED",
+    title: { ja: "機動戦士ガンダムSEED", en: "Mobile Suit Gundam SEED" },
     u: "ce",
     type: "tv",
     source:
@@ -8343,307 +7700,313 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "False Peace",
+        title: { ja: "偽りの平和", en: "False Peace" },
         ja: "2002-10-05",
         en: "2004-04-17",
       },
       {
         n: 2,
-        title: "Its Name: Gundam",
+        title: { ja: "その名はガンダム", en: "Its Name: Gundam" },
         ja: "2002-10-12",
         en: "2004-04-24",
       },
       {
         n: 3,
-        title: "Collapsing Land",
+        title: { ja: "崩壊の大地", en: "Collapsing Land" },
         ja: "2002-10-19",
         en: "2004-05-01",
       },
       {
         n: 4,
-        title: "Silent Run",
+        title: { ja: "サイレントラン", en: "Silent Run" },
         ja: "2002-10-26",
         en: "2004-05-08",
       },
       {
         n: 5,
-        title: "Phase Shift Down",
+        title: { ja: "フェイズシフトダウン", en: "Phase Shift Down" },
         ja: "2002-11-02",
         en: "2004-05-15",
       },
       {
         n: 6,
-        title: "The Vanishing Gundam",
+        title: { ja: "消えるガンダム", en: "The Vanishing Gundam" },
         ja: "2002-11-09",
         en: "2004-05-22",
       },
       {
         n: 7,
-        title: "The Scar of Space",
+        title: { ja: "そらの傷跡", en: "The Scar of Space" },
         ja: "2002-11-16",
         en: "2004-05-29",
       },
       {
         n: 8,
-        title: "The Songstress of The Enemy Forces",
+        title: { ja: "敵軍の歌姫", en: "The Songstress of The Enemy Forces" },
         ja: "2002-11-23",
         en: "2004-06-05",
       },
       {
         n: 9,
-        title: "The Fading Light",
+        title: { ja: "消えていく光", en: "The Fading Light" },
         ja: "2002-11-30",
         en: "2004-06-12",
       },
       {
         n: 10,
-        title: "Crossroads",
+        title: { ja: "分かたれた道", en: "Crossroads" },
         ja: "2002-12-07",
         en: "2004-06-19",
       },
       {
         n: 11,
-        title: "The Awakening Sword",
+        title: { ja: "目覚める刃", en: "The Awakening Sword" },
         ja: "2002-12-14",
         en: "2004-06-26",
       },
       {
         n: 12,
-        title: "Flay's Decision",
+        title: { ja: "フレイの選択", en: "Flay's Decision" },
         ja: "2002-12-21",
         en: "2004-07-03",
       },
       {
         n: 13,
-        title: "Stars Falling in Space",
+        title: { ja: "そらに降る星", en: "Stars Falling in Space" },
         ja: "2002-12-28",
         en: "2004-07-10",
       },
       {
         n: 14,
-        title: "Within Endless Time",
+        title: { ja: "果てし無き時の中で", en: "Within Endless Time" },
         ja: "2003-01-04",
         en: "2004-07-17",
       },
       {
         n: 15,
-        title: "The Respective Solitudes",
+        title: { ja: "それぞれの孤独", en: "The Respective Solitudes" },
         ja: "2003-01-11",
         en: "2004-07-24",
       },
       {
         n: 16,
-        title: "Burning Clouds of Sand",
+        title: { ja: "燃える砂塵", en: "Burning Clouds of Sand" },
         ja: "2003-01-18",
         en: "2004-07-31",
       },
       {
         n: 17,
-        title: "Cagalli Returns",
+        title: { ja: "カガリ再び", en: "Cagalli Returns" },
         ja: "2003-01-25",
         en: "2004-08-07",
       },
       {
         n: 18,
-        title: "Payback",
+        title: { ja: "ペイバック", en: "Payback" },
         ja: "2003-02-01",
         en: "2004-08-14",
       },
       {
         n: 19,
-        title: "Fangs of the Enemy",
+        title: { ja: "宿敵の牙", en: "Fangs of the Enemy" },
         ja: "2003-02-08",
         en: "2004-08-21",
       },
       {
         n: 20,
-        title: "On a Calm Day",
+        title: { ja: "おだやかな日に", en: "On a Calm Day" },
         ja: "2003-02-15",
         en: "2004-08-28",
       },
       {
         n: 21,
-        title: "Beyond the Clouds of Sand",
+        title: { ja: "砂塵の果て", en: "Beyond the Clouds of Sand" },
         ja: "2003-02-22",
         en: "2004-09-04",
       },
       {
         n: 22,
-        title: "The Sea Dyed Red",
+        title: { ja: "紅に染まる海", en: "The Sea Dyed Red" },
         ja: "2003-03-01",
         en: "2004-09-11",
       },
       {
         n: 23,
-        title: "Fateful Encounter",
+        title: { ja: "運命の出会い", en: "Fateful Encounter" },
         ja: "2003-03-08",
         en: "2004-09-18",
       },
       {
         n: 24,
-        title: "War for Two",
+        title: { ja: "二人だけの戦争", en: "War for Two" },
         ja: "2003-03-15",
         en: "2004-10-02",
       },
       {
         n: 25,
-        title: "The Land of Peace",
+        title: {
+          ja: "平和の国HDリマスターでは「平和の国へ」。",
+          en: "The Land of Peace",
+        },
         ja: "2003-03-22",
         en: "2004-10-09",
       },
       {
         n: 26,
-        title: "Moment",
+        title: { ja: "モーメント", en: "Moment" },
         ja: "2003-03-29",
         en: "2004-10-16",
       },
       {
         n: 27,
-        title: "Endless Rondo",
+        title: { ja: "果てなきロンド", en: "Endless Rondo" },
         ja: "2003-04-12",
         en: "2004-10-23",
       },
       {
         n: 28,
-        title: "Kira",
+        title: { ja: "キラ", en: "Kira" },
         ja: "2003-04-19",
         en: "2004-10-30",
       },
       {
         n: 29,
-        title: "The Turning Point",
+        title: { ja: "さだめのくさび", en: "The Turning Point" },
         ja: "2003-04-26",
         en: "2004-11-06",
       },
       {
         n: 30,
-        title: "Flashing Blades",
+        title: { ja: "閃光のとき", en: "Flashing Blades" },
         ja: "2003-05-03",
         en: "2004-11-13",
       },
       {
         n: 31,
-        title: "Grieving Skies",
+        title: { ja: "どうこくの空", en: "Grieving Skies" },
         ja: "2003-05-10",
         en: "2004-11-20",
       },
       {
         n: 32,
-        title: "In the Promised Land",
+        title: { ja: "約束の地に", en: "In the Promised Land" },
         ja: "2003-05-17",
         en: "2004-11-27",
       },
       {
         n: 33,
-        title: "Gathering Darkness",
+        title: { ja: "闇の胎動", en: "Gathering Darkness" },
         ja: "2003-05-24",
         en: "2004-12-04",
       },
       {
         n: 34,
-        title: "Seen and Unseen",
+        title: { ja: "まなざしの先", en: "Seen and Unseen" },
         ja: "2003-05-31",
         en: "2004-12-11",
       },
       {
         n: 35,
-        title: "The Descending Sword",
+        title: { ja: "舞い降りるつるぎ", en: "The Descending Sword" },
         ja: "2003-06-07",
         en: "2004-12-18",
       },
       {
         n: 36,
-        title: "In the Name of Justice",
+        title: { ja: "正義の名のもとに", en: "In the Name of Justice" },
         ja: "2003-06-14",
         en: "2005-01-07",
       },
       {
         n: 37,
-        title: "Divine Thunder",
+        title: { ja: "神のいかずち", en: "Divine Thunder" },
         ja: "2003-06-21",
         en: "2005-01-14",
       },
       {
         n: 38,
-        title: "Decisive Fire",
+        title: { ja: "決意の砲火", en: "Decisive Fire" },
         ja: "2003-06-28",
         en: "2005-01-21",
       },
       {
         n: 39,
-        title: "Athrun",
+        title: { ja: "アスラン", en: "Athrun" },
         ja: "2003-07-05",
         en: "2005-01-28",
       },
       {
         n: 40,
-        title: "Into the Dawn Skies",
+        title: { ja: "暁のそらへ", en: "Into the Dawn Skies" },
         ja: "2003-07-12",
         en: "2005-02-04",
       },
       {
         n: 41,
-        title: "Trembling World",
+        title: { ja: "ゆれる世界", en: "Trembling World" },
         ja: "2003-07-19",
         en: "2005-02-11",
       },
       {
         n: 42,
-        title: "Lacus Strikes",
+        title: { ja: "ラクス出撃", en: "Lacus Strikes" },
         ja: "2003-07-26",
         en: "2005-02-18",
       },
       {
         n: 43,
-        title: "What Stands in the Way",
+        title: { ja: "立ちはだかるもの", en: "What Stands in the Way" },
         ja: "2003-08-02",
         en: "2005-02-25",
       },
       {
         n: 44,
-        title: "Spiral of Encounters",
+        title: { ja: "らせんのかいこう", en: "Spiral of Encounters" },
         ja: "2003-08-09",
         en: "2005-03-04",
       },
       {
         n: 45,
-        title: "The Opening Door",
+        title: { ja: "開く扉", en: "The Opening Door" },
         ja: "2003-08-16",
         en: "2005-03-11",
       },
       {
         n: 46,
-        title: "A Place for the Soul",
+        title: { ja: "たましいの場所", en: "A Place for the Soul" },
         ja: "2003-08-30",
         en: "2005-03-18",
       },
       {
         n: 47,
-        title: "The Nightmare Reborn",
+        title: { ja: "悪夢は再び", en: "The Nightmare Reborn" },
         ja: "2003-09-06",
         en: "2005-03-25",
       },
       {
         n: 48,
-        title: "Day of Wrath",
+        title: { ja: "怒りの日", en: "Day of Wrath" },
         ja: "2003-09-13",
         en: "2005-04-01",
       },
       {
         n: 49,
-        title: "The Final Light",
+        title: { ja: "終末の光", en: "The Final Light" },
         ja: "2003-09-20",
         en: "2005-04-08",
       },
       {
         n: 50,
-        title: "To a Future that Never Ends",
+        title: { ja: "終わらない明日へ", en: "To a Future that Never Ends" },
         ja: "2003-09-27",
         en: "2005-04-15",
       },
       {
         n: 51,
-        title: "After Phase - Between the Stars (DVD epilogue)",
+        title: {
+          ja: "アフターフェイズ 星の間で",
+          en: "After Phase - Between the Stars (DVD epilogue)",
+        },
         ja: "2004-03-26",
       },
     ],
@@ -8680,39 +8043,22 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   seed_2003_manga: {
-    title: "Mobile Suit Gundam SEED (manga)",
+    title: {
+      ja: "機動戦士ガンダムSEED (漫画)",
+      en: "Mobile Suit Gundam SEED (manga)",
+    },
     u: "ce",
     type: "manga",
+    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED",
     author: "Masatsugu Iwase",
     publisher: "Kodansha",
     magazine: "Magazine Z",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2003-03",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2003-08",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2004-02",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "2004-07",
-      },
-      {
-        n: 5,
-        title: "Volume 5",
-        ja: "2005-01",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2003-03" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2003-08" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2004-02" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2004-07" },
+      { n: 5, title: { ja: "Volume 5", en: "Volume 5" }, ja: "2005-01" },
     ],
     releases: [
       {
@@ -8732,14 +8078,17 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   seed_after_phase_2004_ova: {
-    title: "Mobile Suit Gundam SEED: After-Phase",
+    title: {
+      ja: "機動戦士ガンダムSEED AFTER-PHASE",
+      en: "Mobile Suit Gundam SEED: After-Phase",
+    },
     u: "ce",
     type: "ova",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED",
     episodes: [
       {
         n: 1,
-        title: "After-Phase",
+        title: { ja: "機動戦士ガンダムSEED AFTER-PHASE", en: "After-Phase" },
         ja: "2004-12-25",
       },
     ],
@@ -8761,21 +8110,19 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   seed_astray_b_2012_manga: {
-    title: "Mobile Suit Gundam SEED Destiny Astray B",
+    title: {
+      ja: "機動戦士ガンダムSEED DESTINY ASTRAY B",
+      en: "Mobile Suit Gundam SEED Destiny Astray B",
+    },
     u: "ce",
     type: "manga",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
+    author: "Tomohiro Chiba (story), Eiichi Shimizu (art)",
+    publisher: "Kadokawa ASCII Media Works",
+    magazine: "Hobby Japan",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2013-03",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2014-05",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2013-03" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2014-05" },
     ],
     releases: [
       {
@@ -8787,35 +8134,23 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         schedule: "serial",
       },
     ],
-    author: "Tomohiro Chiba (story), Eiichi Shimizu (art)",
-    publisher: "Kadokawa ASCII Media Works",
-    magazine: "Hobby Japan",
   },
   seed_astray_manga: {
-    title: "Mobile Suit Gundam SEED Astray",
+    title: {
+      ja: "機動戦士ガンダムSEED ASTRAY",
+      en: "Mobile Suit Gundam SEED Astray",
+    },
     u: "ce",
     type: "manga",
+    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
     author: "Yoshiyuki Tomino (concept) / various",
     publisher: "Kadokawa Shoten",
     magazine: "Gundam Ace / Monthly Shōnen Ace",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
     note: "Side-story manga line running parallel to SEED/SEED Destiny. Multiple sub-series: Astray (2002-04, 3 vol), Astray R (2003-04, 4 vol), Astray B (2005-06, 2 vol), Destiny Astray (2004-06, 4 vol), Astray Delta (2011-13, 2 vol), VS Astray (2012-13, 2 vol), Frame Astrays (2007, 2 vol).",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2003-05",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2003-09",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2004-02",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2003-05" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2003-09" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2004-02" },
     ],
     releases: [
       {
@@ -8836,31 +8171,21 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   seed_astray_r_2004_manga: {
-    title: "Mobile Suit Gundam SEED Astray R",
+    title: {
+      ja: "機動戦士ガンダムSEED X ASTRAY R",
+      en: "Mobile Suit Gundam SEED Astray R",
+    },
     u: "ce",
     type: "manga",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
+    author: "Tomohiro Chiba (story), Yasunari Toda (art)",
+    publisher: "Kadokawa Shoten",
+    magazine: "Shōnen Ace",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2003-03",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2003-09",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2004-02",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "2004-08",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2003-03" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2003-09" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2004-02" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2004-08" },
     ],
     releases: [
       {
@@ -8879,26 +8204,21 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         schedule: "serial",
       },
     ],
-    author: "Tomohiro Chiba (story), Yasunari Toda (art)",
-    publisher: "Kadokawa Shoten",
-    magazine: "Shōnen Ace",
   },
   seed_delta_astray_2006_manga: {
-    title: "Mobile Suit Gundam SEED C.E.73 Δ (Delta) Astray",
+    title: {
+      ja: "機動戦士ガンダムSEED C.E.73 Δ (Delta) ASTRAY",
+      en: "Mobile Suit Gundam SEED C.E.73 Δ (Delta) Astray",
+    },
     u: "ce",
     type: "manga",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
+    author: "Tomohiro Chiba (story), Kazuhiro Okada (art)",
+    publisher: "ASCII Media Works",
+    magazine: "Dengeki Hobby Magazine",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2006",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2007",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2006" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2007" },
     ],
     releases: [
       {
@@ -8910,12 +8230,12 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         schedule: "serial",
       },
     ],
-    author: "Tomohiro Chiba (story), Kazuhiro Okada (art)",
-    publisher: "ASCII Media Works",
-    magazine: "Dengeki Hobby Magazine",
   },
   seed_destiny_2004_tv: {
-    title: "Mobile Suit Gundam SEED Destiny",
+    title: {
+      ja: "機動戦士ガンダムSEED DESTINY",
+      en: "Mobile Suit Gundam SEED Destiny",
+    },
     u: "ce",
     type: "tv",
     source:
@@ -8923,312 +8243,312 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Angry Eyes",
+        title: { ja: "怒れる瞳", en: "Angry Eyes" },
         ja: "2004-10-09",
         en: "2007-03-09",
       },
       {
         n: 2,
-        title: "Those Who Call for War",
+        title: { ja: "戦いを呼ぶもの", en: "Those Who Call for War" },
         ja: "2004-10-16",
         en: "2007-03-16",
       },
       {
         n: 3,
-        title: "Warning Shots",
+        title: { ja: "予兆の砲火", en: "Warning Shots" },
         ja: "2004-10-23",
         en: "2007-03-23",
       },
       {
         n: 4,
-        title: "Stardust Battlefield",
+        title: { ja: "星屑の戦場", en: "Stardust Battlefield" },
         ja: "2004-11-06",
         en: "2007-03-30",
       },
       {
         n: 5,
-        title: "Scars That Won't Heal",
+        title: { ja: "癒えぬ傷痕", en: "Scars That Won't Heal" },
         ja: "2004-11-13",
         en: "2007-04-06",
       },
       {
         n: 6,
-        title: "The End of the World",
+        title: { ja: "世界の終わる時", en: "The End of the World" },
         ja: "2004-11-20",
         en: "2007-04-13",
       },
       {
         n: 7,
-        title: "Land of Confusion",
+        title: { ja: "混迷の大地", en: "Land of Confusion" },
         ja: "2004-11-27",
         en: "2007-04-20",
       },
       {
         n: 8,
-        title: "Junction",
+        title: { ja: "ジャンクション", en: "Junction" },
         ja: "2004-12-04",
         en: "2007-04-27",
       },
       {
         n: 9,
-        title: "Bared Fangs",
+        title: { ja: "驕れる牙", en: "Bared Fangs" },
         ja: "2004-12-11",
         en: "2007-05-04",
       },
       {
         n: 10,
-        title: "A Father's Spell",
+        title: { ja: "父の呪縛", en: "A Father's Spell" },
         ja: "2004-12-18",
         en: "2007-05-11",
       },
       {
         n: 11,
-        title: "The Chosen Path",
+        title: { ja: "選びし道", en: "The Chosen Path" },
         ja: "2004-12-25",
         en: "2007-05-18",
       },
       {
         n: 12,
-        title: "Blood in the Water",
+        title: { ja: "血に染まる海", en: "Blood in the Water" },
         ja: "2004-12-25",
         en: "2007-05-25",
       },
       {
         n: 13,
-        title: "Resurrected Wings",
+        title: { ja: "よみがえる翼", en: "Resurrected Wings" },
         ja: "2005-01-08",
         en: "2007-06-01",
       },
       {
         n: 14,
-        title: "Flight to Tomorrow",
+        title: { ja: "明日への出航", en: "Flight to Tomorrow" },
         ja: "2005-01-15",
         en: "2007-06-08",
       },
       {
         n: 15,
-        title: "Return to the Battlefield",
+        title: { ja: "戦場への帰還", en: "Return to the Battlefield" },
         ja: "2005-01-22",
         en: "2007-06-15",
       },
       {
         n: 15.5,
-        title: "Special Plus: Destiny (recap)",
+        title: { ja: "戦場への帰還", en: "Special Plus: Destiny (recap)" },
         ja: "2005-01-29",
       },
       {
         n: 16,
-        title: "Struggle in the Indian Ocean",
+        title: { ja: "インド洋の死闘", en: "Struggle in the Indian Ocean" },
         ja: "2005-02-05",
         en: "2007-06-29",
       },
       {
         n: 17,
-        title: "The Soldier's Life",
+        title: { ja: "戦士の条件", en: "The Soldier's Life" },
         ja: "2005-02-12",
         en: "2007-07-06",
       },
       {
         n: 18,
-        title: "Attack the Lohengrin",
+        title: { ja: "ローエングリンを討て!", en: "Attack the Lohengrin" },
         ja: "2005-02-19",
         en: "2007-07-13",
       },
       {
         n: 19,
-        title: "The Hidden Truth",
+        title: { ja: "見えない真実", en: "The Hidden Truth" },
         ja: "2005-02-26",
         en: "2007-07-20",
       },
       {
         n: 20,
-        title: "Past",
+        title: { ja: "PAST", en: "Past" },
         ja: "2005-03-05",
         en: "2007-07-27",
       },
       {
         n: 21,
-        title: "Wandering Eyes",
+        title: { ja: "さまよう眸（ひとみ）", en: "Wandering Eyes" },
         ja: "2005-03-12",
         en: "2007-08-03",
       },
       {
         n: 22,
-        title: "Sword of the Blue Skies",
+        title: { ja: "蒼天の剣", en: "Sword of the Blue Skies" },
         ja: "2005-03-19",
         en: "2007-08-10",
       },
       {
         n: 23,
-        title: "The Shadows of War",
+        title: { ja: "戦火の蔭", en: "The Shadows of War" },
         ja: "2005-03-26",
         en: "2007-08-31",
       },
       {
         n: 24,
-        title: "Differing Views",
+        title: { ja: "すれ違う視線", en: "Differing Views" },
         ja: "2005-04-02",
         en: "2007-09-07",
       },
       {
         n: 25,
-        title: "The Place of Sin",
+        title: { ja: "罪の在処（ありか）", en: "The Place of Sin" },
         ja: "2005-04-09",
         en: "2007-09-14",
       },
       {
         n: 26,
-        title: "The Promise",
+        title: { ja: "約束", en: "The Promise" },
         ja: "2005-04-16",
         en: "2007-09-21",
       },
       {
         n: 27,
-        title: "Unfulfilled Feelings",
+        title: { ja: "届かぬ想い", en: "Unfulfilled Feelings" },
         ja: "2005-04-23",
         en: "2007-09-28",
       },
       {
         n: 28,
-        title: "Survivors and Sacrifices",
+        title: { ja: "残る命 散る命", en: "Survivors and Sacrifices" },
         ja: "2005-04-30",
         en: "2007-10-05",
       },
       {
         n: 29,
-        title: "Fates",
+        title: { ja: "FATES", en: "Fates" },
         ja: "2005-05-07",
         en: "2007-10-12",
       },
       {
         n: 30,
-        title: "A Fleeting Dream",
+        title: { ja: "刹那の夢", en: "A Fleeting Dream" },
         ja: "2005-05-14",
         en: "2007-10-26",
       },
       {
         n: 31,
-        title: "The Endless Night",
+        title: { ja: "明けない夜", en: "The Endless Night" },
         ja: "2005-05-21",
         en: "2007-11-02",
       },
       {
         n: 32,
-        title: "Stella",
+        title: { ja: "ステラ", en: "Stella" },
         ja: "2005-05-28",
         en: "2007-11-09",
       },
       {
         n: 33,
-        title: "The World Revealed",
+        title: { ja: "示される世界", en: "The World Revealed" },
         ja: "2005-06-04",
         en: "2007-11-23",
       },
       {
         n: 34,
-        title: "Nightmare",
+        title: { ja: "悪夢", en: "Nightmare" },
         ja: "2005-06-11",
         en: "2007-11-30",
       },
       {
         n: 35,
-        title: "Eve of Chaos",
+        title: { ja: "混沌の先に", en: "Eve of Chaos" },
         ja: "2005-06-18",
         en: "2007-12-07",
       },
       {
         n: 36,
-        title: "Athrun on the Run",
+        title: { ja: "アスラン脱走", en: "Athrun on the Run" },
         ja: "2005-06-25",
         en: "2007-12-14",
       },
       {
         n: 37,
-        title: "Thunder in the Dark",
+        title: { ja: "雷鳴の闇", en: "Thunder in the Dark" },
         ja: "2005-07-02",
         en: "2007-12-21",
       },
       {
         n: 38,
-        title: "A New Flag",
+        title: { ja: "新しき旗", en: "A New Flag" },
         ja: "2005-07-09",
         en: "2007-12-28",
       },
       {
         n: 39,
-        title: "Kira of the Sky",
+        title: { ja: "天空のキラ", en: "Kira of the Sky" },
         ja: "2005-07-16",
         en: "2008-01-04",
       },
       {
         n: 40,
-        title: "Legacy of Gold",
+        title: { ja: "黄金の意志", en: "Legacy of Gold" },
         ja: "2005-07-23",
         en: "2008-01-11",
       },
       {
         n: 41,
-        title: "Refrain",
+        title: { ja: "リフレイン", en: "Refrain" },
         ja: "2005-07-30",
         en: "2008-01-18",
       },
       {
         n: 42,
-        title: "Freedom and Justice",
+        title: { ja: "自由と正義と", en: "Freedom and Justice" },
         ja: "2005-08-06",
         en: "2008-01-25",
       },
       {
         n: 43,
-        title: "A Call for Counterattack",
+        title: { ja: "反撃の声", en: "A Call for Counterattack" },
         ja: "2005-08-13",
         en: "2008-02-01",
       },
       {
         n: 44,
-        title: "Lacus Times Two",
+        title: { ja: "二人のラクス", en: "Lacus Times Two" },
         ja: "2005-08-20",
         en: "2008-02-08",
       },
       {
         n: 45,
-        title: "Prelude to Revolution",
+        title: { ja: "変革の序曲", en: "Prelude to Revolution" },
         ja: "2005-08-27",
         en: "2008-02-15",
       },
       {
         n: 46,
-        title: "The Song of Truth",
+        title: { ja: "真実の歌", en: "The Song of Truth" },
         ja: "2005-09-03",
         en: "2008-02-22",
       },
       {
         n: 47,
-        title: "Meer",
+        title: { ja: "ミーア", en: "Meer" },
         ja: "2005-09-10",
         en: "2008-02-29",
       },
       {
         n: 48,
-        title: "To a New World",
+        title: { ja: "新世界へ", en: "To a New World" },
         ja: "2005-09-17",
         en: "2008-03-07",
       },
       {
         n: 49,
-        title: "Rey",
+        title: { ja: "レイ", en: "Rey" },
         ja: "2005-09-24",
         en: "2008-03-21",
       },
       {
         n: 50,
-        title: "The Final Power",
+        title: { ja: "最後の力", en: "The Final Power" },
         ja: "2005-10-01",
         en: "2008-03-28",
       },
       {
         n: 51,
-        title: "Final Plus: The Chosen Future",
+        title: { ja: "選ばれた未来", en: "Final Plus: The Chosen Future" },
         ja: "2005-12-25",
       },
     ],
@@ -9265,31 +8585,21 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   seed_destiny_astray_2004_manga: {
-    title: "Mobile Suit Gundam SEED Destiny Astray",
+    title: {
+      ja: "機動戦士ガンダムSEED DESTINY ASTRAY",
+      en: "Mobile Suit Gundam SEED Destiny Astray",
+    },
     u: "ce",
     type: "manga",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
+    author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
+    publisher: "Kadokawa Shoten",
+    magazine: "Gundam Ace",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2005-01",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2005-07",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2005-11",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "2006-06",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2005-01" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2005-07" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2005-11" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2006-06" },
     ],
     releases: [
       {
@@ -9301,29 +8611,21 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         schedule: "serial",
       },
     ],
-    author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
   },
   seed_destiny_astray_r_2013_manga: {
-    title: "Mobile Suit Gundam SEED Destiny Astray R",
+    title: {
+      ja: "機動戦士ガンダムSEED DESTINY ASTRAY R",
+      en: "Mobile Suit Gundam SEED Destiny Astray R",
+    },
     u: "ce",
     type: "manga",
-    author: "Tomohiro Chiba (story), Kunio Okawara (mechanical design)",
-    publisher: "ASCII Media Works",
     source:
       "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Destiny_Astray_R",
+    author: "Tomohiro Chiba (story), Kunio Okawara (mechanical design)",
+    publisher: "ASCII Media Works",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2013-06",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2014-05",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2013-06" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2014-05" },
     ],
     releases: [
       {
@@ -9337,39 +8639,22 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   seed_destiny_edge_2005_manga: {
-    title: "Mobile Suit Gundam SEED Destiny: The Edge",
+    title: {
+      ja: "機動戦士ガンダムSEED DESTINY THE EDGE",
+      en: "Mobile Suit Gundam SEED Destiny: The Edge",
+    },
     u: "ce",
     type: "manga",
+    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムSEEDシリーズ_(書籍)",
     author: "Tateishi Gichi",
     publisher: "Kadokawa",
     magazine: "Gundam Ace",
-    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムSEEDシリーズ_(書籍)",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2005-04",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2005-08",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2005-12",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "2006-06",
-      },
-      {
-        n: 5,
-        title: "Volume 5",
-        ja: "2006-10",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2005-04" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2005-08" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2005-12" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2006-06" },
+      { n: 5, title: { ja: "Volume 5", en: "Volume 5" }, ja: "2006-10" },
     ],
     releases: [
       {
@@ -9383,24 +8668,19 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   seed_destiny_edge_desire_2008_manga: {
-    title: "Mobile Suit Gundam SEED Destiny: The Edge Desire",
+    title: {
+      ja: "機動戦士ガンダムSEED DESTINY THE EDGE Desire",
+      en: "Mobile Suit Gundam SEED Destiny: The Edge Desire",
+    },
     u: "ce",
     type: "manga",
+    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムSEEDシリーズ_(書籍)",
     author: "Tateishi Gichi",
     publisher: "Kadokawa",
     magazine: "Gundam Ace",
-    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムSEEDシリーズ_(書籍)",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2007-06",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2008-02",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2007-06" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2008-02" },
     ],
     releases: [
       {
@@ -9414,14 +8694,20 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   seed_destiny_final_plus_2005_special: {
-    title: "Mobile Suit Gundam SEED Destiny: Final Plus",
+    title: {
+      ja: "機動戦士ガンダムSEED DESTINY FINAL PLUS",
+      en: "Mobile Suit Gundam SEED Destiny: Final Plus",
+    },
     u: "ce",
     type: "ova",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Destiny",
     episodes: [
       {
         n: 1,
-        title: "The Chosen Future",
+        title: {
+          ja: "機動戦士ガンダムSEED DESTINY FINAL PLUS",
+          en: "The Chosen Future",
+        },
         ja: "2005-12-25",
       },
     ],
@@ -9443,34 +8729,21 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   seed_destiny_magazine_z_manga: {
-    title: "Mobile Suit Gundam SEED Destiny (Magazine Z manga)",
+    title: {
+      ja: "機動戦士ガンダムSEED DESTINY (マガジンZ版)",
+      en: "Mobile Suit Gundam SEED Destiny (Magazine Z manga)",
+    },
     u: "ce",
     type: "manga",
+    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムSEEDシリーズ_(書籍)",
     author: "Iwase Masashi",
     publisher: "Kodansha",
     magazine: "Monthly Magazine Z",
-    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムSEEDシリーズ_(書籍)",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2005-04",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2005-08",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2006-06",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "2006-06",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2005-04" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2005-08" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2006-06" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2006-06" },
     ],
     releases: [
       {
@@ -9484,7 +8757,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   seed_destiny_special_2006_films: {
-    title: "Mobile Suit Gundam SEED Destiny: Special Edition",
+    title: {
+      ja: "機動戦士ガンダムSEED DESTINY スペシャルエディション",
+      en: "Mobile Suit Gundam SEED Destiny: Special Edition",
+    },
     u: "ce",
     type: "film",
     source:
@@ -9492,22 +8768,22 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "The Shattered World",
+        title: { ja: "砕け散る世界", en: "The Shattered World" },
         ja: "2006-05-02",
       },
       {
         n: 2,
-        title: "Their Respective Swords",
+        title: { ja: "戦いを呼ぶもの", en: "Their Respective Swords" },
         ja: "2006-07-27",
       },
       {
         n: 3,
-        title: "The Hellfire of Destiny",
+        title: { ja: "予兆の砲火", en: "The Hellfire of Destiny" },
         ja: "2006-10-08",
       },
       {
         n: 4,
-        title: "The Cost of Freedom",
+        title: { ja: "星屑の戦場", en: "The Cost of Freedom" },
         ja: "2007-02-23",
       },
     ],
@@ -9530,25 +8806,20 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   seed_eclipse_2021_manga: {
-    title: "Mobile Suit Gundam SEED Eclipse",
+    title: {
+      ja: "機動戦士ガンダムSEED ECLIPSE",
+      en: "Mobile Suit Gundam SEED Eclipse",
+    },
     u: "ce",
     type: "manga",
+    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Eclipse",
     author: "Atsushi Soga (art), SOW (story)",
     publisher: "Kadokawa Shoten",
     magazine: "Gundam Ace",
-    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Eclipse",
     note: "Set in Cosmic Era during the interim between SEED and SEED Destiny",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2022-02-26",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2023",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2022-02-26" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2023" },
     ],
     releases: [
       {
@@ -9561,21 +8832,19 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   seed_frame_astrays_2007_manga: {
-    title: "Mobile Suit Gundam SEED Frame Astrays",
+    title: {
+      ja: "機動戦士ガンダムSEED FRAME ASTRAYS",
+      en: "Mobile Suit Gundam SEED Frame Astrays",
+    },
     u: "ce",
     type: "manga",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
+    author: "Tomohiro Chiba (story), Kazuhiro Okada (art)",
+    publisher: "Kadokawa Shoten",
+    magazine: "Dengeki Hobby Magazine",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2008-04",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2008-11",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2008-04" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2008-11" },
     ],
     releases: [
       {
@@ -9587,19 +8856,19 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         schedule: "serial",
       },
     ],
-    author: "Tomohiro Chiba (story), Kazuhiro Okada (art)",
-    publisher: "Kadokawa Shoten",
-    magazine: "Dengeki Hobby Magazine",
   },
   seed_freedom_2024_film: {
-    title: "Mobile Suit Gundam SEED Freedom",
+    title: {
+      ja: "機動戦士ガンダムSEED FREEDOM",
+      en: "Mobile Suit Gundam SEED Freedom",
+    },
     u: "ce",
     type: "film",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Freedom",
     episodes: [
       {
         n: 1,
-        title: "SEED Freedom",
+        title: { ja: "機動戦士ガンダムSEED FREEDOM", en: "SEED Freedom" },
         ja: "2024-01-26",
         en: "2024-05-03",
       },
@@ -9622,21 +8891,18 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   seed_freedom_2024_manga: {
-    title: "Mobile Suit Gundam SEED Freedom (manga)",
+    title: {
+      ja: "機動戦士ガンダムSEED FREEDOM (漫画)",
+      en: "Mobile Suit Gundam SEED Freedom (manga)",
+    },
     u: "ce",
     type: "manga",
+    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Freedom",
     author: "Iwase Masashi",
     publisher: "Kadokawa",
     magazine: "Gundam Ace",
-    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Freedom",
     note: "Manga adaptation of the SEED Freedom film",
-    episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2025",
-      },
-    ],
+    episodes: [{ n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2025" }],
     releases: [
       {
         region: "ja",
@@ -9648,7 +8914,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   seed_freedom_zero_tba: {
-    title: "Mobile Suit Gundam SEED Freedom Zero",
+    title: {
+      ja: "機動戦士ガンダムSEED FREEDOM ZERO",
+      en: "Mobile Suit Gundam SEED Freedom Zero",
+    },
     u: "ce",
     type: "film",
     source:
@@ -9658,21 +8927,16 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     releases: [],
   },
   seed_msv_astray_2004_ova: {
-    title: "Mobile Suit Gundam SEED MSV Astray",
+    title: {
+      ja: "機動戦士ガンダムSEED MSV ASTRAY",
+      en: "Mobile Suit Gundam SEED MSV Astray",
+    },
     u: "ce",
     type: "ova",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
     episodes: [
-      {
-        n: 1,
-        title: "Part 1",
-        ja: "2004-05-25",
-      },
-      {
-        n: 2,
-        title: "Part 2",
-        ja: "2004-11-25",
-      },
+      { n: 1, title: { ja: "Part 1", en: "Part 1" }, ja: "2004-05-25" },
+      { n: 2, title: { ja: "Part 2", en: "Part 2" }, ja: "2004-11-25" },
     ],
     releases: [
       {
@@ -9685,7 +8949,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   seed_special_2004_films: {
-    title: "Mobile Suit Gundam SEED: Special Edition",
+    title: {
+      ja: "機動戦士ガンダムSEED スペシャルエディション",
+      en: "Mobile Suit Gundam SEED: Special Edition",
+    },
     u: "ce",
     type: "film",
     source:
@@ -9694,17 +8961,17 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "The Empty Battlefield",
+        title: { ja: "砕け散る世界", en: "The Empty Battlefield" },
         ja: "2004-03-23",
       },
       {
         n: 2,
-        title: "The Far-Away Dawn",
+        title: { ja: "遥かなる暁", en: "The Far-Away Dawn" },
         ja: "2004-07-28",
       },
       {
         n: 3,
-        title: "The Rumbling Sky",
+        title: { ja: "鳴動の宇宙", en: "The Rumbling Sky" },
         ja: "2004-10-22",
       },
     ],
@@ -9727,27 +8994,18 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   seed_stargazer_2006_ona: {
-    title: "Mobile Suit Gundam SEED C.E. 73: Stargazer",
+    title: {
+      ja: "機動戦士ガンダムSEED C.E.73 STARGAZER",
+      en: "Mobile Suit Gundam SEED C.E. 73: Stargazer",
+    },
     u: "ce",
     type: "ona",
     source:
       "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam_SEED_episodes",
     episodes: [
-      {
-        n: 1,
-        title: "Stage 01",
-        ja: "2006-07-14",
-      },
-      {
-        n: 2,
-        title: "Stage 02",
-        ja: "2006-08-21",
-      },
-      {
-        n: 3,
-        title: "Stage 03",
-        ja: "2006-09-29",
-      },
+      { n: 1, title: { ja: "Stage 01", en: "Stage 01" }, ja: "2006-07-14" },
+      { n: 2, title: { ja: "Stage 02", en: "Stage 02" }, ja: "2006-08-21" },
+      { n: 3, title: { ja: "Stage 03", en: "Stage 03" }, ja: "2006-09-29" },
     ],
     releases: [
       {
@@ -9768,7 +9026,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   seed_stargazer_compilation_2006_ova: {
-    title: "Mobile Suit Gundam SEED C.E. 73: Stargazer (Compilation)",
+    title: {
+      ja: "機動戦士ガンダムSEED C.E.73 STARGAZER",
+      en: "Mobile Suit Gundam SEED C.E. 73: Stargazer (Compilation)",
+    },
     u: "ce",
     type: "ova",
     source:
@@ -9776,7 +9037,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Stargazer Compilation",
+        title: {
+          ja: "機動戦士ガンダムSEED C.E.73 STARGAZER",
+          en: "Stargazer Compilation",
+        },
         ja: "2006-11-24",
       },
     ],
@@ -9798,21 +9062,19 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   seed_vs_astray_2010_manga: {
-    title: "Mobile Suit Gundam SEED VS Astray",
+    title: {
+      ja: "機動戦士ガンダムSEED VS ASTRAY",
+      en: "Mobile Suit Gundam SEED VS Astray",
+    },
     u: "ce",
     type: "manga",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
+    author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
+    publisher: "ASCII Media Works",
+    magazine: "Dengeki Hobby Magazine",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2010-05",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2011-01",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2010-05" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2011-01" },
     ],
     releases: [
       {
@@ -9824,26 +9086,21 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         schedule: "serial",
       },
     ],
-    author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
-    publisher: "ASCII Media Works",
-    magazine: "Dengeki Hobby Magazine",
   },
   seed_x_astray_2003_manga: {
-    title: "Mobile Suit Gundam SEED X Astray",
+    title: {
+      ja: "機動戦士ガンダムSEED X ASTRAY",
+      en: "Mobile Suit Gundam SEED X Astray",
+    },
     u: "ce",
     type: "manga",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_SEED_Astray",
+    author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
+    publisher: "Kadokawa Shoten",
+    magazine: "Gundam Ace",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2004-05",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2004-10",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2004-05" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2004-10" },
     ],
     releases: [
       {
@@ -9855,22 +9112,16 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         schedule: "serial",
       },
     ],
-    author: "Tomohiro Chiba (story), Kōichi Tokita (art)",
-    publisher: "Kadokawa Shoten",
-    magazine: "Gundam Ace",
   },
   sentinel_1988_novel: {
-    title: "Gundam Sentinel",
+    title: { ja: "ガンダム・センチネル", en: "Gundam Sentinel" },
     u: "uc",
     type: "novel",
     source: "https://en.wikipedia.org/wiki/Gundam_Sentinel",
-    episodes: [
-      {
-        n: 1,
-        title: "Part 1",
-        ja: "1990-07",
-      },
-    ],
+    author: "Masaya Takahashi",
+    publisher: "Dai Nippon Kaiga",
+    magazine: "Model Graphix",
+    episodes: [{ n: 1, title: { ja: "Part 1", en: "Part 1" }, ja: "1990-07" }],
     releases: [
       {
         region: "ja",
@@ -9881,19 +9132,19 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
         schedule: "serial",
       },
     ],
-    author: "Masaya Takahashi",
-    publisher: "Dai Nippon Kaiga",
-    magazine: "Model Graphix",
   },
   silver_phantom_2024_vr: {
-    title: "Mobile Suit Gundam: Silver Phantom",
+    title: {
+      ja: "機動戦士ガンダム：銀灰の幻影",
+      en: "Mobile Suit Gundam: Silver Phantom",
+    },
     u: "uc",
     type: "film",
     source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Silver_Phantom",
     episodes: [
       {
         n: 1,
-        title: "Silver Phantom",
+        title: { ja: "機動戦士ガンダム：銀灰の幻影", en: "Silver Phantom" },
         ja: "2024-10-22",
       },
     ],
@@ -9915,109 +9166,36 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   super_g_gundam_2010_manga: {
-    title: "Super! Kidou Butouden G Gundam",
+    title: {
+      ja: "超級!機動武闘伝Gガンダム",
+      en: "Super! Kidou Butouden G Gundam",
+    },
     u: "fc",
     type: "manga",
+    source: "https://ja.wikipedia.org/wiki/超級!機動武闘伝Gガンダム",
     author: "Shimamoto Kazuhiko",
     publisher: "Kadokawa",
     magazine: "Gundam Ace",
-    source: "https://ja.wikipedia.org/wiki/超級!機動武闘伝Gガンダム",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2010-12-25",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2011-02-26",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2011-04-26",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "2011-07-26",
-      },
-      {
-        n: 5,
-        title: "Volume 5",
-        ja: "2011-09-26",
-      },
-      {
-        n: 6,
-        title: "Volume 6",
-        ja: "2011-12-26",
-      },
-      {
-        n: 7,
-        title: "Volume 7",
-        ja: "2012-04-26",
-      },
-      {
-        n: 8,
-        title: "Volume 8",
-        ja: "2012-06-23",
-      },
-      {
-        n: 9,
-        title: "Volume 9",
-        ja: "2012-09-24",
-      },
-      {
-        n: 10,
-        title: "Volume 10",
-        ja: "2013-01-26",
-      },
-      {
-        n: 11,
-        title: "Volume 11",
-        ja: "2013-04-26",
-      },
-      {
-        n: 12,
-        title: "Volume 12",
-        ja: "2013-07-25",
-      },
-      {
-        n: 13,
-        title: "Volume 13",
-        ja: "2013-10-24",
-      },
-      {
-        n: 14,
-        title: "Volume 14",
-        ja: "2014-01-24",
-      },
-      {
-        n: 15,
-        title: "Volume 15",
-        ja: "2014-06-23",
-      },
-      {
-        n: 16,
-        title: "Volume 16",
-        ja: "2015-01-22",
-      },
-      {
-        n: 17,
-        title: "Volume 17",
-        ja: "2015-08-26",
-      },
-      {
-        n: 18,
-        title: "Volume 18",
-        ja: "2016-07-26",
-      },
-      {
-        n: 19,
-        title: "Volume 19",
-        ja: "2016-09-26",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2010-12-25" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2011-02-26" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2011-04-26" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2011-07-26" },
+      { n: 5, title: { ja: "Volume 5", en: "Volume 5" }, ja: "2011-09-26" },
+      { n: 6, title: { ja: "Volume 6", en: "Volume 6" }, ja: "2011-12-26" },
+      { n: 7, title: { ja: "Volume 7", en: "Volume 7" }, ja: "2012-04-26" },
+      { n: 8, title: { ja: "Volume 8", en: "Volume 8" }, ja: "2012-06-23" },
+      { n: 9, title: { ja: "Volume 9", en: "Volume 9" }, ja: "2012-09-24" },
+      { n: 10, title: { ja: "Volume 10", en: "Volume 10" }, ja: "2013-01-26" },
+      { n: 11, title: { ja: "Volume 11", en: "Volume 11" }, ja: "2013-04-26" },
+      { n: 12, title: { ja: "Volume 12", en: "Volume 12" }, ja: "2013-07-25" },
+      { n: 13, title: { ja: "Volume 13", en: "Volume 13" }, ja: "2013-10-24" },
+      { n: 14, title: { ja: "Volume 14", en: "Volume 14" }, ja: "2014-01-24" },
+      { n: 15, title: { ja: "Volume 15", en: "Volume 15" }, ja: "2014-06-23" },
+      { n: 16, title: { ja: "Volume 16", en: "Volume 16" }, ja: "2015-01-22" },
+      { n: 17, title: { ja: "Volume 17", en: "Volume 17" }, ja: "2015-08-26" },
+      { n: 18, title: { ja: "Volume 18", en: "Volume 18" }, ja: "2016-07-26" },
+      { n: 19, title: { ja: "Volume 19", en: "Volume 19" }, ja: "2016-09-26" },
     ],
     releases: [
       {
@@ -10031,174 +9209,165 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   thunderbolt_2012_manga: {
-    title: "Mobile Suit Gundam Thunderbolt (manga)",
+    title: {
+      ja: "機動戦士ガンダム サンダーボルト",
+      en: "Mobile Suit Gundam Thunderbolt (manga)",
+    },
     u: "uc",
     type: "manga",
+    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Thunderbolt",
     author: "Yasuo Ohtagaki",
     publisher: "Shogakukan",
     magazine: "Big Comic Superior",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Thunderbolt",
     note: "Began serialisation March 2012; ongoing. Collected in 20+ tankōbon volumes.",
     episodes: [
       {
         n: 1,
-        title: "Volume 1",
+        title: { ja: "Volume 1", en: "Volume 1" },
         ja: "2012-10-30",
         en: "2016-11-15",
       },
       {
         n: 2,
-        title: "Volume 2",
+        title: { ja: "Volume 2", en: "Volume 2" },
         ja: "2013-05-30",
         en: "2017-02-21",
       },
       {
         n: 3,
-        title: "Volume 3",
+        title: { ja: "Volume 3", en: "Volume 3" },
         ja: "2014-02-28",
         en: "2017-05-16",
       },
       {
         n: 4,
-        title: "Volume 4",
+        title: { ja: "Volume 4", en: "Volume 4" },
         ja: "2014-11-28",
         en: "2017-08-15",
       },
       {
         n: 5,
-        title: "Volume 5",
+        title: { ja: "Volume 5", en: "Volume 5" },
         ja: "2015-02-27",
         en: "2017-11-21",
       },
       {
         n: 6,
-        title: "Volume 6",
+        title: { ja: "Volume 6", en: "Volume 6" },
         ja: "2015-10-30",
         en: "2018-02-20",
       },
       {
         n: 7,
-        title: "Volume 7",
+        title: { ja: "Volume 7", en: "Volume 7" },
         ja: "2015-12-25",
         en: "2018-05-15",
       },
       {
         n: 8,
-        title: "Volume 8",
+        title: { ja: "Volume 8", en: "Volume 8" },
         ja: "2016-07-24",
         en: "2018-08-21",
       },
       {
         n: 9,
-        title: "Volume 9",
+        title: { ja: "Volume 9", en: "Volume 9" },
         ja: "2017-01-30",
         en: "2018-11-20",
       },
       {
         n: 10,
-        title: "Volume 10",
+        title: { ja: "Volume 10", en: "Volume 10" },
         ja: "2017-08-30",
         en: "2019-02-19",
       },
       {
         n: 11,
-        title: "Volume 11",
+        title: { ja: "Volume 11", en: "Volume 11" },
         ja: "2018-02-28",
         en: "2019-05-21",
       },
       {
         n: 12,
-        title: "Volume 12",
+        title: { ja: "Volume 12", en: "Volume 12" },
         ja: "2018-07-30",
         en: "2019-08-20",
       },
       {
         n: 13,
-        title: "Volume 13",
+        title: { ja: "Volume 13", en: "Volume 13" },
         ja: "2019-04-26",
         en: "2020-02-18",
       },
       {
         n: 14,
-        title: "Volume 14",
+        title: { ja: "Volume 14", en: "Volume 14" },
         ja: "2019-08-30",
         en: "2020-07-21",
       },
       {
         n: 15,
-        title: "Volume 15",
+        title: { ja: "Volume 15", en: "Volume 15" },
         ja: "2020-02-28",
         en: "2021-01-19",
       },
       {
         n: 16,
-        title: "Volume 16",
+        title: { ja: "Volume 16", en: "Volume 16" },
         ja: "2020-09-30",
         en: "2021-08-17",
       },
       {
         n: 17,
-        title: "Volume 17",
+        title: { ja: "Volume 17", en: "Volume 17" },
         ja: "2021-02-26",
         en: "2022-02-15",
       },
       {
         n: 18,
-        title: "Volume 18",
+        title: { ja: "Volume 18", en: "Volume 18" },
         ja: "2021-09-30",
         en: "2022-10-18",
       },
       {
         n: 19,
-        title: "Volume 19",
+        title: { ja: "Volume 19", en: "Volume 19" },
         ja: "2022-02-28",
         en: "2023-03-21",
       },
       {
         n: 20,
-        title: "Volume 20",
+        title: { ja: "Volume 20", en: "Volume 20" },
         ja: "2022-09-30",
         en: "2023-11-21",
       },
       {
         n: 21,
-        title: "Volume 21",
+        title: { ja: "Volume 21", en: "Volume 21" },
         ja: "2023-02-28",
         en: "2024-03-19",
       },
       {
         n: 22,
-        title: "Volume 22",
+        title: { ja: "Volume 22", en: "Volume 22" },
         ja: "2023-08-30",
         en: "2024-11-19",
       },
       {
         n: 23,
-        title: "Volume 23",
+        title: { ja: "Volume 23", en: "Volume 23" },
         ja: "2024-02-29",
         en: "2025-05-20",
       },
       {
         n: 24,
-        title: "Volume 24",
+        title: { ja: "Volume 24", en: "Volume 24" },
         ja: "2024-07-30",
         en: "2025-09-16",
       },
-      {
-        n: 25,
-        title: "Volume 25",
-        ja: "2025-02-28",
-      },
-      {
-        n: 26,
-        title: "Volume 26",
-        ja: "2025-08-29",
-      },
-      {
-        n: 27,
-        title: "Volume 27",
-        ja: "2025-12-19",
-      },
+      { n: 25, title: { ja: "Volume 25", en: "Volume 25" }, ja: "2025-02-28" },
+      { n: 26, title: { ja: "Volume 26", en: "Volume 26" }, ja: "2025-08-29" },
+      { n: 27, title: { ja: "Volume 27", en: "Volume 27" }, ja: "2025-12-19" },
     ],
     releases: [
       {
@@ -10226,51 +9395,22 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   thunderbolt_2015_ona: {
-    title: "Mobile Suit Gundam Thunderbolt",
+    title: {
+      ja: "機動戦士ガンダムサンダーボルト",
+      en: "Mobile Suit Gundam Thunderbolt",
+    },
     u: "uc",
     type: "ona",
     source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Thunderbolt",
     episodes: [
-      {
-        n: 1,
-        title: "Episode 1",
-        ja: "2015-12-25",
-      },
-      {
-        n: 2,
-        title: "Episode 2",
-        ja: "2016-02-12",
-      },
-      {
-        n: 3,
-        title: "Episode 3",
-        ja: "2016-03-18",
-      },
-      {
-        n: 4,
-        title: "Episode 4",
-        ja: "2016-04-22",
-      },
-      {
-        n: 5,
-        title: "Episode 5",
-        ja: "2017-03-24",
-      },
-      {
-        n: 6,
-        title: "Episode 6",
-        ja: "2017-04-28",
-      },
-      {
-        n: 7,
-        title: "Episode 7",
-        ja: "2017-05-31",
-      },
-      {
-        n: 8,
-        title: "Episode 8",
-        ja: "2017-07-14",
-      },
+      { n: 1, title: { ja: "Episode 1", en: "Episode 1" }, ja: "2015-12-25" },
+      { n: 2, title: { ja: "Episode 2", en: "Episode 2" }, ja: "2016-02-12" },
+      { n: 3, title: { ja: "Episode 3", en: "Episode 3" }, ja: "2016-03-18" },
+      { n: 4, title: { ja: "Episode 4", en: "Episode 4" }, ja: "2016-04-22" },
+      { n: 5, title: { ja: "Episode 5", en: "Episode 5" }, ja: "2017-03-24" },
+      { n: 6, title: { ja: "Episode 6", en: "Episode 6" }, ja: "2017-04-28" },
+      { n: 7, title: { ja: "Episode 7", en: "Episode 7" }, ja: "2017-05-31" },
+      { n: 8, title: { ja: "Episode 8", en: "Episode 8" }, ja: "2017-07-14" },
     ],
     releases: [
       {
@@ -10312,14 +9452,20 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   thunderbolt_bandit_flower_2017_film: {
-    title: "Mobile Suit Gundam Thunderbolt: Bandit Flower",
+    title: {
+      ja: "機動戦士ガンダムサンダーボルト BANDIT FLOWER",
+      en: "Mobile Suit Gundam Thunderbolt: Bandit Flower",
+    },
     u: "uc",
     type: "film",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Thunderbolt",
     episodes: [
       {
         n: 1,
-        title: "Bandit Flower",
+        title: {
+          ja: "機動戦士ガンダムサンダーボルト BANDIT FLOWER",
+          en: "Bandit Flower",
+        },
         ja: "2017-11-18",
       },
     ],
@@ -10348,14 +9494,20 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   thunderbolt_december_sky_2016_film: {
-    title: "Mobile Suit Gundam Thunderbolt: December Sky",
+    title: {
+      ja: "機動戦士ガンダムサンダーボルト DECEMBER SKY",
+      en: "Mobile Suit Gundam Thunderbolt: December Sky",
+    },
     u: "uc",
     type: "film",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Thunderbolt",
     episodes: [
       {
         n: 1,
-        title: "December Sky",
+        title: {
+          ja: "機動戦士ガンダムサンダーボルト DECEMBER SKY",
+          en: "December Sky",
+        },
         ja: "2016-06-25",
       },
     ],
@@ -10384,7 +9536,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   turn_a_1999_tv: {
-    title: "Turn A Gundam",
+    title: { ja: "∀ガンダム", en: "Turn A Gundam" },
     u: "cc",
     type: "tv",
     source: "https://en.wikipedia.org/wiki/Turn_A_Gundam",
@@ -10392,253 +9544,255 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
+        title: { ja: "月に吠える", en: "Howl at the Moon" },
         ja: "1999-04-09",
-        title: "Howl at the Moon",
       },
       {
         n: 2,
+        title: { ja: "成人式", en: "The Coming of Age Ceremony" },
         ja: "1999-04-16",
-        title: "The Coming of Age Ceremony",
       },
       {
         n: 3,
+        title: { ja: "祭の後", en: "After the Festival" },
         ja: "1999-04-23",
-        title: "After the Festival",
       },
       {
         n: 4,
+        title: { ja: "ふるさとの軍人", en: "Soldiers From Home" },
         ja: "1999-04-30",
-        title: "Soldiers From Home",
       },
       {
         n: 5,
+        title: { ja: "ディアナ降臨", en: "Dianna Descends" },
         ja: "1999-05-07",
-        title: "Dianna Descends",
       },
       {
         n: 6,
+        title: { ja: "忘れられた過去", en: "The Forgotten Past" },
         ja: "1999-05-14",
-        title: "The Forgotten Past",
       },
       {
         n: 7,
+        title: { ja: "貴婦人修行", en: "Training to Be a Lady" },
         ja: "1999-05-21",
-        title: "Training to Be a Lady",
       },
       {
         n: 8,
+        title: { ja: "ローラの牛", en: "Laura's Cow" },
         ja: "1999-05-28",
-        title: "Laura's Cow",
       },
       {
         n: 9,
+        title: {
+          ja: "コレン、ガンダムと叫ぶ",
+          en: "Corin Shouts, 'It's a Gundam!'",
+        },
         ja: "1999-06-04",
-        title: "Corin Shouts, 'It's a Gundam!'",
       },
-      {
-        n: 10,
-        ja: "1999-06-11",
-        title: "Grave Visit",
-      },
+      { n: 10, title: { ja: "墓参り", en: "Grave Visit" }, ja: "1999-06-11" },
       {
         n: 11,
+        title: { ja: "ノックス崩壊", en: "The Fall of Nocris" },
         ja: "1999-06-18",
-        title: "The Fall of Nocris",
       },
       {
         n: 12,
+        title: { ja: "地下回廊", en: "Underground Passageways" },
         ja: "1999-06-25",
-        title: "Underground Passageways",
       },
       {
         n: 13,
+        title: { ja: "年上のひと", en: "An Older Woman" },
         ja: "1999-07-02",
-        title: "An Older Woman",
       },
       {
         n: 14,
+        title: { ja: "別離、再び", en: "Separated, Again" },
         ja: "1999-07-09",
-        title: "Separated, Again",
       },
       {
         n: 15,
+        title: { ja: "思い出は消えて", en: "Fleeting Memories" },
         ja: "1999-07-16",
-        title: "Fleeting Memories",
       },
       {
         n: 16,
+        title: { ja: "ターンAのすべて", en: "All About Turn A" },
         ja: "1999-07-23",
-        title: "All About Turn A",
       },
       {
         n: 17,
+        title: {
+          ja: "建国のダストブロー",
+          en: "Dust Blow at the State's Founding",
+        },
         ja: "1999-07-30",
-        title: "Dust Blow at the State's Founding",
       },
       {
         n: 18,
+        title: { ja: "キエルとディアナ", en: "Kihel and Dianna" },
         ja: "1999-08-06",
-        title: "Kihel and Dianna",
       },
       {
         n: 19,
+        title: { ja: "ソシエの戦争", en: "Sochie's War" },
         ja: "1999-08-13",
-        title: "Sochie's War",
       },
       {
         n: 20,
+        title: { ja: "アニス・パワー", en: "Anise Power" },
         ja: "1999-08-20",
-        title: "Anise Power",
       },
       {
         n: 21,
+        title: { ja: "ディアナ奮戦", en: "Dianna's Hard Fight" },
         ja: "1999-08-27",
-        title: "Dianna's Hard Fight",
       },
       {
         n: 22,
+        title: { ja: "ハリーの災難", en: "Harry's Misfortune" },
         ja: "1999-09-03",
-        title: "Harry's Misfortune",
       },
       {
         n: 23,
+        title: { ja: "テテスの遺言", en: "Teteth's Last Words" },
         ja: "1999-09-10",
-        title: "Teteth's Last Words",
       },
       {
         n: 24,
+        title: { ja: "ローラの遠吠え", en: "Laura's Howl" },
         ja: "1999-09-17",
-        title: "Laura's Howl",
       },
       {
         n: 25,
+        title: { ja: "ウィルゲム離陸", en: "The Willghem Lifts Off" },
         ja: "1999-09-24",
-        title: "The Willghem Lifts Off",
       },
       {
         n: 26,
+        title: { ja: "悟りの戦い", en: "A Battle for Enlightenment" },
         ja: "1999-10-01",
-        title: "A Battle for Enlightenment",
       },
       {
         n: 27,
+        title: { ja: "夜中の夜明け", en: "Midnight Sunrise" },
         ja: "1999-10-08",
-        title: "Midnight Sunrise",
       },
       {
         n: 28,
+        title: { ja: "託されたもの", en: "The Burden" },
         ja: "1999-10-15",
-        title: "The Burden",
       },
       {
         n: 29,
+        title: { ja: "ソレイユのふたり", en: "Two Aboard the Soleil" },
         ja: "1999-10-22",
-        title: "Two Aboard the Soleil",
       },
       {
         n: 30,
+        title: { ja: "胸に抱えて", en: "Close to the Heart" },
         ja: "1999-10-29",
-        title: "Close to the Heart",
       },
       {
         n: 31,
+        title: { ja: "追撃! 泣き虫ポゥ", en: "Pursuit! Crybaby Poe" },
         ja: "1999-11-05",
-        title: "Pursuit! Crybaby Poe",
       },
       {
         n: 32,
+        title: { ja: "神話の王", en: "The King of Myth" },
         ja: "1999-11-12",
-        title: "The King of Myth",
       },
       {
         n: 33,
+        title: { ja: "マニューピチ攻略", en: "The Taking of Manupichi" },
         ja: "1999-11-19",
-        title: "The Taking of Manupichi",
       },
       {
         n: 34,
+        title: { ja: "飛べ! 成層圏", en: "Fly! Into the Stratosphere" },
         ja: "1999-11-26",
-        title: "Fly! Into the Stratosphere",
       },
       {
         n: 35,
+        title: { ja: "ザックトレーガー", en: "Sackträger" },
         ja: "1999-12-03",
-        title: "Sackträger",
       },
       {
         n: 36,
+        title: { ja: "ミリシャ宇宙決戦", en: "Militia Space Showdown" },
         ja: "1999-12-10",
-        title: "Militia Space Showdown",
       },
       {
         n: 37,
+        title: { ja: "月世界の門", en: "Gateway to the Moon" },
         ja: "1999-12-17",
-        title: "Gateway to the Moon",
       },
       {
         n: 38,
+        title: { ja: "戦闘神ギンガナム", en: "Warrior God Ghingnham" },
         ja: "1999-12-24",
-        title: "Warrior God Ghingnham",
       },
       {
         n: 39,
+        title: { ja: "小惑星爆烈", en: "Shattering an Asteroid" },
         ja: "1999-12-31",
-        title: "Shattering an Asteroid",
       },
       {
         n: 40,
+        title: { ja: "月面の海戦", en: "Sea Battle on the Moon" },
         ja: "2000-01-07",
-        title: "Sea Battle on the Moon",
       },
       {
         n: 41,
+        title: { ja: "戦いの決断", en: "The Decision to Fight" },
         ja: "2000-01-14",
-        title: "The Decision to Fight",
       },
       {
         n: 42,
+        title: { ja: "ターンX起動", en: "The Turn X Activates" },
         ja: "2000-01-21",
-        title: "The Turn X Activates",
       },
       {
         n: 43,
+        title: { ja: "衝撃の黒歴史", en: "The Shocking Dark History" },
         ja: "2000-01-28",
-        title: "The Shocking Dark History",
       },
       {
         n: 44,
+        title: { ja: "敵、新たなり", en: "The Enemy Starts Anew" },
         ja: "2000-02-04",
-        title: "The Enemy Starts Anew",
       },
       {
         n: 45,
+        title: { ja: "裏切りのグエン", en: "Guin the Traitor" },
         ja: "2000-02-11",
-        title: "Guin the Traitor",
       },
       {
         n: 46,
+        title: { ja: "再び、地球へ", en: "To Earth Once Again" },
         ja: "2000-02-18",
-        title: "To Earth Once Again",
       },
       {
         n: 47,
+        title: { ja: "ギンガナム襲来", en: "Ghingnham's Invasion" },
         ja: "2000-02-25",
-        title: "Ghingnham's Invasion",
       },
       {
         n: 48,
+        title: { ja: "ディアナ帰還", en: "The Return of Dianna" },
         ja: "2000-03-03",
-        title: "The Return of Dianna",
       },
       {
         n: 49,
+        title: { ja: "月光蝶", en: "Moonlight Butterfly" },
         ja: "2000-03-10",
-        title: "Moonlight Butterfly",
       },
       {
         n: 50,
+        title: { ja: "黄金の秋", en: "Golden Autumn" },
         ja: "2000-03-17",
-        title: "Golden Autumn",
       },
     ],
     releases: [
@@ -10667,19 +9821,22 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   turn_a_2002_films: {
-    title: "Turn A Gundam: Earth Light / Moonlight Butterfly",
+    title: {
+      ja: "∀ガンダム I地球光/IIムーンライト・バタフライ",
+      en: "Turn A Gundam: Earth Light / Moonlight Butterfly",
+    },
     u: "cc",
     type: "film",
     source: "https://en.wikipedia.org/wiki/Turn_A_Gundam",
     episodes: [
       {
         n: 1,
-        title: "Earth Light",
+        title: { ja: "月に吠える", en: "Earth Light" },
         ja: "2002-02-09",
       },
       {
         n: 2,
-        title: "Moonlight Butterfly",
+        title: { ja: "成人式", en: "Moonlight Butterfly" },
         ja: "2002-02-09",
       },
     ],
@@ -10702,40 +9859,20 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   turn_a_manga: {
-    title: "∀ Gundam (manga)",
+    title: { ja: "∀ガンダム (漫画)", en: "∀ Gundam (manga)" },
     u: "cc",
     type: "manga",
+    source: "https://gundam.fandom.com/wiki/∀_Gundam_(Manga)",
     author: "Atsushi Soga",
     publisher: "Kodansha",
     magazine: "Comic BomBom",
-    source: "https://gundam.fandom.com/wiki/∀_Gundam_(Manga)",
     note: "5-volume manga adaptation of the Turn A TV series",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "1999-12",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2000-06",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2001-01",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "2001-08",
-      },
-      {
-        n: 5,
-        title: "Volume 5",
-        ja: "2002-05",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "1999-12" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2000-06" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2001-01" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2001-08" },
+      { n: 5, title: { ja: "Volume 5", en: "Volume 5" }, ja: "2002-05" },
     ],
     releases: [
       {
@@ -10749,41 +9886,20 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   twilight_axis_2017_ona: {
-    title: "Mobile Suit Gundam: Twilight AXIS",
+    title: {
+      ja: "機動戦士ガンダム Twilight AXIS",
+      en: "Mobile Suit Gundam: Twilight AXIS",
+    },
     u: "uc",
     type: "ona",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Twilight_AXIS",
     episodes: [
-      {
-        n: 1,
-        title: "Episode 1",
-        ja: "2017-06-23",
-      },
-      {
-        n: 2,
-        title: "Episode 2",
-        ja: "2017-07-07",
-      },
-      {
-        n: 3,
-        title: "Episode 3",
-        ja: "2017-07-21",
-      },
-      {
-        n: 4,
-        title: "Episode 4",
-        ja: "2017-08-04",
-      },
-      {
-        n: 5,
-        title: "Episode 5",
-        ja: "2017-08-18",
-      },
-      {
-        n: 6,
-        title: "Episode 6",
-        ja: "2017-09-01",
-      },
+      { n: 1, title: { ja: "Episode 1", en: "Episode 1" }, ja: "2017-06-23" },
+      { n: 2, title: { ja: "Episode 2", en: "Episode 2" }, ja: "2017-07-07" },
+      { n: 3, title: { ja: "Episode 3", en: "Episode 3" }, ja: "2017-07-21" },
+      { n: 4, title: { ja: "Episode 4", en: "Episode 4" }, ja: "2017-08-04" },
+      { n: 5, title: { ja: "Episode 5", en: "Episode 5" }, ja: "2017-08-18" },
+      { n: 6, title: { ja: "Episode 6", en: "Episode 6" }, ja: "2017-09-01" },
     ],
     releases: [
       {
@@ -10811,14 +9927,20 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   twilight_axis_red_trace_2017_film: {
-    title: "Mobile Suit Gundam: Twilight AXIS Red Trace",
+    title: {
+      ja: "機動戦士ガンダム Twilight AXIS 赤き残痕",
+      en: "Mobile Suit Gundam: Twilight AXIS Red Trace",
+    },
     u: "uc",
     type: "film",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Twilight_AXIS",
     episodes: [
       {
         n: 1,
-        title: "Red Trace",
+        title: {
+          ja: "機動戦士ガンダム Twilight AXIS 赤き残痕",
+          en: "Red Trace",
+        },
         ja: "2017-11-18",
       },
     ],
@@ -10833,68 +9955,98 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   unicorn_2007_novel: {
-    title: "Mobile Suit Gundam Unicorn (light novels)",
+    title: {
+      ja: "機動戦士ガンダムUC (小説)",
+      en: "Mobile Suit Gundam Unicorn (light novels)",
+    },
     u: "uc",
     type: "novel",
+    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Unicorn",
     author: "Harutoshi Fukui",
     publisher: "Kadokawa Shoten",
     magazine: "Gundam Ace",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Unicorn",
     note: "Original light novel series; OVA is adaptation. 10 main volumes + 1 epilogue volume.",
     episodes: [
       {
         n: 1,
-        title: "Volume 1: The Day of the Unicorn (Part 1)",
+        title: {
+          ja: "Volume 1: The Day of the Unicorn (Part 1)",
+          en: "Volume 1: The Day of the Unicorn (Part 1)",
+        },
         ja: "2007-09-21",
       },
       {
         n: 2,
-        title: "Volume 2: The Day of the Unicorn (Part 2)",
+        title: {
+          ja: "Volume 2: The Day of the Unicorn (Part 2)",
+          en: "Volume 2: The Day of the Unicorn (Part 2)",
+        },
         ja: "2007-09-21",
       },
       {
         n: 3,
-        title: "Volume 3: The Red Comet",
+        title: { ja: "Volume 3: The Red Comet", en: "Volume 3: The Red Comet" },
         ja: "2007-12-20",
       },
       {
         n: 4,
-        title: "Volume 4: Palau Capture Battle",
+        title: {
+          ja: "Volume 4: Palau Capture Battle",
+          en: "Volume 4: Palau Capture Battle",
+        },
         ja: "2008-04-24",
       },
       {
         n: 5,
-        title: "Volume 5: The Ghost of Laplace",
+        title: {
+          ja: "Volume 5: The Ghost of Laplace",
+          en: "Volume 5: The Ghost of Laplace",
+        },
         ja: "2008-07-24",
       },
       {
         n: 6,
-        title: "Volume 6: In the Depths of a Gravity Well",
+        title: {
+          ja: "Volume 6: In the Depths of a Gravity Well",
+          en: "Volume 6: In the Depths of a Gravity Well",
+        },
         ja: "2008-10-23",
       },
       {
         n: 7,
-        title: "Volume 7: Black Unicorn",
+        title: { ja: "Volume 7: Black Unicorn", en: "Volume 7: Black Unicorn" },
         ja: "2008-12-24",
       },
       {
         n: 8,
-        title: "Volume 8: The Sky and the Stars",
+        title: {
+          ja: "Volume 8: The Sky and the Stars",
+          en: "Volume 8: The Sky and the Stars",
+        },
         ja: "2009-04-23",
       },
       {
         n: 9,
-        title: "Volume 9: Over the Rainbow (Part 1)",
+        title: {
+          ja: "Volume 9: Over the Rainbow (Part 1)",
+          en: "Volume 9: Over the Rainbow (Part 1)",
+        },
         ja: "2009-08-20",
       },
       {
         n: 10,
-        title: "Volume 10: Over the Rainbow (Part 2)",
+        title: {
+          ja: "Volume 10: Over the Rainbow (Part 2)",
+          en: "Volume 10: Over the Rainbow (Part 2)",
+        },
         ja: "2009-08-20",
       },
       {
         n: 11,
-        title: "Volume 11: Phoenix Hunting",
+        title: {
+          ja: "Volume 11: Phoenix Hunting",
+          en: "Volume 11: Phoenix Hunting",
+        },
         ja: "2016-03-26",
       },
     ],
@@ -10910,7 +10062,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   unicorn_2010_ova: {
-    title: "Mobile Suit Gundam Unicorn",
+    title: { ja: "機動戦士ガンダムUC", en: "Mobile Suit Gundam Unicorn" },
     u: "uc",
     type: "ova",
     source:
@@ -10918,42 +10070,45 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Day of the Unicorn",
+        title: { ja: "96年目の出発(たびだち)", en: "Day of the Unicorn" },
         ja: "2010-02-20",
       },
       {
         n: 2,
-        title: "The Second Coming of Char",
+        title: { ja: "最初の血", en: "The Second Coming of Char" },
         ja: "2010-11-12",
       },
       {
         n: 3,
-        title: "The Ghost of Laplace",
+        title: { ja: "それはガンダムと呼ばれた", en: "The Ghost of Laplace" },
         ja: "2011-03-05",
       },
       {
         n: 4,
-        title: "At the Bottom of the Gravity Well",
+        title: {
+          ja: "フル・フロンタル追撃",
+          en: "At the Bottom of the Gravity Well",
+        },
         ja: "2011-11-12",
       },
       {
         n: 5,
-        title: "Black Unicorn",
+        title: { ja: "激突・赤い彗星", en: "Black Unicorn" },
         ja: "2012-05-19",
       },
       {
         n: 6,
-        title: "Two Worlds, Two Tomorrows",
+        title: { ja: "その仮面の下に", en: "Two Worlds, Two Tomorrows" },
         ja: "2013-03-02",
       },
       {
         n: "SP",
-        title: "One of Seventy-Two (special)",
+        title: { ja: "One of Seventy-Two", en: "One of Seventy-Two (special)" },
         ja: "2013-08-03",
       },
       {
         n: 7,
-        title: "Over the Rainbow",
+        title: { ja: "パラオ攻略戦", en: "Over the Rainbow" },
         ja: "2014-06-06",
       },
     ],
@@ -10983,99 +10138,34 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   unicorn_bd_2010_manga: {
-    title: "Mobile Suit Gundam Unicorn Bande Dessinée",
+    title: {
+      ja: "機動戦士ガンダムUC バンデシネ",
+      en: "Mobile Suit Gundam Unicorn Bande Dessinée",
+    },
     u: "uc",
     type: "manga",
+    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムUC",
     author: "Harutoshi Fukui (story), Kouzou Oomori (art)",
     publisher: "Kadokawa",
     magazine: "Gundam Ace",
-    source: "https://ja.wikipedia.org/wiki/機動戦士ガンダムUC",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2010-07-26",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2010-11-26",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2011-03-26",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "2011-11-26",
-      },
-      {
-        n: 5,
-        title: "Volume 5",
-        ja: "2012-03-10",
-      },
-      {
-        n: 6,
-        title: "Volume 6",
-        ja: "2012-06-23",
-      },
-      {
-        n: 7,
-        title: "Volume 7",
-        ja: "2012-11-21",
-      },
-      {
-        n: 8,
-        title: "Volume 8",
-        ja: "2013-03-26",
-      },
-      {
-        n: 9,
-        title: "Volume 9",
-        ja: "2013-09-26",
-      },
-      {
-        n: 10,
-        title: "Volume 10",
-        ja: "2014-01-25",
-      },
-      {
-        n: 11,
-        title: "Volume 11",
-        ja: "2014-06-10",
-      },
-      {
-        n: 12,
-        title: "Volume 12",
-        ja: "2014-12-26",
-      },
-      {
-        n: 13,
-        title: "Volume 13",
-        ja: "2015-05-26",
-      },
-      {
-        n: 14,
-        title: "Volume 14",
-        ja: "2015-12-26",
-      },
-      {
-        n: 15,
-        title: "Volume 15",
-        ja: "2016-04-26",
-      },
-      {
-        n: 16,
-        title: "Volume 16",
-        ja: "2016-10-26",
-      },
-      {
-        n: 17,
-        title: "Volume 17",
-        ja: "2017-02-25",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2010-07-26" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2010-11-26" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2011-03-26" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2011-11-26" },
+      { n: 5, title: { ja: "Volume 5", en: "Volume 5" }, ja: "2012-03-10" },
+      { n: 6, title: { ja: "Volume 6", en: "Volume 6" }, ja: "2012-06-23" },
+      { n: 7, title: { ja: "Volume 7", en: "Volume 7" }, ja: "2012-11-21" },
+      { n: 8, title: { ja: "Volume 8", en: "Volume 8" }, ja: "2013-03-26" },
+      { n: 9, title: { ja: "Volume 9", en: "Volume 9" }, ja: "2013-09-26" },
+      { n: 10, title: { ja: "Volume 10", en: "Volume 10" }, ja: "2014-01-25" },
+      { n: 11, title: { ja: "Volume 11", en: "Volume 11" }, ja: "2014-06-10" },
+      { n: 12, title: { ja: "Volume 12", en: "Volume 12" }, ja: "2014-12-26" },
+      { n: 13, title: { ja: "Volume 13", en: "Volume 13" }, ja: "2015-05-26" },
+      { n: 14, title: { ja: "Volume 14", en: "Volume 14" }, ja: "2015-12-26" },
+      { n: 15, title: { ja: "Volume 15", en: "Volume 15" }, ja: "2016-04-26" },
+      { n: 16, title: { ja: "Volume 16", en: "Volume 16" }, ja: "2016-10-26" },
+      { n: 17, title: { ja: "Volume 17", en: "Volume 17" }, ja: "2017-02-25" },
     ],
     releases: [
       {
@@ -11088,7 +10178,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   unicorn_re0096_2016_tv: {
-    title: "Mobile Suit Gundam Unicorn RE:0096",
+    title: {
+      ja: "機動戦士ガンダムユニコーンRE:0096",
+      en: "Mobile Suit Gundam Unicorn RE:0096",
+    },
     u: "uc",
     type: "tv",
     source:
@@ -11096,133 +10189,142 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Departure 0096",
+        title: { ja: "96年目の出発(たびだち)", en: "Departure 0096" },
         ja: "2016-04-03",
         en: "2017-01-08",
       },
       {
         n: 2,
-        title: "First Blood",
+        title: { ja: "最初の血", en: "First Blood" },
         ja: "2016-04-10",
         en: "2017-01-15",
       },
       {
         n: 3,
-        title: "They Called It Gundam",
+        title: { ja: "それはガンダムと呼ばれた", en: "They Called It Gundam" },
         ja: "2016-04-17",
         en: "2017-01-22",
       },
       {
         n: 4,
-        title: "Full Frontal's Pursuit",
+        title: { ja: "フル・フロンタル追撃", en: "Full Frontal's Pursuit" },
         ja: "2016-04-24",
         en: "2017-01-29",
       },
       {
         n: 5,
-        title: "Clash With The Red Comet",
+        title: { ja: "激突・赤い彗星", en: "Clash With The Red Comet" },
         ja: "2016-05-01",
         en: "2017-02-05",
       },
       {
         n: 6,
-        title: "Under the Mask",
+        title: { ja: "その仮面の下に", en: "Under the Mask" },
         ja: "2016-05-08",
         en: "2017-02-12",
       },
       {
         n: 7,
-        title: "The Battle at Palau",
+        title: { ja: "パラオ攻略戦", en: "The Battle at Palau" },
         ja: "2016-05-15",
         en: "2017-02-19",
       },
       {
         n: 8,
-        title: "Laplace, Where It All Began",
+        title: {
+          ja: "ラプラス、始まりの地",
+          en: "Laplace, Where It All Began",
+        },
         ja: "2016-05-22",
         en: "2017-02-26",
       },
       {
         n: 9,
-        title: "Retribution",
+        title: { ja: "リトリビューション", en: "Retribution" },
         ja: "2016-05-29",
         en: "2017-03-05",
       },
       {
         n: 10,
-        title: "From the Scorching Earth",
+        title: { ja: "灼熱の大地から", en: "From the Scorching Earth" },
         ja: "2016-06-05",
         en: "2017-03-12",
       },
       {
         n: 11,
-        title: "Battle at Torrington",
+        title: { ja: "トリントン攻防", en: "Battle at Torrington" },
         ja: "2016-06-12",
         en: "2017-03-19",
       },
       {
         n: 12,
-        title: "A Private War",
+        title: { ja: "個人の戦争", en: "A Private War" },
         ja: "2016-06-26",
         en: "2017-03-26",
       },
       {
         n: 13,
-        title: "Banagher Links, Soldier",
+        title: {
+          ja: "戦士、バナージ・リンクス",
+          en: "Banagher Links, Soldier",
+        },
         ja: "2016-07-03",
         en: "2017-04-02",
       },
       {
         n: 14,
-        title: "Clash of the Two Unicorns",
+        title: {
+          ja: "死闘、二機のユニコーン",
+          en: "Clash of the Two Unicorns",
+        },
         ja: "2016-07-17",
         en: "2017-04-09",
       },
       {
         n: 15,
-        title: "Waiting in Space",
+        title: { ja: "宇宙(そら)で待つもの", en: "Waiting in Space" },
         ja: "2016-07-24",
         en: "2017-04-16",
       },
       {
         n: 16,
-        title: "The Side Co-Prosperity Sphere",
+        title: { ja: "サイド共栄圏", en: "The Side Co-Prosperity Sphere" },
         ja: "2016-07-31",
         en: "2017-04-23",
       },
       {
         n: 17,
-        title: "Nahel Argama Recaptured",
+        title: { ja: "奪還! ネェル・アーガマ", en: "Nahel Argama Recaptured" },
         ja: "2016-08-07",
         en: "2017-04-30",
       },
       {
         n: 18,
-        title: "Fateful Battle",
+        title: { ja: "宿命の戦い", en: "Fateful Battle" },
         ja: "2016-08-14",
         en: "2017-05-07",
       },
       {
         n: 19,
-        title: "Another Cosmic Glow",
+        title: { ja: "再び光る宇宙", en: "Another Cosmic Glow" },
         ja: "2016-08-21",
         en: "2017-05-14",
       },
       {
         n: 20,
-        title: "Laplace's Box",
+        title: { ja: "ラプラスの箱", en: "Laplace's Box" },
         ja: "2016-08-28",
         en: "2017-05-21",
       },
       {
         n: 21,
-        title: "To The World's End",
+        title: { ja: "この世の果てへ", en: "To The World's End" },
         ja: "2016-09-04",
         en: "2017-06-04",
       },
       {
         n: 22,
-        title: "Return",
+        title: { ja: "帰還", en: "Return" },
         ja: "2016-09-11",
         en: "2017-06-11",
       },
@@ -11253,7 +10355,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   victory_1993_tv: {
-    title: "Mobile Suit Victory Gundam",
+    title: { ja: "機動戦士Vガンダム", en: "Mobile Suit Victory Gundam" },
     u: "uc",
     type: "tv",
     source:
@@ -11261,257 +10363,268 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "The White Mobile Suit",
+        title: { ja: "白いモビルスーツ", en: "The White Mobile Suit" },
         ja: "1993-04-02",
       },
       {
         n: 2,
-        title: "The Meeting with the Machine that Day",
+        title: {
+          ja: "マシンと会った日",
+          en: "The Meeting with the Machine that Day",
+        },
         ja: "1993-04-09",
       },
       {
         n: 3,
-        title: "Uso's Fight",
+        title: { ja: "ウッソの戦い", en: "Uso's Fight" },
         ja: "1993-04-16",
       },
       {
         n: 4,
-        title: "Who We Are Fighting For",
+        title: { ja: "戦いは誰のために", en: "Who We Are Fighting For" },
         ja: "1993-04-23",
       },
       {
         n: 5,
-        title: "Godzorla's Counterattack",
+        title: { ja: "ゴッゾーラの反撃", en: "Godzorla's Counterattack" },
         ja: "1993-04-30",
       },
       {
         n: 6,
-        title: "A Fighter's Glory",
+        title: { ja: "戦士のかがやき", en: "A Fighter's Glory" },
         ja: "1993-05-07",
       },
       {
         n: 7,
-        title: "The Sound of the Guillotine",
+        title: { ja: "ギロチンの音", en: "The Sound of the Guillotine" },
         ja: "1993-05-14",
       },
       {
         n: 8,
-        title: "Fierce Fight! Attacking in Waves",
+        title: { ja: "激闘! 波状攻撃", en: "Fierce Fight! Attacking in Waves" },
         ja: "1993-05-21",
       },
-      {
-        n: 9,
-        title: "Departure",
-        ja: "1993-05-28",
-      },
+      { n: 9, title: { ja: "旅立ち", en: "Departure" }, ja: "1993-05-28" },
       {
         n: 10,
-        title: "Behold! The Shrike Team",
+        title: { ja: "鮮烈! シュラク隊", en: "Behold! The Shrike Team" },
         ja: "1993-06-04",
       },
       {
         n: 11,
-        title: "Defense of the Shrike Team",
+        title: { ja: "シュラク隊の防壁", en: "Defense of the Shrike Team" },
         ja: "1993-06-11",
       },
       {
         n: 12,
-        title: "Let's Get Rid of the Guillotine",
+        title: {
+          ja: "ギロチンを粉砕せよ",
+          en: "Let's Get Rid of the Guillotine",
+        },
         ja: "1993-06-18",
       },
       {
         n: 13,
-        title: "Arti Gibraltar Airspace",
+        title: { ja: "ジブラルタル空域", en: "Arti Gibraltar Airspace" },
         ja: "1993-06-25",
       },
       {
         n: 14,
-        title: "Attack and Defense At Gilbraltar",
+        title: {
+          ja: "ジブラルタル攻防",
+          en: "Attack and Defense At Gilbraltar",
+        },
         ja: "1993-07-02",
       },
       {
         n: 15,
-        title: "Space Dust",
+        title: { ja: "スペースダスト", en: "Space Dust" },
         ja: "1993-07-09",
       },
       {
         n: 16,
-        title: "Reinforce Takeoff",
+        title: { ja: "リーンホース浮上", en: "Reinforce Takeoff" },
         ja: "1993-07-16",
       },
       {
         n: 17,
-        title: "The Queen of the Empire",
+        title: { ja: "帝国の女王", en: "The Queen of the Empire" },
         ja: "1993-07-23",
       },
       {
         n: 18,
-        title: "Battle of the Space Fleets",
+        title: { ja: "宇宙艦隊戦", en: "Battle of the Space Fleets" },
         ja: "1993-07-30",
       },
       {
         n: 19,
-        title: "In Search of Shahkti",
+        title: { ja: "シャクティを捜せ", en: "In Search of Shahkti" },
         ja: "1993-08-06",
       },
       {
         n: 20,
-        title: "The Eve Before Battle",
+        title: { ja: "決戦前夜", en: "The Eve Before Battle" },
         ja: "1993-08-13",
       },
       {
         n: 21,
-        title: "The Strategic Satellite",
+        title: { ja: "戦略衛星を叩け", en: "The Strategic Satellite" },
         ja: "1993-08-20",
       },
       {
         n: 22,
-        title: "The Tiger of Space",
+        title: { ja: "宇宙の虎", en: "The Tiger of Space" },
         ja: "1993-08-27",
       },
       {
         n: 23,
-        title: "Infiltration of Zanscare",
+        title: { ja: "ザンスカール潜入", en: "Infiltration of Zanscare" },
         ja: "1993-09-03",
       },
       {
         n: 24,
-        title: "Attack the Capital",
+        title: { ja: "首都攻防", en: "Attack the Capital" },
         ja: "1993-09-10",
       },
       {
         n: 25,
-        title: "Infiltrate the Enemy's Fleet and Land",
+        title: {
+          ja: "敵艦と敵地へ",
+          en: "Infiltrate the Enemy's Fleet and Land",
+        },
         ja: "1993-09-17",
       },
       {
         n: 26,
-        title: "Maria and Uso",
+        title: { ja: "マリアとウッソ", en: "Maria and Uso" },
         ja: "1993-09-24",
       },
       {
         n: 27,
-        title: "The Light of Outer Space",
+        title: { ja: "宇宙を走る閃光", en: "The Light of Outer Space" },
         ja: "1993-10-01",
       },
       {
         n: 28,
-        title: "The Great Escapade",
+        title: { ja: "大脱走", en: "The Great Escapade" },
         ja: "1993-10-08",
       },
       {
         n: 29,
-        title: "The New Mobile Suit: V2",
+        title: { ja: "新しいスーツV2", en: "The New Mobile Suit: V2" },
         ja: "1993-10-15",
       },
       {
         n: 30,
-        title: "Mother's Gundam",
+        title: { ja: "母のガンダム", en: "Mother's Gundam" },
         ja: "1993-10-22",
       },
       {
         n: 31,
-        title: "Motorad Takeoff",
+        title: { ja: "モトラッド発進", en: "Motorad Takeoff" },
         ja: "1993-10-29",
       },
       {
         n: 32,
-        title: "Pressing Doggorla",
+        title: { ja: "ドッゴーラ激進", en: "Pressing Doggorla" },
         ja: "1993-11-05",
       },
       {
         n: 33,
-        title: "People Who Dwell in the Sea",
+        title: { ja: "海に住む人々", en: "People Who Dwell in the Sea" },
         ja: "1993-11-12",
       },
       {
         n: 34,
-        title: "Operation Giant Roller",
+        title: { ja: "巨大ローラー作戦", en: "Operation Giant Roller" },
         ja: "1993-11-19",
       },
       {
         n: 35,
-        title: "Mother or Shahkti?",
+        title: { ja: "母かシャクティか", en: "Mother or Shahkti?" },
         ja: "1993-11-26",
       },
       {
         n: 36,
-        title: "Mother Returns to the Earth",
+        title: { ja: "母よ大地にかえれ", en: "Mother Returns to the Earth" },
         ja: "1993-12-03",
       },
       {
         n: 37,
-        title: "Counterattack of the Twinrad",
+        title: { ja: "逆襲ツインラッド", en: "Counterattack of the Twinrad" },
         ja: "1993-12-10",
       },
       {
         n: 38,
-        title: "The North Sea Begins Burning",
+        title: { ja: "北海を炎にそめて", en: "The North Sea Begins Burning" },
         ja: "1993-12-17",
       },
       {
         n: 39,
-        title: "The Song of the Wings of Light",
+        title: { ja: "光の翼の歌", en: "The Song of the Wings of Light" },
         ja: "1993-12-24",
       },
       {
         n: 40,
-        title: "Under the Super Aerial Attack",
+        title: { ja: "超高空攻撃の下", en: "Under the Super Aerial Attack" },
         ja: "1994-01-07",
       },
       {
         n: 41,
-        title: "The Battlefield Created by Father",
+        title: {
+          ja: "父のつくった戦場",
+          en: "The Battlefield Created by Father",
+        },
         ja: "1994-01-14",
       },
       {
         n: 42,
-        title: "Fresh Blood Swirls in the Light",
+        title: { ja: "鮮血は光の渦に", en: "Fresh Blood Swirls in the Light" },
         ja: "1994-01-21",
       },
       {
         n: 43,
-        title: "The Battlefield Comet Fuala",
+        title: { ja: "戦場の彗星ファラ", en: "The Battlefield Comet Fuala" },
         ja: "1994-01-28",
       },
       {
         n: 44,
-        title: "Love is at the End of the Light",
+        title: { ja: "愛は光の果てに", en: "Love is at the End of the Light" },
         ja: "1994-02-04",
       },
       {
         n: 45,
-        title: "Uso Dances with Illusions",
+        title: { ja: "幻覚に踊るウッソ", en: "Uso Dances with Illusions" },
         ja: "1994-02-11",
       },
       {
         n: 46,
-        title: "Tassilo's Revolt",
+        title: { ja: "タシロ反乱", en: "Tassilo's Revolt" },
         ja: "1994-02-18",
       },
       {
         n: 47,
-        title: "Women's Battlefield",
+        title: { ja: "女たちの戦場", en: "Women's Battlefield" },
         ja: "1994-02-25",
       },
       {
         n: 48,
-        title: "Vanquished Life, Blooming Life",
+        title: { ja: "消える命 咲く命", en: "Vanquished Life, Blooming Life" },
         ja: "1994-03-04",
       },
       {
         n: 49,
-        title: "Above the Angel's Ring",
+        title: { ja: "天使の輪の上で", en: "Above the Angel's Ring" },
         ja: "1994-03-11",
       },
       {
         n: 50,
-        title: "The Battle Called Upon by Hate",
+        title: { ja: "憎しみが呼ぶ対決", en: "The Battle Called Upon by Hate" },
         ja: "1994-03-18",
       },
       {
         n: 51,
-        title: "The Ascension of the Angels",
+        title: { ja: "天使たちの昇天", en: "The Ascension of the Angels" },
         ja: "1994-03-25",
       },
     ],
@@ -11534,31 +10647,22 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   wfm_vanadis_heart_manga: {
-    title: "Mobile Suit Gundam: The Witch from Mercury — Vanadis Heart",
+    title: {
+      ja: "機動戦士ガンダム 水星の魔女 ヴァナディースハート",
+      en: "Mobile Suit Gundam: The Witch from Mercury — Vanadis Heart",
+    },
     u: "as",
     type: "manga",
+    source:
+      "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_Witch_from_Mercury",
     author: "Various",
     publisher: "Kadokawa Shoten",
     magazine: "Gundam Ace",
-    source:
-      "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_The_Witch_from_Mercury",
     note: "Prequel manga set before the TV series, covering the Vanadis Institute incident.",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2023-07",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2024-02",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2024-09",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2023-07" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2024-02" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2024-09" },
     ],
     releases: [
       {
@@ -11571,7 +10675,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   wing_1995_tv: {
-    title: "Mobile Suit Gundam Wing",
+    title: { ja: "新機動戦記ガンダムW", en: "Mobile Suit Gundam Wing" },
     u: "ac",
     type: "tv",
     source:
@@ -11579,295 +10683,322 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "The Shooting Star She Saw",
+        title: { ja: "少女が見た流星", en: "The Shooting Star She Saw" },
         ja: "1995-04-07",
         en: "2000-03-06",
       },
       {
         n: 2,
-        title: "The Gundam Deathscythe",
+        title: {
+          ja: "死神と呼ばれるG（ガンダム）",
+          en: "The Gundam Deathscythe",
+        },
         ja: "1995-04-14",
         en: "2000-03-07",
       },
       {
         n: 3,
-        title: "Five Gundams Confirmed",
+        title: { ja: "ガンダム5機確認", en: "Five Gundams Confirmed" },
         ja: "1995-04-21",
         en: "2000-03-08",
       },
       {
         n: 4,
-        title: "The Victoria Nightmare",
+        title: { ja: "悪夢のビクトリア", en: "The Victoria Nightmare" },
         ja: "1995-04-28",
         en: "2000-03-09",
       },
       {
         n: 5,
-        title: "Relena's Secret",
+        title: { ja: "リリーナの秘密", en: "Relena's Secret" },
         ja: "1995-05-05",
         en: "2000-03-10",
       },
       {
         n: 6,
-        title: "Party Night",
+        title: { ja: "パーティー・ナイト", en: "Party Night" },
         ja: "1995-05-12",
         en: "2000-03-13",
       },
       {
         n: 7,
-        title: "Scenario for Bloodshed",
+        title: { ja: "流血へのシナリオ", en: "Scenario for Bloodshed" },
         ja: "1995-05-19",
         en: "2000-03-14",
       },
       {
         n: 8,
-        title: "The Treize Assassination",
+        title: { ja: "トレーズ暗殺", en: "The Treize Assassination" },
         ja: "1995-05-26",
         en: "2000-03-15",
       },
       {
         n: 9,
-        title: "Portrait of a Ruined Country",
+        title: { ja: "亡国の肖像", en: "Portrait of a Ruined Country" },
         ja: "1995-06-02",
         en: "2000-03-16",
       },
       {
         n: 10,
-        title: "Heero, Distracted by Defeat",
+        title: { ja: "ヒイロ閃光に散る", en: "Heero, Distracted by Defeat" },
         ja: "1995-06-09",
         en: "2000-03-17",
       },
       {
         n: 11,
-        title: "The Whereabouts of Happiness",
+        title: { ja: "幸福の行方", en: "The Whereabouts of Happiness" },
         ja: "1995-06-16",
         en: "2000-03-20",
       },
       {
         n: 12,
-        title: "Bewildered Warriors",
+        title: { ja: "迷える戦士たち", en: "Bewildered Warriors" },
         ja: "1995-06-23",
         en: "2000-03-21",
       },
       {
         n: 13,
-        title: "Catherine's Tears",
+        title: { ja: "キャスリンの涙", en: "Catherine's Tears" },
         ja: "1995-06-30",
         en: "2000-03-22",
       },
       {
         n: 14,
-        title: "The Order to Destroy 01",
+        title: { ja: "01爆破指令", en: "The Order to Destroy 01" },
         ja: "1995-07-07",
         en: "2000-03-23",
       },
       {
         n: 15,
-        title: "To the Battleground Antarctica",
+        title: { ja: "決戦の場所南極へ", en: "To the Battleground Antarctica" },
         ja: "1995-07-14",
         en: "2000-03-24",
       },
       {
         n: 16,
-        title: "The Sorrowful Battle",
+        title: { ja: "悲しき決戦", en: "The Sorrowful Battle" },
         ja: "1995-07-21",
         en: "2000-03-27",
       },
       {
         n: 17,
-        title: "Betrayed by Home, Far Away",
+        title: { ja: "裏切りの遠き故郷", en: "Betrayed by Home, Far Away" },
         ja: "1995-07-28",
         en: "2000-03-28",
       },
       {
         n: 18,
-        title: "Tallgeese Destroyed",
+        title: { ja: "トールギス破壊", en: "Tallgeese Destroyed" },
         ja: "1995-08-04",
         en: "2000-03-29",
       },
       {
         n: 19,
-        title: "Assault on Barge",
+        title: { ja: "バルジ強襲", en: "Assault on Barge" },
         ja: "1995-08-11",
         en: "2000-03-30",
       },
       {
         n: 20,
-        title: "The Lunar Base Infiltration",
+        title: { ja: "潜入、月面基地", en: "The Lunar Base Infiltration" },
         ja: "1995-08-18",
         en: "2000-03-31",
       },
       {
         n: 21,
-        title: "Grief Stricken Quatre",
+        title: { ja: "悲しみのカトル", en: "Grief Stricken Quatre" },
         ja: "1995-08-25",
         en: "2000-04-03",
       },
       {
         n: 22,
-        title: "The Fight for Independence",
+        title: { ja: "独立を巡る戦い", en: "The Fight for Independence" },
         ja: "1995-08-31",
         en: "2000-04-04",
       },
       {
         n: 23,
-        title: "Duo, the God of Death Once Again",
+        title: {
+          ja: "死神に戻るデュオ",
+          en: "Duo, the God of Death Once Again",
+        },
         ja: "1995-09-01",
         en: "2000-04-05",
       },
       {
         n: 24,
-        title: "The Gundam They Called Zero",
+        title: {
+          ja: "ゼロと呼ばれたG（ガンダム）",
+          en: "The Gundam They Called Zero",
+        },
         ja: "1995-09-08",
         en: "2000-04-06",
       },
       {
         n: 25,
-        title: "Quatre VS Heero",
+        title: { ja: "カトルVSヒイロ", en: "Quatre VS Heero" },
         ja: "1995-09-22",
         en: "2000-04-07",
       },
       {
         n: 26,
-        title: "The Eternal Flame of the Shooting Stars",
+        title: {
+          ja: "燃えつきない流星",
+          en: "The Eternal Flame of the Shooting Stars",
+        },
         ja: "1995-09-29",
         en: "2000-04-10",
       },
       {
         n: 27,
-        title: "The Locus of Victory and Defeat",
+        title: {
+          ja: "勝利と敗北の軌跡",
+          en: "The Locus of Victory and Defeat",
+        },
         ja: "1995-10-06",
         en: "2000-04-11",
       },
       {
         n: 28,
-        title: "Passing Destinies",
+        title: { ja: "すれ違う運命", en: "Passing Destinies" },
         ja: "1995-10-13",
         en: "2000-04-12",
       },
       {
         n: 29,
-        title: "The Heroine of the Battlefield",
+        title: { ja: "戦場のヒロイン", en: "The Heroine of the Battlefield" },
         ja: "1995-10-20",
         en: "2000-04-13",
       },
       {
         n: 30,
-        title: "The Reunion with Relena",
+        title: { ja: "リリーナとの再会", en: "The Reunion with Relena" },
         ja: "1995-10-27",
         en: "2000-04-14",
       },
       {
         n: 31,
-        title: "The Glass Kingdom",
+        title: {
+          ja: "ガラスの王国（サンクキングダム）",
+          en: "The Glass Kingdom",
+        },
         ja: "1995-11-03",
         en: "2000-04-17",
       },
       {
         n: 32,
-        title: "The God of Death Meets Zero",
+        title: { ja: "死神とゼロの対決", en: "The God of Death Meets Zero" },
         ja: "1995-11-17",
         en: "2000-04-18",
       },
       {
         n: 33,
-        title: "The Lonely Battlefield",
+        title: { ja: "孤独な戦場", en: "The Lonely Battlefield" },
         ja: "1995-11-24",
         en: "2000-04-19",
       },
       {
         n: 34,
-        title: "And Its Name is Epyon",
+        title: { ja: "その名はエピオン", en: "And Its Name is Epyon" },
         ja: "1995-12-01",
         en: "2000-04-20",
       },
       {
         n: 35,
-        title: "The Return of Wufei",
+        title: { ja: "ウーフェイ再び", en: "The Return of Wufei" },
         ja: "1995-12-08",
         en: "2000-04-21",
       },
       {
         n: 36,
-        title: "Sanc Kingdom's Collapse",
+        title: {
+          ja: "王国（サンクキングダム）崩壊",
+          en: "Sanc Kingdom's Collapse",
+        },
         ja: "1995-12-15",
         en: "2000-04-24",
       },
       {
         n: 37,
-        title: "Zero VS Epyon",
+        title: { ja: "ゼロVSエピオン", en: "Zero VS Epyon" },
         ja: "1995-12-22",
         en: "2000-04-25",
       },
       {
         n: 38,
-        title: "The Birth of Queen Relena",
+        title: {
+          ja: "女王（クイーン）リリーナ誕生",
+          en: "The Birth of Queen Relena",
+        },
         ja: "1996-01-12",
         en: "2000-04-26",
       },
       {
         n: 39,
-        title: "Trowa's Return to the Battlefield",
+        title: {
+          ja: "トロワ戦場へ帰る",
+          en: "Trowa's Return to the Battlefield",
+        },
         ja: "1996-01-19",
         en: "2000-04-27",
       },
       {
         n: 40,
-        title: "A New Leader",
+        title: { ja: "新たなる指導者", en: "A New Leader" },
         ja: "1996-01-26",
         en: "2000-04-28",
       },
       {
         n: 41,
-        title: "Crossfire at Barge",
+        title: { ja: "バルジ攻防戦", en: "Crossfire at Barge" },
         ja: "1996-02-02",
         en: "2000-05-01",
       },
       {
         n: 42,
-        title: "Battleship Libra",
+        title: { ja: "リーブラ発進", en: "Battleship Libra" },
         ja: "1996-02-09",
         en: "2000-05-02",
       },
       {
         n: 43,
-        title: "Target: Earth",
+        title: { ja: "地上を撃つ巨光（オーロラ）", en: "Target: Earth" },
         ja: "1996-02-16",
         en: "2000-05-03",
       },
       {
         n: 44,
-        title: "Go Forth, Gundam Team",
+        title: { ja: "出撃Gチーム", en: "Go Forth, Gundam Team" },
         ja: "1996-02-23",
         en: "2000-05-04",
       },
       {
         n: 45,
-        title: "Signs of the Final Battle",
+        title: { ja: "決戦の予感", en: "Signs of the Final Battle" },
         ja: "1996-03-01",
         en: "2000-05-05",
       },
       {
         n: 46,
-        title: "Milliardo's Decision",
+        title: { ja: "ミリアルドの決断", en: "Milliardo's Decision" },
         ja: "1996-03-08",
         en: "2000-05-08",
       },
       {
         n: 47,
-        title: "Collision in Space",
+        title: { ja: "激突する宇宙", en: "Collision in Space" },
         ja: "1996-03-15",
         en: "2000-05-09",
       },
       {
         n: 48,
-        title: "Takeoff into Confusion",
+        title: { ja: "混迷への出撃", en: "Takeoff into Confusion" },
         ja: "1996-03-22",
         en: "2000-05-10",
       },
       {
         n: 49,
-        title: "The Final Victor",
+        title: { ja: "最後の勝利者", en: "The Final Victor" },
         ja: "1996-03-29",
         en: "2000-05-11",
       },
@@ -11913,20 +11044,17 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   wing_battlefield_pacifist_1998_manga: {
-    title: "Mobile Suit Gundam Wing: Battlefield of Pacifist",
+    title: {
+      ja: "新機動戦記ガンダムW BATTLEFIELD OF PACIFIST",
+      en: "Mobile Suit Gundam Wing: Battlefield of Pacifist",
+    },
     u: "ac",
     type: "manga",
-    author: "Ohtagaki Kou (art), Sumizawa Katsuyuki (story)",
-    publisher: "Kodansha",
     source:
       "https://ja.wikipedia.org/wiki/新機動戦記ガンダムW_BATTLEFIELD_OF_PACIFIST",
-    episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "1998",
-      },
-    ],
+    author: "Ohtagaki Kou (art), Sumizawa Katsuyuki (story)",
+    publisher: "Kodansha",
+    episodes: [{ n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "1998" }],
     releases: [
       {
         region: "ja",
@@ -11939,23 +11067,18 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   wing_blind_target_1998_manga: {
-    title: "Mobile Suit Gundam Wing: Blind Target",
+    title: {
+      ja: "新機動戦記ガンダムW BLIND TARGET",
+      en: "Mobile Suit Gundam Wing: Blind Target",
+    },
     u: "ac",
     type: "manga",
+    source: "https://ja.wikipedia.org/wiki/新機動戦記ガンダムW_BLIND_TARGET",
     author: "Akimiya Yumiko (art), Sumizawa Katsuyuki (story)",
     publisher: "Kodansha",
-    source: "https://ja.wikipedia.org/wiki/新機動戦記ガンダムW_BLIND_TARGET",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "1999",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "1999",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "1999" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "1999" },
     ],
     releases: [
       {
@@ -11969,7 +11092,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   wing_endlesswaltz_1997_ova: {
-    title: "Gundam Wing: Endless Waltz",
+    title: {
+      ja: "新機動戦記ガンダムW Endless Waltz",
+      en: "Gundam Wing: Endless Waltz",
+    },
     u: "ac",
     type: "ova",
     source:
@@ -11977,19 +11103,19 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Silent Orbit",
+        title: { ja: "静かなる軌道", en: "Silent Orbit" },
         ja: "1997-01-25",
         en: "2000-11-10",
       },
       {
         n: 2,
-        title: "Operation Meteor",
+        title: { ja: "過ぎ去りし流星", en: "Operation Meteor" },
         ja: "1997-04-25",
         en: "2000-11-10",
       },
       {
         n: 3,
-        title: "Return to Forever",
+        title: { ja: "永遠への回帰", en: "Return to Forever" },
         ja: "1997-07-25",
         en: "2000-11-10",
       },
@@ -12027,7 +11153,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   wing_endlesswaltz_1998_film: {
-    title: "Gundam Wing: Endless Waltz Special Edition",
+    title: {
+      ja: "新機動戦記ガンダムW Endless Waltz 特別篇",
+      en: "Gundam Wing: Endless Waltz Special Edition",
+    },
     u: "ac",
     type: "film",
     source:
@@ -12035,7 +11164,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Endless Waltz Special Edition (compilation film)",
+        title: {
+          ja: "新機動戦記ガンダムW Endless Waltz 特別篇",
+          en: "Endless Waltz Special Edition (compilation film)",
+        },
         ja: "1998-08-01",
         en: "2002-08-30",
       },
@@ -12058,17 +11190,23 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   wing_episode_zero_manga: {
-    title: "Mobile Suit Gundam Wing: Episode Zero",
+    title: {
+      ja: "新機動戦記ガンダムW Episode Zero",
+      en: "Mobile Suit Gundam Wing: Episode Zero",
+    },
     u: "ac",
     type: "manga",
+    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Wing",
     author: "Akira Kanbe (illustrator) / Katsuyuki Sumizawa (writer)",
     publisher: "Kadokawa Shoten",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Wing",
     note: "Prequel manga showing the Gundam pilots before the series. 1 tankobon (collected 1998)",
     episodes: [
       {
         n: 1,
-        title: "Episode Zero (collected edition)",
+        title: {
+          ja: "Episode Zero (collected edition)",
+          en: "Episode Zero (collected edition)",
+        },
         ja: "1998",
       },
     ],
@@ -12091,41 +11229,24 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   wing_frozen_teardrop_manga: {
-    title: "New Mobile Report Gundam Wing: Frozen Teardrop — Hanamoyu",
+    title: {
+      ja: "新機動戦記ガンダムW Frozen Teardrop 花たんぽぽ",
+      en: "New Mobile Report Gundam Wing: Frozen Teardrop — Hanamoyu",
+    },
     u: "ac",
     type: "manga",
+    source:
+      "https://gundam.fandom.com/wiki/New_Victory_Report_Gundam_W:_Frozen_Teardrop",
     author: "Kurosaki Kabuto (art), Sumizawa Katsuyuki (story)",
     publisher: "Kadokawa",
     magazine: "Gundam Ace",
-    source:
-      "https://gundam.fandom.com/wiki/New_Victory_Report_Gundam_W:_Frozen_Teardrop",
     note: "Manga adaptation of the Frozen Teardrop novel",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2017",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2018",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2019",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "2020",
-      },
-      {
-        n: 5,
-        title: "Volume 5",
-        ja: "2021",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2017" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2018" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2019" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2020" },
+      { n: 5, title: { ja: "Volume 5", en: "Volume 5" }, ja: "2021" },
     ],
     releases: [
       {
@@ -12139,18 +11260,21 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   wing_frozen_teardrop_novel: {
-    title: "Mobile Suit Gundam Wing: Frozen Teardrop",
+    title: {
+      ja: "新機動戦記ガンダムW Frozen Teardrop",
+      en: "Mobile Suit Gundam Wing: Frozen Teardrop",
+    },
     u: "ac",
     type: "novel",
+    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Wing",
     author: "Katsuyuki Sumizawa",
     publisher: "Kadokawa Shoten",
     magazine: "Gundam Ace",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Wing",
     note: "Photo-novel sequel, serialised in Gundam Ace from 2010",
     episodes: [
       {
         n: 1,
-        title: "Serialisation begins",
+        title: { ja: "Serialisation begins", en: "Serialisation begins" },
         ja: "2010",
       },
     ],
@@ -12166,85 +11290,32 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   wing_glory_of_the_losers_manga: {
-    title: "Mobile Suit Gundam Wing: Glory of the Losers",
+    title: {
+      ja: "新機動戦記ガンダムW Endless Waltz 敗者たちの栄光",
+      en: "Mobile Suit Gundam Wing: Glory of the Losers",
+    },
     u: "ac",
     type: "manga",
+    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Wing",
     author: "Tomofumi Ogasawara",
     publisher: "Kadokawa Shoten",
     magazine: "Gundam Ace",
-    source: "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam_Wing",
     note: "14 volumes 2011-2019. Modern retelling of Wing TV. Per-volume dates approximate.",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2011-03-23",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2011-10-21",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2012-06-22",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "2013-01-23",
-      },
-      {
-        n: 5,
-        title: "Volume 5",
-        ja: "2013-06-22",
-      },
-      {
-        n: 6,
-        title: "Volume 6",
-        ja: "2013-11-26",
-      },
-      {
-        n: 7,
-        title: "Volume 7",
-        ja: "2014-07-26",
-      },
-      {
-        n: 8,
-        title: "Volume 8",
-        ja: "2014-12-26",
-      },
-      {
-        n: 9,
-        title: "Volume 9",
-        ja: "2015-06-26",
-      },
-      {
-        n: 10,
-        title: "Volume 10",
-        ja: "2015-12-26",
-      },
-      {
-        n: 11,
-        title: "Volume 11",
-        ja: "2016-06-25",
-      },
-      {
-        n: 12,
-        title: "Volume 12",
-        ja: "2017-01-26",
-      },
-      {
-        n: 13,
-        title: "Volume 13",
-        ja: "2017-10-26",
-      },
-      {
-        n: 14,
-        title: "Volume 14",
-        ja: "2018-01-26",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2011-03-23" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2011-10-21" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2012-06-22" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2013-01-23" },
+      { n: 5, title: { ja: "Volume 5", en: "Volume 5" }, ja: "2013-06-22" },
+      { n: 6, title: { ja: "Volume 6", en: "Volume 6" }, ja: "2013-11-26" },
+      { n: 7, title: { ja: "Volume 7", en: "Volume 7" }, ja: "2014-07-26" },
+      { n: 8, title: { ja: "Volume 8", en: "Volume 8" }, ja: "2014-12-26" },
+      { n: 9, title: { ja: "Volume 9", en: "Volume 9" }, ja: "2015-06-26" },
+      { n: 10, title: { ja: "Volume 10", en: "Volume 10" }, ja: "2015-12-26" },
+      { n: 11, title: { ja: "Volume 11", en: "Volume 11" }, ja: "2016-06-25" },
+      { n: 12, title: { ja: "Volume 12", en: "Volume 12" }, ja: "2017-01-26" },
+      { n: 13, title: { ja: "Volume 13", en: "Volume 13" }, ja: "2017-10-26" },
+      { n: 14, title: { ja: "Volume 14", en: "Volume 14" }, ja: "2018-01-26" },
     ],
     releases: [
       {
@@ -12266,7 +11337,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   wing_new_visual_tba: {
-    title: "Gundam Wing new visual project",
+    title: {
+      ja: "新機動戦記ガンダムW (新ビジュアルプロジェクト)",
+      en: "Gundam Wing new visual project",
+    },
     u: "ac",
     type: "tv",
     source: "https://gundam.fandom.com/wiki/New_Mobile_Report_Gundam_W",
@@ -12275,7 +11349,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     releases: [],
   },
   wing_opmeteor_1996_ova: {
-    title: "Gundam Wing: Operation Meteor",
+    title: {
+      ja: "新機動戦記ガンダムW OPERATION METEOR",
+      en: "Gundam Wing: Operation Meteor",
+    },
     u: "ac",
     type: "ova",
     source:
@@ -12284,22 +11361,34 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Operation Meteor I: Odd Numbers",
+        title: {
+          ja: "OPERATION METEOR I: オッドナンバーズ",
+          en: "Operation Meteor I: Odd Numbers",
+        },
         ja: "1996-04-25",
       },
       {
         n: 2,
-        title: "Operation Meteor I: Even Numbers",
+        title: {
+          ja: "OPERATION METEOR I: イーブンナンバーズ",
+          en: "Operation Meteor I: Even Numbers",
+        },
         ja: "1996-04-25",
       },
       {
         n: 3,
-        title: "Operation Meteor II: Odd Numbers II",
+        title: {
+          ja: "OPERATION METEOR II: オッドナンバーズ II",
+          en: "Operation Meteor II: Odd Numbers II",
+        },
         ja: "1996-10-25",
       },
       {
         n: 4,
-        title: "Operation Meteor II: Even Numbers II",
+        title: {
+          ja: "OPERATION METEOR II: イーブンナンバーズ II",
+          en: "Operation Meteor II: Even Numbers II",
+        },
         ja: "1996-10-25",
       },
     ],
@@ -12322,136 +11411,144 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   witch_from_mercury_2022_tv: {
-    title: "Mobile Suit Gundam: The Witch from Mercury",
+    title: {
+      ja: "機動戦士ガンダム 水星の魔女",
+      en: "Mobile Suit Gundam: The Witch from Mercury",
+    },
     u: "as",
     type: "tv",
     source:
       "https://en.wikipedia.org/wiki/List_of_Mobile_Suit_Gundam:_The_Witch_from_Mercury_episodes",
     note: "Includes Prologue special (n=0). Several broadcast delays during run (eps 7, 11, 12, 18 each delayed one week).",
     episodes: [
-      {
-        n: 0,
-        title: "Prologue",
-        ja: "2022-07-14",
-      },
+      { n: 0, title: { ja: "PROLOGUE", en: "Prologue" }, ja: "2022-07-14" },
       {
         n: 1,
-        title: "The Witch and the Bride",
+        title: { ja: "魔女と花嫁", en: "The Witch and the Bride" },
         ja: "2022-10-02",
       },
       {
         n: 2,
-        title: "Cursed Mobile Suit",
+        title: { ja: "呪いのモビルスーツ", en: "Cursed Mobile Suit" },
         ja: "2022-10-09",
       },
       {
         n: 3,
-        title: "Guel's Pride",
+        title: { ja: "グエルのプライド", en: "Guel's Pride" },
         ja: "2022-10-16",
       },
       {
         n: 4,
-        title: "Unseen Trap",
+        title: { ja: "みえない地雷", en: "Unseen Trap" },
         ja: "2022-10-23",
       },
       {
         n: 5,
-        title: "Reflection in an Icy Eye",
+        title: { ja: "氷の瞳に映るのは", en: "Reflection in an Icy Eye" },
         ja: "2022-10-30",
       },
       {
         n: 6,
-        title: "A Gloomy Song",
+        title: { ja: "鬱陶しい歌", en: "A Gloomy Song" },
         ja: "2022-11-06",
       },
       {
         n: 7,
-        title: "Shall We Gundam?",
+        title: { ja: "シャル・ウィ・ガンダム？", en: "Shall We Gundam?" },
         ja: "2022-11-20",
       },
       {
         n: 8,
-        title: "Their Choice",
+        title: { ja: "彼らの採択", en: "Their Choice" },
         ja: "2022-11-27",
       },
       {
         n: 9,
-        title: "If I Could Take One More Step Toward You",
+        title: {
+          ja: "あと一歩、キミに踏み出せたなら",
+          en: "If I Could Take One More Step Toward You",
+        },
         ja: "2022-12-04",
       },
       {
         n: 10,
-        title: "Circling Thoughts",
+        title: { ja: "巡る思い", en: "Circling Thoughts" },
         ja: "2022-12-11",
       },
       {
         n: 11,
-        title: "The Witches from Earth",
+        title: { ja: "地球の魔女", en: "The Witches from Earth" },
         ja: "2022-12-25",
       },
       {
         n: 12,
-        title: "Keep Marching On Instead of Running Off",
+        title: {
+          ja: "逃げ出すよりも進むことを",
+          en: "Keep Marching On Instead of Running Off",
+        },
         ja: "2023-01-08",
       },
       {
         n: 13,
-        title: "Envoys from the Earth",
+        title: { ja: "大地からの使者", en: "Envoys from the Earth" },
         ja: "2023-04-09",
       },
       {
         n: 14,
-        title: "What They Wish For",
+        title: { ja: "彼女たちのネガイ", en: "What They Wish For" },
         ja: "2023-04-16",
       },
       {
         n: 15,
-        title: "Father and Child",
+        title: { ja: "父と子と", en: "Father and Child" },
         ja: "2023-04-23",
       },
       {
         n: 16,
-        title: "Cycle of Sin",
+        title: { ja: "罪過の輪", en: "Cycle of Sin" },
         ja: "2023-04-30",
       },
       {
         n: 17,
-        title: "Precious Things",
+        title: { ja: "大切なもの", en: "Precious Things" },
         ja: "2023-05-07",
       },
       {
         n: 18,
-        title: "Our Empty Selves",
+        title: { ja: "空っぽな私たち", en: "Our Empty Selves" },
         ja: "2023-05-21",
       },
       {
         n: 19,
-        title: "Not the Best Way",
+        title: { ja: "一番じゃないやり方", en: "Not the Best Way" },
         ja: "2023-05-28",
       },
       {
         n: 20,
-        title: "The End of Hope",
+        title: { ja: "望みの果て", en: "The End of Hope" },
         ja: "2023-06-04",
       },
       {
         n: 21,
-        title: "What We Can Do Now",
+        title: { ja: "今、できることを", en: "What We Can Do Now" },
         ja: "2023-06-11",
       },
       {
         n: 22,
-        title: "The Woven Path",
+        title: { ja: "紡がれる道", en: "The Woven Path" },
         ja: "2023-06-18",
       },
       {
         n: 23,
-        title: "Unrelenting Tenderness",
+        title: { ja: "譲れない優しさ", en: "Unrelenting Tenderness" },
         ja: "2023-06-25",
       },
       {
         n: 24,
-        title: "May All Blessings Find Their Way To You, I'm Wishing It",
+        title: {
+          ja: "目一杯の祝福を君に。}}",
+          en: "May All Blessings Find Their Way To You, I'm Wishing It",
+        },
         ja: "2023-07-02",
       },
     ],
@@ -12481,7 +11578,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   x_1996_tv: {
-    title: "After War Gundam X",
+    title: { ja: "機動新世紀ガンダムX", en: "After War Gundam X" },
     u: "aw",
     type: "tv",
     source: "https://en.wikipedia.org/wiki/After_War_Gundam_X",
@@ -12489,198 +11586,227 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
+        title: { ja: "月は出ているか？", en: "Has the Moon Come Up?" },
         ja: "1996-04-05",
-        title: "Has the Moon Come Up?",
       },
       {
         n: 2,
+        title: { ja: "あなたに、力を…", en: "I'll Give You Power..." },
         ja: "1996-04-12",
-        title: "I'll Give You Power...",
       },
       {
         n: 3,
+        title: {
+          ja: "私の愛馬は凶暴です",
+          en: "My Favorite Mount is Ferocious",
+        },
         ja: "1996-04-19",
-        title: "My Favorite Mount is Ferocious",
       },
       {
         n: 4,
+        title: {
+          ja: "作戦は一刻を争う！",
+          en: "This Operation is Time Critical!",
+        },
         ja: "1996-04-26",
-        title: "This Operation is Time Critical!",
       },
       {
         n: 5,
+        title: { ja: "はお前が引け", en: "You Will Pull the Trigger" },
         ja: "1996-05-03",
-        title: "You Will Pull the Trigger",
       },
       {
         n: 6,
+        title: { ja: "不愉快だわ…", en: "I Don't Believe This..." },
         ja: "1996-05-10",
-        title: "I Don't Believe This...",
       },
       {
         n: 7,
+        title: { ja: "ガンダム、売るよ！", en: "I'm Selling This Gundam!" },
         ja: "1996-05-17",
-        title: "I'm Selling This Gundam!",
       },
       {
         n: 8,
+        title: { ja: "あの子、許さない！", en: "I Won't Forgive That Child!" },
         ja: "1996-05-24",
-        title: "I Won't Forgive That Child!",
       },
       {
         n: 9,
+        title: {
+          ja: "巷に雨の降るごとく",
+          en: "Like the Rain Falling on the City",
+        },
         ja: "1996-05-31",
-        title: "Like the Rain Falling on the City",
       },
       {
         n: 10,
+        title: { ja: "僕がニュータイプだ", en: "I Am a Newtype" },
         ja: "1996-06-07",
-        title: "I Am a Newtype",
       },
       {
         n: 11,
+        title: { ja: "何も考えずに走れ！", en: "Don't Think, Just Run!" },
         ja: "1996-06-14",
-        title: "Don't Think, Just Run!",
       },
       {
         n: 12,
+        title: { ja: "私の最高傑作です", en: "This is My Finest Masterpiece" },
         ja: "1996-06-21",
-        title: "This is My Finest Masterpiece",
       },
       {
         n: 13,
+        title: { ja: "愚かな僕を撃て", en: "Shoot My Foolish Self" },
         ja: "1996-06-28",
-        title: "Shoot My Foolish Self",
       },
       {
         n: 14,
+        title: { ja: "俺の声が聞こえるか！", en: "Can You Hear My Voice!" },
         ja: "1996-07-05",
-        title: "Can You Hear My Voice!",
       },
       {
         n: 15,
+        title: {
+          ja: "天国なんてあるのかな",
+          en: "I Wonder If There Is a Heaven",
+        },
         ja: "1996-07-12",
-        title: "I Wonder If There Is a Heaven",
       },
       {
         n: 16,
+        title: { ja: "私もだから", en: "Because I Am Also Human" },
         ja: "1996-07-19",
-        title: "Because I Am Also Human",
       },
       {
         n: 17,
+        title: {
+          ja: "あなた自身が確かめて",
+          en: "You Must Find Out for Yourself",
+        },
         ja: "1996-07-26",
-        title: "You Must Find Out for Yourself",
       },
       {
         n: 18,
+        title: { ja: "の海", en: "The Sea of Lorelei" },
         ja: "1996-08-02",
-        title: "The Sea of Lorelei",
       },
       {
         n: 19,
+        title: { ja: "まるで夢を見てるみたい", en: "It's As If I'm Dreaming" },
         ja: "1996-08-09",
-        title: "It's As If I'm Dreaming",
       },
       {
         n: 20,
+        title: { ja: "…また逢えたわね", en: "...So We Meet Again" },
         ja: "1996-08-16",
-        title: "...So We Meet Again",
       },
       {
         n: 21,
+        title: {
+          ja: "死んだ女房の口癖だ",
+          en: "Like My Late Wife Always Said",
+        },
         ja: "1996-08-23",
-        title: "Like My Late Wife Always Said",
       },
       {
         n: 22,
+        title: { ja: "15年目の亡霊", en: "A Fifteen-Year-Old Ghost" },
         ja: "1996-08-30",
-        title: "A Fifteen-Year-Old Ghost",
       },
       {
         n: 23,
+        title: { ja: "私の夢は現実です", en: "My Dreams Are Reality" },
         ja: "1996-09-06",
-        title: "My Dreams Are Reality",
       },
       {
         n: 24,
+        title: { ja: "ダブルエックス起動！", en: "Double X, Activate!" },
         ja: "1996-09-13",
-        title: "Double X, Activate!",
       },
       {
         n: 25,
+        title: { ja: "君達は希望の星だ", en: "You Are Our Stars of Hope" },
         ja: "1996-09-20",
-        title: "You Are Our Stars of Hope",
       },
       {
         n: 26,
+        title: { ja: "何も喋るな", en: "Don't Say Anything" },
         ja: "1996-09-27",
-        title: "Don't Say Anything",
       },
       {
         n: 27,
+        title: { ja: "おさらばで御座います", en: "It Is Time for Farewell" },
         ja: "1996-10-04",
-        title: "It Is Time for Farewell",
       },
       {
         n: 28,
+        title: { ja: "撃つしかないのか！", en: "I've Got to Shoot!?" },
         ja: "1996-10-11",
-        title: "I've Got to Shoot!?",
       },
-      {
-        n: 29,
-        ja: "1996-10-18",
-        title: "Look At Me",
-      },
+      { n: 29, title: { ja: "私を見て", en: "Look At Me" }, ja: "1996-10-18" },
       {
         n: 30,
+        title: {
+          ja: "もう逢えない気がして",
+          en: "I Felt That I'd Never See You Again",
+        },
         ja: "1996-10-25",
-        title: "I Felt That I'd Never See You Again",
       },
       {
         n: 31,
+        title: { ja: "飛べ、ガロード！", en: "Fly, Garrod!" },
         ja: "1996-11-01",
-        title: "Fly, Garrod!",
       },
       {
         n: 32,
+        title: { ja: "あれはGファルコン！", en: "That's the G-Falcon!" },
         ja: "1996-11-08",
-        title: "That's the G-Falcon!",
       },
       {
         n: 33,
+        title: {
+          ja: "どうして俺を知っている!?",
+          en: "How Did You Know Who I Am!?",
+        },
         ja: "1996-11-15",
-        title: "How Did You Know Who I Am!?",
       },
       {
         n: 34,
+        title: { ja: "月が見えた！", en: "There's the Moon!" },
         ja: "1996-11-22",
-        title: "There's the Moon!",
       },
       {
         n: 35,
+        title: {
+          ja: "希望の灯は消さない",
+          en: "The Light of Hope Will Not Be Extinguished",
+        },
         ja: "1996-11-29",
-        title: "The Light of Hope Will Not Be Extinguished",
       },
       {
         n: 36,
+        title: { ja: "僕らが求めた戦争だ", en: "The War We Wanted" },
         ja: "1996-12-06",
-        title: "The War We Wanted",
       },
       {
         n: 37,
+        title: { ja: "フリーデン発進せよ", en: "Freeden, Launch!" },
         ja: "1996-12-13",
-        title: "Freeden, Launch!",
       },
       {
         n: 38,
+        title: {
+          ja: "私はD.O.M.E…かつてニュータイプと呼ばれた者",
+          en: "I Am D.O.M.E... I Was Once Called a Newtype",
+        },
         ja: "1996-12-20",
-        title: "I Am D.O.M.E... I Was Once Called a Newtype",
       },
       {
         n: 39,
+        title: {
+          ja: "月はいつもそこにある",
+          en: "The Moon Will Always Be There",
+        },
         ja: "1996-12-27",
-        title: "The Moon Will Always Be There",
       },
     ],
     releases: [
@@ -12709,7 +11835,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   zero80_1989_ova: {
-    title: "Mobile Suit Gundam 0080: War in the Pocket",
+    title: {
+      ja: "機動戦士ガンダム0080 ポケットの中の戦争",
+      en: "Mobile Suit Gundam 0080: War in the Pocket",
+    },
     u: "uc",
     type: "ova",
     source:
@@ -12717,37 +11846,46 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Memories of a Frosted Sky",
+        title: {
+          ja: "戦場までは何マイル？",
+          en: "How Many Miles to the Battlefield?",
+        },
         ja: "1989-03-25",
         en: "2001-11-05",
       },
       {
         n: 2,
-        title: "Reflections in a Brown Eye",
+        title: { ja: "茶色の瞳に映るもの", en: "Reflections in a Brown Eye" },
         ja: "1989-04-25",
         en: "2001-11-06",
       },
       {
         n: 3,
-        title: "Try and Survive...",
+        title: { ja: "虹の果てには？", en: "And at the End of the Rainbow?" },
         ja: "1989-05-25",
         en: "2001-11-07",
       },
       {
         n: 4,
-        title: "Over the River and Through the Woods",
+        title: {
+          ja: "河を渡って木立を抜けて",
+          en: "Over the River and Through the Woods",
+        },
         ja: "1989-06-25",
         en: "2001-11-09",
       },
       {
         n: 5,
-        title: "The Glory That Was Zeon",
+        title: {
+          ja: "嘘だといってよ、バーニィ",
+          en: "Say it Ain't So, Bernie!",
+        },
         ja: "1989-07-25",
         en: "2001-11-12",
       },
       {
         n: 6,
-        title: "War in the Pocket",
+        title: { ja: "ポケットの中の戦争", en: "War in the Pocket" },
         ja: "1989-08-25",
         en: "2001-11-13",
       },
@@ -12802,7 +11940,10 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   zero83_1991_ova: {
-    title: "Mobile Suit Gundam 0083: Stardust Memory",
+    title: {
+      ja: "機動戦士ガンダム0083 STARDUST MEMORY",
+      en: "Mobile Suit Gundam 0083: Stardust Memory",
+    },
     u: "uc",
     type: "ova",
     source:
@@ -12810,79 +11951,109 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Stardust Rising",
+        title: { ja: "ガンダム強奪 STARDUST RISING", en: "Gundamjack" },
         ja: "1991-05-23",
         en: "2002-02-23",
       },
       {
         n: 2,
-        title: "War Is Not Over, Yet",
+        title: {
+          ja: "終わりなき追撃 WAR IS NOT OVER, YET",
+          en: "Endless Pursuit",
+        },
         ja: "1991-05-23",
         en: "2002-03-02",
       },
       {
         n: 3,
-        title: "Irregulars in Albion",
+        title: {
+          ja: "出撃アルビオン IRREGULARS IN ALBION",
+          en: "Into Battle, Albion!",
+        },
         ja: "1991-06-27",
         en: "2002-03-09",
       },
       {
         n: 4,
-        title: "The Lost Troopers",
+        title: {
+          ja: "熱砂の攻防戦 THE LOST TROOPERS",
+          en: "Attack and Retreat on the Burning Sand",
+        },
         ja: "1991-08-22",
         en: "2002-03-16",
       },
       {
         n: 5,
-        title: "Sieg, Zion!",
+        title: {
+          ja: "ガンダム、星の海へ SIEG, ZION!",
+          en: "Gundam, to the Sea of Stars",
+        },
         ja: "1991-09-26",
         en: "2002-03-23",
       },
       {
         n: 6,
-        title: "Mind of the Moon",
+        title: {
+          ja: "フォン・ブラウンの戦士 MIND OF THE MOON",
+          en: "The Warrior of Von Braun",
+        },
         ja: "1991-10-24",
         en: "2002-03-30",
       },
       {
         n: 7,
-        title: "Burning Heart",
+        title: {
+          ja: "蒼く輝く炎で BURNING HEART",
+          en: "With Shining Blue Fire",
+        },
         ja: "1991-12-01",
         en: "2002-04-06",
       },
       {
         n: 8,
-        title: "Conspiracy of Silence",
+        title: {
+          ja: "策謀の宙域 CONSPIRACY OF SILENCE",
+          en: "Conspiracy Sector",
+        },
         ja: "1992-02-20",
         en: "2002-04-13",
       },
       {
         n: 9,
-        title: "Nightmare of Solomon",
+        title: {
+          ja: "ソロモンの悪夢 NIGHTMARE OF SOLOMON",
+          en: "The Nightmare of Solomon",
+        },
         ja: "1992-03-19",
         en: "2002-04-20",
       },
       {
         n: 10,
-        title: "The Hot Area",
+        title: { ja: "激突戦域 THE HOT AREA", en: "Colliding War Zones" },
         ja: "1992-05-21",
         en: "2002-04-27",
       },
       {
         n: 11,
-        title: "In la-Vie-en Rose",
+        title: { ja: "ラビアンローズ IN LA-VIE-EN ROSE", en: "La Vie En Rose" },
         ja: "1992-06-21",
         en: "2002-05-04",
       },
       {
         n: 12,
-        title: "Assault Waves",
+        title: {
+          ja: "強襲、阻止限界点 ASSAULT WAVES",
+          en: "Assault on the Point of No Return",
+        },
         ja: "1992-08-21",
         en: "2002-05-11",
       },
       {
         n: 13,
-        title: "Men of Destiny",
+        title: {
+          ja: "駆け抜ける嵐 MEN OF DESTINY",
+          en: "A Storm Raging Through",
+        },
         ja: "1992-09-24",
         en: "2002-05-18",
       },
@@ -12928,103 +12099,104 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   zero83_rebellion_manga: {
-    title: "Mobile Suit Gundam 0083: Rebellion",
+    title: {
+      ja: "機動戦士ガンダム0083 REBELLION",
+      en: "Mobile Suit Gundam 0083: Rebellion",
+    },
     u: "uc",
     type: "manga",
+    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_0083_Rebellion",
     author: "Masato Natsumoto (story: Takashi Imanishi)",
     publisher: "Kadokawa Shoten",
     magazine: "Gundam Ace",
-    source: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_0083_Rebellion",
     note: "18 volumes 2013-2023. Per-volume dates approximate.",
     episodes: [
       {
         n: 1,
-        title: "A Fomenting Storm",
+        title: { ja: "A Fomenting Storm", en: "A Fomenting Storm" },
         ja: "2014-02-26",
       },
       {
         n: 2,
-        title: "Torrington Base",
+        title: { ja: "Torrington Base", en: "Torrington Base" },
         ja: "2014-02-26",
       },
       {
         n: 3,
-        title: "Real Combat & Explosive Blasts",
+        title: {
+          ja: "Real Combat & Explosive Blasts",
+          en: "Real Combat & Explosive Blasts",
+        },
         ja: "2014-07-26",
       },
       {
         n: 4,
-        title: "Into Battle, Albion",
+        title: { ja: "Into Battle, Albion", en: "Into Battle, Albion" },
         ja: "2015-01-26",
       },
       {
         n: 5,
-        title: "Assault Landing Operation",
+        title: {
+          ja: "Assault Landing Operation",
+          en: "Assault Landing Operation",
+        },
         ja: "2015-07-25",
       },
-      {
-        n: 6,
-        title: "Lhasa Base",
-        ja: "2016-01-26",
-      },
+      { n: 6, title: { ja: "Lhasa Base", en: "Lhasa Base" }, ja: "2016-01-26" },
       {
         n: 7,
-        title: "A Declaration of War",
+        title: { ja: "A Declaration of War", en: "A Declaration of War" },
         ja: "2016-08-26",
       },
       {
         n: 8,
-        title: "Dark Passage",
+        title: { ja: "Dark Passage", en: "Dark Passage" },
         ja: "2017-02-25",
       },
       {
         n: 9,
-        title: "Skies of Chaos",
+        title: { ja: "Skies of Chaos", en: "Skies of Chaos" },
         ja: "2017-09-25",
       },
       {
         n: 10,
-        title: "Darkening Skies",
+        title: { ja: "Darkening Skies", en: "Darkening Skies" },
         ja: "2018-02-26",
       },
       {
         n: 11,
-        title: "Fight With a Cause",
+        title: { ja: "Fight With a Cause", en: "Fight With a Cause" },
         ja: "2018-08-24",
       },
       {
         n: 12,
-        title: "Curtain of Betrayal",
+        title: { ja: "Curtain of Betrayal", en: "Curtain of Betrayal" },
         ja: "2019-02-25",
       },
       {
         n: 13,
-        title: "Those Called Gundam",
+        title: { ja: "Those Called Gundam", en: "Those Called Gundam" },
         ja: "2019-08-24",
       },
       {
         n: 14,
-        title: "Orbital Battlefield",
+        title: { ja: "Orbital Battlefield", en: "Orbital Battlefield" },
         ja: "2020-02-25",
       },
-      {
-        n: 15,
-        title: "Showdown",
-        ja: "2020-08-25",
-      },
+      { n: 15, title: { ja: "Showdown", en: "Showdown" }, ja: "2020-08-25" },
       {
         n: 16,
-        title: "Abrading Earth",
+        title: { ja: "Abrading Earth", en: "Abrading Earth" },
         ja: "2021-03-25",
       },
       {
         n: 17,
-        title: "The Immortal 4th Team",
+        title: { ja: "The Immortal 4th Team", en: "The Immortal 4th Team" },
         ja: "2022-02-26",
       },
       {
         n: 18,
-        title: "The Third Spear",
+        title: { ja: "The Third Spear", en: "The Third Spear" },
         ja: "2023-03-25",
       },
     ],
@@ -13040,7 +12212,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   zeta_1985_tv: {
-    title: "Mobile Suit Zeta Gundam",
+    title: { ja: "機動戦士Ζガンダム", en: "Mobile Suit Zeta Gundam" },
     u: "uc",
     type: "tv",
     source:
@@ -13048,252 +12220,224 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "The Black Gundam",
+        title: { ja: "黒いガンダム", en: "The Black Gundam" },
         ja: "1985-03-02",
       },
-      {
-        n: 2,
-        title: "Departure",
-        ja: "1985-03-09",
-      },
+      { n: 2, title: { ja: "旅立ち", en: "Departure" }, ja: "1985-03-09" },
       {
         n: 3,
-        title: "Inside the Capsule",
+        title: { ja: "カプセルの中", en: "Inside the Capsule" },
         ja: "1985-03-16",
       },
       {
         n: 4,
-        title: "Emma's Decision",
+        title: { ja: "エマの脱走", en: "Emma's Decision" },
         ja: "1985-03-23",
       },
       {
         n: 5,
-        title: "Father and Son",
+        title: { ja: "父と子と…", en: "Father and Son" },
         ja: "1985-03-30",
       },
-      {
-        n: 6,
-        title: "To Earth",
-        ja: "1985-04-06",
-      },
+      { n: 6, title: { ja: "地球圏へ", en: "To Earth" }, ja: "1985-04-06" },
       {
         n: 7,
-        title: "Escape from Side One",
+        title: { ja: "サイド1の脱出", en: "Escape from Side One" },
         ja: "1985-04-13",
       },
       {
         n: 8,
-        title: "The Dark Side of the Moon",
+        title: { ja: "月の裏側", en: "The Dark Side of the Moon" },
         ja: "1985-04-20",
       },
-      {
-        n: 9,
-        title: "A New Bond",
-        ja: "1985-04-27",
-      },
-      {
-        n: 10,
-        title: "Reunion",
-        ja: "1985-05-04",
-      },
+      { n: 9, title: { ja: "新しい絆", en: "A New Bond" }, ja: "1985-04-27" },
+      { n: 10, title: { ja: "再会", en: "Reunion" }, ja: "1985-05-04" },
       {
         n: 11,
-        title: "Entering the Atmosphere",
+        title: { ja: "大気圏突入", en: "Entering the Atmosphere" },
         ja: "1985-05-11",
       },
       {
         n: 12,
-        title: "The Winds of Jaburo",
+        title: { ja: "ジャブローの風", en: "The Winds of Jaburo" },
         ja: "1985-05-25",
       },
       {
         n: 13,
-        title: "Shuttle Launch",
+        title: { ja: "シャトル発進", en: "Shuttle Launch" },
         ja: "1985-06-01",
       },
       {
         n: 14,
-        title: "Amuro Flies Again",
+        title: { ja: "アムロ再び", en: "Amuro Flies Again" },
         ja: "1985-06-08",
       },
       {
         n: 15,
-        title: "Katz's Sortie",
+        title: { ja: "カツの出撃", en: "Katz's Sortie" },
         ja: "1985-06-15",
       },
       {
         n: 16,
-        title: "Through the Haze of Darkness",
+        title: { ja: "白い闇を抜けて", en: "Through the Haze of Darkness" },
         ja: "1985-06-22",
       },
       {
         n: 17,
-        title: "Hong Kong City",
+        title: { ja: "ホンコン・シティ", en: "Hong Kong City" },
         ja: "1985-06-29",
       },
       {
         n: 18,
-        title: "Mirai Captured",
+        title: { ja: "とらわれたミライ", en: "Mirai Captured" },
         ja: "1985-07-06",
       },
       {
         n: 19,
-        title: "Cinderella Four",
+        title: { ja: "シンデレラ・フォウ", en: "Cinderella Four" },
         ja: "1985-07-13",
       },
       {
         n: 20,
-        title: "The Heated Escape",
+        title: { ja: "灼熱の脱出", en: "The Heated Escape" },
         ja: "1985-07-20",
       },
       {
         n: 21,
-        title: "A Sign of Zeta",
+        title: { ja: "ゼータの鼓動", en: "A Sign of Zeta" },
         ja: "1985-07-27",
       },
       {
         n: 22,
-        title: "The Eyes of Scirocco",
+        title: { ja: "シロッコの眼", en: "The Eyes of Scirocco" },
         ja: "1985-08-03",
       },
       {
         n: 23,
-        title: "Moon Attack",
+        title: { ja: "ムーン・アタック", en: "Moon Attack" },
         ja: "1985-08-10",
       },
-      {
-        n: 24,
-        title: "Counterattack",
-        ja: "1985-08-17",
-      },
+      { n: 24, title: { ja: "反撃", en: "Counterattack" }, ja: "1985-08-17" },
       {
         n: 25,
-        title: "Colony Drop",
+        title: { ja: "コロニーが落ちる日", en: "Colony Drop" },
         ja: "1985-08-24",
       },
       {
         n: 26,
-        title: "The Ghost of Zeon",
+        title: { ja: "ジオンの亡霊", en: "The Ghost of Zeon" },
         ja: "1985-08-31",
       },
       {
         n: 27,
-        title: "Rendezvous with Char",
+        title: { ja: "シャアの帰還", en: "Rendezvous with Char" },
         ja: "1985-09-07",
       },
       {
         n: 28,
-        title: "The Jupitris Infiltration",
+        title: { ja: "ジュピトリス潜入", en: "The Jupitris Infiltration" },
         ja: "1985-09-14",
       },
       {
         n: 29,
-        title: "Crisis at Side Two",
+        title: { ja: "サイド2の危機", en: "Crisis at Side Two" },
         ja: "1985-09-21",
       },
       {
         n: 30,
-        title: "Jerid's Desperate Attack",
+        title: { ja: "ジェリド特攻", en: "Jerid's Desperate Attack" },
         ja: "1985-09-28",
       },
       {
         n: 31,
-        title: "Half Moon Love",
+        title: { ja: "ハーフムーン・ラブ", en: "Half Moon Love" },
         ja: "1985-10-05",
       },
       {
         n: 32,
-        title: "Unidentified Mobile Suits",
+        title: { ja: "謎のモビルスーツ", en: "Unidentified Mobile Suits" },
         ja: "1985-10-12",
       },
       {
         n: 33,
-        title: "The Messenger from Axis",
+        title: { ja: "アクシズからの使者", en: "The Messenger from Axis" },
         ja: "1985-10-19",
       },
       {
         n: 34,
-        title: "The Call of Darkness",
+        title: { ja: "が呼ぶ声", en: "The Call of Darkness" },
         ja: "1985-10-26",
       },
       {
         n: 35,
-        title: "Storm over Kilimanjaro",
+        title: { ja: "キリマンジャロの嵐", en: "Storm over Kilimanjaro" },
         ja: "1985-11-02",
       },
       {
         n: 36,
-        title: "Forever Four",
+        title: { ja: "永遠のフォウ", en: "Forever Four" },
         ja: "1985-11-09",
       },
       {
         n: 37,
-        title: "The Day of Dakar",
+        title: { ja: "ダカールの日", en: "The Day of Dakar" },
         ja: "1985-11-16",
       },
       {
         n: 38,
-        title: "Reccoa's Shadow",
+        title: { ja: "レコアの気配", en: "Reccoa's Shadow" },
         ja: "1985-11-23",
       },
-      {
-        n: 39,
-        title: "By the Lake",
-        ja: "1985-11-30",
-      },
+      { n: 39, title: { ja: "湖畔", en: "By the Lake" }, ja: "1985-11-30" },
       {
         n: 40,
-        title: "Activation of Gryps",
+        title: { ja: "グリプス始動", en: "Activation of Gryps" },
         ja: "1985-12-07",
       },
-      {
-        n: 41,
-        title: "Awakening",
-        ja: "1985-12-14",
-      },
+      { n: 41, title: { ja: "目覚め", en: "Awakening" }, ja: "1985-12-14" },
       {
         n: 42,
-        title: "Goodbye, Rosammy",
+        title: { ja: "さよならロザミィ", en: "Goodbye, Rosammy" },
         ja: "1985-12-21",
       },
       {
         n: 43,
-        title: "Haman's Victory",
+        title: { ja: "ハマーンの嘲笑", en: "Haman's Victory" },
         ja: "1986-01-04",
       },
       {
         n: 44,
-        title: "The Gate of Zedan",
+        title: { ja: "ゼダンの門", en: "The Gate of Zedan" },
         ja: "1986-01-11",
       },
       {
         n: 45,
-        title: "Coming from the Heavens",
+        title: { ja: "天から来るもの", en: "Coming from the Heavens" },
         ja: "1986-01-18",
       },
       {
         n: 46,
-        title: "Scirocco Rises",
+        title: { ja: "シロッコ立つ", en: "Scirocco Rises" },
         ja: "1986-01-25",
       },
       {
         n: 47,
-        title: "A Descent into the Maelstrom",
+        title: { ja: "の渦", en: "A Descent into the Maelstrom" },
         ja: "1986-02-01",
       },
       {
         n: 48,
-        title: "The Mirror of Rosamia",
+        title: { ja: "ロザミアの中で", en: "The Mirror of Rosamia" },
         ja: "1986-02-08",
       },
       {
         n: 49,
-        title: "Casualties of War",
+        title: { ja: "生命散って", en: "Casualties of War" },
         ja: "1986-02-15",
       },
       {
         n: 50,
-        title: "Riders in the Skies",
+        title: { ja: "を駆ける", en: "Riders in the Skies" },
         ja: "1986-02-22",
       },
     ],
@@ -13337,124 +12481,39 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   zeta_define_2011_manga: {
-    title: "Mobile Suit Zeta Gundam Define",
+    title: {
+      ja: "機動戦士Ζガンダム Define",
+      en: "Mobile Suit Zeta Gundam Define",
+    },
     u: "uc",
     type: "manga",
+    source: "https://ja.wikipedia.org/wiki/機動戦士Ζガンダム_Define",
     author: "Hoshino Katsuhiro",
     publisher: "Kadokawa",
     magazine: "Gundam Ace",
-    source: "https://ja.wikipedia.org/wiki/機動戦士Ζガンダム_Define",
     episodes: [
-      {
-        n: 1,
-        title: "Volume 1",
-        ja: "2011-11-26",
-      },
-      {
-        n: 2,
-        title: "Volume 2",
-        ja: "2012-03-26",
-      },
-      {
-        n: 3,
-        title: "Volume 3",
-        ja: "2012-07-26",
-      },
-      {
-        n: 4,
-        title: "Volume 4",
-        ja: "2012-11-26",
-      },
-      {
-        n: 5,
-        title: "Volume 5",
-        ja: "2013-03-26",
-      },
-      {
-        n: 6,
-        title: "Volume 6",
-        ja: "2013-08-22",
-      },
-      {
-        n: 7,
-        title: "Volume 7",
-        ja: "2014-02-26",
-      },
-      {
-        n: 8,
-        title: "Volume 8",
-        ja: "2014-10-25",
-      },
-      {
-        n: 9,
-        title: "Volume 9",
-        ja: "2015-03-26",
-      },
-      {
-        n: 10,
-        title: "Volume 10",
-        ja: "2015-08-26",
-      },
-      {
-        n: 11,
-        title: "Volume 11",
-        ja: "2016-03-08",
-      },
-      {
-        n: 12,
-        title: "Volume 12",
-        ja: "2017-06-26",
-      },
-      {
-        n: 13,
-        title: "Volume 13",
-        ja: "2018-03-26",
-      },
-      {
-        n: 14,
-        title: "Volume 14",
-        ja: "2018-10-26",
-      },
-      {
-        n: 15,
-        title: "Volume 15",
-        ja: "2019-03-26",
-      },
-      {
-        n: 16,
-        title: "Volume 16",
-        ja: "2020-01-23",
-      },
-      {
-        n: 17,
-        title: "Volume 17",
-        ja: "2020-09-26",
-      },
-      {
-        n: 18,
-        title: "Volume 18",
-        ja: "2021-04-26",
-      },
-      {
-        n: 19,
-        title: "Volume 19",
-        ja: "2023-03-25",
-      },
-      {
-        n: 20,
-        title: "Volume 20",
-        ja: "2024-02-26",
-      },
-      {
-        n: 21,
-        title: "Volume 21",
-        ja: "2025-05-23",
-      },
-      {
-        n: 22,
-        title: "Volume 22",
-        ja: "2026-01-23",
-      },
+      { n: 1, title: { ja: "Volume 1", en: "Volume 1" }, ja: "2011-11-26" },
+      { n: 2, title: { ja: "Volume 2", en: "Volume 2" }, ja: "2012-03-26" },
+      { n: 3, title: { ja: "Volume 3", en: "Volume 3" }, ja: "2012-07-26" },
+      { n: 4, title: { ja: "Volume 4", en: "Volume 4" }, ja: "2012-11-26" },
+      { n: 5, title: { ja: "Volume 5", en: "Volume 5" }, ja: "2013-03-26" },
+      { n: 6, title: { ja: "Volume 6", en: "Volume 6" }, ja: "2013-08-22" },
+      { n: 7, title: { ja: "Volume 7", en: "Volume 7" }, ja: "2014-02-26" },
+      { n: 8, title: { ja: "Volume 8", en: "Volume 8" }, ja: "2014-10-25" },
+      { n: 9, title: { ja: "Volume 9", en: "Volume 9" }, ja: "2015-03-26" },
+      { n: 10, title: { ja: "Volume 10", en: "Volume 10" }, ja: "2015-08-26" },
+      { n: 11, title: { ja: "Volume 11", en: "Volume 11" }, ja: "2016-03-08" },
+      { n: 12, title: { ja: "Volume 12", en: "Volume 12" }, ja: "2017-06-26" },
+      { n: 13, title: { ja: "Volume 13", en: "Volume 13" }, ja: "2018-03-26" },
+      { n: 14, title: { ja: "Volume 14", en: "Volume 14" }, ja: "2018-10-26" },
+      { n: 15, title: { ja: "Volume 15", en: "Volume 15" }, ja: "2019-03-26" },
+      { n: 16, title: { ja: "Volume 16", en: "Volume 16" }, ja: "2020-01-23" },
+      { n: 17, title: { ja: "Volume 17", en: "Volume 17" }, ja: "2020-09-26" },
+      { n: 18, title: { ja: "Volume 18", en: "Volume 18" }, ja: "2021-04-26" },
+      { n: 19, title: { ja: "Volume 19", en: "Volume 19" }, ja: "2023-03-25" },
+      { n: 20, title: { ja: "Volume 20", en: "Volume 20" }, ja: "2024-02-26" },
+      { n: 21, title: { ja: "Volume 21", en: "Volume 21" }, ja: "2025-05-23" },
+      { n: 22, title: { ja: "Volume 22", en: "Volume 22" }, ja: "2026-01-23" },
     ],
     releases: [
       {
@@ -13468,24 +12527,23 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   zeta_new_translation_2005_films: {
-    title: "Mobile Suit Zeta Gundam: A New Translation",
+    title: {
+      ja: "機動戦士Ζガンダム A New Translation",
+      en: "Mobile Suit Zeta Gundam: A New Translation",
+    },
     u: "uc",
     type: "film",
     source: "https://en.wikipedia.org/wiki/Mobile_Suit_Zeta_Gundam",
     episodes: [
       {
         n: 1,
-        title: "Heirs to the Stars",
+        title: { ja: "星を継ぐ者", en: "Heirs to the Stars" },
         ja: "2005-05-28",
       },
-      {
-        n: 2,
-        title: "Lovers",
-        ja: "2005-10-29",
-      },
+      { n: 2, title: { ja: "恋人たち", en: "Lovers" }, ja: "2005-10-29" },
       {
         n: 3,
-        title: "Love Is the Pulse of the Stars",
+        title: { ja: "星の鼓動は愛", en: "Love Is the Pulse of the Stars" },
         ja: "2006-03-06",
       },
     ],
@@ -13508,7 +12566,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     ],
   },
   zz_1986_tv: {
-    title: "Mobile Suit Gundam ZZ",
+    title: { ja: "機動戦士ガンダムZZ", en: "Mobile Suit Gundam ZZ" },
     u: "uc",
     type: "tv",
     source:
@@ -13516,237 +12574,242 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
     episodes: [
       {
         n: 1,
-        title: "Prelude of ZZ",
+        title: { ja: "プレリュードΖΖ", en: "Prelude of ZZ" },
         ja: "1986-03-01",
       },
       {
         n: 2,
-        title: "The Young Man from Shangri-La",
+        title: {
+          ja: "シャングリラの少年",
+          en: "The Young Man from Shangri-La",
+        },
         ja: "1986-03-08",
       },
       {
         n: 3,
-        title: "The Knight of the Endra",
+        title: { ja: "エンドラの騎士", en: "The Knight of the Endra" },
         ja: "1986-03-15",
       },
       {
         n: 4,
-        title: "Hot-Blooded Mashymre",
+        title: { ja: "熱血のマシュマー", en: "Hot-Blooded Mashymre" },
         ja: "1986-03-22",
       },
       {
         n: 5,
-        title: "Judau's Decision",
+        title: { ja: "ジュドーの決意", en: "Judau's Decision" },
         ja: "1986-03-29",
       },
       {
         n: 6,
-        title: "The Menace of the Zssa",
+        title: { ja: "ズサの脅威", en: "The Menace of the Zssa" },
         ja: "1986-04-05",
       },
       {
         n: 7,
-        title: "The Gaza Storm",
+        title: { ja: "ガザの嵐", en: "The Gaza Storm" },
         ja: "1986-04-12",
       },
       {
         n: 8,
-        title: "The Funeral Bell Tolls Twice",
+        title: { ja: "鎮魂の鐘は二度鳴る", en: "The Funeral Bell Tolls Twice" },
         ja: "1986-04-19",
       },
       {
         n: 9,
-        title: "Judau in Space",
+        title: { ja: "宇宙のジュドー", en: "Judau in Space" },
         ja: "1986-04-26",
       },
       {
         n: 10,
-        title: "Sayonara, Fa",
+        title: { ja: "さよならファ", en: "Sayonara, Fa" },
         ja: "1986-05-03",
       },
       {
         n: 11,
-        title: "Activate! Double Zeta",
+        title: { ja: "始動! ダブル・ゼータ", en: "Activate! Double Zeta" },
         ja: "1986-05-10",
       },
       {
         n: 12,
-        title: "Leina Vanishes",
+        title: { ja: "リィナが消えた", en: "Leina Vanishes" },
         ja: "1986-05-17",
       },
-      {
-        n: 13,
-        title: "Little Sister!",
-        ja: "1986-05-24",
-      },
+      { n: 13, title: { ja: "妹よ!", en: "Little Sister!" }, ja: "1986-05-24" },
       {
         n: 14,
-        title: "The Phantom Colony, Part 1",
+        title: { ja: "幻のコロニー（前）", en: "The Phantom Colony, Part 1" },
         ja: "1986-05-31",
       },
       {
         n: 15,
-        title: "The Phantom Colony, Part 2",
+        title: { ja: "幻のコロニー（後）", en: "The Phantom Colony, Part 2" },
         ja: "1986-06-07",
       },
       {
         n: 16,
-        title: "Melee Aboard the Argama",
+        title: { ja: "アーガマの白兵戦", en: "Melee Aboard the Argama" },
         ja: "1986-06-14",
       },
       {
         n: 17,
-        title: "Retrieve the Core Top!",
+        title: { ja: "奪回! コア・トップ", en: "Retrieve the Core Top!" },
         ja: "1986-06-21",
       },
       {
         n: 18,
-        title: "Haman's Black Shadow",
+        title: { ja: "ハマーンの黒い影", en: "Haman's Black Shadow" },
         ja: "1986-06-28",
       },
       {
         n: 19,
-        title: "Ple and Axis",
+        title: { ja: "プルとアクシズと", en: "Ple and Axis" },
         ja: "1986-07-12",
       },
       {
         n: 20,
-        title: "Tearful Cecillia (Part I)",
+        title: { ja: "泣き虫セシリア（前）", en: "Tearful Cecillia (Part I)" },
         ja: "1986-07-19",
       },
       {
         n: 21,
-        title: "Tearful Cecillia (Part II)",
+        title: { ja: "泣き虫セシリア（後）", en: "Tearful Cecillia (Part II)" },
         ja: "1986-07-26",
       },
       {
         n: 22,
-        title: "Judau, Sorties!!",
+        title: { ja: "ジュドー、出撃!!", en: "Judau, Sorties!!" },
         ja: "1986-08-02",
       },
       {
         n: 23,
-        title: "Earth Ablaze",
+        title: { ja: "燃える地球", en: "Earth Ablaze" },
         ja: "1986-08-09",
       },
       {
         n: 24,
-        title: "Siblings' Love on the South Seas",
+        title: {
+          ja: "南海に咲く兄妹愛",
+          en: "Siblings' Love on the South Seas",
+        },
         ja: "1986-08-16",
       },
       {
         n: 25,
-        title: "Rommel's Face",
+        title: { ja: "ロンメルの顔", en: "Rommel's Face" },
         ja: "1986-08-23",
       },
       {
         n: 26,
-        title: "Masai's Heart",
+        title: { ja: "マサイの心", en: "Masai's Heart" },
         ja: "1986-08-30",
       },
       {
         n: 27,
-        title: "Leina's Blood (Part I)",
+        title: { ja: "リィナの血（前）", en: "Leina's Blood (Part I)" },
         ja: "1986-09-06",
       },
       {
         n: 28,
-        title: "Leina's Blood (Part II)",
+        title: { ja: "リィナの血（後）", en: "Leina's Blood (Part II)" },
         ja: "1986-09-13",
       },
       {
         n: 29,
-        title: "Runaway Roux",
+        title: { ja: "ルーの逃亡", en: "Runaway Roux" },
         ja: "1986-09-20",
       },
       {
         n: 30,
-        title: "Blue Team (Part I)",
+        title: { ja: "青の部隊（前）", en: "Blue Team (Part I)" },
         ja: "1986-09-27",
       },
       {
         n: 31,
-        title: "Blue Team (Part II)",
+        title: { ja: "青の部隊（後）", en: "Blue Team (Part II)" },
         ja: "1986-10-04",
       },
       {
         n: 32,
-        title: "Beyond the Salt Lake",
+        title: { ja: "塩の湖を越えて", en: "Beyond the Salt Lake" },
         ja: "1986-10-11",
       },
       {
         n: 33,
-        title: "An Afternoon in Dublin",
+        title: { ja: "ダブリンの午後", en: "An Afternoon in Dublin" },
         ja: "1986-10-18",
       },
       {
         n: 34,
-        title: "Kamille's Voice",
+        title: { ja: "カミーユの声", en: "Kamille's Voice" },
         ja: "1986-10-25",
       },
       {
         n: 35,
-        title: "The Sky is Falling",
+        title: { ja: "落ちてきた空", en: "The Sky is Falling" },
         ja: "1986-11-01",
       },
       {
         n: 36,
-        title: "Ple Two's Descent",
+        title: { ja: "重力下のプルツー", en: "Ple Two's Descent" },
         ja: "1986-11-08",
       },
       {
         n: 37,
-        title: "Nahel Argama",
+        title: { ja: "ネェル・アーガマ", en: "Nahel Argama" },
         ja: "1986-11-15",
       },
       {
         n: 38,
-        title: "The Iron Wall of the Jamru Fin",
+        title: {
+          ja: "鉄壁、ジャムル・フィン",
+          en: "The Iron Wall of the Jamru Fin",
+        },
         ja: "1986-11-22",
       },
       {
         n: 39,
-        title: "The Second Coming of Sarasa",
+        title: { ja: "サラサ再臨", en: "The Second Coming of Sarasa" },
         ja: "1986-11-29",
       },
       {
         n: 40,
-        title: "Tigerbaum's Dream",
+        title: { ja: "タイガーバウムの夢", en: "Tigerbaum's Dream" },
         ja: "1986-12-06",
       },
       {
         n: 41,
-        title: "Rasara's Life",
+        title: { ja: "ラサラの命", en: "Rasara's Life" },
         ja: "1986-12-13",
       },
       {
         n: 42,
-        title: "Core 3 Maiden (Part I)",
+        title: { ja: "コア3の少女（前）", en: "Core 3 Maiden (Part I)" },
         ja: "1986-12-20",
       },
       {
         n: 43,
-        title: "Core 3 Maiden (Part II)",
+        title: { ja: "コア3の少女（後）", en: "Core 3 Maiden (Part II)" },
         ja: "1986-12-27",
       },
       {
         n: 44,
-        title: "Emary, Wilting Flower",
+        title: { ja: "エマリー散華", en: "Emary, Wilting Flower" },
         ja: "1987-01-10",
       },
       {
         n: 45,
-        title: "The Battle of Axis",
+        title: { ja: "アクシズの戦闘", en: "The Battle of Axis" },
         ja: "1987-01-17",
       },
       {
         n: 46,
-        title: "Vibration",
+        title: { ja: "バイブレーション", en: "Vibration" },
         ja: "1987-01-24",
       },
       {
         n: 47,
-        title: "Warrior, Once More...",
+        title: { ja: "戦士、再び……", en: "Warrior, Once More..." },
         ja: "1987-01-31",
       },
     ],
