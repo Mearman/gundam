@@ -1,3 +1,21 @@
+## [1.15.0](https://github.com/Mearman/gundam/compare/v1.14.2...v1.15.0) (2026-05-20)
+
+### Features
+
+* add 5 TBA entries to timeline.ts for full JSON sync ([0758836](https://github.com/Mearman/gundam/commit/07588362d79f1c69ad285b28338ef1df8097b51c))
+* regenerate details.ts with bilingual titles from JSON source ([16eb9c8](https://github.com/Mearman/gundam/commit/16eb9c807062ebeb8346b90473c0bc783d9aa79b))
+
+### Bug Fixes
+
+* adapt TimelineLanes tooltip to bilingual title schema ([c5bc11d](https://github.com/Mearman/gundam/commit/c5bc11ddb1d92d43e346b4e0989e365203c96f4e))
+
+### Refactoring
+
+* compact ep()/rel() factories reduce data modules by 61% ([408034a](https://github.com/Mearman/gundam/commit/408034a1e7b12373bae3d677f8eb8cac3898fac8))
+* descriptive field names + det() factory ([a773e0f](https://github.com/Mearman/gundam/commit/a773e0f24aef0327217f736e853cfd41a1a27ce7))
+* entry() factory + remove redundant detail fields ([9c62554](https://github.com/Mearman/gundam/commit/9c62554892a4b4e80c6ff44468c29160229404ed))
+* restructure data modules by universe ([28e357e](https://github.com/Mearman/gundam/commit/28e357ece0b1b838cc65a9d8e19207c4cab37cca))
+
 ## [1.14.2](https://github.com/Mearman/gundam/compare/v1.14.1...v1.14.2) (2026-05-20)
 
 ### Chores
