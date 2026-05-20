@@ -49,7 +49,7 @@ export interface EntryDetail {
   releases: DetailRelease[];
 }
 
-export const ENTRY_DETAILS_COMMENT = `Gundam timeline per-episode/per-volume release data. Keys map to detailId in timeline.ts ENTRIES table. Dates are ISO 8601: ja = Japanese release, en = English/international. Full ISO (YYYY-MM-DD) = verified from Wikipedia/Fandom/OpenBD. Month-only (YYYY-MM) = partial knowledge. Year-only (YYYY) = serialization year only. Episode numbering: integers 1,2,3...; prologues use 0 (int); specials use 'SP'/'SP1'/'SP2' (string); recap eps use floats like 15.5; gekijou shorts use 'G1'/'G2'/'G3'. Per-episode en dates only populated where genuinely different from ja (weekly broadcast). Simulcast series derive en from ja via schedule tag. Box-set releases use release-level start date. Schedule field: weekly, simulcast, box-set, theatrical, serial. Manga tankobun volumes use 'Volume N' title convention. Per-episode u field overrides entry-level universe for multi-universe series. Last reviewed: 2025-05-20. Stats: 186 entries, 1709 episodes.`;
+export const ENTRY_DETAILS_COMMENT = `Gundam timeline per-episode/per-volume release data. Keys map to detailId in timeline.ts ENTRIES table. $rels: flat edge list of {from, type, to} relationship triples. Types: adapted_from, compilation_of, reedit_of, alternate_version, sequel_to, prequel_to, side_story_of, spinoff_from, reboot_of. Direction reads as 'from {type} to'. Dates are ISO 8601: ja = Japanese release, en = English/international. Full ISO (YYYY-MM-DD) = verified. Month-only (YYYY-MM) = partial. Year-only (YYYY) = serialization year only. Last reviewed: 2025-05-20. Stats: 186 entries, 1709 episodes, 173 relationships.`;
 
 export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
   advance_of_zeta_titans_2012_manga: {
@@ -4107,7 +4107,7 @@ export const ENTRY_DETAILS: Record<string, EntryDetail | undefined> = {
   },
   gundam_legendary_tba: {
     title: "Gundam (Legendary Pictures live-action)",
-    u: "mixed",
+    u: "uc",
     type: "live-action",
     source: "https://en.wikipedia.org/wiki/Gundam_(film)",
     note: "Netflix live-action film by Legendary Pictures. TBA",
