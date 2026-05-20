@@ -1,3 +1,9 @@
+## [1.8.0](https://github.com/Mearman/gundam/compare/v1.7.0...v1.8.0) (2026-05-20)
+
+### Features
+
+* add per-episode universe tagging for multi-universe entries ([0180b3e](https://github.com/Mearman/gundam/commit/0180b3e989c15ba6a348e21aca84b646b656df65))
+
 ## [1.7.0](https://github.com/Mearman/gundam/compare/v1.6.0...v1.7.0) (2026-05-20)
 
 ### Features
