@@ -1,3 +1,9 @@
+## [1.10.1](https://github.com/Mearman/gundam/compare/v1.10.0...v1.10.1) (2026-05-20)
+
+### Chores
+
+* refresh detail data — enrich episodes, sources, metadata ([c5f0762](https://github.com/Mearman/gundam/commit/c5f0762fbca2935edab2ed271c3c67fd61d3a7e8))
+
 ## [1.10.0](https://github.com/Mearman/gundam/compare/v1.9.1...v1.10.0) (2026-05-20)
 
 ### Features
