@@ -1,3 +1,9 @@
+## [1.3.1](https://github.com/Mearman/gundam/compare/v1.3.0...v1.3.1) (2026-05-20)
+
+### Chores
+
+* trigger CI redeploy ([c1cb887](https://github.com/Mearman/gundam/commit/c1cb887d7d70def43fd04c2850914867f194afef))
+
 ## [1.3.0](https://github.com/Mearman/gundam/compare/v1.2.3...v1.3.0) (2026-05-20)
 
 ### Features
