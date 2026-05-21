@@ -184,13 +184,11 @@ function buildBBoxMap(
 
     for (const e of entries.stackedRelease) {
       if (e.detailId === undefined) continue;
-      const key = `${e.detailId}:r`;
-      bboxes.set(key, releaseEntryBBox(e, yearWidth, layout.top, uid, gaps));
-      // Also store under plain detailId for edge lookups
-      bboxes.set(
-        e.detailId,
-        releaseEntryBBox(e, yearWidth, layout.top, uid, gaps),
-      );
+      const bbox = releaseEntryBBox(e, yearWidth, layout.top, uid, gaps);
+      // Lane-qualified key ensures every entry has a unique bbox
+      bboxes.set(`${e.detailId}:${uid}:r`, bbox);
+      // Also store under plain detailId for edge lookups (last lane wins)
+      bboxes.set(e.detailId, bbox);
     }
 
     for (const e of entries.storyItems) {
@@ -206,9 +204,7 @@ function buildBBoxMap(
         gaps,
       );
       if (bbox) {
-        bboxes.set(`${e.detailId}:s`, bbox);
-        // Story entries overwrite plain detailId — fine for edge lookups
-        // since edges reference the primary (story) position
+        bboxes.set(`${e.detailId}:${uid}:s`, bbox);
         bboxes.set(e.detailId, bbox);
       }
     }
