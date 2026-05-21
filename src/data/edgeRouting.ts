@@ -36,7 +36,7 @@ export interface LaneGeometry {
   height: number;
 }
 
-/** Gap sizes for each row boundary within a lane. Indexed by gap index (0 = above row 0). */
+/** Gap sizes for each inter-row boundary. gap[i] = gap between row i and row i+1. */
 export type GapMap = Map<string, number[]>;
 
 // ── Constants ──────────────────────────────────────────
@@ -62,24 +62,17 @@ function spreadPortXs(count: number, entryCx: number): number[] {
   return Array.from({ length: count }, (_, i) => startX + i * MIN_PORT_SPACING);
 }
 
+function pts(segs: string[]): string {
+  return segs.join(" ");
+}
+
 // ── Dynamic gap computation ────────────────────────────
 
-/**
- * Compute per-boundary gap sizes for each lane.
- *
- * Counts how many same-lane edges route through each gap between
- * consecutive rows, then computes gap = ROW_GAP + count * ROW_GAP_PER_EDGE.
- * Gaps with zero edges get the minimum ROW_GAP.
- *
- * Convention: gap[i] = gap between row i and row i+1.
- */
 function computeGapMap(
   edges: readonly EntryRelation[],
   bboxes: Map<string, EntryBBox>,
   maxStacks: Map<string, number>,
 ): GapMap {
-  // Count edges per (lane, gapIndex)
-  // gapIndex = lowerStack - 1 for same-stack-row edges
   const counts = new Map<string, number>();
 
   for (const edge of edges) {
@@ -87,18 +80,16 @@ function computeGapMap(
     const target = bboxes.get(edge.to);
     if (source === undefined || target === undefined) continue;
     if (source.laneId !== target.laneId) continue;
-    if (source.stack === target.stack) continue; // same row, no gap needed
+    if (source.stack === target.stack) continue;
 
     const lowerStack = Math.max(source.stack, target.stack);
-    const gapIdx = lowerStack - 1; // gap between lowerStack-1 and lowerStack
+    const gapIdx = lowerStack - 1;
     const key = `${source.laneId}:${String(gapIdx)}`;
     counts.set(key, (counts.get(key) ?? 0) + 1);
   }
 
   const gapMap: GapMap = new Map();
-
   for (const [laneId, maxStack] of maxStacks) {
-    // Gaps between rows: gap[0] between row 0 and row 1, ..., gap[maxStack-1]
     const gaps: number[] = [];
     for (let i = 0; i < maxStack; i++) {
       const key = `${laneId}:${String(i)}`;
@@ -111,16 +102,8 @@ function computeGapMap(
   return gapMap;
 }
 
-/**
- * Compute the Y position of a stack row using dynamic gaps.
- *
- * Convention: gap[i] is the gap between row i and row i+1.
- * There is no gap above row 0 — the caller passes LANE_PAD
- * (or laneTop + LANE_PAD) as the base offset.
- *
- *   row 0 top = laneTop
- *   row N top = laneTop + N*ROW_H + sum(gaps[0..N-1])
- */
+// ── Stack position helpers ─────────────────────────────
+
 export function stackRowTop(
   stack: number,
   laneTop: number,
@@ -133,39 +116,25 @@ export function stackRowTop(
   return y;
 }
 
-/**
- * Y-coordinate of the centre of the gap between row (stack-1) and row (stack).
- * gap[stack-1] is the gap between row (stack-1) and row (stack).
- */
 function gapCentreAboveStack(
   stack: number,
   laneTop: number,
   gaps: number[],
 ): number {
-  // Bottom of row (stack-1) = stackRowTop(stack-1, laneTop, gaps) + ROW_H
-  // Top of row (stack) = stackRowTop(stack, laneTop, gaps)
-  // Gap centre = (bottom + top) / 2
   const gapIdx = stack - 1;
-  if (gapIdx < 0) {
-    // Above row 0 — no gap to route through
-    return laneTop - CLEARANCE;
-  }
+  if (gapIdx < 0) return laneTop - CLEARANCE;
   const prevRowBottom = stackRowTop(stack - 1, laneTop, gaps) + ROW_H;
   const curRowTop = stackRowTop(stack, laneTop, gaps);
   return (prevRowBottom + curRowTop) / 2;
 }
 
-// ── Octilinear path builder ────────────────────────────
+// ── Path builders ──────────────────────────────────────
 
 /**
- * Build an octilinear SVG path from (sx, sy) to (tx, ty) through a
- * horizontal routing channel at `channelY`.
- *
- * Shape: V → 45° → H → 45° → V.
- * When source and target are very close horizontally, degrades to
- * V → H → V (no diagonals) to avoid sub-pixel bends.
+ * Simple octilinear V→diag→H→diag→V path.
+ * Used when the vertical segments don't cross any entries.
  */
-function octilinearThroughChannel(
+function simpleOctiPath(
   sx: number,
   sy: number,
   tx: number,
@@ -180,26 +149,141 @@ function octilinearThroughChannel(
   const r = Math.min(BEND_R, adx / 2, sourceVert, targetVert);
 
   if (r < 1) {
-    // Too tight for 45° bends — use pure V-H-V (still octilinear)
-    return [
+    return pts([
       `M ${String(sx)} ${String(sy)}`,
       `L ${String(sx)} ${String(channelY)}`,
       `L ${String(tx)} ${String(channelY)}`,
       `L ${String(tx)} ${String(ty)}`,
-    ].join(" ");
+    ]);
   }
 
   const sb = channelY + (sy > channelY ? r : -r);
   const tb = channelY + (ty > channelY ? r : -r);
 
-  return [
+  return pts([
     `M ${String(sx)} ${String(sy)}`,
     `L ${String(sx)} ${String(sb)}`,
     `L ${String(sx + dir * r)} ${String(channelY)}`,
     `L ${String(tx - dir * r)} ${String(channelY)}`,
     `L ${String(tx)} ${String(tb)}`,
     `L ${String(tx)} ${String(ty)}`,
-  ].join(" ");
+  ]);
+}
+
+/**
+ * Clearance-aware escape path using a single globally clear column.
+ *
+ * Routes both endpoints to a clear vertical channel at x=0 (guaranteed
+ * to be left of all entry rectangles), runs vertically to the channel,
+ * then connects back to the other port.
+ */
+function escapePath(
+  srcPortX: number,
+  srcPortY: number,
+  tgtPortX: number,
+  tgtPortY: number,
+  channelY: number,
+): string {
+  // Use a globally clear column: just left of the leftmost entry.
+  // Since all entries start at TRACK_PAD_LEFT or later, x=0 is guaranteed clear.
+  const clearX = 0;
+
+  const segs: string[] = [`M ${String(srcPortX)} ${String(srcPortY)}`];
+
+  // ── Source side: port → clear column → vertical toward channel ──
+  appendEscapeHalf(segs, srcPortX, srcPortY, clearX, channelY);
+
+  // ── Target side: channel → vertical to clear column → port ──
+  // (no horizontal bus needed — both share the same clear column)
+  appendEscapeHalfReverse(segs, tgtPortX, tgtPortY, clearX, channelY);
+
+  return pts(segs);
+}
+
+/**
+ * Append path segments from (portX, portY) to (clearX, channelY).
+ *
+ * Escape-first: goes H from portX to clearX at portY, THEN V from portY to channelY.
+ * With octilinear bends where the H meets the V.
+ */
+/**
+ * Append path segments from (portX, portY) to (clearX, channelY).
+ * Shape: H to near clearX → 45° corner → V down clear column.
+ * The 45° corner always has dx=dy=r.
+ */
+function appendEscapeHalf(
+  segs: string[],
+  portX: number,
+  portYi: number,
+  clearX: number,
+  channelY: number,
+): void {
+  const adx = Math.abs(clearX - portX);
+  const ady = Math.abs(channelY - portYi);
+
+  if (adx < 1) {
+    // No horizontal escape needed — pure vertical
+    segs.push(`L ${String(portX)} ${String(channelY)}`);
+    return;
+  }
+
+  const r = Math.min(BEND_R, adx, ady);
+
+  if (r < 1) {
+    // Too tight — H then V (still octilinear)
+    segs.push(`L ${String(clearX)} ${String(portYi)}`);
+    segs.push(`L ${String(clearX)} ${String(channelY)}`);
+    return;
+  }
+
+  const dir = Math.sign(clearX - portX);
+  const dySign = Math.sign(channelY - portYi);
+
+  // H to (clearX - dir*r, portY), then 45° to (clearX, portY + dySign*r), then V
+  segs.push(`L ${String(clearX - dir * r)} ${String(portYi)}`);
+  segs.push(`L ${String(clearX)} ${String(portYi + dySign * r)}`);
+  segs.push(`L ${String(clearX)} ${String(channelY)}`);
+}
+
+/**
+ * Append reverse escape half: from (clearX, channelY) to (portX, portY).
+ * Mirror of appendEscapeHalf: V from channelY to portY at clearX, then H to portX.
+ * With octilinear bends.
+ */
+/**
+ * Append reverse escape half: from (clearX, channelY) to (portX, portY).
+ * Shape: V up clear column → 45° corner → H to port.
+ */
+function appendEscapeHalfReverse(
+  segs: string[],
+  portX: number,
+  portYi: number,
+  clearX: number,
+  channelY: number,
+): void {
+  const adx = Math.abs(portX - clearX);
+  const ady = Math.abs(portYi - channelY);
+
+  if (adx < 1) {
+    segs.push(`L ${String(portX)} ${String(portYi)}`);
+    return;
+  }
+
+  const r = Math.min(BEND_R, adx, ady);
+
+  if (r < 1) {
+    segs.push(`L ${String(clearX)} ${String(portYi)}`);
+    segs.push(`L ${String(portX)} ${String(portYi)}`);
+    return;
+  }
+
+  const dir = Math.sign(portX - clearX);
+  const dySign = Math.sign(portYi - channelY);
+
+  // V to (clearX, portY - dySign*r), then 45° to (clearX + dir*r, portY), then H
+  segs.push(`L ${String(clearX)} ${String(portYi - dySign * r)}`);
+  segs.push(`L ${String(clearX + dir * r)} ${String(portYi)}`);
+  segs.push(`L ${String(portX)} ${String(portYi)}`);
 }
 
 // ── Port side assignment ───────────────────────────────
@@ -284,20 +368,11 @@ interface Assignment {
   targetPortX: number;
   channelKey: string;
   channelY: number;
+  needsEscape: boolean;
 }
 
 // ── Public API ─────────────────────────────────────────
 
-/**
- * Compute dynamic gap sizes for each lane based on edge routing needs.
- *
- * Returns a map from laneId to an array of gap sizes (one per row boundary).
- * Use `stackRowTop()` to compute entry positions with these dynamic gaps.
- *
- * @param edges All relationship edges
- * @param bboxes Bounding boxes of all visible entries
- * @param maxStacks Map of laneId to highest stack index in that lane
- */
 export function computeDynamicGaps(
   edges: readonly EntryRelation[],
   bboxes: Map<string, EntryBBox>,
@@ -306,22 +381,6 @@ export function computeDynamicGaps(
   return computeGapMap(edges, bboxes, maxStacks);
 }
 
-/**
- * Route all relationship edges using octilinear segments with:
- *
- * - **Dynamic row gaps**: row boundaries expand based on how many edges
- *   route through them, ensuring clearance between bundled edges.
- * - **Port side selection**: edges exit from top/bottom based on
- *   relative position.
- * - **Port X spreading**: multiple connections to the same entry are
- *   spread along the entry edge.
- * - **Channel-based routing**: same-lane edges use inter-row gaps,
- *   cross-lane edges use gutters between lane boundaries.
- * - **Clearance-aware bundling**: edges in the same channel are sorted
- *   by horizontal midpoint and offset vertically.
- *
- * @param gapMap Dynamic gap sizes from `computeDynamicGaps()`
- */
 export function routeEdges(
   edges: readonly EntryRelation[],
   bboxes: Map<string, EntryBBox>,
@@ -336,7 +395,7 @@ export function routeEdges(
 
   const laneOrder = [...laneGeometries.keys()];
 
-  // ── Phase 1: Assign port sides and channels ────────────
+  // ── Phase 1: Assign port sides, channels, escape needs ──
   const assignments: Assignment[] = [];
 
   for (const edge of validEdges) {
@@ -355,6 +414,12 @@ export function routeEdges(
       channel = crossLaneChannel(source, target, laneGeometries, laneOrder);
     }
 
+    // Escape routing needed when vertical segments would cross entries:
+    // Escape routing needed when vertical segments would cross entries.
+    // Only same-stack-row edges (gap routing) are safe without escape.
+    const needsEscape =
+      source.laneId !== target.laneId || source.stack !== target.stack;
+
     assignments.push({
       edge,
       source,
@@ -367,6 +432,7 @@ export function routeEdges(
       targetPortX: target.cx,
       channelKey: channel.key,
       channelY: channel.y,
+      needsEscape,
     });
   }
 
@@ -430,15 +496,13 @@ export function routeEdges(
   }
 
   // ── Phase 4: Generate paths ────────────────────────────
-  const paths: RoutedPath[] = [];
+  const resultPaths: RoutedPath[] = [];
 
   for (const group of channelGroups.values()) {
     const mid = (group.length - 1) / 2;
-    // Use the dynamic gap for this channel's lane
     const first = group[0];
     const gaps = gapMap.get(first.source.laneId) ?? [];
-    // Find the gap index from the channel key
-    const gapIdxMatch = /:(\\d+)$/.exec(first.channelKey);
+    const gapIdxMatch = /:(\d+)$/.exec(first.channelKey);
     const gapIdx = gapIdxMatch ? Number(gapIdxMatch[1]) : 0;
     const gapSize = gaps[gapIdx] ?? ROW_GAP;
     const maxOffset = gapSize / 2 - CLEARANCE;
@@ -458,14 +522,12 @@ export function routeEdges(
       const sy = portY(a.source, a.sourceSide);
       const ty = portY(a.target, a.targetSide);
 
-      paths.push({
-        d: octilinearThroughChannel(
-          a.sourcePortX,
-          sy,
-          a.targetPortX,
-          ty,
-          adjustedY,
-        ),
+      const d = a.needsEscape
+        ? escapePath(a.sourcePortX, sy, a.targetPortX, ty, adjustedY)
+        : simpleOctiPath(a.sourcePortX, sy, a.targetPortX, ty, adjustedY);
+
+      resultPaths.push({
+        d,
         stroke: style.stroke,
         strokeWidth: 1,
         opacity: 0.5,
@@ -474,5 +536,5 @@ export function routeEdges(
     }
   }
 
-  return paths;
+  return resultPaths;
 }
