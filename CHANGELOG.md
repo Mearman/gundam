@@ -1,3 +1,9 @@
+## [1.16.3](https://github.com/Mearman/gundam/compare/v1.16.2...v1.16.3) (2026-05-21)
+
+### Refactoring
+
+* optimal per-port clearance routing for relationship edges ([42c4e96](https://github.com/Mearman/gundam/commit/42c4e96cb052e712d7696be3eff00a62a16999d1))
+
 ## [1.16.2](https://github.com/Mearman/gundam/compare/v1.16.1...v1.16.2) (2026-05-21)
 
 ### Bug Fixes
