@@ -1,3 +1,9 @@
+## [1.16.5](https://github.com/Mearman/gundam/compare/v1.16.4...v1.16.5) (2026-05-21)
+
+### Refactoring
+
+* midpoint routing with per-half escape columns ([90bc55a](https://github.com/Mearman/gundam/commit/90bc55a4c0d0574ed76ba7c72bb49f60a5fd5f66))
+
 ## [1.16.4](https://github.com/Mearman/gundam/compare/v1.16.3...v1.16.4) (2026-05-21)
 
 ### Bug Fixes
