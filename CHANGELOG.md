@@ -1,3 +1,9 @@
+## [1.16.1](https://github.com/Mearman/gundam/compare/v1.16.0...v1.16.1) (2026-05-21)
+
+### Bug Fixes
+
+* synchronise entry positions between layout and edge routing ([3c47296](https://github.com/Mearman/gundam/commit/3c4729684b8994df3232397744eb3d5dcf761b7a))
+
 ## [1.16.0](https://github.com/Mearman/gundam/compare/v1.15.1...v1.16.0) (2026-05-21)
 
 ### Features
