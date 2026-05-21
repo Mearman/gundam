@@ -1,3 +1,9 @@
+## [1.16.4](https://github.com/Mearman/gundam/compare/v1.16.3...v1.16.4) (2026-05-21)
+
+### Bug Fixes
+
+* use lane-qualified bbox keys to eliminate detailId collisions ([5a95fd0](https://github.com/Mearman/gundam/commit/5a95fd0a84451b0b73758542e495bb68cc6d347d))
+
 ## [1.16.3](https://github.com/Mearman/gundam/compare/v1.16.2...v1.16.3) (2026-05-21)
 
 ### Refactoring
