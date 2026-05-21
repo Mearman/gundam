@@ -4,21 +4,24 @@ import type {
   StoryStackedEntry,
   Universe,
 } from "../data/types";
-import {
-  LANE_PAD,
-  ROW_GAP,
-  ROW_H,
-  START_YEAR,
-  TRACK_PAD_LEFT,
-} from "./timelineGeometry";
+import { ROW_H, START_YEAR, TRACK_PAD_LEFT } from "./timelineGeometry";
 import {
   getStoryRange,
   getStorySegmentBounds,
   STORY_SEGMENTS,
 } from "../data/story";
 import { ENTRY_RELATIONS, type RelationType } from "../data/relations";
-// Entry details used for tooltip title lookup — overlay only uses positions
-// import { getEntryDetail } from "../data/details";
+import {
+  routeEdges,
+  computeDynamicGaps,
+  stackRowTop,
+  type EntryBBox,
+  type RelationStyle,
+  type LaneGeometry,
+  type GapMap,
+} from "../data/edgeRouting";
+
+// ── Exported types (used by TimelineLanes) ─────────────
 
 export interface LaneLayout {
   top: number;
@@ -32,6 +35,8 @@ export interface LaneEntries {
   storyItems: StoryStackedEntry[];
 }
 
+// ── Component props ────────────────────────────────────
+
 interface RelationshipOverlayProps {
   universes: Universe[];
   trackContentWidth: number;
@@ -42,7 +47,9 @@ interface RelationshipOverlayProps {
   laneEntries: Map<string, LaneEntries>;
 }
 
-interface RelLine {
+// ── Story-mode overlay types ───────────────────────────
+
+interface StoryLine {
   x1: number;
   y1: number;
   x2: number;
@@ -53,7 +60,7 @@ interface RelLine {
   dashed: boolean;
 }
 
-interface RelLabel {
+interface StoryLabel {
   x: number;
   y: number;
   fill: string;
@@ -62,10 +69,9 @@ interface RelLabel {
   weight: "normal" | "700";
 }
 
-const RELATION_STYLES: Record<
-  RelationType,
-  { stroke: string; dashed: boolean }
-> = {
+// ── Relation styles ────────────────────────────────────
+
+const RELATION_STYLES: Record<RelationType, RelationStyle> = {
   sequel_to: { stroke: "#4A9EFF", dashed: false },
   prequel_to: { stroke: "#4A9EFF", dashed: false },
   side_story_of: { stroke: "#FFB84A", dashed: false },
@@ -77,30 +83,40 @@ const RELATION_STYLES: Record<
   reboot_of: { stroke: "#FF4A4A", dashed: false },
 };
 
+// ── Entry bounding-box computation ─────────────────────
+
 /**
- * Compute the centre position of an entry on the release axis.
- * Returns coordinates in content space (relative to the scroll container).
+ * Compute the bounding box of an entry on the release axis.
  */
-function releaseEntryPos(
+function releaseEntryBBox(
   entry: StackedEntry,
   yearWidth: number,
   laneTop: number,
-): { x: number; y: number } {
+  laneId: string,
+  gaps: number[],
+): EntryBBox {
   const left = TRACK_PAD_LEFT + (entry.yearStart - START_YEAR) * yearWidth;
   const width = Math.max(
     (entry.yearEnd - entry.yearStart + 1) * yearWidth,
     yearWidth,
   );
+  const top = stackRowTop(entry.stack, laneTop, gaps);
   return {
-    x: left + width / 2,
-    y: laneTop + LANE_PAD + entry.stack * (ROW_H + ROW_GAP) + ROW_H / 2,
+    cx: left + width / 2,
+    cy: top + ROW_H / 2,
+    top,
+    bottom: top + ROW_H,
+    left,
+    right: left + width,
+    laneId,
+    stack: entry.stack,
   };
 }
 
 /**
- * Compute the centre position of an entry on the story axis.
+ * Compute the bounding box of an entry on the story axis.
  */
-function storyEntryPos(
+function storyEntryBBox(
   entry: StoryStackedEntry,
   universeId: string,
   trackContentWidth: number,
@@ -108,7 +124,8 @@ function storyEntryPos(
   yearWidth: number,
   laneTop: number,
   storyTopOffset: number,
-): { x: number; y: number } | null {
+  gaps: number[],
+): EntryBBox | null {
   const range = getStoryRange(universeId);
   const bounds = getStorySegmentBounds(universeId, trackContentWidth, offset);
   if (!range || !bounds) return null;
@@ -127,38 +144,52 @@ function storyEntryPos(
       width = Math.min(width, segWidth);
     }
   }
-  const top = laneTop + storyTopOffset + entry.storyStack * (ROW_H + ROW_GAP);
-  return { x: xStart + width / 2, y: top + ROW_H / 2 };
+  const top = stackRowTop(entry.storyStack, laneTop + storyTopOffset, gaps);
+  return {
+    cx: xStart + width / 2,
+    cy: top + ROW_H / 2,
+    top,
+    bottom: top + ROW_H,
+    left: xStart,
+    right: xStart + width,
+    laneId: universeId,
+    stack: entry.storyStack,
+  };
 }
 
 /**
- * Build a map from detailId to content-space position for all visible entries.
+ * Build a map from detailId to bounding box for all visible entries.
  */
-function buildPositionMap(
+function buildBBoxMap(
   laneLayouts: Map<string, LaneLayout>,
   laneEntries: Map<string, LaneEntries>,
   trackContentWidth: number,
   yearWidth: number,
   offset: number,
   globalMode: AxisMode,
-): Map<string, { x: number; y: number }> {
-  const positions = new Map<string, { x: number; y: number }>();
+  gapMap: GapMap,
+): Map<string, EntryBBox> {
+  const bboxes = new Map<string, EntryBBox>();
 
   for (const [uid, layout] of laneLayouts) {
     const entries = laneEntries.get(uid);
     if (!entries) continue;
+    const gaps = gapMap.get(uid) ?? [];
 
     if (globalMode !== "story") {
       for (const e of entries.stackedRelease) {
         if (e.detailId === undefined) continue;
-        positions.set(e.detailId, releaseEntryPos(e, yearWidth, layout.top));
+        bboxes.set(
+          e.detailId,
+          releaseEntryBBox(e, yearWidth, layout.top, uid, gaps),
+        );
       }
     }
 
     if (globalMode !== "release") {
       for (const e of entries.storyItems) {
         if (e.detailId === undefined) continue;
-        const pos = storyEntryPos(
+        const bbox = storyEntryBBox(
           e,
           uid,
           trackContentWidth,
@@ -166,14 +197,17 @@ function buildPositionMap(
           yearWidth,
           layout.top,
           layout.storyTopOffset,
+          gaps,
         );
-        if (pos) positions.set(e.detailId, pos);
+        if (bbox) bboxes.set(e.detailId, bbox);
       }
     }
   }
 
-  return positions;
+  return bboxes;
 }
+
+// ── Component ──────────────────────────────────────────
 
 export function RelationshipOverlay({
   universes,
@@ -190,38 +224,61 @@ export function RelationshipOverlay({
     if (bottom > overlayHeight) overlayHeight = bottom;
   }
 
-  const lines: RelLine[] = [];
-  const labels: RelLabel[] = [];
+  // ── Compute dynamic gap map based on edge routing needs ─
+  const maxStacks = new Map<string, number>();
+  for (const [uid, entries] of laneEntries) {
+    const layout = laneLayouts.get(uid);
+    if (!layout) continue;
+    let ms = 0;
+    for (const e of entries.stackedRelease) {
+      if (e.stack > ms) ms = e.stack;
+    }
+    for (const e of entries.storyItems) {
+      if (e.storyStack > ms) ms = e.storyStack;
+    }
+    maxStacks.set(uid, ms);
+  }
 
-  // ── Data-driven relation lines ──────────────────────────
-  const positions = buildPositionMap(
+  // First pass: compute bboxes with default gaps to determine edge counts
+  const bboxesDefault = buildBBoxMap(
     laneLayouts,
     laneEntries,
     trackContentWidth,
     yearWidth,
     offset,
     globalMode,
+    new Map(),
   );
 
-  for (const rel of ENTRY_RELATIONS) {
-    const fromPos = positions.get(rel.from);
-    const toPos = positions.get(rel.to);
-    if (!fromPos || !toPos) continue;
+  const gapMap = computeDynamicGaps(ENTRY_RELATIONS, bboxesDefault, maxStacks);
 
-    const style = RELATION_STYLES[rel.type];
-    lines.push({
-      x1: fromPos.x,
-      y1: fromPos.y,
-      x2: toPos.x,
-      y2: toPos.y,
-      stroke: style.stroke,
-      strokeWidth: 1,
-      opacity: 0.5,
-      dashed: style.dashed,
-    });
+  // ── Data-driven relation paths (routed + bundled) ──────
+  const bboxes = buildBBoxMap(
+    laneLayouts,
+    laneEntries,
+    trackContentWidth,
+    yearWidth,
+    offset,
+    globalMode,
+    gapMap,
+  );
+
+  const laneGeometries = new Map<string, LaneGeometry>();
+  for (const [uid, layout] of laneLayouts) {
+    laneGeometries.set(uid, { top: layout.top, height: layout.height });
   }
 
-  // ── Static story-mode overlays ──────────────────────────
+  const routedPaths = routeEdges(
+    ENTRY_RELATIONS,
+    bboxes,
+    laneGeometries,
+    RELATION_STYLES,
+    gapMap,
+  );
+
+  // ── Story-mode overlays ────────────────────────────────
+  const storyLines: StoryLine[] = [];
+  const storyLabels: StoryLabel[] = [];
   const showStoryOverlays = globalMode === "story";
   const usableWidth = trackContentWidth - offset;
 
@@ -254,7 +311,7 @@ export function RelationshipOverlay({
       const xUC = xForInUniverse("uc", 79);
       const xAlt = xForInUniverse("uc-alt", 79);
       if (xUC !== null && xAlt !== null) {
-        lines.push({
+        storyLines.push({
           x1: xUC,
           y1: ucBand.bottom,
           x2: xAlt,
@@ -264,7 +321,7 @@ export function RelationshipOverlay({
           opacity: 0.9,
           dashed: false,
         });
-        labels.push({
+        storyLabels.push({
           x: (xUC + xAlt) / 2 + 6,
           y: (ucBand.bottom + altBand.top) / 2 + 3,
           fill: "#A78BFA",
@@ -286,7 +343,7 @@ export function RelationshipOverlay({
       yBot = Math.max(yBot, band.bottom);
     }
     if (yTop !== Infinity && ccBand) {
-      lines.push({
+      storyLines.push({
         x1: xBH,
         y1: yTop,
         x2: xBH,
@@ -296,7 +353,7 @@ export function RelationshipOverlay({
         opacity: 0.85,
         dashed: true,
       });
-      labels.push({
+      storyLabels.push({
         x: xBH - 4,
         y: yTop - 4,
         fill: "#5FD3B5",
@@ -309,7 +366,7 @@ export function RelationshipOverlay({
     // CC → RC continuation
     const xCCend = offset + STORY_SEGMENTS.cc.endFrac * usableWidth;
     if (ccBand && rcBand) {
-      lines.push({
+      storyLines.push({
         x1: xCCend,
         y1: ccBand.bottom,
         x2: xCCend,
@@ -319,7 +376,7 @@ export function RelationshipOverlay({
         opacity: 1,
         dashed: false,
       });
-      labels.push({
+      storyLabels.push({
         x: xCCend + 6,
         y: (ccBand.bottom + rcBand.top) / 2,
         fill: "#7DBE3F",
@@ -343,7 +400,7 @@ export function RelationshipOverlay({
       ]
     : [];
 
-  // ── CC→RC arrowhead (story mode) ──────────────────────
+  // ── CC→RC arrowhead (story mode) ────────────────────────
   const ccArrow = showStoryOverlays
     ? (() => {
         const ccB = storyBand("cc");
@@ -404,10 +461,23 @@ export function RelationshipOverlay({
         );
       })}
 
-      {/* Relation lines */}
-      {lines.map((l, i) => (
+      {/* Routed relation edges */}
+      {routedPaths.map((p, i) => (
+        <path
+          key={`r-${String(i)}`}
+          d={p.d}
+          fill="none"
+          stroke={p.stroke}
+          strokeWidth={p.strokeWidth}
+          opacity={p.opacity}
+          strokeDasharray={p.dashed ? "4 3" : undefined}
+        />
+      ))}
+
+      {/* Story-mode overlay lines */}
+      {storyLines.map((l, i) => (
         <line
-          key={`l-${String(i)}`}
+          key={`sl-${String(i)}`}
           x1={l.x1}
           y1={l.y1}
           x2={l.x2}
@@ -419,10 +489,10 @@ export function RelationshipOverlay({
         />
       ))}
 
-      {/* Relation labels */}
-      {labels.map((l, i) => (
+      {/* Story-mode labels */}
+      {storyLabels.map((l, i) => (
         <text
-          key={`t-${String(i)}`}
+          key={`st-${String(i)}`}
           x={l.x}
           y={l.y}
           fill={l.fill}
