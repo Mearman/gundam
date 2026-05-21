@@ -1,3 +1,9 @@
+## [1.16.2](https://github.com/Mearman/gundam/compare/v1.16.1...v1.16.2) (2026-05-21)
+
+### Bug Fixes
+
+* clearance-aware escape routing for all cross-row edges ([726a22c](https://github.com/Mearman/gundam/commit/726a22c7c4d72ad9137f5906dd777cb820b3caf2))
+
 ## [1.16.1](https://github.com/Mearman/gundam/compare/v1.16.0...v1.16.1) (2026-05-21)
 
 ### Bug Fixes
