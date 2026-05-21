@@ -10,7 +10,7 @@ export const TRACK_CONTENT_WIDTH =
   TRACK_PAD_LEFT + RELEASE_TRACK_WIDTH + TRACK_PAD_RIGHT;
 
 export const ROW_H = 30;
-export const ROW_GAP = 4;
+export const ROW_GAP = 14;
 export const LANE_PAD = 10;
 export const LABEL_MIN_HEIGHT = 84;
 export const STORY_AXIS_H = 30;
