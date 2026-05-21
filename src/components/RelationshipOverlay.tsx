@@ -4,7 +4,12 @@ import type {
   StoryStackedEntry,
   Universe,
 } from "../data/types";
-import { ROW_H, START_YEAR, TRACK_PAD_LEFT } from "./timelineGeometry";
+import {
+  LANE_PAD,
+  ROW_H,
+  START_YEAR,
+  TRACK_PAD_LEFT,
+} from "./timelineGeometry";
 import {
   getStoryRange,
   getStorySegmentBounds,
@@ -13,7 +18,6 @@ import {
 import { ENTRY_RELATIONS, type RelationType } from "../data/relations";
 import {
   routeEdges,
-  computeDynamicGaps,
   stackRowTop,
   type EntryBBox,
   type RelationStyle,
@@ -45,6 +49,7 @@ interface RelationshipOverlayProps {
   globalMode: AxisMode;
   laneLayouts: Map<string, LaneLayout>;
   laneEntries: Map<string, LaneEntries>;
+  gapMap: GapMap;
 }
 
 // ── Story-mode overlay types ───────────────────────────
@@ -100,7 +105,7 @@ function releaseEntryBBox(
     (entry.yearEnd - entry.yearStart + 1) * yearWidth,
     yearWidth,
   );
-  const top = stackRowTop(entry.stack, laneTop, gaps);
+  const top = stackRowTop(entry.stack, laneTop + LANE_PAD, gaps);
   return {
     cx: left + width / 2,
     cy: top + ROW_H / 2,
@@ -217,40 +222,13 @@ export function RelationshipOverlay({
   globalMode,
   laneLayouts,
   laneEntries,
+  gapMap,
 }: RelationshipOverlayProps) {
   let overlayHeight = 0;
   for (const [, layout] of laneLayouts) {
     const bottom = layout.top + layout.height;
     if (bottom > overlayHeight) overlayHeight = bottom;
   }
-
-  // ── Compute dynamic gap map based on edge routing needs ─
-  const maxStacks = new Map<string, number>();
-  for (const [uid, entries] of laneEntries) {
-    const layout = laneLayouts.get(uid);
-    if (!layout) continue;
-    let ms = 0;
-    for (const e of entries.stackedRelease) {
-      if (e.stack > ms) ms = e.stack;
-    }
-    for (const e of entries.storyItems) {
-      if (e.storyStack > ms) ms = e.storyStack;
-    }
-    maxStacks.set(uid, ms);
-  }
-
-  // First pass: compute bboxes with default gaps to determine edge counts
-  const bboxesDefault = buildBBoxMap(
-    laneLayouts,
-    laneEntries,
-    trackContentWidth,
-    yearWidth,
-    offset,
-    globalMode,
-    new Map(),
-  );
-
-  const gapMap = computeDynamicGaps(ENTRY_RELATIONS, bboxesDefault, maxStacks);
 
   // ── Data-driven relation paths (routed + bundled) ──────
   const bboxes = buildBBoxMap(

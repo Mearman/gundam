@@ -67,16 +67,19 @@ function spreadPortXs(count: number, entryCx: number): number[] {
 /**
  * Compute per-boundary gap sizes for each lane.
  *
- * Counts how many same-lane edges route through each row boundary,
- * then computes gap = ROW_GAP + count * ROW_GAP_PER_EDGE.
+ * Counts how many same-lane edges route through each gap between
+ * consecutive rows, then computes gap = ROW_GAP + count * ROW_GAP_PER_EDGE.
  * Gaps with zero edges get the minimum ROW_GAP.
+ *
+ * Convention: gap[i] = gap between row i and row i+1.
  */
 function computeGapMap(
   edges: readonly EntryRelation[],
   bboxes: Map<string, EntryBBox>,
   maxStacks: Map<string, number>,
 ): GapMap {
-  // Count edges per (lane, lowerStack)
+  // Count edges per (lane, gapIndex)
+  // gapIndex = lowerStack - 1 for same-stack-row edges
   const counts = new Map<string, number>();
 
   for (const edge of edges) {
@@ -84,19 +87,20 @@ function computeGapMap(
     const target = bboxes.get(edge.to);
     if (source === undefined || target === undefined) continue;
     if (source.laneId !== target.laneId) continue;
+    if (source.stack === target.stack) continue; // same row, no gap needed
 
     const lowerStack = Math.max(source.stack, target.stack);
-    const key = `${source.laneId}:${String(lowerStack)}`;
+    const gapIdx = lowerStack - 1; // gap between lowerStack-1 and lowerStack
+    const key = `${source.laneId}:${String(gapIdx)}`;
     counts.set(key, (counts.get(key) ?? 0) + 1);
   }
 
   const gapMap: GapMap = new Map();
 
   for (const [laneId, maxStack] of maxStacks) {
-    // We need gaps for boundaries 0..maxStack (inclusive)
-    // boundary i is above row i
+    // Gaps between rows: gap[0] between row 0 and row 1, ..., gap[maxStack-1]
     const gaps: number[] = [];
-    for (let i = 0; i <= maxStack; i++) {
+    for (let i = 0; i < maxStack; i++) {
       const key = `${laneId}:${String(i)}`;
       const count = counts.get(key) ?? 0;
       gaps.push(ROW_GAP + count * ROW_GAP_PER_EDGE);
@@ -110,45 +114,45 @@ function computeGapMap(
 /**
  * Compute the Y position of a stack row using dynamic gaps.
  *
- * Row 0 top = laneTop + LANE_PAD + gap[0]
- * Row N top = row 0 top + sum(gap[0..N]) + N * ROW_H
+ * Convention: gap[i] is the gap between row i and row i+1.
+ * There is no gap above row 0 — the caller passes LANE_PAD
+ * (or laneTop + LANE_PAD) as the base offset.
  *
- * Actually: the gap ABOVE row i is gap[i]. So:
- *   row i top = laneTop + LANE_PAD + sum(gaps[0..i-1]) + i * ROW_H
- *   But gap[0] is above row 0 (the topmost gap).
- *
- * Convention: gap[i] sits above row i.
- *   row i top = laneTop + sum(gaps[0..i]) + i * ROW_H
+ *   row 0 top = laneTop
+ *   row N top = laneTop + N*ROW_H + sum(gaps[0..N-1])
  */
 export function stackRowTop(
   stack: number,
   laneTop: number,
   gaps: number[],
 ): number {
-  let y = laneTop;
-  for (let i = 0; i <= stack; i++) {
+  let y = laneTop + stack * ROW_H;
+  for (let i = 0; i < stack; i++) {
     y += gaps[i];
   }
-  y += stack * ROW_H;
   return y;
 }
 
 /**
- * Y-coordinate of the centre of the gap above a given stack row
- * using dynamic gaps.
+ * Y-coordinate of the centre of the gap between row (stack-1) and row (stack).
+ * gap[stack-1] is the gap between row (stack-1) and row (stack).
  */
 function gapCentreAboveStack(
   stack: number,
   laneTop: number,
   gaps: number[],
 ): number {
-  // Top of this gap = laneTop + sum(gaps[0..stack-1]) + stack * ROW_H
-  let gapTop = laneTop;
-  for (let i = 0; i < stack; i++) {
-    gapTop += gaps[i];
+  // Bottom of row (stack-1) = stackRowTop(stack-1, laneTop, gaps) + ROW_H
+  // Top of row (stack) = stackRowTop(stack, laneTop, gaps)
+  // Gap centre = (bottom + top) / 2
+  const gapIdx = stack - 1;
+  if (gapIdx < 0) {
+    // Above row 0 — no gap to route through
+    return laneTop - CLEARANCE;
   }
-  gapTop += stack * ROW_H;
-  return gapTop + gaps[stack] / 2;
+  const prevRowBottom = stackRowTop(stack - 1, laneTop, gaps) + ROW_H;
+  const curRowTop = stackRowTop(stack, laneTop, gaps);
+  return (prevRowBottom + curRowTop) / 2;
 }
 
 // ── Octilinear path builder ────────────────────────────

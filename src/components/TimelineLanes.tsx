@@ -31,6 +31,7 @@ import {
   tintColor,
 } from "../data/helpers";
 import { assignStacks } from "../data/stacking";
+import { ENTRY_RELATIONS } from "../data/relations";
 import {
   getStoryRange,
   getStorySegmentBounds,
@@ -40,6 +41,7 @@ import {
 import { YearAxis } from "./YearAxis";
 import { RelationshipOverlay } from "./RelationshipOverlay";
 import type { LaneLayout, LaneEntries } from "./RelationshipOverlay";
+import { stackRowTop, type GapMap } from "../data/edgeRouting";
 import { vars } from "../styles/global.css";
 import * as s from "../styles/timeline.css";
 import {
@@ -49,6 +51,7 @@ import {
   LABEL_MIN_HEIGHT,
   LANE_PAD,
   ROW_GAP,
+  ROW_GAP_PER_EDGE,
   ROW_H,
   START_YEAR,
   STORY_AXIS_H,
@@ -77,6 +80,78 @@ function clampZoom(z: number): number {
 
 function customStyle(style: CustomStyle): CustomStyle {
   return style;
+}
+
+/** Compute the pixel height of a track given dynamic gaps.
+ *  gap[i] = gap between row i and row i+1.
+ *  Height = sum of gaps + (maxStack+1) * ROW_H
+ */
+function trackHeightFromGaps(maxStack: number, gaps: number[]): number {
+  let h = (maxStack + 1) * ROW_H;
+  for (const g of gaps) h += g;
+  return h;
+}
+
+/**
+ * Compute dynamic gaps from stack assignments alone, without needing
+ * pixel positions. Counts same-lane edges per boundary.
+ */
+function computeGapsFromStacks(
+  laneEntriesMap: Map<
+    string,
+    { stackedRelease: StackedEntry[]; storyItems: StoryStackedEntry[] }
+  >,
+): GapMap {
+  // Build detailId -> (laneId, stack) lookup
+  const detailStacks = new Map<string, { laneId: string; stack: number }>();
+  for (const [laneId, le] of laneEntriesMap) {
+    for (const e of le.stackedRelease) {
+      if (e.detailId !== undefined) {
+        detailStacks.set(e.detailId, { laneId, stack: e.stack });
+      }
+    }
+    for (const e of le.storyItems) {
+      if (e.detailId !== undefined) {
+        detailStacks.set(e.detailId, { laneId, stack: e.storyStack });
+      }
+    }
+  }
+
+  // Count same-lane edges per (laneId, gapIdx)
+  // gapIdx = lowerStack - 1 (gap between row lowerStack-1 and row lowerStack)
+  const counts = new Map<string, number>();
+
+  for (const edge of ENTRY_RELATIONS) {
+    const src = detailStacks.get(edge.from);
+    const tgt = detailStacks.get(edge.to);
+    if (src === undefined || tgt === undefined) continue;
+    if (src.laneId !== tgt.laneId) continue;
+    if (src.stack === tgt.stack) continue;
+
+    const lowerStack = Math.max(src.stack, tgt.stack);
+    const gapIdx = lowerStack - 1;
+    const key = `${src.laneId}:${String(gapIdx)}`;
+    counts.set(key, (counts.get(key) ?? 0) + 1);
+  }
+
+  // Compute gap map
+  const gapMap: GapMap = new Map();
+  for (const [laneId, le] of laneEntriesMap) {
+    let ms = 0;
+    for (const e of le.stackedRelease) if (e.stack > ms) ms = e.stack;
+    for (const e of le.storyItems) if (e.storyStack > ms) ms = e.storyStack;
+
+    // gap[i] = gap between row i and row i+1, for i = 0..ms-1
+    const gaps: number[] = [];
+    for (let i = 0; i < ms; i++) {
+      const key = `${laneId}:${String(i)}`;
+      const count = counts.get(key) ?? 0;
+      gaps.push(ROW_GAP + count * ROW_GAP_PER_EDGE);
+    }
+    gapMap.set(laneId, gaps);
+  }
+
+  return gapMap;
 }
 
 // ── Effective mode per lane ─────────────────────────────
@@ -543,6 +618,7 @@ interface BothConnectorsProps {
   trackH_R: number;
   trackContentWidth: number;
   yearWidth: number;
+  gaps: number[];
 }
 
 function BothConnectors({
@@ -552,6 +628,7 @@ function BothConnectors({
   trackH_R,
   trackContentWidth,
   yearWidth,
+  gaps,
 }: BothConnectorsProps) {
   const range = getStoryRange(universe.id);
   const bounds = getStorySegmentBounds(
@@ -568,7 +645,7 @@ function BothConnectors({
       (e.yearEnd - e.yearStart + 1) * yearWidth,
       yearWidth,
     );
-    const top = LANE_PAD + e.stack * (ROW_H + ROW_GAP);
+    const top = stackRowTop(e.stack, LANE_PAD, gaps);
     releasePos.set(e, { xMid: left + width / 2, yBottom: top + ROW_H });
   }
 
@@ -590,7 +667,7 @@ function BothConnectors({
         width = Math.min(width, segWidth);
       }
     }
-    const top = storyTopOffset + item.storyStack * (ROW_H + ROW_GAP);
+    const top = stackRowTop(item.storyStack, storyTopOffset, gaps);
     storyPos.set(item, { xMid: xStart + width / 2, yTop: top });
   }
 
@@ -647,6 +724,7 @@ interface StoryEntriesProps {
   mode: AxisMode;
   trackH_R: number;
   yearWidth: number;
+  gaps: number[];
 }
 
 function StoryEntries({
@@ -658,6 +736,7 @@ function StoryEntries({
   mode,
   trackH_R,
   yearWidth,
+  gaps,
 }: StoryEntriesProps) {
   const range = getStoryRange(universe.id);
   const bounds = getStorySegmentBounds(
@@ -688,7 +767,7 @@ function StoryEntries({
             width = Math.min(width, segWidth);
           }
         }
-        const top = topOffset + item.storyStack * (ROW_H + ROW_GAP);
+        const top = stackRowTop(item.storyStack, topOffset, gaps);
         return (
           <TimelineEntry
             key={`s-${universe.id}-${String(item.storyStart)}-${item.title}`}
@@ -707,10 +786,12 @@ function StoryEntries({
         bounds={bounds}
         universe={universe}
         topOffset={
-          topOffset +
-          (Math.max(...storyItems.map((i) => i.storyStack)) + 1) *
-            (ROW_H + ROW_GAP) -
-          ROW_GAP +
+          stackRowTop(
+            Math.max(...storyItems.map((i) => i.storyStack)),
+            topOffset,
+            gaps,
+          ) +
+          ROW_H +
           2
         }
       />
@@ -869,7 +950,8 @@ export function TimelineLanes({
   // ── Lane layout computation ─────────────────────────────
   let laneIdx = 0;
 
-  const lanes = universes
+  // First pass: assign stacks and build entries map
+  const lanesRaw = universes
     .map((u) => {
       const uniEntries = entries.filter((e) => entryInUniverse(e, u.id));
       if (uniEntries.length === 0) return null;
@@ -877,37 +959,14 @@ export function TimelineLanes({
       const mode = getEffectiveMode(globalMode, u.id);
       const stackedRelease = assignStacks(uniEntries);
       const maxStackR = Math.max(...stackedRelease.map((e) => e.stack));
-      const trackH_R = (maxStackR + 1) * (ROW_H + ROW_GAP) - ROW_GAP;
 
       let storyItems: StoryStackedEntry[] = [];
-      let trackH_S = 0;
+      let maxStackS = 0;
       if (mode === "story" || mode === "both") {
         storyItems = assignStacksByStory(uniEntries);
         if (storyItems.length > 0) {
-          const maxStackS = Math.max(...storyItems.map((i) => i.storyStack));
-          trackH_S = (maxStackS + 1) * (ROW_H + ROW_GAP) - ROW_GAP;
+          maxStackS = Math.max(...storyItems.map((i) => i.storyStack));
         }
-      }
-
-      const isFallback = mode === "release" && globalMode !== "release";
-      let laneHeight: number;
-      if (mode === "both") {
-        laneHeight = Math.max(
-          LABEL_MIN_HEIGHT,
-          trackH_R + trackH_S + BOTH_CONNECTOR_H + STORY_AXIS_H + 2 * LANE_PAD,
-        );
-      } else if (mode === "story") {
-        laneHeight = Math.max(
-          LABEL_MIN_HEIGHT,
-          trackH_S + STORY_AXIS_H + STORY_TOP_GUTTER + 2 * LANE_PAD,
-        );
-      } else if (isFallback) {
-        laneHeight = Math.max(
-          LABEL_MIN_HEIGHT,
-          trackH_R + STORY_AXIS_H + 2 * LANE_PAD,
-        );
-      } else {
-        laneHeight = Math.max(LABEL_MIN_HEIGHT, trackH_R + 2 * LANE_PAD);
       }
 
       const hasVisible = stackedRelease.some((e) => {
@@ -920,29 +979,79 @@ export function TimelineLanes({
       const isAlt = laneIdx % 2 === 1;
       laneIdx++;
 
-      const storyTopOffset =
-        mode === "both"
-          ? LANE_PAD + trackH_R + BOTH_CONNECTOR_H
-          : LANE_PAD + STORY_TOP_GUTTER;
-
       return {
         universe: u,
         stackedRelease,
         storyItems,
-        trackH_R,
-        trackH_S,
-        storyTopOffset,
-        laneHeight,
-        isAlt,
+        maxStackR,
+        maxStackS,
         hasVisible,
+        isAlt,
         mode,
-        isFallback,
       };
     })
     .filter((lane): lane is NonNullable<typeof lane> => lane !== null);
 
-  const laneLayouts = new Map<string, LaneLayout>();
+  // Build lane entries map for gap computation
   const laneEntriesMap = new Map<string, LaneEntries>();
+  for (const lane of lanesRaw) {
+    laneEntriesMap.set(lane.universe.id, {
+      stackedRelease: lane.stackedRelease,
+      storyItems: lane.storyItems,
+    });
+  }
+
+  // Compute dynamic gaps from edge routing needs
+  const gapMap = computeGapsFromStacks(laneEntriesMap);
+
+  // Second pass: compute lane heights using dynamic gaps
+  const lanes = lanesRaw.map((raw) => {
+    const gaps = gapMap.get(raw.universe.id) ?? [];
+    const mode = raw.mode;
+    const isFallback = mode === "release" && globalMode !== "release";
+
+    const trackH_R = trackHeightFromGaps(raw.maxStackR, gaps);
+    let trackH_S = 0;
+    if (raw.storyItems.length > 0) {
+      trackH_S = trackHeightFromGaps(raw.maxStackS, gaps);
+    }
+
+    let laneHeight: number;
+    if (mode === "both") {
+      laneHeight = Math.max(
+        LABEL_MIN_HEIGHT,
+        trackH_R + trackH_S + BOTH_CONNECTOR_H + STORY_AXIS_H + 2 * LANE_PAD,
+      );
+    } else if (mode === "story") {
+      laneHeight = Math.max(
+        LABEL_MIN_HEIGHT,
+        trackH_S + STORY_AXIS_H + STORY_TOP_GUTTER + 2 * LANE_PAD,
+      );
+    } else if (isFallback) {
+      laneHeight = Math.max(
+        LABEL_MIN_HEIGHT,
+        trackH_R + STORY_AXIS_H + 2 * LANE_PAD,
+      );
+    } else {
+      laneHeight = Math.max(LABEL_MIN_HEIGHT, trackH_R + 2 * LANE_PAD);
+    }
+
+    const storyTopOffset =
+      mode === "both"
+        ? LANE_PAD + trackH_R + BOTH_CONNECTOR_H
+        : LANE_PAD + STORY_TOP_GUTTER;
+
+    return {
+      ...raw,
+      trackH_R,
+      trackH_S,
+      storyTopOffset,
+      laneHeight,
+      isFallback,
+    };
+  });
+
+  const laneLayouts = new Map<string, LaneLayout>();
   let nextLaneTop = 0;
   for (const lane of lanes) {
     if (!lane.hasVisible) continue;
@@ -951,10 +1060,6 @@ export function TimelineLanes({
       height: lane.laneHeight,
       trackHS: lane.trackH_S,
       storyTopOffset: lane.storyTopOffset,
-    });
-    laneEntriesMap.set(lane.universe.id, {
-      stackedRelease: lane.stackedRelease,
-      storyItems: lane.storyItems,
     });
     nextLaneTop += lane.laneHeight;
   }
@@ -1047,7 +1152,11 @@ export function TimelineLanes({
                           (e.yearEnd - e.yearStart + 1) * geo.yearWidth,
                           geo.yearWidth,
                         );
-                        const top = LANE_PAD + e.stack * (ROW_H + ROW_GAP);
+                        const top = stackRowTop(
+                          e.stack,
+                          LANE_PAD,
+                          gapMap.get(u.id) ?? [],
+                        );
                         return (
                           <TimelineEntry
                             key={`r-${u.id}-${String(e.yearStart)}-${e.title}`}
@@ -1074,6 +1183,7 @@ export function TimelineLanes({
                           mode={mode}
                           trackH_R={trackH_R}
                           yearWidth={geo.yearWidth}
+                          gaps={gapMap.get(u.id) ?? []}
                         />
                       )}
 
@@ -1099,6 +1209,7 @@ export function TimelineLanes({
                         trackH_R={trackH_R}
                         trackContentWidth={geo.trackContentWidth}
                         yearWidth={geo.yearWidth}
+                        gaps={gapMap.get(u.id) ?? []}
                       />
                     )}
                   </div>
@@ -1114,6 +1225,7 @@ export function TimelineLanes({
                 globalMode={globalMode}
                 laneLayouts={laneLayouts}
                 laneEntries={laneEntriesMap}
+                gapMap={gapMap}
               />
             </div>
           </div>
