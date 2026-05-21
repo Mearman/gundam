@@ -10,7 +10,11 @@ export const TRACK_CONTENT_WIDTH =
   TRACK_PAD_LEFT + RELEASE_TRACK_WIDTH + TRACK_PAD_RIGHT;
 
 export const ROW_H = 30;
-export const ROW_GAP = 14;
+/** Minimum gap between rows (px). Gaps grow dynamically where edges route. */
+export const ROW_GAP = 6;
+
+/** Additional gap per edge routed through a row boundary. */
+export const ROW_GAP_PER_EDGE = 3;
 export const LANE_PAD = 10;
 export const LABEL_MIN_HEIGHT = 84;
 export const STORY_AXIS_H = 30;
