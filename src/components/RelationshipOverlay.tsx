@@ -107,6 +107,7 @@ function releaseEntryBBox(
   );
   const top = stackRowTop(entry.stack, laneTop + LANE_PAD, gaps);
   return {
+    detailId: entry.detailId ?? entry.title,
     cx: left + width / 2,
     cy: top + ROW_H / 2,
     top,
@@ -151,6 +152,7 @@ function storyEntryBBox(
   }
   const top = stackRowTop(entry.storyStack, laneTop + storyTopOffset, gaps);
   return {
+    detailId: entry.detailId ?? entry.title,
     cx: xStart + width / 2,
     cy: top + ROW_H / 2,
     top,
@@ -171,7 +173,6 @@ function buildBBoxMap(
   trackContentWidth: number,
   yearWidth: number,
   offset: number,
-  globalMode: AxisMode,
   gapMap: GapMap,
 ): Map<string, EntryBBox> {
   const bboxes = new Map<string, EntryBBox>();
@@ -181,30 +182,34 @@ function buildBBoxMap(
     if (!entries) continue;
     const gaps = gapMap.get(uid) ?? [];
 
-    if (globalMode !== "story") {
-      for (const e of entries.stackedRelease) {
-        if (e.detailId === undefined) continue;
-        bboxes.set(
-          e.detailId,
-          releaseEntryBBox(e, yearWidth, layout.top, uid, gaps),
-        );
-      }
+    for (const e of entries.stackedRelease) {
+      if (e.detailId === undefined) continue;
+      const key = `${e.detailId}:r`;
+      bboxes.set(key, releaseEntryBBox(e, yearWidth, layout.top, uid, gaps));
+      // Also store under plain detailId for edge lookups
+      bboxes.set(
+        e.detailId,
+        releaseEntryBBox(e, yearWidth, layout.top, uid, gaps),
+      );
     }
 
-    if (globalMode !== "release") {
-      for (const e of entries.storyItems) {
-        if (e.detailId === undefined) continue;
-        const bbox = storyEntryBBox(
-          e,
-          uid,
-          trackContentWidth,
-          offset,
-          yearWidth,
-          layout.top,
-          layout.storyTopOffset,
-          gaps,
-        );
-        if (bbox) bboxes.set(e.detailId, bbox);
+    for (const e of entries.storyItems) {
+      if (e.detailId === undefined) continue;
+      const bbox = storyEntryBBox(
+        e,
+        uid,
+        trackContentWidth,
+        offset,
+        yearWidth,
+        layout.top,
+        layout.storyTopOffset,
+        gaps,
+      );
+      if (bbox) {
+        bboxes.set(`${e.detailId}:s`, bbox);
+        // Story entries overwrite plain detailId — fine for edge lookups
+        // since edges reference the primary (story) position
+        bboxes.set(e.detailId, bbox);
       }
     }
   }
@@ -230,14 +235,14 @@ export function RelationshipOverlay({
     if (bottom > overlayHeight) overlayHeight = bottom;
   }
 
-  // ── Data-driven relation paths (routed + bundled) ──────
+  // Build bboxes for ALL entries regardless of axis mode,
+  // so the clearance check sees every visible entry on the page.
   const bboxes = buildBBoxMap(
     laneLayouts,
     laneEntries,
     trackContentWidth,
     yearWidth,
     offset,
-    globalMode,
     gapMap,
   );
 

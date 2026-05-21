@@ -16,6 +16,7 @@ export interface EntryBBox {
   right: number;
   laneId: string;
   stack: number;
+  detailId: string;
 }
 
 export interface RoutedPath {
@@ -45,6 +46,7 @@ const BEND_R = 8;
 const BUNDLE_SPACING = 3;
 const CLEARANCE = 2;
 const MIN_PORT_SPACING = 8;
+const ESCAPE_DX = 4;
 
 // ── Helpers ────────────────────────────────────────────
 
@@ -128,6 +130,76 @@ function gapCentreAboveStack(
   return (prevRowBottom + curRowTop) / 2;
 }
 
+// ── Clearance checks ─────────────────────────────────
+
+/** Check whether a vertical segment at x from yMin→yMax crosses any entry. */
+function isVerticalClear(
+  x: number,
+  y1: number,
+  y2: number,
+  selfId: string,
+  allBoxes: EntryBBox[],
+): boolean {
+  const yMin = Math.min(y1, y2);
+  const yMax = Math.max(y1, y2);
+  for (const box of allBoxes) {
+    if (box.detailId === selfId) continue;
+    if (
+      x >= box.left - CLEARANCE &&
+      x <= box.right + CLEARANCE &&
+      yMin < box.bottom + CLEARANCE &&
+      yMax > box.top - CLEARANCE
+    ) {
+      return false;
+    }
+  }
+  return true;
+}
+
+/** Find the nearest clear X column for a vertical run from y1→y2. */
+function findClearColumn(
+  preferredX: number,
+  y1: number,
+  y2: number,
+  selfId: string,
+  allBoxes: EntryBBox[],
+): number {
+  // Already clear?
+  if (isVerticalClear(preferredX, y1, y2, selfId, allBoxes)) {
+    return preferredX;
+  }
+
+  // Collect candidate columns: just outside each entry edge
+  const candidates: number[] = [];
+  const yMin = Math.min(y1, y2);
+  const yMax = Math.max(y1, y2);
+
+  for (const box of allBoxes) {
+    if (box.detailId === selfId) continue;
+    // Only consider entries that overlap the Y range
+    if (yMin >= box.bottom || yMax <= box.top) continue;
+    if (preferredX >= box.left && preferredX <= box.right) {
+      candidates.push(box.left - ESCAPE_DX);
+      candidates.push(box.right + ESCAPE_DX);
+    }
+  }
+
+  // Also add x=0 as the global fallback
+  candidates.push(0);
+
+  // Pick the candidate closest to preferredX that is actually clear
+  candidates.sort(
+    (a, b) => Math.abs(a - preferredX) - Math.abs(b - preferredX),
+  );
+  for (const cx of candidates) {
+    if (isVerticalClear(cx, y1, y2, selfId, allBoxes)) {
+      return cx;
+    }
+  }
+
+  return 0;
+}
+
 // ── Path builders ──────────────────────────────────────
 
 /**
@@ -183,11 +255,8 @@ function escapePath(
   tgtPortX: number,
   tgtPortY: number,
   channelY: number,
+  clearX: number,
 ): string {
-  // Use a globally clear column: just left of the leftmost entry.
-  // Since all entries start at TRACK_PAD_LEFT or later, x=0 is guaranteed clear.
-  const clearX = 0;
-
   const segs: string[] = [`M ${String(srcPortX)} ${String(srcPortY)}`];
 
   // ── Source side: port → clear column → vertical toward channel ──
@@ -395,6 +464,9 @@ export function routeEdges(
 
   const laneOrder = [...laneGeometries.keys()];
 
+  // Build a flat list of all entry rects for crossing checks
+  const allBoxes = [...bboxes.values()];
+
   // ── Phase 1: Assign port sides, channels, escape needs ──
   const assignments: Assignment[] = [];
 
@@ -414,9 +486,8 @@ export function routeEdges(
       channel = crossLaneChannel(source, target, laneGeometries, laneOrder);
     }
 
-    // Escape routing needed when vertical segments would cross entries:
-    // Escape routing needed when vertical segments would cross entries.
-    // Only same-stack-row edges (gap routing) are safe without escape.
+    // Escape routing needed for all non-same-stack-row edges.
+    // Same-stack-row edges route through a gap that's wide enough.
     const needsEscape =
       source.laneId !== target.laneId || source.stack !== target.stack;
 
@@ -523,7 +594,53 @@ export function routeEdges(
       const ty = portY(a.target, a.targetSide);
 
       const d = a.needsEscape
-        ? escapePath(a.sourcePortX, sy, a.targetPortX, ty, adjustedY)
+        ? (() => {
+            // Check per-port clearance at the actual (spread) port X
+            const srcClear = isVerticalClear(
+              a.sourcePortX,
+              sy,
+              adjustedY,
+              a.source.detailId,
+              allBoxes,
+            );
+            const tgtClear = isVerticalClear(
+              a.targetPortX,
+              adjustedY,
+              ty,
+              a.target.detailId,
+              allBoxes,
+            );
+
+            if (srcClear && tgtClear) {
+              return simpleOctiPath(
+                a.sourcePortX,
+                sy,
+                a.targetPortX,
+                ty,
+                adjustedY,
+              );
+            }
+
+            // Find a clear column for the combined vertical range
+            const yMin = Math.min(sy, adjustedY, ty);
+            const yMax = Math.max(sy, adjustedY, ty);
+            const clearX = findClearColumn(
+              (a.sourcePortX + a.targetPortX) / 2,
+              yMin,
+              yMax,
+              "",
+              allBoxes,
+            );
+
+            return escapePath(
+              a.sourcePortX,
+              sy,
+              a.targetPortX,
+              ty,
+              adjustedY,
+              clearX,
+            );
+          })()
         : simpleOctiPath(a.sourcePortX, sy, a.targetPortX, ty, adjustedY);
 
       resultPaths.push({
