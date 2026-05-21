@@ -1,3 +1,14 @@
+## [1.16.0](https://github.com/Mearman/gundam/compare/v1.15.1...v1.16.0) (2026-05-21)
+
+### Features
+
+* octilinear edge routing with dynamic row gaps ([87cd708](https://github.com/Mearman/gundam/commit/87cd708b32ea92cc8af5890038d495b088e759a1))
+
+### Refactoring
+
+* integrate octilinear edge routing into relationship overlay ([d20bf2b](https://github.com/Mearman/gundam/commit/d20bf2b80c09a1c9ad47c1b0f733d68b0ce04bd2))
+* widen row gap from 4 to 14px for edge routing channels ([730e938](https://github.com/Mearman/gundam/commit/730e9384b200cc4553796ff0b379144dce8d11a6))
+
 ## [1.15.1](https://github.com/Mearman/gundam/compare/v1.15.0...v1.15.1) (2026-05-20)
 
 ### Bug Fixes
