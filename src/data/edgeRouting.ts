@@ -43,7 +43,6 @@ export type GapMap = Map<string, number[]>;
 // ── Constants ──────────────────────────────────────────
 
 const BEND_R = 8;
-const BUNDLE_SPACING = 3;
 const CLEARANCE = 2;
 const MIN_PORT_SPACING = 8;
 const ESCAPE_DX = 4;
@@ -240,33 +239,6 @@ function simpleOctiPath(
     `L ${String(tx)} ${String(tb)}`,
     `L ${String(tx)} ${String(ty)}`,
   ]);
-}
-
-/**
- * Clearance-aware escape path using a single globally clear column.
- *
- * Routes both endpoints to a clear vertical channel at x=0 (guaranteed
- * to be left of all entry rectangles), runs vertically to the channel,
- * then connects back to the other port.
- */
-function escapePath(
-  srcPortX: number,
-  srcPortY: number,
-  tgtPortX: number,
-  tgtPortY: number,
-  channelY: number,
-  clearX: number,
-): string {
-  const segs: string[] = [`M ${String(srcPortX)} ${String(srcPortY)}`];
-
-  // ── Source side: port → clear column → vertical toward channel ──
-  appendEscapeHalf(segs, srcPortX, srcPortY, clearX, channelY);
-
-  // ── Target side: channel → vertical to clear column → port ──
-  // (no horizontal bus needed — both share the same clear column)
-  appendEscapeHalfReverse(segs, tgtPortX, tgtPortY, clearX, channelY);
-
-  return pts(segs);
 }
 
 /**
@@ -547,104 +519,94 @@ export function routeEdges(
     }
   }
 
-  // ── Phase 3: Group by channel, sort, bundle ────────────
-  const channelGroups = new Map<string, Assignment[]>();
-  for (const a of assignments) {
-    let group = channelGroups.get(a.channelKey);
-    if (group === undefined) {
-      group = [];
-      channelGroups.set(a.channelKey, group);
-    }
-    group.push(a);
-  }
-
-  for (const group of channelGroups.values()) {
-    group.sort(
-      (a, b) =>
-        (a.sourcePortX + a.targetPortX) / 2 -
-        (b.sourcePortX + b.targetPortX) / 2,
-    );
-  }
-
   // ── Phase 4: Generate paths ────────────────────────────
   const resultPaths: RoutedPath[] = [];
 
-  for (const group of channelGroups.values()) {
-    const mid = (group.length - 1) / 2;
-    const first = group[0];
-    const gaps = gapMap.get(first.source.laneId) ?? [];
-    const gapIdxMatch = /:(\d+)$/.exec(first.channelKey);
-    const gapIdx = gapIdxMatch ? Number(gapIdxMatch[1]) : 0;
-    const gapSize = gaps[gapIdx] ?? ROW_GAP;
-    const maxOffset = gapSize / 2 - CLEARANCE;
+  for (const a of assignments) {
+    const style = styles[a.edge.type];
+    const sy = portY(a.source, a.sourceSide);
+    const ty = portY(a.target, a.targetSide);
 
-    const neededSpan = BUNDLE_SPACING * (group.length - 1);
-    const spacing =
-      neededSpan > maxOffset * 2
-        ? (maxOffset * 2) / Math.max(group.length - 1, 1)
-        : BUNDLE_SPACING;
+    // Route through the midpoint between source and target ports
+    // instead of a shared channel — gives shorter, more direct paths.
+    // Edge-edge crossings are acceptable per design.
+    const midY = (sy + ty) / 2;
 
-    for (let i = 0; i < group.length; i++) {
-      const a = group[i];
-      const style = styles[a.edge.type];
-      const offset = (i - mid) * spacing;
-      const adjustedY = a.channelY + offset;
+    if (a.needsEscape) {
+      // Check per-port clearance for the HALF-segment from port to midY
+      const srcClear = isVerticalClear(
+        a.sourcePortX,
+        sy,
+        midY,
+        a.source.detailId,
+        allBoxes,
+      );
+      const tgtClear = isVerticalClear(
+        a.targetPortX,
+        midY,
+        ty,
+        a.target.detailId,
+        allBoxes,
+      );
 
-      const sy = portY(a.source, a.sourceSide);
-      const ty = portY(a.target, a.targetSide);
+      if (srcClear && tgtClear) {
+        // Both port positions clear — direct path through midpoint
+        resultPaths.push({
+          d: simpleOctiPath(a.sourcePortX, sy, a.targetPortX, ty, midY),
+          stroke: style.stroke,
+          strokeWidth: 1,
+          opacity: 0.5,
+          dashed: style.dashed,
+        });
+        continue;
+      }
 
-      const d = a.needsEscape
-        ? (() => {
-            // Check per-port clearance at the actual (spread) port X
-            const srcClear = isVerticalClear(
-              a.sourcePortX,
-              sy,
-              adjustedY,
-              a.source.detailId,
-              allBoxes,
-            );
-            const tgtClear = isVerticalClear(
-              a.targetPortX,
-              adjustedY,
-              ty,
-              a.target.detailId,
-              allBoxes,
-            );
+      // One or both port verticals cross entries.
+      // Route each half to its nearest clear column independently,
+      // then connect the two clear columns at midY.
+      const srcClearX = srcClear
+        ? a.sourcePortX
+        : findClearColumn(a.sourcePortX, sy, midY, a.source.detailId, allBoxes);
+      const tgtClearX = tgtClear
+        ? a.targetPortX
+        : findClearColumn(a.targetPortX, midY, ty, a.target.detailId, allBoxes);
 
-            if (srcClear && tgtClear) {
-              return simpleOctiPath(
-                a.sourcePortX,
-                sy,
-                a.targetPortX,
-                ty,
-                adjustedY,
-              );
-            }
+      if (srcClearX === a.sourcePortX && tgtClearX === a.targetPortX) {
+        // Both clear after all — direct path
+        resultPaths.push({
+          d: simpleOctiPath(a.sourcePortX, sy, a.targetPortX, ty, midY),
+          stroke: style.stroke,
+          strokeWidth: 1,
+          opacity: 0.5,
+          dashed: style.dashed,
+        });
+        continue;
+      }
 
-            // Find a clear column for the combined vertical range
-            const yMin = Math.min(sy, adjustedY, ty);
-            const yMax = Math.max(sy, adjustedY, ty);
-            const clearX = findClearColumn(
-              (a.sourcePortX + a.targetPortX) / 2,
-              yMin,
-              yMax,
-              "",
-              allBoxes,
-            );
+      // Build a two-part escape path:
+      // Source port → srcClearCol → midY → tgtClearCol → Target port
+      const segs: string[] = [`M ${String(a.sourcePortX)} ${String(sy)}`];
 
-            return escapePath(
-              a.sourcePortX,
-              sy,
-              a.targetPortX,
-              ty,
-              adjustedY,
-              clearX,
-            );
-          })()
-        : simpleOctiPath(a.sourcePortX, sy, a.targetPortX, ty, adjustedY);
+      // Source half: port → srcClearX at sy, then V to midY
+      appendEscapeHalf(segs, a.sourcePortX, sy, srcClearX, midY);
+
+      // Horizontal bus at midY from srcClearX to tgtClearX
+      segs.push(`L ${String(tgtClearX)} ${String(midY)}`);
+
+      // Target half: V from midY at tgtClearX, then H to target port
+      appendEscapeHalfReverse(segs, a.targetPortX, ty, tgtClearX, midY);
 
       resultPaths.push({
-        d,
+        d: pts(segs),
+        stroke: style.stroke,
+        strokeWidth: 1,
+        opacity: 0.5,
+        dashed: style.dashed,
+      });
+    } else {
+      // Same-stack-row: route through the gap channel (already good)
+      resultPaths.push({
+        d: simpleOctiPath(a.sourcePortX, sy, a.targetPortX, ty, a.channelY),
         stroke: style.stroke,
         strokeWidth: 1,
         opacity: 0.5,
