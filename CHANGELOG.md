@@ -1,3 +1,14 @@
+## [1.16.6](https://github.com/Mearman/gundam/compare/v1.16.5...v1.16.6) (2026-10-29)
+
+### Bug Fixes
+
+* import package.json with a JSON import attribute in the vite config ([9d54a05](https://github.com/Mearman/gundam/commit/9d54a05b8e92433a3587f8720728c1bf628c9c23))
+* upgrade dependencies with high and critical audit advisories ([50e6968](https://github.com/Mearman/gundam/commit/50e6968d37f96009e961c262510483c7fa8ed0d3))
+
+### Documentation
+
+* add the standard badge row to the README ([ac1ce4a](https://github.com/Mearman/gundam/commit/ac1ce4aea30f3c8a69265b799e1bf97bf28663ff))
+
 ## [1.16.5](https://github.com/Mearman/gundam/compare/v1.16.4...v1.16.5) (2026-05-21)
 
 ### Refactoring
