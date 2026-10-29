@@ -1,5 +1,7 @@
 # React + TypeScript + Vite
 
+[![GitHub](https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white)](https://github.com/Mearman/gundam) [![Release](https://img.shields.io/github/v/release/Mearman/gundam)](https://github.com/Mearman/gundam/releases/latest) [![CI](https://img.shields.io/github/actions/workflow/status/Mearman/gundam/ci.yml?branch=main)](https://github.com/Mearman/gundam/actions)
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
